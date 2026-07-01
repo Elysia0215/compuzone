@@ -1494,8 +1494,13 @@ export default function ChatbotKomi({
                     <div className="bg-white border border-slate-100 rounded-2xl p-4 shadow-lg max-w-sm mt-1 space-y-3">
                       <div className="flex justify-between items-center border-b border-slate-50 pb-2.5">
                         <span className="text-[10px] font-bold text-slate-400">주문코드: {msg.data.orderId}</span>
-                        <span className="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                          <ShieldCheck className="w-3 h-3" /> 보증 가능
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 ${
+                          msg.data.warrantyStatus === "expired" || msg.data.monthsLeft < 0
+                            ? "bg-slate-100 text-slate-500"
+                            : "bg-emerald-50 text-emerald-700"
+                        }`}>
+                          <ShieldCheck className="w-3 h-3" />
+                          {msg.data.warrantyStatus === "expired" || msg.data.monthsLeft < 0 ? "보증 만료" : "보증 가능"}
                         </span>
                       </div>
 
@@ -1511,22 +1516,53 @@ export default function ChatbotKomi({
                         </div>
                         <div className="flex justify-between text-slate-500">
                           <span>보증 잔여 기간:</span>
-                          <span className="font-bold text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded">D-14! (14일 남음)</span>
+                          {msg.data.warrantyStatus === "expired" || msg.data.monthsLeft < 0 ? (
+                            <span className="font-bold text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">만료됨 (보증기한 만료)</span>
+                          ) : (
+                            <span className="font-bold text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded">D-13! (13일 남음)</span>
+                          )}
                         </div>
                       </div>
 
-                      <div className="bg-slate-50 rounded-xl p-3 text-[10px] text-slate-500 leading-relaxed border border-slate-100">
-                        <span className="font-bold text-slate-700 block mb-1">🛡️ 안심 하드웨어 출장 혜택 안내</span>
-                        기어, 팬 불량, 소음 트러블 및 CPU 발열 무상 정밀 점검이 가능합니다. 지금 바로 출장 방문 신청을 제출하세요!
-                      </div>
+                      {msg.data.productName.includes("조립PC") ? (
+                        <>
+                          <div className="bg-slate-50 rounded-xl p-3 text-[10px] text-slate-500 leading-relaxed border border-slate-100">
+                            <span className="font-bold text-slate-700 block mb-1">🛡️ 안심 하드웨어 출장 혜택 안내</span>
+                            기어, 팬 불량, 소음 트러블 및 CPU 발열 무상 정밀 점검이 가능합니다. 지금 바로 출장 방문 신청을 제출하세요!
+                          </div>
 
-                      <button
-                        onClick={handleRequestAsVisit}
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs shadow cursor-pointer transition-colors"
-                        id="as-visit-request-btn"
-                      >
-                        출장 보증 A/S 현장 점검 신청 🔧
-                      </button>
+                          <button
+                            onClick={handleRequestAsVisit}
+                            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs shadow cursor-pointer transition-colors"
+                            id="as-visit-request-btn"
+                          >
+                            출장 보증 A/S 현장 점검 신청 🔧
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <div className="bg-slate-50 rounded-xl p-3 text-[10px] text-slate-500 leading-relaxed border border-slate-100 space-y-1.5">
+                            <span className="font-bold text-slate-700 block">🏢 제조사({msg.data.productName.includes("ASUS") ? "ASUS" : "제조사"}) 직접 보증 안내</span>
+                            <p>본 상품은 제조사 직접 A/S 보증 제품으로, 컴퓨존 위탁이 아닌 제조사 공식 서비스 센터를 통해 빠르고 전문적인 수리를 받으실 수 있습니다.</p>
+                            <div className="border-t border-slate-100/60 pt-1.5 space-y-1 text-slate-600">
+                              <p>• **AS 고객센터**: {msg.data.productName.includes("ASUS") ? "1566-6868" : "제조사 고객센터"}</p>
+                              <p>• **접수 방법**: 가까운 ASUS 서비스센터 방문 접수 또는 택배 발송 접수</p>
+                              {(msg.data.warrantyStatus === "expired" || msg.data.monthsLeft < 0) && (
+                                <p className="text-rose-600 font-extrabold">• **주의**: 보증 기한 경과로 점검 시 유상 비용이 발생할 수 있습니다.</p>
+                              )}
+                            </div>
+                          </div>
+
+                          <a
+                            href={msg.data.productName.includes("ASUS") ? "https://www.asus.com/kr/support/" : "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-2.5 rounded-xl text-xs shadow cursor-pointer transition-colors block text-center"
+                          >
+                            {msg.data.productName.includes("ASUS") ? "ASUS" : "제조사"} 공식 서비스센터 바로가기 🔗
+                          </a>
+                        </>
+                      )}
                     </div>
                   )}
 
