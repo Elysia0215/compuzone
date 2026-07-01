@@ -43,7 +43,7 @@ export default function NotificationManager({
       case "warning":
         return "bg-amber-500 border-amber-600 text-amber-500";
       default:
-        return "bg-indigo-500 border-indigo-600 text-indigo-500";
+        return "bg-blue-500 border-blue-600 text-blue-500";
     }
   };
 
@@ -54,7 +54,7 @@ export default function NotificationManager({
       case "warning":
         return <AlertTriangle className="w-4 h-4 text-amber-600" />;
       default:
-        return <Info className="w-4 h-4 text-indigo-600" />;
+        return <Info className="w-4 h-4 text-blue-600" />;
     }
   };
 
@@ -75,7 +75,7 @@ export default function NotificationManager({
             <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center border ${
               currentBubbleNotification.level === "high" ? "bg-rose-50 border-rose-100" :
               currentBubbleNotification.level === "warning" ? "bg-amber-50 border-amber-100" :
-              "bg-indigo-50 border-indigo-100"
+              "bg-blue-50 border-blue-100"
             }`}>
               {getIcon(currentBubbleNotification.level)}
             </div>
@@ -84,7 +84,7 @@ export default function NotificationManager({
               <div className="flex items-center gap-1.5">
                 <span className={`w-2 h-2 rounded-full ${
                   currentBubbleNotification.level === "high" ? "bg-rose-500 animate-pulse" :
-                  currentBubbleNotification.level === "warning" ? "bg-amber-500" : "bg-indigo-500"
+                  currentBubbleNotification.level === "warning" ? "bg-amber-500" : "bg-blue-500"
                 }`}></span>
                 <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">
                   {currentBubbleNotification.level === "high" ? "긴급 공지" :
@@ -94,7 +94,7 @@ export default function NotificationManager({
               <p className="text-xs text-slate-800 font-bold mt-1 leading-snug">
                 {currentBubbleNotification.text}
               </p>
-              <div className="flex items-center gap-1 text-[10px] text-indigo-600 font-extrabold mt-1.5 group-hover:underline">
+              <div className="flex items-center gap-1 text-[10px] text-blue-600 font-extrabold mt-1.5 group-hover:underline">
                 확인하러 가기 <ArrowRight className="w-3 h-3" />
               </div>
             </div>
@@ -126,7 +126,7 @@ export default function NotificationManager({
           >
             <div className="flex items-center justify-between border-b border-slate-100 pb-2.5 mb-3">
               <div className="flex items-center gap-1.5 text-slate-800 font-bold text-sm">
-                <Bell className="w-4 h-4 text-indigo-600" />
+                <Bell className="w-4 h-4 text-blue-600" />
                 <span>스마트 알림 센터 ({activeCount})</span>
               </div>
               <button onClick={onToggleList} className="p-1 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-50 cursor-pointer">
@@ -156,7 +156,7 @@ export default function NotificationManager({
                     <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center border ${
                       notif.level === "high" ? "bg-rose-50 border-rose-100" :
                       notif.level === "warning" ? "bg-amber-50 border-amber-100" :
-                      "bg-indigo-50 border-indigo-100"
+                      "bg-blue-50 border-blue-100"
                     }`}>
                       {getIcon(notif.level)}
                     </div>
@@ -165,7 +165,7 @@ export default function NotificationManager({
                       <div className="flex items-center justify-between">
                         <span className={`text-[9px] font-bold uppercase tracking-wider ${
                           notif.level === "high" ? "text-rose-600" :
-                          notif.level === "warning" ? "text-amber-600" : "text-indigo-600"
+                          notif.level === "warning" ? "text-amber-600" : "text-blue-600"
                         }`}>
                           {notif.level === "high" ? "긴급" : notif.level === "warning" ? "주의" : "정보"}
                         </span>

@@ -302,7 +302,7 @@ export default function App() {
         >
           <Bell className="w-5 h-5" />
           {notifications.filter((n) => n.active).length > 0 && (
-            <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-indigo-600 text-[10px] font-bold text-white shadow" id="bell-badge">
+<span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-[10px] font-bold text-white shadow" id="bell-badge">
               {notifications.filter((n) => n.active).length}
             </span>
           )}
@@ -311,7 +311,7 @@ export default function App() {
         {/* Core Chatbot widget icon */}
         <button
           onClick={() => setIsChatOpen((p) => !p)}
-          className="h-14 w-14 rounded-full bg-gradient-to-r from-indigo-600 to-indigo-800 hover:from-indigo-700 hover:to-indigo-900 text-white shadow-xl flex items-center justify-center text-2xl relative cursor-pointer transition-transform duration-150 hover:scale-105 border border-indigo-500/20"
+className="h-14 w-14 rounded-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white shadow-xl flex items-center justify-center text-2xl relative cursor-pointer transition-transform duration-150 hover:scale-105 border border-blue-500/20"
           id="chatbot-launcher-btn"
         >
           <span>🤖</span>

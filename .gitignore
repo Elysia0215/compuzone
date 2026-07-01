@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+=======
 # 환경 변수 (API 키 포함 — 절대 커밋 금지)
 .env
 .env.*
@@ -52,3 +62,4 @@ test.ipynb
 *md
 frontend/stitch/*.html
 frontend/stitch/DESIGN.md
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
