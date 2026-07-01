@@ -60,7 +60,7 @@ export default function ChatbotKomi({
   const [inputText, setInputText] = React.useState("");
   const [selectedDetails, setSelectedDetails] = React.useState<string[]>([]);
   const [customDetailInput, setCustomDetailInput] = React.useState("");
-  const [isMaximized, setIsMaximized] = React.useState(true);
+  const [isMaximized, setIsMaximized] = React.useState(false);
   const [isQuickMenuOpen, setIsQuickMenuOpen] = React.useState(false);
   const [isTyping, setIsTyping] = React.useState(false);
   const scrollRef = React.useRef<HTMLDivElement>(null);
@@ -1063,10 +1063,12 @@ export default function ChatbotKomi({
               </button>
               <button
                 onClick={() => setIsMaximized(prev => !prev)}
-                className="p-1.5 hover:bg-white/10 rounded-lg text-white/80 hover:text-white transition-colors cursor-pointer"
+                className={`p-1.5 hover:bg-white/10 rounded-lg text-white/80 hover:text-white transition-colors cursor-pointer ${
+                  !isMaximized ? "animate-pulse bg-white/20 border border-white/20 shadow-[0_0_8px_rgba(255,255,255,0.4)]" : ""
+                }`}
                 title={isMaximized ? "창 축소" : "창 확대"}
               >
-                {isMaximized ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+                {isMaximized ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4 text-amber-300" />}
               </button>
               <button
                 onClick={onClose}
