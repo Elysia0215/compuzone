@@ -1722,6 +1722,23 @@ export default function ChatbotKomi({
               </div>
             )}
 
+            {/* Counselor Queue Connection Loader dots */}
+            {counselorQueue.active && counselorQueue.queueNum > 0 && (
+              <div className="flex gap-2.5 justify-start items-center">
+                <div className="w-8 h-8 rounded-full bg-indigo-600 text-white flex-shrink-0 flex items-center justify-center text-sm shadow animate-pulse">
+                  👔
+                </div>
+                <div className="bg-white border border-slate-100 rounded-2xl rounded-tl-none p-3 shadow-sm max-w-[70%] text-xs flex items-center gap-2 text-slate-500">
+                  <span className="font-medium text-[11px] animate-pulse">전문 상담원 배정 및 연결 중...</span>
+                  <div className="flex gap-1">
+                    <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }}></span>
+                    <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }}></span>
+                    <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }}></span>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Analysis custom loading screens (Flow 2 step 5) */}
             {flowState.currentFlow === "recommend" && flowState.step === 5 && (
               <div className="flex flex-col items-center justify-center text-center p-6 bg-white rounded-2xl border border-slate-100 shadow-md">
