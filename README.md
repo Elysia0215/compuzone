@@ -10,11 +10,28 @@ View your app in AI Studio: https://ai.studio/apps/291caee7-0d90-4a8a-8143-07775
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+**Prerequisites:** Node.js & Python 3.x
 
+1. **Install Frontend Dependencies**:
+   ```bash
+   npm install
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+2. **Install Backend Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Set your API Key**:
+   Create a `.env` or `.env.local` file in the root directory and add:
+   ```env
+   GEMINI_API_KEY=your_gemini_api_key_here
+   ```
+   *Note: If no API key is specified, the application will automatically fall back to its robust built-in Korean keyword fallback rules, allowing offline testing of all chatbot features.*
+
+4. **Run the App**:
+   ```bash
+   npm run dev
+   ```
+   *(This executes `python dev.py`, which boots both the Flask API server on port `8000` and the Vite frontend on port `3000` concurrently).*
+
