@@ -54,21 +54,35 @@ export default function StoreFront({
     <div className="flex-1 bg-slate-50/50 pb-16" id="store-front">
       {/* Hero Banner */}
       {!searchTerm && (
+<<<<<<< HEAD
         <section className="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-800 text-white py-12 px-6 sm:px-12 relative overflow-hidden shadow-sm" id="store-hero">
           {/* Decorative shapes */}
           <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-blue-500 opacity-20 blur-2xl"></div>
+=======
+        <section className="bg-gradient-to-r from-indigo-800 via-indigo-700 to-indigo-950 text-white py-12 px-6 sm:px-12 relative overflow-hidden shadow-sm" id="store-hero">
+          {/* Decorative shapes */}
+          <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-indigo-500 opacity-20 blur-2xl"></div>
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
           <div className="absolute -left-16 -bottom-16 w-64 h-64 rounded-full bg-indigo-500 opacity-20 blur-2xl"></div>
 
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
             <div className="max-w-xl text-center md:text-left">
+<<<<<<< HEAD
               <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow">
+=======
+              <span className="bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow">
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                 KOMI SMART CHATBOT OPEN!
               </span>
               <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight mt-2">
                 인공지능 비서 <span className="underline decoration-yellow-400 decoration-wavy">코미</span>와 함께<br className="hidden sm:inline" />
                 나만의 맞춤 PC 견적을 짜보세요!
               </h1>
+<<<<<<< HEAD
               <p className="mt-4 text-blue-100 text-sm sm:text-base">
+=======
+              <p className="mt-4 text-indigo-100 text-sm sm:text-base">
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                 사용자의 사용 목적, 조건, 예산에 최적화된 최신 3대 견적(가성비·균형·성능)을 3분 안에 산출하고, 실시간으로 AI 피드백을 전달합니다.
               </p>
               <div className="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
@@ -94,15 +108,26 @@ export default function StoreFront({
             {/* Komi Character Promo Box */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-sm w-full shadow-lg text-center">
               <div className="flex justify-center mb-3">
+<<<<<<< HEAD
                 <div className="w-16 h-16 rounded-full bg-blue-100 border border-white flex items-center justify-center animate-bounce shadow">
+=======
+                <div className="w-16 h-16 rounded-full bg-indigo-100 border border-white flex items-center justify-center animate-bounce shadow">
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                   <span className="text-3xl">🤖</span>
                 </div>
               </div>
               <h3 className="font-bold text-lg">AI 챗봇 &quot;코미&quot; 추천 가이드</h3>
+<<<<<<< HEAD
               <p className="text-xs text-blue-100 mt-2 leading-relaxed">
                 &quot;게이밍용 부품 설명이 필요하시거나, 내 컴퓨터의 남은 A/S 기간이 궁금하실 때도 오른쪽 아래 말풍선을 탭해서 코미를 불러주세요!&quot;
               </p>
               <div className="mt-4 flex flex-col gap-1.5 text-xs text-blue-200">
+=======
+              <p className="text-xs text-indigo-100 mt-2 leading-relaxed">
+                &quot;게이밍용 부품 설명이 필요하시거나, 내 컴퓨터의 남은 A/S 기간이 궁금하실 때도 오른쪽 아래 말풍선을 탭해서 코미를 불러주세요!&quot;
+              </p>
+              <div className="mt-4 flex flex-col gap-1.5 text-xs text-indigo-200">
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                 <div className="flex items-center gap-1.5 justify-center">
                   <span className="text-yellow-400">●</span> 100% 실시간 하드웨어 지식 탑재
                 </div>
@@ -130,7 +155,11 @@ export default function StoreFront({
           {searchTerm && (
             <button
               onClick={onClearSearch}
+<<<<<<< HEAD
               className="text-xs text-blue-600 font-bold bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-full cursor-pointer"
+=======
+              className="text-xs text-indigo-600 font-bold bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-full cursor-pointer"
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
               id="clear-search-btn"
             >
               전체 보기로 돌아가기
@@ -183,7 +212,11 @@ export default function StoreFront({
                 {/* Content */}
                 <div className="p-4 flex-1 flex flex-col justify-between">
                   <div>
+<<<<<<< HEAD
                     <h3 className="font-bold text-slate-800 text-sm line-clamp-2 leading-tight group-hover:text-blue-600 transition-colors" title={product.name}>
+=======
+                    <h3 className="font-bold text-slate-800 text-sm line-clamp-2 leading-tight group-hover:text-indigo-600 transition-colors" title={product.name}>
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                       {product.name}
                     </h3>
                     <p className="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">
@@ -206,14 +239,22 @@ export default function StoreFront({
                     <div className="grid grid-cols-2 gap-2 mt-3.5">
                       <button
                         onClick={() => onAskKomiAboutProduct(product.name)}
+<<<<<<< HEAD
                         className="bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold py-2 rounded-lg text-xs transition-colors flex items-center justify-center gap-1 cursor-pointer"
+=======
+                        className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold py-2 rounded-lg text-xs transition-colors flex items-center justify-center gap-1 cursor-pointer"
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                         id={`ask-btn-${product.id}`}
                       >
                         <MessageSquare className="w-3 h-3" /> 코미에게 질문
                       </button>
                       <button
                         onClick={() => onAddToCart(product)}
+<<<<<<< HEAD
                         className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-lg text-xs transition-colors flex items-center justify-center gap-1 cursor-pointer shadow-sm"
+=======
+                        className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 rounded-lg text-xs transition-colors flex items-center justify-center gap-1 cursor-pointer shadow-sm"
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                         id={`add-cart-btn-${product.id}`}
                       >
                         <Plus className="w-3 h-3" /> 장바구니 담기
@@ -246,7 +287,11 @@ export default function StoreFront({
               >
                 <X className="w-5 h-5" />
               </button>
+<<<<<<< HEAD
               <span className="absolute left-4 bottom-4 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+=======
+              <span className="absolute left-4 bottom-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                 {selectedProduct.category}
               </span>
             </div>
@@ -322,7 +367,11 @@ export default function StoreFront({
                     onAskKomiAboutProduct(selectedProduct.name);
                     setSelectedProduct(null);
                   }}
+<<<<<<< HEAD
                   className="bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold px-4 py-2.5 rounded-lg text-xs transition-colors flex items-center gap-1.5 cursor-pointer"
+=======
+                  className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold px-4 py-2.5 rounded-lg text-xs transition-colors flex items-center gap-1.5 cursor-pointer"
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                   id="modal-ask-btn"
                 >
                   <MessageSquare className="w-4 h-4" /> 코미에게 실시간 AI 질문
@@ -332,7 +381,11 @@ export default function StoreFront({
                     onAddToCart(selectedProduct);
                     setSelectedProduct(null);
                   }}
+<<<<<<< HEAD
                   className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-lg text-xs transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+=======
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2.5 rounded-lg text-xs transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                   id="modal-add-cart-btn"
                 >
                   <Plus className="w-4 h-4" /> 장바구니에 부품 추가
@@ -352,9 +405,15 @@ export default function StoreFront({
             {/* Header */}
             <div className="p-5 border-b border-slate-100 flex items-center justify-between">
               <div className="flex items-center gap-2">
+<<<<<<< HEAD
                 <ShoppingBag className="w-5 h-5 text-blue-600" />
                 <h3 className="font-bold text-slate-800 text-base">장바구니 견적</h3>
                 <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
+=======
+                <ShoppingBag className="w-5 h-5 text-indigo-600" />
+                <h3 className="font-bold text-slate-800 text-base">장바구니 견적</h3>
+                <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                   {cart.length}개
                 </span>
               </div>
@@ -375,7 +434,11 @@ export default function StoreFront({
                       onCloseCart();
                       onTriggerMenuLink("quick-estimate", "간편 조립 견적");
                     }}
+<<<<<<< HEAD
                     className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg text-xs cursor-pointer shadow-sm"
+=======
+                    className="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-2 rounded-lg text-xs cursor-pointer shadow-sm"
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                     id="cart-quick-estimate-btn"
                   >
                     코미와 견적 짜러가기
@@ -391,7 +454,11 @@ export default function StoreFront({
                       <h4 className="font-bold text-slate-800 text-xs mt-1.5 leading-snug line-clamp-1">
                         {"name" in item.item ? item.item.name : item.item.title}
                       </h4>
+<<<<<<< HEAD
                       <p className="text-xs text-blue-600 font-extrabold mt-1">
+=======
+                      <p className="text-xs text-indigo-600 font-extrabold mt-1">
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                         ₩{item.item.price.toLocaleString()} x {item.quantity}
                       </p>
                     </div>
@@ -426,7 +493,11 @@ export default function StoreFront({
                   </button>
                   <button
                     onClick={onCheckout}
+<<<<<<< HEAD
                     className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs shadow-sm transition-colors cursor-pointer"
+=======
+                    className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-xl text-xs shadow-sm transition-colors cursor-pointer"
+>>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                     id="checkout-btn"
                   >
                     견적 주문하기
