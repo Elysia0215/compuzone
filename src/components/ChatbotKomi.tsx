@@ -6,7 +6,7 @@
 import React from "react";
 import { Message, Product, CustomEstimate, ASOrder, AppNotification } from "../types";
 import { PRODUCT_CATALOG } from "../catalog";
-import { Send, Menu, X, ArrowLeft, RefreshCw, ShoppingCart, UserCheck, MessageSquare, ChevronRight, Clock, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Send, Menu, X, ArrowLeft, RefreshCw, ShoppingCart, UserCheck, MessageSquare, ChevronRight, Clock, ShieldCheck, CheckCircle2, Maximize2, Minimize2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface ChatbotKomiProps {
@@ -58,6 +58,10 @@ export default function ChatbotKomi({
 }: ChatbotKomiProps) {
   const [messages, setMessages] = React.useState<Message[]>([]);
   const [inputText, setInputText] = React.useState("");
+  const [selectedDetails, setSelectedDetails] = React.useState<string[]>([]);
+  const [customDetailInput, setCustomDetailInput] = React.useState("");
+  const [isMaximized, setIsMaximized] = React.useState(true);
+  const [isQuickMenuOpen, setIsQuickMenuOpen] = React.useState(false);
   const [isTyping, setIsTyping] = React.useState(false);
   const scrollRef = React.useRef<HTMLDivElement>(null);
 
@@ -239,27 +243,54 @@ export default function ChatbotKomi({
     const name = detail || "";
 
     if (isGame) {
-      let baseFps = 100;
-      if (name.includes("롤") || name.includes("발로란트")) {
-        baseFps = Math.floor((b / 10000) * 1.8);
-        return `리그 오브 레전드 / 발로란트 FHD 약 ${baseFps}프레임 예상 🎮`;
-      } else if (name.includes("배틀그라운드") || name.includes("오버워치")) {
-        baseFps = Math.floor((b / 10000) * 1.1);
-        return `배틀그라운드 / 오버워치2 FHD 약 ${baseFps}프레임 예상 🔫`;
-      } else if (name.includes("스팀") || name.includes("최고사양")) {
-        baseFps = Math.floor((b / 10000) * 0.7);
-        return `AAA급 고사양 패키지 게임 QHD 약 ${baseFps}프레임 예상 🚀`;
-      } else {
-        baseFps = Math.floor((b / 10000) * 1.0);
-        return `${name} FHD 약 ${baseFps}프레임 예상 🎮`;
+      const items = name.split(",").map(x => x.trim());
+      let results: string[] = [];
+
+      const hasCasual = items.some(x => x.includes("롤") || x.includes("발로란트") || x.includes("캐주얼"));
+      const hasHeavy = items.some(x => x.includes("배틀그라운드") || x.includes("오버워치") || x.includes("로스트아크") || x.includes("FPS"));
+      const hasAAA = items.some(x => x.includes("스팀") || x.includes("최고사양") || x.includes("패키지"));
+
+      if (hasCasual || items.length === 0) {
+        const valFps = Math.floor((b / 10000) * 1.8);
+        results.push(`발로란트/롤: FHD 약 ${valFps}프레임`);
       }
+      if (hasHeavy) {
+        const pubgFps = Math.floor((b / 10000) * 1.1);
+        results.push(`배그: FHD 약 ${pubgFps}프레임`);
+      }
+      if (hasAAA) {
+        const aaaFps = Math.floor((b / 10000) * 0.75);
+        results.push(`AAA 패키지: QHD 약 ${aaaFps}프레임`);
+      }
+      if (results.length === 0) {
+        const customFps = Math.floor((b / 10000) * 1.2);
+        results.push(`${name}: FHD 약 ${customFps}프레임`);
+      }
+
+      return `${results.join(" | ")} 예상 🎮`;
     } else {
-      if (b < 1000000) {
-        return "포토샵/일러스트 기본 이미지 레이어 편집 가능 🎨";
-      } else if (b < 1600000) {
-        return "FHD 영상 인코딩 및 멀티 다중 레이어 작업 원활 🎬";
+      const items = name.split(",").map(x => x.trim());
+      if (usage?.includes("편집") || usage?.includes("디자인") || usage?.includes("영상편집")) {
+        const hasPhotoshop = items.some(x => x.includes("포토샵") || x.includes("일러스트") || x.includes("피그마"));
+        const hasPremiere = items.some(x => x.includes("프리미어") || x.includes("애프터") || x.includes("블렌더") || x.includes("3D"));
+
+        let results: string[] = [];
+        if (hasPhotoshop) {
+          results.push(b < 1200000 ? "포토샵: 대용량 드로잉 원활" : "포토샵: 인쇄물 이미지 작업 최적");
+        }
+        if (hasPremiere) {
+          results.push(b < 1500000 ? "프리미어: FHD 영상 컷편집 원활" : "프리미어/블렌더: 4K 렌더링 최적");
+        }
+        if (results.length === 0) {
+          results.push(b < 1200000 ? `${name} 작업 원활` : `${name} 멀티태스킹 쾌적`);
+        }
+        return `${results.join(" | ")} 🎨`;
+      } else if (usage?.includes("프로그래밍")) {
+        return b < 1200000 ? "웹/앱 개발 및 경량 DB 빌드 쾌적 💻" : "대규모 컨테이너(Docker) 빌드 거뜬 🚀";
+      } else if (usage?.includes("AI")) {
+        return b < 1600000 ? "Stable Diffusion 이미지 생성 가능 🧠" : "VRAM 16GB 탑재 고난도 딥러닝 쾌적 🚀";
       } else {
-        return "4K 전문 프리미어 컷 편집 및 3D 모델링 원활 🚀";
+        return b < 1000000 ? "기본 문서/사무/웹서핑에 차고 넘치는 반응성 📁" : "다중 고해상도 모니터 및 엑셀 대용량 연산 원활 ⚡";
       }
     }
   };
@@ -295,20 +326,25 @@ export default function ChatbotKomi({
 
     if (action === "rec_usage_game") {
       usageKey = "게임";
-      botFeedback = "게임이면 역시 화면을 매끄럽게 그리는 그래픽카드(GPU) 영향도가 제일 커요! 🎮 주로 즐기시는 게임 부류를 선택해 주세요.";
+      botFeedback = "게임이면 역시 화면을 매끄럽게 그리는 그래픽카드(GPU) 영향도가 제일 커요! 🎮 주로 즐기시는 게임들을 모두 선택해 주세요.";
       options = [
-        { label: "롤/발로란트 (캐주얼)", action: "rec_game_lol" },
-        { label: "배틀그라운드 (FPS급)", action: "rec_game_pubg" },
-        { label: "스팀 AAA급 최고사양", action: "rec_game_steam" },
-        { label: "직접 입력할래요", action: "rec_game_custom" },
+        { label: "발로란트", action: "rec_game_valorant" },
+        { label: "리그 오브 레전드 (롤)", action: "rec_game_lol" },
+        { label: "배틀그라운드", action: "rec_game_pubg" },
+        { label: "오버워치 2", action: "rec_game_overwatch" },
+        { label: "로스트아크", action: "rec_game_lostark" },
+        { label: "스팀 AAA 패키지", action: "rec_game_steam" },
       ];
     } else if (action === "rec_usage_edit") {
-      usageKey = "영상편집";
-      botFeedback = "영상 편집 및 그래픽 작업은 대용량 파일 가공이 많아 RAM 용량과 고성능 CPU의 멀티코어가 무척 중요해요! 🎬";
+      usageKey = "영상편집/그래픽";
+      botFeedback = "디자인 및 그래픽 작업은 대용량 파일 가공이 많아 RAM 용량과 고성능 CPU의 멀티코어가 무척 중요해요! 🎬";
       options = [
-        { label: "FHD 유튜브 편집", action: "rec_edit_fhd" },
-        { label: "4K 전문 시네마틱 편집", action: "rec_edit_4k" },
-        { label: "3D 그래픽/블렌더", action: "rec_edit_3d" },
+        { label: "포토샵 (이미지 편집)", action: "rec_program_photoshop" },
+        { label: "일러스트레이터", action: "rec_program_illustrator" },
+        { label: "피그마 (UI/기획)", action: "rec_program_figma" },
+        { label: "프리미어 프로 (영상 편집)", action: "rec_program_premiere" },
+        { label: "애프터 이펙트", action: "rec_program_ae" },
+        { label: "블렌더 (3D 그래픽)", action: "rec_program_blender" },
       ];
     } else if (action === "rec_usage_code") {
       usageKey = "프로그래밍";
@@ -966,13 +1002,22 @@ export default function ChatbotKomi({
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: 100, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 100, scale: 0.95 }}
-          className="fixed bottom-6 right-6 z-50 w-full max-w-[420px] h-[640px] bg-slate-50 rounded-3xl overflow-hidden shadow-2xl border border-slate-200/60 flex flex-col"
-          id="chatbot-komi-panel"
-        >
+        <>
+          {/* Backdrop blur overlay - only show when maximized */}
+          {isMaximized && (
+            <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 transition-opacity" onClick={onClose}></div>
+          )}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className={`fixed z-50 bg-slate-50 rounded-3xl overflow-hidden shadow-2xl border border-slate-200/60 flex flex-col transition-all duration-300 ${
+              isMaximized
+                ? "inset-4 md:inset-8 lg:inset-x-20 lg:inset-y-10 w-full max-w-5xl h-[85vh] mx-auto my-auto"
+                : "bottom-6 right-6 w-full max-w-[420px] h-[640px]"
+            }`}
+            id="chatbot-komi-panel"
+          >
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white px-5 py-4 flex items-center justify-between shadow-md" id="chat-header">
             <div className="flex items-center gap-2.5">
@@ -1000,6 +1045,13 @@ export default function ChatbotKomi({
                 title="대화 초기화"
               >
                 <RefreshCw className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => setIsMaximized(prev => !prev)}
+                className="p-1.5 hover:bg-white/10 rounded-lg text-white/80 hover:text-white transition-colors cursor-pointer"
+                title={isMaximized ? "창 축소" : "창 확대"}
+              >
+                {isMaximized ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
               </button>
               <button
                 onClick={onClose}
@@ -1068,7 +1120,7 @@ export default function ChatbotKomi({
                   </div>
                 )}
 
-                <div className="max-w-[78%] flex flex-col gap-2">
+                <div className={`${msg.type === "recommend_results" ? "w-full max-w-[95%]" : "max-w-[78%]"} flex flex-col gap-2`}>
                   {/* Chat speech bubble */}
                   {msg.text && (
                     <div
@@ -1096,8 +1148,8 @@ export default function ChatbotKomi({
                     </div>
                   )}
 
-                  {/* Options List (Q1, Q2, etc.) */}
-                  {msg.type === "options" && msg.options && (
+                  {/* Options List (Q1, Q4, etc. - EXCEPT Q2) */}
+                  {msg.type === "options" && msg.options && !(flowState.currentFlow === "recommend" && flowState.step === 2) && (
                     <div className="flex flex-col gap-1.5 mt-1">
                       {msg.options.map((opt, idx) => (
                         <button
@@ -1108,6 +1160,82 @@ export default function ChatbotKomi({
                           {opt.label}
                         </button>
                       ))}
+                    </div>
+                  )}
+
+                  {/* Q2 Multi-select Custom UI (Only on Step 2 options message) */}
+                  {flowState.currentFlow === "recommend" && flowState.step === 2 && msg.type === "options" && msg.id === messages[messages.length - 1]?.id && (
+                    <div className="bg-white border border-slate-100 rounded-2xl p-4 shadow-md max-w-sm mt-1 space-y-3">
+                      <div className="flex items-center justify-between text-xs font-extrabold text-slate-400 uppercase">
+                        <span>견적 세팅 진행도</span>
+                        <span className="text-blue-600">50% (2/4 단계)</span>
+                      </div>
+                      <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                        <div className="bg-blue-600 h-full w-[50%] rounded-full"></div>
+                      </div>
+                      
+                      <div className="text-xs font-bold text-slate-800">
+                        주로 사용하시는 게임/소프트웨어 (중복 선택)
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {msg.options?.map((opt, idx) => {
+                          const isSelected = selectedDetails.includes(opt.label);
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                if (isSelected) {
+                                  setSelectedDetails(prev => prev.filter(x => x !== opt.label));
+                                } else {
+                                  setSelectedDetails(prev => [...prev, opt.label]);
+                                }
+                              }}
+                              className={`py-2 px-2.5 rounded-xl border text-[11px] font-bold transition-all text-center cursor-pointer truncate ${
+                                isSelected 
+                                  ? "bg-blue-600 border-blue-600 text-white shadow-sm" 
+                                  : "bg-white border-slate-150 text-slate-700 hover:bg-slate-50"
+                              }`}
+                              title={opt.label}
+                            >
+                              {opt.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      {/* Custom text input */}
+                      <div className="space-y-1">
+                        <label className="text-[10px] font-extrabold text-slate-400 uppercase">기타 직접 입력</label>
+                        <input
+                          type="text"
+                          placeholder="프로그램이나 게임명을 직접 입력해 보세요"
+                          value={customDetailInput}
+                          onChange={(e) => setCustomDetailInput(e.target.value)}
+                          className="w-full h-9 px-3 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-blue-500 focus:bg-white text-slate-800 transition-all"
+                        />
+                      </div>
+
+                      <button
+                        onClick={() => {
+                          let finalItems = [...selectedDetails];
+                          if (customDetailInput.trim()) {
+                            finalItems.push(customDetailInput.trim());
+                          }
+                          if (finalItems.length === 0) {
+                            alert("최소 1개 이상의 소프트웨어/게임을 선택하거나 입력해 주세요!");
+                            return;
+                          }
+                          const label = finalItems.join(", ");
+                          setSelectedDetails([]); // reset
+                          setCustomDetailInput(""); // reset
+                          handleRecDetail(label, "rec_game_multiple");
+                        }}
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs shadow-md cursor-pointer transition-colors"
+                        id="detail-confirm-btn"
+                      >
+                        선택 완료 및 다음 단계로 ➡️
+                      </button>
                     </div>
                   )}
 
@@ -1578,16 +1706,77 @@ export default function ChatbotKomi({
 
           {/* Bottom Chat Input Field Bar */}
           <div className="bg-white border-t border-slate-200 p-3 flex items-center gap-2" id="chat-input-row">
-            <button
-              onClick={() => {
-                addUserMessage("처음 홈 메뉴로 돌아가줘");
-                initChat();
-              }}
-              className="p-2 bg-slate-50 hover:bg-slate-100 text-slate-400 hover:text-slate-600 rounded-xl transition-colors cursor-pointer"
-              title="메인 홈 가기"
-            >
-              <Menu className="w-5 h-5" />
-            </button>
+            <div className="relative">
+              {/* Quick Menu Popover */}
+              {isQuickMenuOpen && (
+                <div className="absolute bottom-12 left-0 bg-white border border-slate-200 shadow-xl rounded-2xl p-2 w-52 z-50 flex flex-col gap-1.5 animate-in fade-in slide-in-from-bottom-2 duration-200">
+                  <div className="text-[10px] font-extrabold text-slate-400 px-2.5 py-1 border-b border-slate-50 uppercase tracking-wider">
+                    빠른 메뉴 실행
+                  </div>
+                  <button
+                    onClick={() => {
+                      setIsQuickMenuOpen(false);
+                      addUserMessage("맞춤 PC 추천해줘");
+                      startRecommendationFlow();
+                    }}
+                    className="w-full text-left text-xs font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50 py-2 px-2.5 rounded-xl transition-colors cursor-pointer flex items-center gap-2"
+                  >
+                    <span>🎮</span> PC 견적 추천
+                  </button>
+                  <button
+                    onClick={() => {
+                      setIsQuickMenuOpen(false);
+                      addUserMessage("내 PC A/S 보증기한 알려줘");
+                      startAsFlow();
+                    }}
+                    className="w-full text-left text-xs font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50 py-2 px-2.5 rounded-xl transition-colors cursor-pointer flex items-center gap-2"
+                  >
+                    <span>🛡️</span> 무상 A/S 조회
+                  </button>
+                  <button
+                    onClick={() => {
+                      setIsQuickMenuOpen(false);
+                      addUserMessage("상담사 연결 원해요");
+                      startCounselorFlow();
+                    }}
+                    className="w-full text-left text-xs font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50 py-2 px-2.5 rounded-xl transition-colors cursor-pointer flex items-center gap-2"
+                  >
+                    <span>👔</span> 상담사 연결
+                  </button>
+                  <button
+                    onClick={() => {
+                      setIsQuickMenuOpen(false);
+                      handleMenuFinder("빠른 견적 어디서 해요?");
+                    }}
+                    className="w-full text-left text-xs font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50 py-2 px-2.5 rounded-xl transition-colors cursor-pointer flex items-center gap-2"
+                  >
+                    <span>📍</span> 견적 메뉴 찾기
+                  </button>
+                  <div className="border-t border-slate-100 my-0.5"></div>
+                  <button
+                    onClick={() => {
+                      setIsQuickMenuOpen(false);
+                      addUserMessage("처음 홈 메뉴로 돌아갈래");
+                      initChat();
+                    }}
+                    className="w-full text-left text-xs font-bold text-rose-600 hover:bg-rose-50 py-2 px-2.5 rounded-xl transition-colors cursor-pointer flex items-center gap-2"
+                  >
+                    <span>🏠</span> 처음으로 (초기화)
+                  </button>
+                </div>
+              )}
+              <button
+                onClick={() => setIsQuickMenuOpen(prev => !prev)}
+                className={`p-2 rounded-xl transition-colors cursor-pointer ${
+                  isQuickMenuOpen 
+                    ? "bg-blue-50 text-blue-600 border border-blue-200" 
+                    : "bg-slate-50 hover:bg-slate-100 text-slate-400 hover:text-slate-600 border border-transparent"
+                }`}
+                title="빠른 메뉴 열기"
+              >
+                <Menu className="w-5 h-5" />
+              </button>
+            </div>
             <input
               type="text"
               placeholder={
@@ -1610,6 +1799,7 @@ export default function ChatbotKomi({
             </button>
           </div>
         </motion.div>
+        </>
       )}
     </AnimatePresence>
   );

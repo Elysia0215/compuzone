@@ -124,11 +124,11 @@ def build_configuration(purpose: str, items: list[str], budget_val: int, build_t
     """
     # 1. Determine target budget for the package
     if build_type == "cheap":
-        target_budget = max(800000, int(budget_val * 0.75))
+        target_budget = max(800000, int(budget_val * 0.70))
     elif build_type == "balance":
-        target_budget = max(900000, int(budget_val * 0.95))
+        target_budget = max(850000, int(budget_val * 0.85))
     else:
-        target_budget = max(1000000, int(budget_val * 1.15))
+        target_budget = max(900000, int(budget_val * 0.98))
 
     # 2. Percentage allocations (CPU, GPU, RAM, SSD, MB, Power, Cooler)
     if purpose == "game":
@@ -193,18 +193,22 @@ def build_configuration(purpose: str, items: list[str], budget_val: int, build_t
         if category in ["CPU", "GPU"]:
             candidates = [p for p in candidates if p.get("tier", 0) >= min_tier]
 
+        # Loosen filters if candidates empty
+        if not candidates:
+            candidates = [p for p in parts_list if p["category"] == category]
+            if socket_req and category in ["Motherboard", "Cooler"]:
+                candidates = [p for p in candidates if p.get("socket") == socket_req]
+
         # Filter by price cap
         budget_candidates = [p for p in candidates if p["price"] <= budget_cap]
         if budget_candidates:
-            candidates = budget_candidates
-
-        if not candidates:
-            # Complete fallback
-            candidates = [p for p in parts_list if p["category"] == category]
-            
-        # Sort by tier / price descending
-        candidates.sort(key=lambda x: (x.get("tier", 0), x["price"]), reverse=True)
-        return candidates[0]
+            # We have candidate within cap. Sort by tier descending, price ascending.
+            budget_candidates.sort(key=lambda x: (-x.get("tier", 0), x["price"]))
+            return budget_candidates[0]
+        else:
+            # No candidate fits price cap. Sort by price ascending (cheapest available) to save budget.
+            candidates.sort(key=lambda x: x["price"])
+            return candidates[0]
 
     # --- Match CPU & GPU first ---
     cpu_cap = int(target_budget * pct["CPU"])
@@ -641,15 +645,15 @@ async def recommend(request: RecommendRequest):
 
     items = games if purpose == "game" else programs
 
-    # If the budget is below the minimum required for a build
-    if budget < 800000:
+    # If the budget is below or equal to the minimum required for a build
+    if budget <= 800000:
         # Return fallback popular TOP 3 build configurations as per Section 13
         cheap_setup = build_configuration(purpose, items, 800000, "cheap")
         balance_setup = build_configuration(purpose, items, 800000, "balance")
         perf_setup = build_configuration(purpose, items, 800000, "perf")
         
         for setup in [cheap_setup, balance_setup, perf_setup]:
-            setup["warning"] = "예산이 최소 구성 금액(80만원) 미만이어서, 현재 예산 대에서 가장 대중적인 인기 견적을 매칭해 드렸습니다."
+            setup["warning"] = "예산이 최소 구성 금액(80만원) 이하이어서, 현재 예산 대에서 가장 대중적인 인기 견적을 매칭해 드렸습니다."
     else:
         # Run normal calculations for cheap, balance, and perf configurations
         cheap_setup = build_configuration(purpose, items, budget, "cheap")
@@ -734,7 +738,7 @@ async def recommend(request: RecommendRequest):
 
     return {
         "recommendations": recommendations_list,
-        "fallback_used": budget < 800000
+        "fallback_used": budget <= 800000
     }
 
 # ==========================================
