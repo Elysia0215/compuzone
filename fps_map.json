@@ -1,0 +1,47 @@
+{
+  "_comment": "GPU 5종 x 인기 게임 5종 x 1080p 기준 FPS 매핑. 공개 벤치마크(pc-builds, HowManyFPS, CheckFPS, TechPowerUp 등) 참조 조정값. FPS는 CPU/설정/측정방식에 따라 편차가 크므로 참고용이며, 실서비스 전 실측 검증 권장.",
+  "_updated": "2026-07-01",
+  "_note": "1080p, 하이 옵션, 중상급 CPU(라이젠 7 / 코어 i5~i7) 기준. source: 'benchmark_ref'=공개 벤치마크 범위 기반 조정값",
+  "benchmarks": [
+    { "gpu": "RTX 4060",        "game": "valorant",     "resolution": "1080p", "setting": "high", "avg_fps": 260, "min_fps": 190, "source": "benchmark_ref" },
+    { "gpu": "RTX 4060",        "game": "battleground", "resolution": "1080p", "setting": "high", "avg_fps": 130, "min_fps": 95,  "source": "benchmark_ref" },
+    { "gpu": "RTX 4060",        "game": "lol",          "resolution": "1080p", "setting": "very_high", "avg_fps": 240, "min_fps": 180, "source": "benchmark_ref" },
+    { "gpu": "RTX 4060",        "game": "overwatch2",   "resolution": "1080p", "setting": "high", "avg_fps": 200, "min_fps": 150, "source": "benchmark_ref" },
+    { "gpu": "RTX 4060",        "game": "cyberpunk2077","resolution": "1080p", "setting": "high", "avg_fps": 70,  "min_fps": 52,  "source": "benchmark_ref" },
+
+    { "gpu": "RTX 4060 Ti",     "game": "valorant",     "resolution": "1080p", "setting": "high", "avg_fps": 300, "min_fps": 220, "source": "benchmark_ref" },
+    { "gpu": "RTX 4060 Ti",     "game": "battleground", "resolution": "1080p", "setting": "high", "avg_fps": 145, "min_fps": 110, "source": "benchmark_ref" },
+    { "gpu": "RTX 4060 Ti",     "game": "lol",          "resolution": "1080p", "setting": "very_high", "avg_fps": 280, "min_fps": 210, "source": "benchmark_ref" },
+    { "gpu": "RTX 4060 Ti",     "game": "overwatch2",   "resolution": "1080p", "setting": "high", "avg_fps": 240, "min_fps": 180, "source": "benchmark_ref" },
+    { "gpu": "RTX 4060 Ti",     "game": "cyberpunk2077","resolution": "1080p", "setting": "high", "avg_fps": 88,  "min_fps": 66,  "source": "benchmark_ref" },
+
+    { "gpu": "RTX 4070",        "game": "valorant",     "resolution": "1080p", "setting": "high", "avg_fps": 360, "min_fps": 270, "source": "benchmark_ref" },
+    { "gpu": "RTX 4070",        "game": "battleground", "resolution": "1080p", "setting": "high", "avg_fps": 175, "min_fps": 130, "source": "benchmark_ref" },
+    { "gpu": "RTX 4070",        "game": "lol",          "resolution": "1080p", "setting": "very_high", "avg_fps": 320, "min_fps": 250, "source": "benchmark_ref" },
+    { "gpu": "RTX 4070",        "game": "overwatch2",   "resolution": "1080p", "setting": "high", "avg_fps": 290, "min_fps": 220, "source": "benchmark_ref" },
+    { "gpu": "RTX 4070",        "game": "cyberpunk2077","resolution": "1080p", "setting": "high", "avg_fps": 105, "min_fps": 78,  "source": "benchmark_ref" },
+
+    { "gpu": "RTX 4070 Super",  "game": "valorant",     "resolution": "1080p", "setting": "high", "avg_fps": 400, "min_fps": 300, "source": "benchmark_ref" },
+    { "gpu": "RTX 4070 Super",  "game": "battleground", "resolution": "1080p", "setting": "high", "avg_fps": 200, "min_fps": 150, "source": "benchmark_ref" },
+    { "gpu": "RTX 4070 Super",  "game": "lol",          "resolution": "1080p", "setting": "very_high", "avg_fps": 360, "min_fps": 280, "source": "benchmark_ref" },
+    { "gpu": "RTX 4070 Super",  "game": "overwatch2",   "resolution": "1080p", "setting": "high", "avg_fps": 320, "min_fps": 245, "source": "benchmark_ref" },
+    { "gpu": "RTX 4070 Super",  "game": "cyberpunk2077","resolution": "1080p", "setting": "high", "avg_fps": 120, "min_fps": 90,  "source": "benchmark_ref" },
+
+    { "gpu": "RTX 4080 Super",  "game": "valorant",     "resolution": "1080p", "setting": "high", "avg_fps": 470, "min_fps": 360, "source": "benchmark_ref" },
+    { "gpu": "RTX 4080 Super",  "game": "battleground", "resolution": "1080p", "setting": "high", "avg_fps": 250, "min_fps": 190, "source": "benchmark_ref" },
+    { "gpu": "RTX 4080 Super",  "game": "lol",          "resolution": "1080p", "setting": "very_high", "avg_fps": 400, "min_fps": 320, "source": "benchmark_ref" },
+    { "gpu": "RTX 4080 Super",  "game": "overwatch2",   "resolution": "1080p", "setting": "high", "avg_fps": 400, "min_fps": 310, "source": "benchmark_ref" },
+    { "gpu": "RTX 4080 Super",  "game": "cyberpunk2077","resolution": "1080p", "setting": "high", "avg_fps": 160, "min_fps": 122, "source": "benchmark_ref" }
+  ],
+  "game_labels": {
+    "valorant": "발로란트",
+    "battleground": "배틀그라운드",
+    "lol": "리그 오브 레전드",
+    "overwatch2": "오버워치2",
+    "cyberpunk2077": "사이버펑크 2077"
+  },
+  "fallback": {
+    "unknown_gpu": "정확한 수치는 없지만 비슷한 사양 기준으로 예측한 값이에요",
+    "unknown_game": "이 게임은 데이터가 없어 유사 게임 기준으로 추정했어요"
+  }
+}

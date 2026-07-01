@@ -99,13 +99,50 @@ class RecommendRequest(BaseModel):
     budget: int
     priority: str  # "가성비", "균형", "성능"
 
+# ----------------------------------------------------
+# Gunho's Data Integration & FPS Normalization Helper
+# ----------------------------------------------------
+def normalize_gpu_for_fps(gpu_name: str) -> str:
+    g_upper = gpu_name.upper()
+    if "4080 SUPER" in g_upper or "4080S" in g_upper:
+        return "RTX 4080 Super"
+    if "4070 SUPER" in g_upper or "4070S" in g_upper:
+        return "RTX 4070 Super"
+    if "4070" in g_upper:
+        return "RTX 4070"
+    if "4060 TI" in g_upper or "4060TI" in g_upper:
+        return "RTX 4060 Ti"
+    if "4060" in g_upper:
+        return "RTX 4060"
+    if "5060" in g_upper:
+        return "RTX 4060 Ti"
+    return "RTX 4060"
+
+def normalize_game_for_fps(game_name: str) -> str:
+    g_lower = game_name.lower()
+    if "valorant" in g_lower or "발로" in g_lower:
+        return "valorant"
+    if "battle" in g_lower or "배그" in g_lower or "배틀" in g_lower or "pubg" in g_lower:
+        return "battleground"
+    if "lol" in g_lower or "리그" in g_lower or "레전드" in g_lower:
+        return "lol"
+    if "overwatch" in g_lower or "오버워치" in g_lower:
+        return "overwatch2"
+    if "cyber" in g_lower or "사이버" in g_lower or "사펑" in g_lower:
+        return "cyberpunk2077"
+    return g_lower
+
 # Load parts_db.json data
 parts_list = []
 try:
     parts_db_path = os.path.join(os.path.dirname(__file__), "parts_db.json")
     if os.path.exists(parts_db_path):
         with open(parts_db_path, "r", encoding="utf-8") as f:
-            parts_list = json.load(f)
+            data = json.load(f)
+            if isinstance(data, dict) and "parts" in data:
+                parts_list = data["parts"]
+            else:
+                parts_list = data
         print(f"Successfully loaded {len(parts_list)} parts from parts_db.json.")
     else:
         print("Warning: parts_db.json file not found.")
@@ -668,8 +705,25 @@ async def recommend(request: RecommendRequest):
     types_mapping = [("cheap", cheap_setup, "알뜰 가성비 세팅"), ("balance", balance_setup, "황금 밸런스 균형 세팅"), ("perf", perf_setup, "익스트림 울트라 성능 세팅")]
 
     for b_type, setup, title_prefix in types_mapping:
-        headline = f"{', '.join(items) if items else '기본 용도'} 환경 최적 구동형 세팅입니다."
-        reason = f"{b_type}에 초점을 맞추어 CPU({setup['cpu_name']}) 및 그래픽카드({setup['gpu_name']})를 균형적으로 배치한 컴퓨존 추천 패키지입니다."
+        # Determine fallback/base headline and reason using Gunho's data lookup
+        norm_gpu = normalize_gpu_for_fps(setup["gpu_name"])
+        norm_game = normalize_game_for_fps(items[0]) if (purpose == "game" and items) else ""
+        fps_info_str = ""
+        
+        if purpose == "game" and items:
+            try:
+                from fps_lookup import make_headline as fps_make_headline, lookup_fps
+                headline = fps_make_headline(norm_gpu, norm_game)
+                fps_info = lookup_fps(norm_gpu, norm_game)
+                if fps_info and fps_info.get("avg_fps") is not None:
+                    fps_info_str = f"Estimated FPS for {items[0]} with {setup['gpu_name']}: Avg {fps_info['avg_fps']} FPS (Min {fps_info['min_fps']} FPS)."
+            except Exception as e:
+                print(f"Error calling fps_make_headline: {e}")
+                headline = f"{', '.join(items)} 환경 최적 구동형 세팅입니다."
+        else:
+            headline = f"{', '.join(items) if items else '기본 용도'} 환경 최적 구동형 세팅입니다."
+
+        reason = f"{title_prefix}에 초점을 맞추어 CPU({setup['cpu_name']}) 및 그래픽카드({setup['gpu_name']})를 균형적으로 배치한 컴퓨존 추천 패키지입니다."
         
         if ai:
             try:
@@ -684,10 +738,11 @@ async def recommend(request: RecommendRequest):
                 - Selected Build Strategy: {title_prefix}
                 - Selected CPU: {setup['cpu_name']}
                 - Selected GPU: {setup['gpu_name']}
+                - Benchmark FPS Info (refer to this exact data if possible): {fps_info_str}
                 
                 Generate a JSON object matching this structure:
                 {{
-                  "headline": "A short engaging performance headline (in Korean, polite style) like '발로란트 FHD 약 200프레임 부드러운 플레이 가능해요'",
+                  "headline": "A short engaging performance headline (in Korean, polite style) like '발로란트 FHD 약 200프레임 부드러운 플레이 가능해요' or matching the benchmark info",
                   "reason": "A friendly Korean explanation (~해요 style) explaining why these parts fit this budget strategy and user needs."
                 }}
                 """
