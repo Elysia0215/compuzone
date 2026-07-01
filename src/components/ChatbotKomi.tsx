@@ -126,9 +126,15 @@ export default function ChatbotKomi({
       {
         id: "welcome-1",
         sender: "bot",
-        text: "안녕하세요!\n컴퓨존 맞춤 상담 비서 코미(Komi)예요! 🤖",
+        text: "안녕하세요! 컴퓨존 맞춤 상담 비서 코미(Komi)예요! 🤖\n\n아래 서비스 중 원하시는 메뉴를 선택하시거나, 궁금한 점을 채팅창에 자유롭게 입력해 주세요.",
         timestamp: new Date(),
-        type: "text",
+        type: "options",
+        options: [
+          { label: "🎮 스마트 맞춤 PC 견적 추천", action: "rec_start_direct" },
+          { label: "🛡️ 정품/무상 A/S 보증기한 조회", action: "as_start_direct" },
+          { label: "👔 전문 기술 상담사 실시간 연결", action: "counsel_start_direct" },
+          { label: "📍 컴퓨존 빠른 견적 메뉴 찾기", action: "menu_start_direct" },
+        ],
       },
     ]);
     setFlowState({
@@ -980,8 +986,17 @@ export default function ChatbotKomi({
     } else if (action.startsWith("rec_prior_")) {
       handleRecPriority(label, action);
     } else if (action === "rec_start_direct") {
-      addUserMessage("PC 맞춤 추천 시작");
+      addUserMessage("스마트 맞춤 PC 견적 추천");
       startRecommendationFlow();
+    } else if (action === "as_start_direct") {
+      addUserMessage("정품/무상 A/S 보증기한 조회");
+      startAsFlow();
+    } else if (action === "counsel_start_direct") {
+      addUserMessage("전문 기술 상담사 실시간 연결");
+      startCounselorFlow();
+    } else if (action === "menu_start_direct") {
+      addUserMessage("컴퓨존 빠른 견적 메뉴 찾기");
+      handleMenuFinder("빠른 견적 어디서 해요?");
     } else if (action.startsWith("as_order_")) {
       const orderId = action.replace("as_order_", "");
       handleSelectAsOrder(orderId);
@@ -1684,44 +1699,7 @@ export default function ChatbotKomi({
             )}
           </div>
 
-          {/* SUGGESTION QUICK LAUNCH BUBBLES IN FOOTER */}
-          {messages.length > 0 && flowState.currentFlow === "none" && (
-            <div className="px-3 py-2 bg-slate-100/60 border-t border-slate-200 overflow-x-auto whitespace-nowrap flex gap-1.5" id="suggest-quick-rail">
-              <button
-                onClick={() => {
-                  addUserMessage("맞춤 PC 추천해줘");
-                  startRecommendationFlow();
-                }}
-                className="inline-block bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 font-bold px-3 py-1.5 rounded-full text-[10px] cursor-pointer"
-              >
-                🎮 PC 견적 추천
-              </button>
-              <button
-                onClick={() => {
-                  addUserMessage("내 PC A/S 보증기한 알려줘");
-                  startAsFlow();
-                }}
-                className="inline-block bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 font-bold px-3 py-1.5 rounded-full text-[10px] cursor-pointer"
-              >
-                🛡️ 무상 A/S 조회
-              </button>
-              <button
-                onClick={() => {
-                  addUserMessage("상담사 연결 원해요");
-                  startCounselorFlow();
-                }}
-                className="inline-block bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 font-bold px-3 py-1.5 rounded-full text-[10px] cursor-pointer"
-              >
-                👔 상담사 연결
-              </button>
-              <button
-                onClick={() => handleMenuFinder("빠른 견적 어디서 해요?")}
-                className="inline-block bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 font-bold px-3 py-1.5 rounded-full text-[10px] cursor-pointer"
-              >
-                📍 견적 메뉴 찾기
-              </button>
-            </div>
-          )}
+
 
           {/* Bottom Chat Input Field Bar */}
           <div className="bg-white border-t border-slate-200 p-3 flex items-center gap-2" id="chat-input-row">
