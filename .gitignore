@@ -1,8 +1,54 @@
-node_modules/
-build/
-dist/
-coverage/
-.DS_Store
-*.log
-.env*
+# 환경 변수 (API 키 포함 — 절대 커밋 금지)
+.env
+.env.*
 !.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# 가상환경 / Poetry
+.venv/
+venv/
+env/
+
+# ChromaDB 로컬 벡터 스토어
+chroma_db/
+*.chroma/
+
+# pytest / 테스트 캐시
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+**/.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 로그
+*.log
+logs/
+
+# LangSmith / LangChain 캐시
+.langchain.db
+
+# 개인 코드 테스트
+test.ipynb
+*md
+frontend/stitch/*.html
+frontend/stitch/DESIGN.md
