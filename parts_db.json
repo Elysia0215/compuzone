@@ -1,0 +1,328 @@
+[
+  {
+    "product_id": "gpu-gtx-1660s",
+    "category": "GPU",
+    "name": "MSI GeForce GTX 1660 SUPER AERO ITX OC 6GB",
+    "price": 250000,
+    "stock": true,
+    "description": "보급형 그래픽카드로, 사무작업 및 리그 오브 레전드 등 캐주얼 게임에 최적화되어 있습니다.",
+    "tier": 1,
+    "tdp": 125
+  },
+  {
+    "product_id": "gpu-rtx-3050",
+    "category": "GPU",
+    "name": "Gigabyte GeForce RTX 3050 WINDFORCE OC 6GB",
+    "price": 300000,
+    "stock": true,
+    "description": "레이 트레이싱 입문용이자 저전력 보급형 그래픽카드입니다.",
+    "tier": 2,
+    "tdp": 130
+  },
+  {
+    "product_id": "gpu-rtx-5060",
+    "category": "GPU",
+    "name": "MSI GeForce RTX 5060 VENTUS 2X OC 8GB",
+    "price": 450000,
+    "stock": true,
+    "description": "DLSS 4 지원과 뛰어난 전력 효율성을 자랑하는 RTX 50 시리즈 최신 보급기입니다.",
+    "tier": 3,
+    "tdp": 115
+  },
+  {
+    "product_id": "gpu-rtx-4060ti",
+    "category": "GPU",
+    "name": "Gigabyte GeForce RTX 4060 Ti WINDFORCE OC 8GB",
+    "price": 550000,
+    "stock": true,
+    "description": "메인스트림 게이밍 최강 가성비 그래픽카드로 FHD 고주사율 방어에 적합합니다.",
+    "tier": 4,
+    "tdp": 160
+  },
+  {
+    "product_id": "gpu-rtx-4070s",
+    "category": "GPU",
+    "name": "ASUS ROG Strix GeForce RTX 4070 SUPER O12G",
+    "price": 950000,
+    "stock": true,
+    "description": "QHD 게이밍과 고부하 그래픽 작업, 영상 편집을 원활히 지원하는 하이엔드 모델입니다.",
+    "tier": 5,
+    "tdp": 220
+  },
+  {
+    "product_id": "gpu-rtx-4070tis",
+    "category": "GPU",
+    "name": "MSI GeForce RTX 4070 Ti SUPER 16GB",
+    "price": 1200000,
+    "stock": true,
+    "description": "16GB 넉넉한 VRAM으로 AI 딥러닝 입문 및 스팀 고사양 게임에 완벽합니다.",
+    "tier": 6,
+    "tdp": 285
+  },
+  {
+    "product_id": "gpu-rtx-4080s",
+    "category": "GPU",
+    "name": "ZOTAC GAMING GeForce RTX 4080 SUPER 16GB",
+    "price": 1600000,
+    "stock": true,
+    "description": "타협 없는 하이엔드 4K 게이밍과 초고속 렌더링 작업을 보장합니다.",
+    "tier": 7,
+    "tdp": 320
+  },
+  {
+    "product_id": "cpu-intel-12100f",
+    "category": "CPU",
+    "name": "Intel Core i3-12100F (엘더레이크)",
+    "price": 110000,
+    "stock": true,
+    "description": "보급형 사무 및 라이트 게이밍 최고의 가성비 CPU입니다.",
+    "tier": 1,
+    "tdp": 58,
+    "socket": "LGA1700"
+  },
+  {
+    "product_id": "cpu-ryzen-5600",
+    "category": "CPU",
+    "name": "AMD Ryzen 5 5600 (버밀리어)",
+    "price": 150000,
+    "stock": true,
+    "description": "가성비의 전설, AM4 소켓 기반 멀티 성능이 우수한 CPU입니다.",
+    "tier": 2,
+    "tdp": 65,
+    "socket": "AM4"
+  },
+  {
+    "product_id": "cpu-ryzen-7500f",
+    "category": "CPU",
+    "name": "AMD Ryzen 5 7500F (라파엘)",
+    "price": 220000,
+    "stock": true,
+    "description": "현존 최고의 게이밍 가성비 1순위 AM5 CPU입니다.",
+    "tier": 3,
+    "tdp": 65,
+    "socket": "AM5"
+  },
+  {
+    "product_id": "cpu-intel-14400f",
+    "category": "CPU",
+    "name": "Intel Core i5-14400F (랩터레이크)",
+    "price": 250000,
+    "stock": true,
+    "description": "하이브리드 아키텍처로 게임과 다중 사무 작업을 고루 소화합니다.",
+    "tier": 3,
+    "tdp": 65,
+    "socket": "LGA1700"
+  },
+  {
+    "product_id": "cpu-ryzen-7800x3d",
+    "category": "CPU",
+    "name": "AMD Ryzen 7 7800X3D (라파엘 3D V-Cache)",
+    "price": 580000,
+    "stock": true,
+    "description": "3D 캐시 탑재로 프레임 방어를 완벽히 해내는 끝판왕 게이밍 CPU입니다.",
+    "tier": 5,
+    "tdp": 120,
+    "socket": "AM5"
+  },
+  {
+    "product_id": "cpu-intel-14700k",
+    "category": "CPU",
+    "name": "Intel Core i7-14700K (랩터레이크 리프레시)",
+    "price": 550000,
+    "stock": true,
+    "description": "영상 편집 및 다중 3D 렌더링에 압도적인 20코어 고성능 CPU입니다.",
+    "tier": 6,
+    "tdp": 125,
+    "socket": "LGA1700"
+  },
+  {
+    "product_id": "cpu-ryzen-7900x",
+    "category": "CPU",
+    "name": "AMD Ryzen 9 7900X (라파엘)",
+    "price": 530000,
+    "stock": true,
+    "description": "12코어 24스레드의 강력한 다중 연산 성능을 지닌 CPU입니다.",
+    "tier": 6,
+    "tdp": 170,
+    "socket": "AM5"
+  },
+  {
+    "product_id": "ram-samsung-d4-8g",
+    "category": "RAM",
+    "name": "Samsung DDR4-3200 8GB",
+    "price": 25000,
+    "stock": true,
+    "description": "DDR4 기본 규격 메모리로 일반 사무 및 가성비 구성에 최적입니다.",
+    "generation": "DDR4",
+    "capacity": 8
+  },
+  {
+    "product_id": "ram-samsung-d4-16g",
+    "category": "RAM",
+    "name": "Samsung DDR4-3200 16GB",
+    "price": 50000,
+    "stock": true,
+    "description": "DDR4 대용량 메모리로 여러 백그라운드 작업을 넉넉히 받아줍니다.",
+    "generation": "DDR4",
+    "capacity": 16
+  },
+  {
+    "product_id": "ram-samsung-d5-8g",
+    "category": "RAM",
+    "name": "Samsung DDR5-5600 8GB",
+    "price": 35000,
+    "stock": true,
+    "description": "차세대 DDR5 표준 속도를 제공하는 보급형 RAM입니다.",
+    "generation": "DDR5",
+    "capacity": 8
+  },
+  {
+    "product_id": "ram-samsung-d5-16g",
+    "category": "RAM",
+    "name": "Samsung DDR5-5600 16GB",
+    "price": 65000,
+    "stock": true,
+    "description": "DDR5 규격의 대표 메모리로 병목 없이 빠른 속도를 제공합니다.",
+    "generation": "DDR5",
+    "capacity": 16
+  },
+  {
+    "product_id": "ssd-micron-500g",
+    "category": "SSD",
+    "name": "Micron Crucial P3 Plus M.2 NVMe 500GB",
+    "price": 60000,
+    "stock": true,
+    "description": "PCIe 4.0 기반의 빠른 부팅 속도와 합리적 가격을 제공하는 SSD입니다.",
+    "capacity": 500
+  },
+  {
+    "product_id": "ssd-samsung-980-500g",
+    "category": "SSD",
+    "name": "Samsung 980 M.2 NVMe 500GB",
+    "price": 75000,
+    "stock": true,
+    "description": "안정적인 디램리스 보급형 삼성 NVMe SSD입니다.",
+    "capacity": 500
+  },
+  {
+    "product_id": "ssd-samsung-990pro-1t",
+    "category": "SSD",
+    "name": "Samsung 990 PRO M.2 NVMe 1TB",
+    "price": 160000,
+    "stock": true,
+    "description": "동급 최고의 속도와 긴 내구성을 자랑하는 프리미엄 SSD입니다.",
+    "capacity": 1000
+  },
+  {
+    "product_id": "ssd-wd-blue-1t",
+    "category": "SSD",
+    "name": "WD Blue SN580 M.2 NVMe 1TB",
+    "price": 110000,
+    "stock": true,
+    "description": "높은 안정성과 대용량 데이터 관리에 적합한 실속형 SSD입니다.",
+    "capacity": 1000
+  },
+  {
+    "product_id": "mb-asus-a520m",
+    "category": "Motherboard",
+    "name": "ASUS PRIME A520M-K",
+    "price": 80000,
+    "stock": true,
+    "description": "AMD AM4 CPU용 가성비 1위 마더보드입니다.",
+    "socket": "AM4",
+    "ram_gen": "DDR4"
+  },
+  {
+    "product_id": "mb-asus-h610m",
+    "category": "Motherboard",
+    "name": "ASUS PRIME H610M-K D4",
+    "price": 90000,
+    "stock": true,
+    "description": "인텔 LGA1700 CPU를 가성비 있게 조립하는 DDR4 마더보드입니다.",
+    "socket": "LGA1700",
+    "ram_gen": "DDR4"
+  },
+  {
+    "product_id": "mb-asrock-b650m",
+    "category": "Motherboard",
+    "name": "ASRock B650M PG Lightning",
+    "price": 160000,
+    "stock": true,
+    "description": "Dr.MOS 전원부로 AM5 라이젠 CPU의 전력을 안정적으로 보조합니다.",
+    "socket": "AM5",
+    "ram_gen": "DDR5"
+  },
+  {
+    "product_id": "mb-msi-b760m",
+    "category": "Motherboard",
+    "name": "MSI PRO B760M-A WIFI",
+    "price": 180000,
+    "stock": true,
+    "description": "인텔 12~14세대 CPU를 위한 안정적인 DDR5 마더보드입니다.",
+    "socket": "LGA1700",
+    "ram_gen": "DDR5"
+  },
+  {
+    "product_id": "power-micronix-500w",
+    "category": "Power",
+    "name": "Micronix Classic II Full Change 500W",
+    "price": 50000,
+    "stock": true,
+    "description": "정격 500W 출력을 보장하는 대표적인 보급형 파워입니다.",
+    "wattage": 500
+  },
+  {
+    "product_id": "power-micronix-600w",
+    "category": "Power",
+    "name": "Micronix Classic II Full Change 600W",
+    "price": 62000,
+    "stock": true,
+    "description": "대다수의 중급 게이밍 구성에 어울리는 정격 600W 파워입니다.",
+    "wattage": 600
+  },
+  {
+    "product_id": "power-classic-700w",
+    "category": "Power",
+    "name": "Micronix Classic II Full Change 700W 80PLUS BRONZE",
+    "price": 75000,
+    "stock": true,
+    "description": "안정성과 A/S가 보장된 700W 브론즈 인증 파워입니다.",
+    "wattage": 700
+  },
+  {
+    "product_id": "power-fsp-850w",
+    "category": "Power",
+    "name": "FSP HYDRO G PRO 850W GOLD Full Modular",
+    "price": 160000,
+    "stock": true,
+    "description": "고성능 하이엔드 부품의 과전류를 방지하는 80PLUS GOLD 파워입니다.",
+    "wattage": 850
+  },
+  {
+    "product_id": "cooler-3rsys-rc310",
+    "category": "Cooler",
+    "name": "3RSYS Socoool RC310",
+    "price": 22000,
+    "stock": true,
+    "description": "2만원대 보급형 공랭 쿨러로 라이트급 CPU의 발열을 잘 식혀줍니다.",
+    "tier": 2
+  },
+  {
+    "product_id": "cooler-peerless-120",
+    "category": "Cooler",
+    "name": "Thermalright Peerless Assassin 120 SE",
+    "price": 40000,
+    "stock": true,
+    "description": "대장급 듀얼 타워 공랭 쿨러로 압도적인 쿨링 밸런스를 보여줍니다.",
+    "tier": 4
+  },
+  {
+    "product_id": "cooler-deepcool-ls720",
+    "category": "Cooler",
+    "name": "Deepcool LS720 ARGB 3열 수랭",
+    "price": 140000,
+    "stock": true,
+    "description": "최상급 3열 AIO 수랭 쿨러로 하이엔드 CPU의 초발열을 즉각 진압합니다.",
+    "tier": 6
+  }
+]

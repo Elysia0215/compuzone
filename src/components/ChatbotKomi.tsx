@@ -233,6 +233,37 @@ export default function ChatbotKomi({
     }, 600);
   };
 
+  const getLivePerformanceLabel = (budget: number, usage: string | undefined, detail: string | undefined) => {
+    const b = budget || 1500000;
+    const isGame = usage === "게임";
+    const name = detail || "";
+
+    if (isGame) {
+      let baseFps = 100;
+      if (name.includes("롤") || name.includes("발로란트")) {
+        baseFps = Math.floor((b / 10000) * 1.8);
+        return `리그 오브 레전드 / 발로란트 FHD 약 ${baseFps}프레임 예상 🎮`;
+      } else if (name.includes("배틀그라운드") || name.includes("오버워치")) {
+        baseFps = Math.floor((b / 10000) * 1.1);
+        return `배틀그라운드 / 오버워치2 FHD 약 ${baseFps}프레임 예상 🔫`;
+      } else if (name.includes("스팀") || name.includes("최고사양")) {
+        baseFps = Math.floor((b / 10000) * 0.7);
+        return `AAA급 고사양 패키지 게임 QHD 약 ${baseFps}프레임 예상 🚀`;
+      } else {
+        baseFps = Math.floor((b / 10000) * 1.0);
+        return `${name} FHD 약 ${baseFps}프레임 예상 🎮`;
+      }
+    } else {
+      if (b < 1000000) {
+        return "포토샵/일러스트 기본 이미지 레이어 편집 가능 🎨";
+      } else if (b < 1600000) {
+        return "FHD 영상 인코딩 및 멀티 다중 레이어 작업 원활 🎬";
+      } else {
+        return "4K 전문 프리미어 컷 편집 및 3D 모델링 원활 🚀";
+      }
+    }
+  };
+
   // ----------------------------------------------------
   // FLOW ②: PC Recommendation Core Flow
   // ----------------------------------------------------
@@ -405,77 +436,120 @@ export default function ChatbotKomi({
   // PC Estimate Cards Generator (P0 Core)
   // ----------------------------------------------------
   const generatePCProposals = (budgetVal: number, prior: string, usage: string, detail: string) => {
+    // Show a temporary loading message or progress
     setFlowState((prev) => ({
       ...prev,
-      step: 6,
+      step: 5, // Keep loading/progress active
     }));
 
-    // Find parts from PRODUCT_CATALOG
-    const parts = {
-      cpuCheap: PRODUCT_CATALOG.find((p) => p.id === "cpu-ryzen-7500f")!,
-      cpuIntel: PRODUCT_CATALOG.find((p) => p.id === "cpu-intel-14400f")!,
-      cpuHigh: PRODUCT_CATALOG.find((p) => p.id === "cpu-ryzen-7800x3d")!,
-      gpuCheap: PRODUCT_CATALOG.find((p) => p.id === "gpu-rtx-5060")!,
-      gpuMid: PRODUCT_CATALOG.find((p) => p.id === "gpu-rtx-4060ti")!,
-      gpuHigh: PRODUCT_CATALOG.find((p) => p.id === "gpu-rtx-4070s")!,
-      ram: PRODUCT_CATALOG.find((p) => p.id === "ram-samsung-16g")!,
-      ssd: PRODUCT_CATALOG.find((p) => p.id === "ssd-samsung-990pro")!,
-      power: PRODUCT_CATALOG.find((p) => p.id === "power-classic-700w")!,
-      mb: PRODUCT_CATALOG.find((p) => p.id === "mb-asrock-b650m")!,
+    const reqBody = {
+      session_id: Math.random().toString(36).substring(7),
+      purpose: usage === "게임" ? "game" : "design",
+      games: usage === "게임" ? [detail] : [],
+      programs: usage !== "게임" ? [detail] : [],
+      budget: budgetVal,
+      priority: prior, // "가성비", "균형", "성능"
     };
 
-    // Construct 3 distinct configurations (가성비, 균형, 성능)
-    const options = [
-      {
-        id: "est-cheap",
-        title: `⚡ 알뜰 가성비 세팅 (${usage} - ${detail})`,
-        price: 1050000,
-        specs: {
-          cpu: parts.cpuCheap.name,
-          gpu: parts.gpuCheap.name,
-          ram: `${parts.ram.name} (16GB)`,
-          ssd: "Micron Crucial 고속 SSD 500GB",
-          power: "Micronix 500W 정격 파워",
-          mb: "MSI PRO H610M 메인보드",
-        },
-        reason: "예산을 대폭 세이브하면서 성능과 부품 효율성을 극대화한 실속 가득 입문용 구성입니다."
+    fetch("/api/recommend", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      {
-        id: "est-balanced",
-        title: `⭐ 황금 밸런스 균형 세팅 (${usage} - ${detail})`,
-        price: 1540000,
-        specs: {
-          cpu: parts.cpuIntel.name,
-          gpu: parts.gpuMid.name,
-          ram: `${parts.ram.name} (16GB x 2)`,
-          ssd: parts.ssd.name,
-          power: parts.power.name,
-          mb: "ASUS B760M 게이밍 메인보드",
-        },
-        reason: "예산선에 정확히 대응하며 장기 사용 시 스로틀링이나 호온성 트러블이 전혀 없는 표준 탑-클래스 구성입니다."
-      },
-      {
-        id: "est-perf",
-        title: `🚀 익스트림 울트라 성능 세팅 (${usage} - ${detail})`,
-        price: 2190000,
-        specs: {
-          cpu: parts.cpuHigh.name,
-          gpu: parts.gpuHigh.name,
-          ram: `${parts.ram.name} (32GB 듀얼채널)`,
-          ssd: parts.ssd.name,
-          power: parts.power.name,
-          mb: parts.mb.name,
-        },
-        reason: "선택된 목적 하에서 타협 없는 하이엔드 게이밍 및 고부하 작업을 초고프레임으로 압살할 수 있는 종결급 조합입니다."
-      }
-    ];
+      body: JSON.stringify(reqBody),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("API failed");
+        return res.json();
+      })
+      .then((data) => {
+        setFlowState((prev) => ({
+          ...prev,
+          step: 6,
+          lastGeneratedSpecs: data.recommendations[1]?.specs, // default to balance spec
+        }));
+        addBotMessage({
+          text: `짠! 사용자님의 용도(${usage}) 및 예산(${(budgetVal / 10000).toLocaleString()}만원) 맞춤 분석을 마쳤어요! 🤖\n아래 3가지 컴퓨존 엄선 제안서 중 원하시는 패키지를 탭하여 세부 내역을 확인하고 장바구니에 바로 담으실 수 있답니다.`,
+          type: "recommend_results",
+          data: data.recommendations,
+        });
+      })
+      .catch((err) => {
+        console.error("Failed to load recommendations", err);
+        setFlowState((prev) => ({
+          ...prev,
+          step: 6,
+        }));
+        
+        // Static mock fallback in case backend is offline
+        const fallbackOptions = [
+          {
+            id: "est-cheap",
+            title: `⚡ 알뜰 가성비 세팅 (${usage} - ${detail})`,
+            price: 1050000,
+            specs: {
+              cpu: "AMD Ryzen 5 7500F (라파엘)",
+              gpu: "MSI GeForce RTX 5060 VENTUS 2X OC 8GB",
+              ram: "Samsung DDR5-5600 16GB (16GB)",
+              ssd: "Micron Crucial 고속 SSD 500GB",
+              power: "Micronix 500W 정격 파워",
+              mb: "MSI PRO H610M 메인보드",
+              cooler: "3RSYS Socoool RC310"
+            },
+            reason: "예산을 대폭 세이브하면서 성능과 부품 효율성을 극대화한 실속 가득 입문용 구성입니다.",
+            report: {
+              reason: "예산을 대폭 세이브하면서 성능과 부품 효율성을 극대화한 실속 가득 입문용 구성입니다.",
+              warning: null
+            }
+          },
+          {
+            id: "est-balanced",
+            title: `⭐ 황금 밸런스 균형 세팅 (${usage} - ${detail})`,
+            price: 1540000,
+            specs: {
+              cpu: "Intel Core i5-14400F (랩터레이크)",
+              gpu: "Gigabyte GeForce RTX 4060 Ti WINDFORCE OC 8GB",
+              ram: "Samsung DDR5-5600 16GB x2",
+              ssd: "Samsung 990 PRO M.2 NVMe 1TB",
+              power: "Micronix Classic II Full Change 700W 80PLUS BRONZE",
+              mb: "ASUS B760M 게이밍 메인보드",
+              cooler: "Thermalright Peerless Assassin 120 SE"
+            },
+            reason: "예산선에 정확히 대응하며 장기 사용 시 스로틀링이나 호환성 트러블이 전혀 없는 표준 탑-클래스 구성입니다.",
+            report: {
+              reason: "예산선에 정확히 대응하며 장기 사용 시 스로틀링이나 호환성 트러블이 전혀 없는 표준 탑-클래스 구성입니다.",
+              warning: null
+            }
+          },
+          {
+            id: "est-perf",
+            title: `🚀 익스트림 울트라 성능 세팅 (${usage} - ${detail})`,
+            price: 2190000,
+            specs: {
+              cpu: "AMD Ryzen 7 7800X3D (라파엘 3D V-Cache)",
+              gpu: "ASUS ROG Strix GeForce RTX 4070 SUPER O12G",
+              ram: "Samsung DDR5-5600 16GB x2 (32GB 듀얼채널)",
+              ssd: "Samsung 990 PRO M.2 NVMe 1TB",
+              power: "Micronix Classic II Full Change 700W 80PLUS BRONZE",
+              mb: "ASRock B650M PG Lightning",
+              cooler: "Deepcool LS720 ARGB 3열 수랭"
+            },
+            reason: "선택된 목적 하에서 타협 없는 하이엔드 게이밍 및 고부하 작업을 초고프레임으로 압살할 수 있는 종결급 조합입니다.",
+            report: {
+              reason: "선택된 목적 하에서 타협 없는 하이엔드 게이밍 및 고부하 작업을 초고프레임으로 압살할 수 있는 종결급 조합입니다.",
+              warning: null
+            }
+          }
+        ];
 
-    addBotMessage({
-      text: `짠! 사용자님의 용도(${usage}) 및 예산(${ (budgetVal / 10000).toLocaleString()}만원) 맞춤 분석을 마쳤어요! 🤖\n아래 3가지 컴퓨존 엄선 제안서 중 원하시는 패키지를 탭하여 세부 내역을 확인하고 장바구니에 바로 담으실 수 있답니다.`,
-      type: "recommend_results",
-      data: options,
-    });
+        addBotMessage({
+          text: `추천 서버 점검 중으로 기본 추천안을 불러왔어요! 🤖\n아래 3가지 컴퓨존 엄선 제안서 중 원하시는 패키지를 확인해 보세요.`,
+          type: "recommend_results",
+          data: fallbackOptions,
+        });
+      });
   };
+
 
   // ----------------------------------------------------
   // FLOW ② RE-RECOMMENDATION LOOP WITH GEMINI (P0 Core)
@@ -1047,7 +1121,6 @@ export default function ChatbotKomi({
                       <div className="w-full bg-slate-100 h-2 rounded-full mb-4 overflow-hidden">
                         <div className="bg-blue-600 h-full w-[75%] rounded-full"></div>
                       </div>
-
                       <div className="flex items-center justify-between font-bold text-xs text-slate-700 mb-2">
                         <span>희망 예산 설정</span>
                         <span className="text-sm font-black text-blue-600">
@@ -1055,9 +1128,16 @@ export default function ChatbotKomi({
                         </span>
                       </div>
 
+                      {/* Real-time FPS / performance preview */}
+                      <div className="bg-blue-50 border border-blue-100 rounded-xl p-2.5 mb-3 text-center">
+                        <span className="text-[11px] font-bold text-blue-700">
+                          {getLivePerformanceLabel(flowState.budget || 1500000, flowState.usage, flowState.detail)}
+                        </span>
+                      </div>
+
                       <input
                         type="range"
-                        min="1000000"
+                        min="800000"
                         max="2500000"
                         step="50000"
                         value={flowState.budget || 1500000}
@@ -1066,8 +1146,8 @@ export default function ChatbotKomi({
                         id="budget-range-slider"
                       />
                       <div className="flex justify-between text-[10px] text-slate-400 font-bold mt-1">
-                        <span>100만원</span>
-                        <span>175만원</span>
+                        <span>80만원</span>
+                        <span>165만원</span>
                         <span>250만원</span>
                       </div>
 
@@ -1126,7 +1206,32 @@ export default function ChatbotKomi({
                                 <span className="font-bold text-slate-400">전원파워</span>
                                 <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.power}</span>
                               </div>
+                              {spec.specs.cooler && (
+                                <div className="flex justify-between">
+                                  <span className="font-bold text-slate-400">쿨러</span>
+                                  <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.cooler}</span>
+                                </div>
+                              )}
                             </div>
+
+                            {/* Performance Headline prediction at top/mid of card detail */}
+                            {spec.performance && (
+                              <div className="bg-blue-50 border border-blue-100 rounded-xl p-2.5 text-center text-xs font-bold text-blue-800 mb-2">
+                                🚀 {spec.performance.headline}
+                              </div>
+                            )}
+
+                            {/* Compatibility Alerts (PRD Rule Check warnings) */}
+                            {spec.report?.warning && (
+                              <div className="bg-rose-50 border border-rose-100 rounded-xl p-3 text-[10px] text-rose-800 space-y-1.5 mb-2.5">
+                                <div className="font-extrabold flex items-center gap-1 text-[11px]">
+                                  <span>⚠️</span> 호환성 및 안전 점검 알림
+                                </div>
+                                <div className="whitespace-pre-line leading-relaxed font-semibold">
+                                  {spec.report.warning}
+                                </div>
+                              </div>
+                            )}
 
                             <div className="flex items-center justify-between font-black text-slate-900 text-sm border-b border-slate-50 pb-3">
                               <span>총 조립 단가액</span>
@@ -1155,6 +1260,10 @@ export default function ChatbotKomi({
                           </div>
                         </div>
                       ))}
+                      {/* Disclaimer at bottom of estimate list */}
+                      <span className="text-[9.5px] text-slate-400 font-semibold block mt-1 text-center bg-slate-50 p-2 rounded-lg leading-relaxed">
+                        AI 추천은 참고용입니다. 실제 가격·재고는 변동될 수 있으며, 최종 구매 전 확인을 권장합니다.
+                      </span>
                     </div>
                   )}
 
@@ -1384,6 +1493,10 @@ export default function ChatbotKomi({
                           >
                             <ShoppingCart className="w-3.5 h-3.5" /> 장바구니 담기
                           </button>
+                        </div>
+                        {/* Disclaimer inside the revised specs card */}
+                        <div className="text-[9px] text-slate-400 font-semibold text-center mt-2.5 pt-2 border-t border-slate-100/60 leading-relaxed">
+                          AI 추천은 참고용입니다. 실제 가격·재고는 변동될 수 있으며, 최종 구매 전 확인을 권장합니다.
                         </div>
                       </div>
                     </div>

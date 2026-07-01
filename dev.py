@@ -27,8 +27,8 @@ def main():
     env["FLASK_ENV"] = "development"
     env["PYTHONUNBUFFERED"] = "1"  # Ensure instant log output flushing
     
-    backend_cmd = [sys.executable, "server.py"]
-    print("-> Starting Flask backend API server on port 8000...")
+    backend_cmd = [sys.executable, "-m", "uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    print("-> Starting FastAPI backend API server on port 8000...")
     backend_proc = subprocess.Popen(
         backend_cmd,
         env=env,

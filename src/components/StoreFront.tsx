@@ -227,6 +227,11 @@ export default function StoreFront({
         )}
       </main>
 
+      {/* Disclaimer at home page bottom (P1) */}
+      <footer className="max-w-7xl mx-auto px-4 mt-8 pb-4 text-center text-[11px] text-slate-400 font-semibold leading-relaxed border-t border-slate-200/60 pt-4">
+        AI 추천은 참고용입니다. 실제 가격·재고는 변동될 수 있으며, 최종 구매 전 확인을 권장합니다.
+      </footer>
+
       {/* Product Detail Modal */}
       {selectedProduct && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm" id="product-detail-modal">
