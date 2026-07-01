@@ -1291,108 +1291,131 @@ export default function ChatbotKomi({
 
                   {/* Flow 2: Proposals Cards Grid */}
                   {msg.type === "recommend_results" && msg.data && (
-                    <div className="flex flex-col gap-4 mt-2 max-w-sm">
-                      {msg.data.map((spec: any, idx: number) => (
-                        <div key={idx} className="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-md flex flex-col">
-                          <div className={`p-3 text-white font-extrabold text-xs flex justify-between items-center ${
-                            idx === 0 ? "bg-emerald-600" : idx === 1 ? "bg-blue-600" : "bg-purple-700"
-                          }`}>
-                            <span>{spec.title}</span>
-                            <span className="bg-white/20 px-2 py-0.5 rounded uppercase text-[9px]">
-                              {idx === 0 ? "가성비" : idx === 1 ? "균형" : "최고성능"}
-                            </span>
+                    <>
+                      <div className={
+                        isMaximized
+                          ? "grid grid-cols-1 md:grid-cols-3 gap-4 mt-2 w-full max-w-full"
+                          : "flex flex-row overflow-x-auto gap-4 mt-2 pb-4 pt-1 w-full max-w-full snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-200"
+                      }>
+                        {msg.data.map((spec: any, idx: number) => (
+                          <div key={idx} className={
+                            isMaximized
+                              ? "bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-md flex flex-col w-full"
+                              : "bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-md flex flex-col snap-align-start min-w-[285px] max-w-[320px] flex-1"
+                          }>
+                            <div className={`p-3.5 text-white font-black text-sm flex justify-between items-center ${
+                              idx === 0 ? "bg-emerald-600" : idx === 1 ? "bg-blue-600" : "bg-purple-700"
+                            }`}>
+                              <span>{spec.title}</span>
+                              <span className="bg-white/20 px-2 py-0.5 rounded uppercase text-[9px]">
+                                {idx === 0 ? "가성비" : idx === 1 ? "균형" : "최고성능"}
+                              </span>
+                            </div>
+
+                            <div className="p-4 space-y-2.5 flex-1 flex flex-col justify-between">
+                              <div className="space-y-2.5">
+                                {/* Popular config warning banner */}
+                                {spec.report?.warning?.includes("인기 견적") && (
+                                  <div className="bg-gradient-to-r from-amber-500 to-orange-600 text-white text-[10px] font-black px-2.5 py-1.5 rounded-xl text-center shadow-md mb-2 flex items-center justify-center gap-1 animate-pulse">
+                                    🌟 이 예산에서 가장 많이 선택되는 인기 구성입니다!
+                                  </div>
+                                )}
+
+                                {/* Performance Headline prediction at top of card detail (Bold, large text) */}
+                                {spec.performance && (
+                                  <div className="bg-blue-50 border border-blue-100 rounded-xl p-3 text-center text-[13px] font-black text-blue-900 leading-snug">
+                                    🚀 {spec.performance.headline}
+                                  </div>
+                                )}
+
+                                <div className="text-slate-800 text-xs font-semibold leading-relaxed border-b border-slate-50 pb-2.5">
+                                  {spec.reason}
+                                </div>
+
+                                {/* Specifications breakdown */}
+                                <div className="space-y-1 text-[11px] text-slate-600 border-b border-slate-50 pb-2.5">
+                                  <div className="flex justify-between">
+                                    <span className="font-bold text-slate-400">CPU</span>
+                                    <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]" title={spec.specs.cpu}>{spec.specs.cpu}</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span className="font-bold text-slate-400">GPU</span>
+                                    <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]" title={spec.specs.gpu}>{spec.specs.gpu}</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span className="font-bold text-slate-400">메모리</span>
+                                    <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.ram}</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span className="font-bold text-slate-400">저장장치</span>
+                                    <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.ssd}</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span className="font-bold text-slate-400">메인보드</span>
+                                    <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.mb}</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span className="font-bold text-slate-400">전원파워</span>
+                                    <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.power}</span>
+                                  </div>
+                                  {spec.specs.cooler && (
+                                    <div className="flex justify-between">
+                                      <span className="font-bold text-slate-400">쿨러</span>
+                                      <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.cooler}</span>
+                                    </div>
+                                  )}
+                                </div>
+
+                                {/* Compatibility Alerts (PRD Rule Check warnings) */}
+                                {spec.report?.warning && (
+                                  <div className="bg-rose-50 border border-rose-100 rounded-xl p-3 text-[10px] text-rose-800 space-y-1.5 mb-2.5">
+                                    <div className="font-extrabold flex items-center gap-1 text-[11px]">
+                                      <span>⚠️</span> 호환성 및 안전 점검 알림
+                                    </div>
+                                    <div className="whitespace-pre-line leading-relaxed font-semibold">
+                                      {spec.report.warning}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+
+                              <div className="space-y-2.5 mt-4">
+                                <div className="flex items-center justify-between font-black text-slate-900 text-sm border-b border-slate-50 pb-3">
+                                  <span>총 조립 단가액</span>
+                                  <span className="text-base text-blue-600">₩{spec.price.toLocaleString()}</span>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-2 mt-2">
+                                  <button
+                                    onClick={() => {
+                                      initChat();
+                                      onClose();
+                                    }}
+                                    className="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-600 font-bold py-2.5 rounded-lg text-[10px] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                                  >
+                                    <X className="w-3.5 h-3.5 text-slate-400" /> 상담 종료
+                                  </button>
+                                  <button
+                                    onClick={() => {
+                                      onAddToCart(spec);
+                                      onClose();
+                                    }}
+                                    className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg text-[10px] transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                                    id={`add-cart-spec-btn-${spec.id}`}
+                                  >
+                                    <ShoppingCart className="w-3.5 h-3.5" /> 장바구니 담기
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-
-                          <div className="p-4 space-y-2.5">
-                            <div className="text-slate-800 text-xs font-semibold leading-relaxed border-b border-slate-50 pb-2.5">
-                              {spec.reason}
-                            </div>
-
-                            {/* Specifications breakdown */}
-                            <div className="space-y-1 text-[11px] text-slate-600 border-b border-slate-50 pb-2.5">
-                              <div className="flex justify-between">
-                                <span className="font-bold text-slate-400">CPU</span>
-                                <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]" title={spec.specs.cpu}>{spec.specs.cpu}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="font-bold text-slate-400">GPU</span>
-                                <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]" title={spec.specs.gpu}>{spec.specs.gpu}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="font-bold text-slate-400">메모리</span>
-                                <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.ram}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="font-bold text-slate-400">저장장치</span>
-                                <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.ssd}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="font-bold text-slate-400">메인보드</span>
-                                <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.mb}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="font-bold text-slate-400">전원파워</span>
-                                <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.power}</span>
-                              </div>
-                              {spec.specs.cooler && (
-                                <div className="flex justify-between">
-                                  <span className="font-bold text-slate-400">쿨러</span>
-                                  <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.cooler}</span>
-                                </div>
-                              )}
-                            </div>
-
-                            {/* Performance Headline prediction at top/mid of card detail */}
-                            {spec.performance && (
-                              <div className="bg-blue-50 border border-blue-100 rounded-xl p-2.5 text-center text-xs font-bold text-blue-800 mb-2">
-                                🚀 {spec.performance.headline}
-                              </div>
-                            )}
-
-                            {/* Compatibility Alerts (PRD Rule Check warnings) */}
-                            {spec.report?.warning && (
-                              <div className="bg-rose-50 border border-rose-100 rounded-xl p-3 text-[10px] text-rose-800 space-y-1.5 mb-2.5">
-                                <div className="font-extrabold flex items-center gap-1 text-[11px]">
-                                  <span>⚠️</span> 호환성 및 안전 점검 알림
-                                </div>
-                                <div className="whitespace-pre-line leading-relaxed font-semibold">
-                                  {spec.report.warning}
-                                </div>
-                              </div>
-                            )}
-
-                            <div className="flex items-center justify-between font-black text-slate-900 text-sm border-b border-slate-50 pb-3">
-                              <span>총 조립 단가액</span>
-                              <span className="text-base text-blue-600">₩{spec.price.toLocaleString()}</span>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-2 mt-2">
-                              <button
-                                onClick={() => handleAskReRecommendation(spec)}
-                                className="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 font-bold py-2 rounded-lg text-[10px] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-                                id={`rerec-btn-${spec.id}`}
-                              >
-                                <RefreshCw className="w-3.5 h-3.5" /> AI 피드백 수정
-                              </button>
-                              <button
-                                onClick={() => {
-                                  onAddToCart(spec);
-                                  onClose();
-                                }}
-                                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-lg text-[10px] transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
-                                id={`add-cart-spec-btn-${spec.id}`}
-                              >
-                                <ShoppingCart className="w-3.5 h-3.5" /> 장바구니 담기
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                       {/* Disclaimer at bottom of estimate list */}
                       <span className="text-[9.5px] text-slate-400 font-semibold block mt-1 text-center bg-slate-50 p-2 rounded-lg leading-relaxed">
                         AI 추천은 참고용입니다. 실제 가격·재고는 변동될 수 있으며, 최종 구매 전 확인을 권장합니다.
                       </span>
-                    </div>
+                    </>
                   )}
 
                   {/* Flow 3: Product Info Detail Summary Card */}
