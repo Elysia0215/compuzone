@@ -1295,14 +1295,10 @@ export default function ChatbotKomi({
                       <div className={
                         isMaximized
                           ? "grid grid-cols-1 md:grid-cols-3 gap-4 mt-2 w-full max-w-full"
-                          : "flex flex-row overflow-x-auto gap-4 mt-2 pb-4 pt-1 w-full max-w-full snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-200"
+                          : "flex flex-col gap-4 mt-2 w-full max-w-full"
                       }>
                         {msg.data.map((spec: any, idx: number) => (
-                          <div key={idx} className={
-                            isMaximized
-                              ? "bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-md flex flex-col w-full"
-                              : "bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-md flex flex-col snap-align-start min-w-[285px] max-w-[320px] flex-1"
-                          }>
+                          <div key={idx} className="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-md flex flex-col w-full">
                             <div className={`p-3.5 text-white font-black text-sm flex justify-between items-center ${
                               idx === 0 ? "bg-emerald-600" : idx === 1 ? "bg-blue-600" : "bg-purple-700"
                             }`}>
