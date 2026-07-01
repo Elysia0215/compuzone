@@ -1,0 +1,6 @@
+{
+  "name": "Compuzone Chatbot Komi",
+  "description": "An interactive full-stack PC custom estimation and A/S inquiry chatbot named Komi for Compuzone.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
