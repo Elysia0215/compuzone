@@ -14,9 +14,10 @@ from google import genai
 from google.genai import types
 from catalog import PRODUCT_CATALOG
 
-# Load environment variables from .env.local first, then .env
+# Load environment variables from .env.local first, then .env (supporting parent directory)
 load_dotenv('.env.local')
 load_dotenv('.env')
+load_dotenv('../.env')
 
 app = FastAPI(title="Compuzone AI PC Build Assistant API")
 

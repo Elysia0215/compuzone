@@ -1838,7 +1838,10 @@ export default function ChatbotKomi({
               }
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSendText()}
+              onKeyDown={(e) => {
+                if (e.nativeEvent.isComposing) return;
+                if (e.key === "Enter") handleSendText();
+              }}
               className="flex-1 h-10 px-4 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-blue-500 focus:bg-white text-slate-800 transition-all"
               id="chatbot-text-input"
             />
