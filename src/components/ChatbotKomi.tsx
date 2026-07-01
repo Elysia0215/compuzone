@@ -900,34 +900,20 @@ export default function ChatbotKomi({
           id="chatbot-komi-panel"
         >
           {/* Header */}
-<<<<<<< HEAD
           <div className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white px-5 py-4 flex items-center justify-between shadow-md" id="chat-header">
-=======
-          <div className="bg-gradient-to-r from-indigo-700 to-indigo-950 text-white px-5 py-4 flex items-center justify-between shadow-md" id="chat-header">
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
             <div className="flex items-center gap-2.5">
               <div className="relative">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center border border-white/20 shadow">
                   <span className="text-xl">🤖</span>
                 </div>
-<<<<<<< HEAD
                 <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border-2 border-blue-700 animate-pulse"></span>
-=======
-                <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border-2 border-indigo-700 animate-pulse"></span>
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
               </div>
               <div>
                 <h3 className="font-extrabold text-sm tracking-tight flex items-center gap-1.5">
                   컴퓨존 챗봇 코미
-<<<<<<< HEAD
                   <span className="bg-blue-600/60 text-[9px] font-bold px-1.5 py-0.5 rounded border border-white/10 uppercase">AI Bot</span>
                 </h3>
                 <p className="text-[10px] text-blue-100 flex items-center gap-1">
-=======
-                  <span className="bg-indigo-600/60 text-[9px] font-bold px-1.5 py-0.5 rounded border border-white/10 uppercase">AI Bot</span>
-                </h3>
-                <p className="text-[10px] text-indigo-100 flex items-center gap-1">
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                   <Clock className="w-3 h-3 text-emerald-300" /> 실시간 보증·견적 연동 중
                 </p>
               </div>
@@ -973,33 +959,20 @@ export default function ChatbotKomi({
             {messages.length <= 2 && (
               <div className="flex flex-col items-center justify-center text-center py-6 bg-white rounded-2xl border border-slate-100/80 shadow-sm p-4 mx-2">
                 {/* Visual Character Illustration */}
-<<<<<<< HEAD
                 <div className="relative w-28 h-28 bg-gradient-to-b from-blue-50 to-indigo-50 rounded-full border border-blue-100 flex items-center justify-center shadow-inner mb-3">
-=======
-                <div className="relative w-28 h-28 bg-gradient-to-b from-indigo-50/50 to-slate-100 rounded-full border border-indigo-100 flex items-center justify-center shadow-inner mb-3">
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                   <div className="w-20 h-20 bg-slate-100 rounded-3xl border-2 border-slate-200/60 shadow flex flex-col items-center justify-center p-2 relative">
                     {/* Head casing */}
                     <div className="w-14 h-10 bg-white rounded-2xl border-2 border-slate-200 shadow-inner flex items-center justify-center gap-1.5 relative">
                       {/* Ears */}
-<<<<<<< HEAD
                       <span className="absolute -left-2 top-2 w-2 h-4 bg-blue-500 rounded"></span>
                       <span className="absolute -right-2 top-2 w-2 h-4 bg-blue-500 rounded"></span>
-=======
-                      <span className="absolute -left-2 top-2 w-2 h-4 bg-indigo-500 rounded"></span>
-                      <span className="absolute -right-2 top-2 w-2 h-4 bg-indigo-500 rounded"></span>
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                       {/* LED Eyes */}
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 border border-emerald-500 shadow animate-pulse"></span>
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 border border-emerald-500 shadow animate-pulse"></span>
                     </div>
                     {/* Body casing */}
                     <div className="w-12 h-8 bg-slate-50 border border-slate-200 rounded-xl mt-1.5 flex items-center justify-center relative">
-<<<<<<< HEAD
                       <span className="text-[10px] font-black text-blue-600">C</span>
-=======
-                      <span className="text-[10px] font-black text-indigo-600">C</span>
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                     </div>
                   </div>
                 </div>
@@ -1016,11 +989,7 @@ export default function ChatbotKomi({
               <div key={msg.id} className={`flex gap-2.5 ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
                 {/* Robot Icon for Bot */}
                 {msg.sender === "bot" && (
-<<<<<<< HEAD
                   <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex-shrink-0 flex items-center justify-center text-sm shadow">
-=======
-                  <div className="w-8 h-8 rounded-full bg-indigo-600 text-white flex-shrink-0 flex items-center justify-center text-sm shadow">
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                     🤖
                   </div>
                 )}
@@ -1031,11 +1000,7 @@ export default function ChatbotKomi({
                     <div
                       className={`p-3 rounded-2xl text-xs leading-relaxed whitespace-pre-line shadow-sm border ${
                         msg.sender === "user"
-<<<<<<< HEAD
                           ? "bg-blue-600 text-white border-blue-700 rounded-tr-none"
-=======
-                          ? "bg-indigo-600 text-white border-indigo-700 rounded-tr-none"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                           : "bg-white text-slate-800 border-slate-100 rounded-tl-none"
                       }`}
                     >
@@ -1049,11 +1014,7 @@ export default function ChatbotKomi({
                       <p className="text-[11px] text-slate-500 mb-2.5">찾으시는 메뉴로 바로 딥링크 이동하세요!</p>
                       <a
                         href={msg.deepLink.url}
-<<<<<<< HEAD
                         className="inline-block w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2 px-4 rounded-xl shadow transition-colors cursor-pointer"
-=======
-                        className="inline-block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 px-4 rounded-xl shadow transition-colors cursor-pointer"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                         id={`deep-link-${msg.deepLink.menuId}`}
                       >
                         {msg.deepLink.label}
@@ -1068,11 +1029,7 @@ export default function ChatbotKomi({
                         <button
                           key={idx}
                           onClick={() => handleOptionClick(opt.label, opt.action)}
-<<<<<<< HEAD
                           className="bg-white hover:bg-blue-50 border border-slate-100 hover:border-blue-200 text-slate-700 hover:text-blue-700 font-bold py-2.5 px-4 rounded-xl text-xs text-left transition-all shadow-sm cursor-pointer"
-=======
-                          className="bg-white hover:bg-indigo-50 border border-slate-100 hover:border-indigo-200 text-slate-700 hover:text-indigo-700 font-bold py-2.5 px-4 rounded-xl text-xs text-left transition-all shadow-sm cursor-pointer"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                         >
                           {opt.label}
                         </button>
@@ -1085,26 +1042,15 @@ export default function ChatbotKomi({
                     <div className="bg-white border border-slate-100 rounded-2xl p-4 shadow-md max-w-sm mt-1">
                       <div className="flex items-center justify-between text-xs font-extrabold text-slate-400 uppercase mb-2">
                         <span>견적 세팅 진행도</span>
-<<<<<<< HEAD
                         <span className="text-blue-600">75% (3/4 단계)</span>
                       </div>
                       <div className="w-full bg-slate-100 h-2 rounded-full mb-4 overflow-hidden">
                         <div className="bg-blue-600 h-full w-[75%] rounded-full"></div>
-=======
-                        <span className="text-indigo-600">75% (3/4 단계)</span>
-                      </div>
-                      <div className="w-full bg-slate-100 h-2 rounded-full mb-4 overflow-hidden">
-                        <div className="bg-indigo-600 h-full w-[75%] rounded-full"></div>
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                       </div>
 
                       <div className="flex items-center justify-between font-bold text-xs text-slate-700 mb-2">
                         <span>희망 예산 설정</span>
-<<<<<<< HEAD
                         <span className="text-sm font-black text-blue-600">
-=======
-                        <span className="text-sm font-black text-indigo-600">
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                           {((flowState.budget || 1500000) / 10000).toLocaleString()}만원
                         </span>
                       </div>
@@ -1116,11 +1062,7 @@ export default function ChatbotKomi({
                         step="50000"
                         value={flowState.budget || 1500000}
                         onChange={(e) => setFlowState((p) => ({ ...p, budget: Number(e.target.value) }))}
-<<<<<<< HEAD
                         className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-blue-600 focus:outline-none"
-=======
-                        className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-indigo-600 focus:outline-none"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                         id="budget-range-slider"
                       />
                       <div className="flex justify-between text-[10px] text-slate-400 font-bold mt-1">
@@ -1131,11 +1073,7 @@ export default function ChatbotKomi({
 
                       <button
                         onClick={() => handleRecBudget(flowState.budget || 1500000)}
-<<<<<<< HEAD
                         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs mt-4 shadow-md cursor-pointer transition-colors"
-=======
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-xl text-xs mt-4 shadow-md cursor-pointer transition-colors"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                         id="budget-confirm-btn"
                       >
                         예산 확정하기 💳
@@ -1149,11 +1087,7 @@ export default function ChatbotKomi({
                       {msg.data.map((spec: any, idx: number) => (
                         <div key={idx} className="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-md flex flex-col">
                           <div className={`p-3 text-white font-extrabold text-xs flex justify-between items-center ${
-<<<<<<< HEAD
                             idx === 0 ? "bg-emerald-600" : idx === 1 ? "bg-blue-600" : "bg-purple-700"
-=======
-                            idx === 0 ? "bg-emerald-600" : idx === 1 ? "bg-indigo-600" : "bg-purple-700"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                           }`}>
                             <span>{spec.title}</span>
                             <span className="bg-white/20 px-2 py-0.5 rounded uppercase text-[9px]">
@@ -1196,11 +1130,7 @@ export default function ChatbotKomi({
 
                             <div className="flex items-center justify-between font-black text-slate-900 text-sm border-b border-slate-50 pb-3">
                               <span>총 조립 단가액</span>
-<<<<<<< HEAD
                               <span className="text-base text-blue-600">₩{spec.price.toLocaleString()}</span>
-=======
-                              <span className="text-base text-indigo-600">₩{spec.price.toLocaleString()}</span>
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                             </div>
 
                             <div className="grid grid-cols-2 gap-2 mt-2">
@@ -1216,11 +1146,7 @@ export default function ChatbotKomi({
                                   onAddToCart(spec);
                                   onClose();
                                 }}
-<<<<<<< HEAD
                                 className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-lg text-[10px] transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
-=======
-                                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 rounded-lg text-[10px] transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                                 id={`add-cart-spec-btn-${spec.id}`}
                               >
                                 <ShoppingCart className="w-3.5 h-3.5" /> 장바구니 담기
@@ -1264,11 +1190,7 @@ export default function ChatbotKomi({
                             <span className="font-bold">단점:</span> {msg.data.cons[0]}
                           </div>
                           <div className="text-slate-600 font-medium border border-slate-100 p-2 rounded-lg">
-<<<<<<< HEAD
                             <span className="font-bold text-blue-600">추천 고객:</span> {msg.data.recommendedUsers[0]}
-=======
-                            <span className="font-bold text-indigo-600">추천 고객:</span> {msg.data.recommendedUsers[0]}
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                           </div>
                         </div>
 
@@ -1284,11 +1206,7 @@ export default function ChatbotKomi({
                               onAddToCart(msg.data);
                               onClose();
                             }}
-<<<<<<< HEAD
                             className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-lg text-[10px] transition-colors flex items-center justify-center gap-1 cursor-pointer shadow"
-=======
-                            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 rounded-lg text-[10px] transition-colors flex items-center justify-center gap-1 cursor-pointer shadow"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                             id={`add-product-chat-btn-${msg.data.id}`}
                           >
                             장바구니 담기
@@ -1331,11 +1249,7 @@ export default function ChatbotKomi({
 
                       <button
                         onClick={handleRequestAsVisit}
-<<<<<<< HEAD
                         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs shadow cursor-pointer transition-colors"
-=======
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-xl text-xs shadow cursor-pointer transition-colors"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                         id="as-visit-request-btn"
                       >
                         출장 보증 A/S 현장 점검 신청 🔧
@@ -1389,11 +1303,7 @@ export default function ChatbotKomi({
 
                       <button
                         onClick={submitAsTicketForm}
-<<<<<<< HEAD
                         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs shadow cursor-pointer transition-colors"
-=======
-                        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-xl text-xs shadow cursor-pointer transition-colors"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                         id="as-form-submit-btn"
                       >
                         출장 접수 기사 배정 신청하기 ✅
@@ -1431,11 +1341,7 @@ export default function ChatbotKomi({
                   {/* Flow 2: Gemini Revised Custom Specs Card */}
                   {msg.type === "parts_info" && msg.data && (
                     <div className="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-lg max-w-sm mt-1">
-<<<<<<< HEAD
                       <div className="p-3 bg-gradient-to-r from-blue-700 to-indigo-800 text-white font-extrabold text-xs flex items-center justify-between">
-=======
-                      <div className="p-3 bg-gradient-to-r from-indigo-700 to-indigo-900 text-white font-extrabold text-xs flex items-center justify-between">
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                         <span>🔄 AI 리비전 맞춤형 조립 PC</span>
                         <span className="bg-white/20 px-1.5 py-0.5 rounded text-[9px] uppercase">Revised</span>
                       </div>
@@ -1457,11 +1363,7 @@ export default function ChatbotKomi({
 
                         <div className="flex items-center justify-between font-black text-slate-900 text-sm border-b border-slate-50 pb-2.5">
                           <span>최종 실속 총액</span>
-<<<<<<< HEAD
                           <span className="text-base text-blue-600">₩{msg.data.price.toLocaleString()}</span>
-=======
-                          <span className="text-base text-indigo-600">₩{msg.data.price.toLocaleString()}</span>
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                         </div>
 
                         <div className="grid grid-cols-2 gap-2 mt-2">
@@ -1477,11 +1379,7 @@ export default function ChatbotKomi({
                               onAddToCart(msg.data);
                               onClose();
                             }}
-<<<<<<< HEAD
                             className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-lg text-[10px] transition-colors flex items-center justify-center gap-1 cursor-pointer shadow-sm"
-=======
-                            className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 rounded-lg text-[10px] transition-colors flex items-center justify-center gap-1 cursor-pointer shadow-sm"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                             id="rerec-add-cart-btn"
                           >
                             <ShoppingCart className="w-3.5 h-3.5" /> 장바구니 담기
@@ -1497,11 +1395,7 @@ export default function ChatbotKomi({
             {/* Typing Loader dots */}
             {isTyping && (
               <div className="flex gap-2.5 justify-start items-center">
-<<<<<<< HEAD
                 <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex-shrink-0 flex items-center justify-center text-sm shadow animate-bounce">
-=======
-                <div className="w-8 h-8 rounded-full bg-indigo-600 text-white flex-shrink-0 flex items-center justify-center text-sm shadow animate-bounce">
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                   🤖
                 </div>
                 <div className="bg-white border border-slate-100 rounded-2xl rounded-tl-none p-3 shadow-sm max-w-[70%] text-xs flex items-center gap-2 text-slate-500">
@@ -1518,20 +1412,12 @@ export default function ChatbotKomi({
             {/* Analysis custom loading screens (Flow 2 step 5) */}
             {flowState.currentFlow === "recommend" && flowState.step === 5 && (
               <div className="flex flex-col items-center justify-center text-center p-6 bg-white rounded-2xl border border-slate-100 shadow-md">
-<<<<<<< HEAD
                 <div className="w-12 h-12 rounded-full border-4 border-blue-100 border-t-blue-600 animate-spin mb-3"></div>
-=======
-                <div className="w-12 h-12 rounded-full border-4 border-indigo-100 border-t-indigo-600 animate-spin mb-3"></div>
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                 <h5 className="font-extrabold text-slate-800 text-xs">사용 패턴 및 예산 정밀 분석 중...</h5>
                 <p className="text-[10px] text-slate-400 mt-1">
                   AI 코미 회로가 카탈로그를 탐색하여 호환 등급 1등급 조합을 추출하고 있습니다.
                 </p>
-<<<<<<< HEAD
                 <div className="mt-4 text-xs font-black text-blue-600 animate-pulse bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
-=======
-                <div className="mt-4 text-xs font-black text-indigo-600 animate-pulse bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
                   컴퓨존 최상위 부품 실시간 검색 중
                 </div>
               </div>
@@ -1546,11 +1432,7 @@ export default function ChatbotKomi({
                   addUserMessage("맞춤 PC 추천해줘");
                   startRecommendationFlow();
                 }}
-<<<<<<< HEAD
                 className="inline-block bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 font-bold px-3 py-1.5 rounded-full text-[10px] cursor-pointer"
-=======
-                className="inline-block bg-white hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 text-slate-700 hover:text-indigo-700 font-bold px-3 py-1.5 rounded-full text-[10px] cursor-pointer"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
               >
                 🎮 PC 견적 추천
               </button>
@@ -1559,11 +1441,7 @@ export default function ChatbotKomi({
                   addUserMessage("내 PC A/S 보증기한 알려줘");
                   startAsFlow();
                 }}
-<<<<<<< HEAD
                 className="inline-block bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 font-bold px-3 py-1.5 rounded-full text-[10px] cursor-pointer"
-=======
-                className="inline-block bg-white hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 text-slate-700 hover:text-indigo-700 font-bold px-3 py-1.5 rounded-full text-[10px] cursor-pointer"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
               >
                 🛡️ 무상 A/S 조회
               </button>
@@ -1572,21 +1450,13 @@ export default function ChatbotKomi({
                   addUserMessage("상담사 연결 원해요");
                   startCounselorFlow();
                 }}
-<<<<<<< HEAD
                 className="inline-block bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 font-bold px-3 py-1.5 rounded-full text-[10px] cursor-pointer"
-=======
-                className="inline-block bg-white hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 text-slate-700 hover:text-indigo-700 font-bold px-3 py-1.5 rounded-full text-[10px] cursor-pointer"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
               >
                 👔 상담사 연결
               </button>
               <button
                 onClick={() => handleMenuFinder("빠른 견적 어디서 해요?")}
-<<<<<<< HEAD
                 className="inline-block bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-700 font-bold px-3 py-1.5 rounded-full text-[10px] cursor-pointer"
-=======
-                className="inline-block bg-white hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 text-slate-700 hover:text-indigo-700 font-bold px-3 py-1.5 rounded-full text-[10px] cursor-pointer"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
               >
                 📍 견적 메뉴 찾기
               </button>
@@ -1615,20 +1485,12 @@ export default function ChatbotKomi({
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSendText()}
-<<<<<<< HEAD
               className="flex-1 h-10 px-4 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-blue-500 focus:bg-white text-slate-800 transition-all"
-=======
-              className="flex-1 h-10 px-4 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-indigo-500 focus:bg-white text-slate-800 transition-all"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
               id="chatbot-text-input"
             />
             <button
               onClick={handleSendText}
-<<<<<<< HEAD
               className="p-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-md cursor-pointer transition-transform duration-100 hover:scale-105"
-=======
-              className="p-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl shadow-md cursor-pointer transition-transform duration-100 hover:scale-105"
->>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
               id="chatbot-send-btn"
             >
               <Send className="w-4 h-4" />
