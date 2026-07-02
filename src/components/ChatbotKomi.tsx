@@ -243,6 +243,35 @@ export default function ChatbotKomi({
     }, 600);
   };
 
+  const getLivePerformancePreview = (val: number, isGame: boolean) => {
+    if (val < 1000000) {
+      return {
+        rating: "가성비 알뜰 구성",
+        score: "★☆☆☆☆"
+      };
+    } else if (val < 1400000) {
+      return {
+        rating: "밸런스 실속 구성",
+        score: "★★★☆☆"
+      };
+    } else if (val < 1800000) {
+      return {
+        rating: "인기 강추 국민 균형",
+        score: "★★★★☆"
+      };
+    } else if (val < 2200000) {
+      return {
+        rating: "고사양 든든 정복",
+        score: "★★★★★"
+      };
+    } else {
+      return {
+        rating: "끝판왕 하이엔드 정점",
+        score: "👑 최상급"
+      };
+    }
+  };
+
   const getLivePerformanceLabel = (budget: number, usage: string | undefined, detail: string | undefined) => {
     const b = budget || 1500000;
     const isGame = usage === "게임";
@@ -1274,10 +1303,18 @@ export default function ChatbotKomi({
                       </div>
 
                       {/* Real-time FPS / performance preview */}
-                      <div className="bg-blue-50 border border-blue-100 rounded-xl p-2.5 mb-3 text-center">
-                        <span className="text-[11px] font-bold text-blue-700">
+                      <div className="bg-blue-50/70 border border-blue-100/60 rounded-xl p-3 mb-3 text-center space-y-1.5 shadow-xs">
+                        <div className="flex justify-between items-center text-[10px] font-extrabold text-blue-700">
+                          <span className="bg-blue-600 text-white px-2 py-0.5 rounded-md">
+                            {getLivePerformancePreview(flowState.budget || 1500000, flowState.usage === "게임").rating}
+                          </span>
+                          <span className="text-amber-500 font-mono tracking-wider">
+                            {getLivePerformancePreview(flowState.budget || 1500000, flowState.usage === "게임").score}
+                          </span>
+                        </div>
+                        <p className="text-[11px] font-black text-slate-700 leading-normal">
                           {getLivePerformanceLabel(flowState.budget || 1500000, flowState.usage, flowState.detail)}
-                        </span>
+                        </p>
                       </div>
 
                       <input
@@ -1343,6 +1380,34 @@ export default function ChatbotKomi({
 
                                 <div className="text-slate-800 text-xs font-semibold leading-relaxed border-b border-slate-50 pb-2.5">
                                   {spec.reason}
+                                </div>
+
+                                {/* Usage compatibility visualization weights (Ported from compuzone-ai-pc-build-assistant) */}
+                                <div className="bg-slate-50/70 border border-slate-100/60 rounded-xl p-3 text-[10px] text-slate-500 space-y-2">
+                                  <div className="flex justify-between items-center text-[9px] font-extrabold text-slate-400 uppercase">
+                                    <span>용도 적합성 분석</span>
+                                    <span>정합도</span>
+                                  </div>
+                                  <div className="space-y-1.5 font-bold text-slate-700">
+                                    <div>
+                                      <div className="flex justify-between mb-0.5">
+                                        <span>{spec.type === "cheap" ? (flowState.usage === "게임" ? "캐주얼 게임" : "기본 디자인") : spec.type === "balance" ? (flowState.usage === "게임" ? "고사양 게임" : "프로 디자인") : (flowState.usage === "게임" ? "하이엔드 스팀" : "전문 3D 렌더링")}</span>
+                                        <span>{spec.type === "cheap" ? 70 : spec.type === "balance" ? 85 : 98}%</span>
+                                      </div>
+                                      <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                        <div className={`h-full rounded-full ${idx === 0 ? "bg-emerald-500" : idx === 1 ? "bg-blue-500" : "bg-purple-600"}`} style={{ width: `${spec.type === "cheap" ? 70 : spec.type === "balance" ? 85 : 98}%` }}></div>
+                                      </div>
+                                    </div>
+                                    <div>
+                                      <div className="flex justify-between mb-0.5 text-slate-500">
+                                        <span>{spec.type === "cheap" ? (flowState.usage === "게임" ? "일반 사무용" : "웹 서핑") : spec.type === "balance" ? (flowState.usage === "게임" ? "멀티미디어" : "대용량 작업") : (flowState.usage === "게임" ? "영상 송출" : "배치 가속")}</span>
+                                        <span>{spec.type === "cheap" ? 30 : spec.type === "balance" ? 15 : 2}%</span>
+                                      </div>
+                                      <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                        <div className="bg-slate-300 h-full rounded-full" style={{ width: `${spec.type === "cheap" ? 30 : spec.type === "balance" ? 15 : 2}%` }}></div>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
 
                                 {/* Specifications breakdown */}
