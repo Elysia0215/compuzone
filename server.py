@@ -829,7 +829,8 @@ if __name__ == '__main__':
     import uvicorn
     # Determine execution mode from environment
     is_prod = os.environ.get("FLASK_ENV") == "production" or os.environ.get("NODE_ENV") == "production" or os.environ.get("FASTAPI_ENV") == "production"
-    target_port = 3000 if is_prod else 8000
+    # Railway가 주는 PORT 환경변수를 우선 사용, 없으면 로컬 기본값
+    target_port = int(os.environ.get("PORT", 8000))
     
     print(f"Starting Compuzone FastAPI Backend (is_prod={is_prod}) on port {target_port}...")
     uvicorn.run("server:app", host='0.0.0.0', port=target_port, reload=not is_prod)
