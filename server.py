@@ -396,13 +396,13 @@ def build_configuration(purpose: str, items: list[str], budget_val: int, build_t
 
     # Assemble specs
     parts_picked = [
-        {"category": "CPU", "name": selected_cpu["name"], "price": selected_cpu["price"], "product_id": selected_cpu["product_id"]},
-        {"category": "GPU", "name": selected_gpu["name"], "price": selected_gpu["price"], "product_id": selected_gpu["product_id"]},
-        {"category": "MB", "name": selected_mb["name"], "price": selected_mb["price"], "product_id": selected_mb["product_id"]},
-        {"category": "RAM", "name": f"{selected_ram['name']} x{ram_count}", "price": selected_ram["price"] * ram_count, "product_id": selected_ram["product_id"]},
-        {"category": "SSD", "name": selected_ssd["name"], "price": selected_ssd["price"], "product_id": selected_ssd["product_id"]},
-        {"category": "Power", "name": selected_power["name"], "price": selected_power["price"], "product_id": selected_power["product_id"]},
-        {"category": "Cooler", "name": selected_cooler["name"], "price": selected_cooler["price"], "product_id": selected_cooler["product_id"]}
+        {"category": "CPU", "name": selected_cpu["name"], "price": selected_cpu["price"], "product_id": selected_cpu["product_id"], "description": selected_cpu.get("description", "최고의 연산 속도를 보증하는 고성능 프로세서입니다."), "stock": selected_cpu.get("stock", True), "tdp": selected_cpu.get("tdp", 65)},
+        {"category": "GPU", "name": selected_gpu["name"], "price": selected_gpu["price"], "product_id": selected_gpu["product_id"], "description": selected_gpu.get("description", "화려한 3D 그래픽 연산을 담당하는 독립형 그래픽 장치입니다."), "stock": selected_gpu.get("stock", True), "tdp": selected_gpu.get("tdp", 150)},
+        {"category": "MB", "name": selected_mb["name"], "price": selected_mb["price"], "product_id": selected_mb["product_id"], "description": selected_mb.get("description", "모든 부품을 안정적으로 제어 및 확장해주는 컴퓨터의 뼈대 메인보드입니다."), "stock": selected_mb.get("stock", True), "tdp": selected_mb.get("tdp", 0)},
+        {"category": "RAM", "name": f"{selected_ram['name']} x{ram_count}", "price": selected_ram["price"] * ram_count, "product_id": selected_ram["product_id"], "description": selected_ram.get("description", "포토샵, 게임 멀티태스킹 등을 부드럽게 유지하는 시스템 임시 메모리입니다."), "stock": selected_ram.get("stock", True), "tdp": selected_ram.get("tdp", 10)},
+        {"category": "SSD", "name": selected_ssd["name"], "price": selected_ssd["price"], "product_id": selected_ssd["product_id"], "description": selected_ssd.get("description", "고용량 게임 및 작업 결과물을 안심하고 보관하는 초고속 저장 공간입니다."), "stock": selected_ssd.get("stock", True), "tdp": selected_ssd.get("tdp", 5)},
+        {"category": "Power", "name": selected_power["name"], "price": selected_power["price"], "product_id": selected_power["product_id"], "description": selected_power.get("description", "부품 전체에 안정적이고 깨깝한 정격 전력을 공급하는 에너지 심장입니다."), "stock": selected_power.get("stock", True), "tdp": selected_power.get("tdp", 0)},
+        {"category": "Cooler", "name": selected_cooler["name"], "price": selected_cooler["price"], "product_id": selected_cooler["product_id"], "description": selected_cooler.get("description", "부하가 걸린 부품의 열을 신속히 억제하여 스로틀링을 방지하는 정숙한 쿨러입니다."), "stock": selected_cooler.get("stock", True), "tdp": selected_cooler.get("tdp", 0)}
     ]
 
     total_price = sum(item["price"] for item in parts_picked)
@@ -468,18 +468,18 @@ async def classify(request: ClassifyRequest):
     if not ai:
         msg = message.lower()
         intent = "general"
-        if any(x in msg for x in ["어디", "위치", "메뉴", "바로가기", "견적 어디서"]):
-            intent = "menu"
-        elif any(x in msg for x in ["추천", "견적", "조립", "맞춤 pc", "컴퓨터 맞추"]):
+        if any(x in msg for x in ["추천", "견적", "조립", "맞춤", "사양", "용도", "게임용", "작업용", "사무용", "가성비", "균형", "성능", "맞춰"]):
             intent = "recommend"
-        elif any(x in msg for x in ["5060", "4070", "4060", "rtx", "ryzen", "라이젠", "i5", "i7", "인텔", "삼성 램", "990pro"]):
+        elif any(x in msg for x in ["5060", "4070", "4060", "rtx", "ryzen", "라이젠", "i5", "i7", "인텔", "삼성 램", "990pro", "인기제품", "모델", "상세", "가격"]):
             intent = "product"
-        elif any(x in msg for x in ["cpu", "gpu", "메인보드", "메모리", "파워", "ssd", "품목", "부품이 뭐"]):
+        elif any(x in msg for x in ["cpu", "gpu", "메인보드", "메모리", "파워", "ssd", "품목", "부품", "그래픽카드", "저장장치", "쿨러", "케이스", "보드", "램", "파워서플라이", "하드"]):
             intent = "category"
-        elif any(x in msg for x in ["상담", "사람", "직원", "상담사", "고객센터", "전화"]):
+        elif any(x in msg for x in ["상담", "사람", "직원", "상담사", "고객센터", "전화", "연결", "문의"]):
             intent = "counselor"
-        elif any(x in msg for x in ["as", "a/s", "보증", "고장", "수리", "망가", "안 켜", "안켜", "오작동", "as 언제까지", "이상해"]):
+        elif any(x in msg for x in ["as", "a/s", "보증", "고장", "수리", "망가", "안 켜", "안켜", "오작동", "이상해", "배송", "택배", "운송장", "배달", "출고", "주문", "결제"]):
             intent = "as"
+        elif any(x in msg for x in ["어디", "위치", "메뉴", "바로가기", "사이트", "링크", "홈페이지", "화면", "처음"]):
+            intent = "menu"
         return {"intent": intent, "source": "fallback_rules"}
 
     try:
@@ -496,7 +496,7 @@ async def classify(request: ClassifyRequest):
         """
 
         response = ai.models.generate_content(
-            model='gemini-3.5-flash',
+            model='gemini-2.5-flash',
             contents=message,
             config=types.GenerateContentConfig(
                 system_instruction=system_prompt,
@@ -512,18 +512,18 @@ async def classify(request: ClassifyRequest):
         # Run rule-based fallback on Gemini API exception to keep system responsive
         msg = message.lower()
         intent = "general"
-        if any(x in msg for x in ["어디", "위치", "메뉴", "바로가기", "견적 어디서"]):
-            intent = "menu"
-        elif any(x in msg for x in ["추천", "견적", "조립", "맞춤 pc", "컴퓨터 맞추"]):
+        if any(x in msg for x in ["추천", "견적", "조립", "맞춤", "사양", "용도", "게임용", "작업용", "사무용", "가성비", "균형", "성능", "맞춰"]):
             intent = "recommend"
-        elif any(x in msg for x in ["5060", "4070", "4060", "rtx", "ryzen", "라이젠", "i5", "i7", "인텔", "삼성 램", "990pro"]):
+        elif any(x in msg for x in ["5060", "4070", "4060", "rtx", "ryzen", "라이젠", "i5", "i7", "인텔", "삼성 램", "990pro", "인기제품", "모델", "상세", "가격"]):
             intent = "product"
-        elif any(x in msg for x in ["cpu", "gpu", "메인보드", "메모리", "파워", "ssd", "품목", "부품이 뭐"]):
+        elif any(x in msg for x in ["cpu", "gpu", "메인보드", "메모리", "파워", "ssd", "품목", "부품", "그래픽카드", "저장장치", "쿨러", "케이스", "보드", "램", "파워서플라이", "하드"]):
             intent = "category"
-        elif any(x in msg for x in ["상담", "사람", "직원", "상담사", "고객센터", "전화"]):
+        elif any(x in msg for x in ["상담", "사람", "직원", "상담사", "고객센터", "전화", "연결", "문의"]):
             intent = "counselor"
-        elif any(x in msg for x in ["as", "a/s", "보증", "고장", "수리", "망가", "안 켜", "안켜", "오작동", "as 언제까지", "이상해"]):
+        elif any(x in msg for x in ["as", "a/s", "보증", "고장", "수리", "망가", "안 켜", "안켜", "오작동", "이상해", "배송", "택배", "운송장", "배달", "출고", "주문", "결제"]):
             intent = "as"
+        elif any(x in msg for x in ["어디", "위치", "메뉴", "바로가기", "사이트", "링크", "홈페이지", "화면", "처음"]):
+            intent = "menu"
         return {"intent": intent, "source": "error_rule_fallback"}
 
 # ==========================================
@@ -561,10 +561,26 @@ async def general_chat(request: GeneralChatRequest):
         - Answer concisely (usually under 3-4 sentences) unless the user asks for a detailed explanation.
         - Do not break character. Use cute robotic gestures if appropriate like "🤖" or "반가워요!".
         - If users ask about complex configurations, direct them naturally to the dynamic PC recommendation flow (상품추천) or counselor connection (상담원 연결).
+
+        [컴퓨존 공식 정책 및 안내 가이드]
+        1. 배송 정책:
+           - 오후 2시 이전 결제 완료 시 당일 출고되어 다음 날 도착합니다 (수도권 기준).
+           - 도서산간 지역은 추가 1~2일이 소요됩니다.
+        2. A/S 및 보증 정책:
+           - 초기 불량은 수령 후 7일 이내 교환 및 환불이 가능합니다.
+           - 단순 변심은 수령 후 7일 이내 미개봉 상태인 상품만 처리 가능합니다.
+           - 부품별 무상 보증 기한: CPU/메인보드/RAM 3년, SSD 3~5년, 그래픽카드(GPU) 2~3년입니다.
+           - 병행수입 제품은 국내 공식 A/S가 불가능하며, 수입사를 통해 처리해야 합니다.
+        3. 결제 혜택:
+           - 카드사별로 최대 12개월 무이자 할부가 지원됩니다.
+           - 결제 시 구매 금액의 1~3%가 포인트로 적립됩니다.
+           - 7일 이내에 동일 제품의 타사 판매가가 더 저렴할 경우 차액을 보상하는 최저가 보장제를 운영합니다.
+        4. 조립 대행 서비스:
+           - 부품 구매 시 유료로 조립 대행 서비스를 신청할 수 있으며, 조립 완료 후 기본적인 구동 테스트를 거쳐 안전하게 발송됩니다.
         """
 
         response = ai.models.generate_content(
-            model='gemini-3.5-flash',
+            model='gemini-2.5-flash',
             contents=chat_history,
             config=types.GenerateContentConfig(
                 system_instruction=system_instruction
@@ -640,7 +656,7 @@ async def recommend_feedback(request: RecommendFeedbackRequest):
 
         prompt = f"사용자 피드백: {user_feedback}\n기존 견적: {json.dumps(current_specs, ensure_ascii=False)}"
         response = ai.models.generate_content(
-            model='gemini-3.5-flash',
+            model='gemini-2.5-flash',
             contents=prompt,
             config=types.GenerateContentConfig(
                 system_instruction=system_instruction,
@@ -707,7 +723,7 @@ async def query_product(request: ProductQueryRequest):
         """
 
         response = ai.models.generate_content(
-            model='gemini-3.5-flash',
+            model='gemini-2.5-flash',
             contents=product_name,
             config=types.GenerateContentConfig(
                 system_instruction=system_prompt
@@ -773,7 +789,7 @@ async def query_category(request: CategoryQueryRequest):
         """
 
         response = ai.models.generate_content(
-            model='gemini-3.5-flash',
+            model='gemini-2.5-flash',
             contents=category_name,
             config=types.GenerateContentConfig(
                 system_instruction=system_prompt
@@ -870,7 +886,7 @@ async def recommend(request: RecommendRequest):
                 
                 prompt = f"CPU: {setup['cpu_name']}, GPU: {setup['gpu_name']}, Strategy: {title_prefix}"
                 response = ai.models.generate_content(
-                    model='gemini-3.5-flash',
+                    model='gemini-2.5-flash',
                     contents=prompt,
                     config=types.GenerateContentConfig(
                         system_instruction=system_instruction,
