@@ -1,0 +1,5 @@
+requests
+beautifulsoup4
+chromadb
+python-dotenv
+google-genai
