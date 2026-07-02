@@ -1,0 +1,80 @@
+{
+  "menus": [
+    {
+      "id": "assembled_main",
+      "name": "조립PC 메인관",
+      "one_line": "완성형 조립PC 구경 + 견적 짜러 가는 갈래를 나눠주는 관문",
+      "when": ["pc 잘 모름", "빠르게 사고 싶음", "완성된 pc", "추천 조립", "직접 견적", "오늘 받기", "바로픽업", "조립피씨", "조립컴퓨터", "조립컴"],
+      "deeplink": "https://www.compuzone.co.kr/product/Allassembled.htm?bannerid=GNBBannerPremium",
+      "guide": "PC를 잘 모르거나 빠르게 사고 싶으면 완성형(추천조립·아이웍스), 구성이 명확하면 직접 조립PC 견적으로 가면 돼요."
+    },
+    {
+      "id": "ai_desktop",
+      "name": "AI 데스크탑 기획전",
+      "one_line": "AI용 데스크탑을 엄선해 진열한 기획전(홍보성) 페이지",
+      "when": ["ai pc", "ai 작업", "딥러닝", "ai 상담", "엄선된 ai", "머신러닝", "인공지능 pc"],
+      "deeplink": "https://www.compuzone.co.kr/event_zone/eventzone_view.htm?bannerid=GNBBannerAIPC&EventNo=60921",
+      "guide": "AI 작업용 PC는 'AI 데스크탑 기획전'에서 골라둔 라인업을 보고, 애매하면 AI 전문 상담 링크를 쓰면 돼요."
+    },
+    {
+      "id": "parts",
+      "name": "컴퓨터 부품",
+      "one_line": "부품을 종류별로 모아 단품으로 찾아 담는 대분류 허브",
+      "when": ["부품", "cpu", "그래픽카드", "메모리", "ssd", "파워", "업그레이드", "직접 조립", "그래픽 카드", "메인보드", "하드디스크"],
+      "deeplink": "https://www.compuzone.co.kr/product/productB_new_list.htm?BigDivNo=4",
+      "guide": "부품을 직접 고르실 거면 '컴퓨터 부품'에서 종류→규격 순으로 좁히고 '견적담기'로 모아 호환성까지 보면 돼요."
+    },
+    {
+      "id": "monitor",
+      "name": "모니터",
+      "one_line": "용도별로 모니터를 필터·정렬해 고르는 상품 목록",
+      "when": ["모니터", "화면", "144hz", "4k", "게이밍 모니터", "듀얼모니터", "디스플레이"],
+      "deeplink": "https://www.compuzone.co.kr/product/productB_new_list.htm?BigDivNo=5",
+      "guide": "모니터는 먼저 용도(게임/편집/사무)를 정하면 스펙 기준이 잡혀요. 해상도·주사율·패널로 좁히면 됩니다."
+    },
+    {
+      "id": "peripheral_storage",
+      "name": "키보드·마우스·저장장치",
+      "one_line": "입력기기 + 저장장치를 한 대분류에 모아둔 목록",
+      "when": ["키보드", "마우스", "외장하드", "usb 메모리", "nas", "저장장치", "키마", "usb"],
+      "deeplink": "https://www.compuzone.co.kr/product/productB_new_list.htm?BigDivNo=7",
+      "guide": "입력기기인지 저장장치인지 먼저 고르면 길이 안 헷갈려요. 그 다음 소분류로 좁히면 됩니다."
+    },
+    {
+      "id": "server_ws",
+      "name": "서버·워크스테이션",
+      "one_line": "기업·전문가용 고성능 장비(B2B 성격) 카테고리",
+      "when": ["서버", "워크스테이션", "법인", "b2b", "대량 구매", "ups", "업무용 고사양", "ws"],
+      "deeplink": "https://www.compuzone.co.kr/product/productB_new_list.htm?BigDivNo=9",
+      "guide": "24시간 운영·전문 작업·법인 구매면 '서버·워크스테이션'이에요. 구성 복잡하면 '서버 견적 문의'를 쓰면 돼요."
+    },
+    {
+      "id": "hot_deal",
+      "name": "파격할인",
+      "one_line": "기간 한정으로 여러 카테고리 특가를 모아 보여주는 페이지",
+      "when": ["할인", "특가", "세일", "싸게", "이벤트 가격", "싼거", "저렴한"],
+      "deeplink": "https://www.compuzone.co.kr/product/product_exhibition.htm",
+      "guide": "특가는 한시적이라 남은 시간부터 확인하고, 낮은가격순으로 훑은 뒤 상세에서 재고를 확인하면 돼요."
+    },
+    {
+      "id": "software",
+      "name": "소프트웨어",
+      "one_line": "OS·오피스·설계·보안 라이선스/제품키를 파는 목록",
+      "when": ["윈도우", "오피스", "라이선스", "제품키", "백신", "cad", "소프트웨어", "엑셀", "os"],
+      "deeplink": "https://www.compuzone.co.kr/product/productB_new_list.htm?BigDivNo=15",
+      "guide": "소프트웨어는 '물건'이 아니라 라이선스예요. 목적별 카테고리→버전·라이선스 형태(구독/영구)를 꼭 확인하세요."
+    },
+    {
+      "id": "login",
+      "name": "로그인 / 계정",
+      "one_line": "회원·소셜 로그인, 아이디/비번 찾기, 비회원 주문조회",
+      "when": ["로그인", "회원가입", "비밀번호 찾기", "주문조회", "비회원", "로그 아웃", "가입"],
+      "deeplink": "https://www.compuzone.co.kr/member/login.htm",
+      "guide": "회원이면 아이디·비번으로, 카카오/네이버 가입자는 소셜 로그인으로요. 조회만 필요하면 비회원으로도 돼요."
+    }
+  ],
+  "fallback": {
+    "message": "정확한 메뉴를 못 찾았어요. 원하시는 걸 조금만 더 알려주시거나, 상담사 연결을 도와드릴까요?",
+    "action": "route_to_consult"
+  }
+}

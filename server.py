@@ -78,6 +78,9 @@ def get_gemini_client():
 class ClassifyRequest(BaseModel):
     message: str
 
+class FindMenuRequest(BaseModel):
+    utterance: str
+
 class ClassifyResponse(BaseModel):
     intent: str = Field(description="The classified user intent name: 'menu', 'recommend', 'product', 'category', 'counselor', 'as', or 'general'")
 
@@ -247,6 +250,19 @@ try:
         print("Warning: parts_db.json file not found.")
 except Exception as e:
     print(f"Error loading parts_db.json: {e}")
+
+# Load menu_map.json data
+menu_map = {"menus": [], "fallback": {}}
+try:
+    menu_map_path = os.path.join(os.path.dirname(__file__), "menu_map.json")
+    if os.path.exists(menu_map_path):
+        with open(menu_map_path, "r", encoding="utf-8") as f:
+            menu_map = json.load(f)
+        print(f"Successfully loaded {len(menu_map.get('menus', []))} menus from menu_map.json.")
+    else:
+        print("Warning: menu_map.json file not found.")
+except Exception as e:
+    print(f"Error loading menu_map.json: {e}")
 
 # ----------------------------------------------------
 # ChromaDB Semantic Search Client & Helper
@@ -1318,6 +1334,98 @@ async def recommend(request: RecommendRequest):
 @app.get('/api/health')
 async def health_check():
     return {"status": "ok"}
+
+@app.post('/api/find-menu')
+async def find_menu(request: FindMenuRequest):
+    utterance = request.utterance.strip().lower()
+    
+    # 1. Rule-based keyword matching (partial match or substring)
+    matched_menus = []
+    for menu in menu_map.get("menus", []):
+        for keyword in menu.get("when", []):
+            if keyword.lower() in utterance:
+                matched_menus.append(menu)
+                break  # match found for this menu, check next menu
+                
+    # Limit to 2 matched menus
+    if matched_menus:
+        return {
+            "matched": True,
+            "menus": [
+                {
+                    "name": m["name"],
+                    "guide": m["guide"],
+                    "deeplink": m["deeplink"]
+                }
+                for m in matched_menus[:2]
+            ]
+        }
+        
+    # 2. Fallback to LLM classifier if rule-based fails
+    ai = get_gemini_client()
+    if ai:
+        try:
+            menu_ids = [m["id"] for m in menu_map.get("menus", [])]
+            prompt = f"""사용자의 질문을 분석하여 다음 컴퓨존 메뉴 ID 목록 중 가장 알맞은 메뉴 ID(최대 2개)를 찾아줘.
+어떤 메뉴와도 일치하지 않거나 무의미한 입력이면 빈 리스트 []를 반환해.
+
+사용자 질문: "{request.utterance}"
+
+가능한 메뉴 ID 목록: {menu_ids}
+
+각 메뉴의 설명:
+{json.dumps([{ 'id': m['id'], 'name': m['name'], 'description': m['one_line'], 'keywords': m['when'] } for m in menu_map.get('menus', [])], ensure_ascii=False)}
+
+응답은 반드시 아래 형식의 JSON 데이터 구조 하나만 반환해줘. 설명이나 주석은 절대 붙이지 마:
+{{
+  "menu_ids": ["matched_id1", "matched_id2"]
+}}
+"""
+            response = ai.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    response_schema=types.Schema(
+                        type=types.Type.OBJECT,
+                        properties={
+                            "menu_ids": types.Schema(
+                                type=types.Type.ARRAY,
+                                items=types.Schema(type=types.Type.STRING)
+                            )
+                        },
+                        required=["menu_ids"]
+                    )
+                )
+            )
+            data = json.loads(response.text)
+            matched_ids = data.get("menu_ids", [])
+            matched_menus = [m for m in menu_map.get("menus", []) if m["id"] in matched_ids]
+            if matched_menus:
+                return {
+                    "matched": True,
+                    "menus": [
+                        {
+                            "name": m["name"],
+                            "guide": m["guide"],
+                            "deeplink": m["deeplink"]
+                        }
+                        for m in matched_menus[:2]
+                    ]
+                }
+        except Exception as e:
+            print(f"Gemini menu lookup failed: {e}")
+            
+    # Return fallback
+    fb = menu_map.get("fallback", {
+        "message": "정확한 메뉴를 못 찾았어요. 원하시는 걸 조금만 더 알려주시거나, 상담사 연결을 도와드릴까요?",
+        "action": "route_to_consult"
+    })
+    return {
+        "matched": False,
+        "message": fb.get("message"),
+        "action": fb.get("action")
+    }
 
 # ==========================================
 # STATIC FILES SERVING & SPA ROUTING MIDDLEWARE

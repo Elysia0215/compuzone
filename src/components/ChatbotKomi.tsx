@@ -222,10 +222,11 @@ export default function ChatbotKomi({
   // ----------------------------------------------------
   const handleMenuFinder = (keyword: string) => {
     setIsTyping(true);
-    setTimeout(() => {
-      setIsTyping(false);
-
-      if (keyword === "빠른 견적 어디서 해요?" || keyword.includes("빠른 견적") || keyword.includes("메뉴 찾기") || keyword.includes("견적 메뉴")) {
+    
+    // Quick handle for static greeting menu options without backend calls to speed up
+    if (keyword === "빠른 견적 어디서 해요?" || keyword.includes("빠른 견적") || keyword.includes("메뉴 찾기") || keyword.includes("견적 메뉴")) {
+      setTimeout(() => {
+        setIsTyping(false);
         addBotMessage({
           text: "컴퓨존에는 고객님의 용도와 구매 방식에 맞춘 다양한 **맞춤형 빠른 견적 서비스**가 준비되어 있어요! 🤖\n아래 상황 중 **원하는 행동을 선택해 주세요.**\n\n만약 목록에 없는 다른 원하시는 행동이 있다면 채팅창에 직접 말씀해 주셔도 제가 친절히 찾아드릴게요! 💬",
           type: "options",
@@ -238,35 +239,50 @@ export default function ChatbotKomi({
             { label: "🖥️ 기업용/서버(Server) 시스템 견적이 필요해요", action: "menu_opt_server" },
           ],
         });
-        return;
-      }
+      }, 600);
+      return;
+    }
 
-      let targetMenu = "간편 조립 견적";
-      let menuId = "quick-estimate";
-      let text = `"${keyword}" 메뉴를 찾으시는군요!\n컴퓨존의 해당 서비스 위치를 바로 찾아드릴게요! 🚀`;
-
-      if (keyword.includes("AS") || keyword.includes("고장") || keyword.includes("수리")) {
-        targetMenu = "A/S 안심케어 서비스";
-        menuId = "as-center";
-      } else if (keyword.includes(" FAQ") || keyword.includes("자주 묻는")) {
-        targetMenu = "상담 FAQ 백과";
-        menuId = "category-guide";
-      } else if (keyword.includes("입고") || keyword.includes("재입고")) {
-        targetMenu = "전체 부품 카탈로그";
-        menuId = "catalog-all";
-      }
-
-      addBotMessage({
-        text,
-        type: "deep_link",
-        deepLink: {
-          label: `${targetMenu} 바로가기 🔗`,
-          url: `#${menuId}`,
-          menuId,
-        },
+    // Call /api/find-menu backend routing mapping
+    fetch("/api/find-menu", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ utterance: keyword }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setIsTyping(false);
+        if (data.matched) {
+          addBotMessage({
+            text: `"${keyword}" 상황에 꼭 맞는 컴퓨존의 추천 서비스 페이지를 찾아왔어요! 🚀`,
+            type: "deep_link",
+            data: data.menus,
+          });
+        } else {
+          addBotMessage({
+            text: data.message || "정확한 메뉴를 찾지 못했습니다.",
+            type: "options",
+            options: [
+              { label: "👤 전문 상담사 연결하기", action: "counselor_redirect" },
+              { label: "🔄 다시 검색하기", action: "menu_opt_retry" },
+            ],
+          });
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to find menu:", err);
+        setIsTyping(false);
+        addBotMessage({
+          text: "서버 연결에 실패하여 메뉴 정보를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.",
+          type: "options",
+          options: [
+            { label: "👤 전문 상담사 연결하기", action: "counselor_redirect" },
+            { label: "🔄 다시 검색하기", action: "menu_opt_retry" },
+          ],
+        });
       });
-    }, 600);
   };
+  
 
   const handleMenuSelection = (label: string, action: string) => {
     addUserMessage(label);
@@ -1157,6 +1173,12 @@ export default function ChatbotKomi({
       submitReRecommendationFeedback(text);
     } else if (action === "counsel_purch" || action === "counsel_as" || action === "counsel_corp") {
       handleCounselorType(label);
+    } else if (action === "counselor_redirect") {
+      addUserMessage("전문 기술 상담사 연결해줘");
+      startCounselorFlow();
+    } else if (action === "menu_opt_retry") {
+      addUserMessage("다시 검색할래");
+      handleMenuFinder("빠른 견적 어디서 해요?");
     } else if (action === "go_home_back") {
       addUserMessage("홈 메뉴로 돌아갈래");
       initChat();
@@ -1301,16 +1323,42 @@ export default function ChatbotKomi({
                   )}
 
                   {/* FLOW ①: Deep Link Card */}
-                  {msg.type === "deep_link" && msg.deepLink && (
-                    <div className="bg-white border border-slate-100 rounded-2xl p-3.5 shadow-md text-center max-w-sm mt-1">
-                      <p className="text-[11px] text-slate-500 mb-2.5">찾으시는 메뉴로 바로 딥링크 이동하세요!</p>
-                      <a
-                        href={msg.deepLink.url}
-                        className="inline-block w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2 px-4 rounded-xl shadow transition-colors cursor-pointer"
-                        id={`deep-link-${msg.deepLink.menuId}`}
-                      >
-                        {msg.deepLink.label}
-                      </a>
+                  {msg.type === "deep_link" && (
+                    <div className="flex flex-col gap-3 mt-1 max-w-sm w-full">
+                      {msg.data && Array.isArray(msg.data) ? (
+                        msg.data.map((menu: any, index: number) => (
+                          <div key={index} className="bg-white border border-slate-100 rounded-2xl p-4 shadow-md flex flex-col gap-2">
+                            <div className="text-[11px] text-left font-bold text-slate-500 border-b border-slate-50 pb-1.5 flex items-center justify-between">
+                              <span>🎯 {menu.name}</span>
+                              <span className="text-[9px] bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full font-medium">추천 메뉴</span>
+                            </div>
+                            <p className="text-xs text-left text-slate-600 leading-relaxed font-medium">
+                              {menu.guide}
+                            </p>
+                            <a
+                              href={menu.deeplink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold py-2 px-4 rounded-xl shadow transition-colors cursor-pointer mt-1"
+                            >
+                              바로가기 🔗
+                            </a>
+                          </div>
+                        ))
+                      ) : msg.deepLink ? (
+                        <div className="bg-white border border-slate-100 rounded-2xl p-3.5 shadow-md text-center">
+                          <p className="text-[11px] text-slate-500 mb-2.5">찾으시는 메뉴로 바로 딥링크 이동하세요!</p>
+                          <a
+                            href={msg.deepLink.url.startsWith("#") ? msg.deepLink.url : msg.deepLink.url}
+                            target={msg.deepLink.url.startsWith("#") ? undefined : "_blank"}
+                            rel={msg.deepLink.url.startsWith("#") ? undefined : "noopener noreferrer"}
+                            className="inline-block w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2 px-4 rounded-xl shadow transition-colors cursor-pointer"
+                            id={`deep-link-${msg.deepLink.menuId}`}
+                          >
+                            {msg.deepLink.label}
+                          </a>
+                        </div>
+                      ) : null}
                     </div>
                   )}
 
