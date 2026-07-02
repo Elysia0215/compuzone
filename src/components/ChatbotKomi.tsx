@@ -298,12 +298,12 @@ export default function ChatbotKomi({
       if (action === "menu_opt_discount") {
         targetMenu = "깎아줘! PC";
         menuId = "discount-pc";
-        targetUrl = "https://www.compuzone.co.kr/online/discount_member_list.htm";
+        targetUrl = "https://www.compuzone.co.kr/online/online_estimate.htm";
         descText = "타 사이트에서 받으신 조립PC 견적서를 첨부하면 컴퓨존의 전문가가 검토하여 추가로 할인된 가격을 제안해 드리는 **'깎아줘! PC'** 메뉴를 추천해 드려요! 오늘주문 오늘발송 및 컴퓨존의 확실한 교환·반품 A/S를 보증합니다. 🛠️";
       } else if (action === "menu_opt_bulk") {
         targetMenu = "대량구매 견적";
         menuId = "bulk-order";
-        targetUrl = "https://www.compuzone.co.kr/online/online_estimate_b2b.htm";
+        targetUrl = "https://www.compuzone.co.kr/online/online_estimate.htm";
         descText = "회사, 학교 등 단체 구매 고객을 위한 전용 견적 채널인 **'대량구매 견적'** 서비스입니다. 신청 사양을 미리 장바구니에 담아 신청하면 담당자 배정 및 실시간 검토 상태가 업데이트되며 카카오톡 알림을 드립니다. 📦";
       } else if (action === "menu_opt_easy") {
         targetMenu = "간편 조립PC 견적";
@@ -323,7 +323,7 @@ export default function ChatbotKomi({
       } else if (action === "menu_opt_server") {
         targetMenu = "빠른 서버 견적내기";
         menuId = "server-pc";
-        targetUrl = "https://www.compuzone.co.kr/online/server_estimate.htm";
+        targetUrl = "https://www.compuzone.co.kr/online/online_estimate.htm";
         descText = "일반용 PC가 아닌, 기업용 서버 시스템 구축을 위해 CPU 코어 수, 메모리, 저장장치, OS 라이선스 등을 단계별 가이드에 맞춰 손쉽게 커스텀하고 예상 수량 견적을 계산할 수 있는 **'빠른 서버 견적내기'** 전용 메뉴를 추천합니다. 🖥️";
       }
       
