@@ -34,17 +34,39 @@ export default function StoreFront({
   onTriggerMenuLink,
 }: StoreFrontProps) {
   const [selectedProduct, setSelectedProduct] = React.useState<Product | null>(null);
+  const [activeCategory, setActiveCategory] = React.useState<string>("전체");
+  const [visibleCount, setVisibleCount] = React.useState<number>(8);
+
+  const categories = [
+    { label: "전체", value: "전체" },
+    { label: "CPU", value: "CPU" },
+    { label: "그래픽카드 (GPU)", value: "GPU" },
+    { label: "메인보드 (MB)", value: "Motherboard" },
+    { label: "메모리 (RAM)", value: "RAM" },
+    { label: "SSD", value: "SSD" },
+    { label: "파워 (PSU)", value: "Power" },
+    { label: "쿨러/튜닝", value: "Cooler" },
+  ];
+
+  const handleCategoryChange = (catVal: string) => {
+    setActiveCategory(catVal);
+    setVisibleCount(8);
+  };
 
   const filteredProducts = React.useMemo(() => {
-    if (!searchTerm) return PRODUCT_CATALOG;
+    let list = PRODUCT_CATALOG;
+    if (activeCategory !== "전체") {
+      list = list.filter((p) => p.category === activeCategory);
+    }
+    if (!searchTerm) return list;
     const term = searchTerm.toLowerCase();
-    return PRODUCT_CATALOG.filter(
+    return list.filter(
       (p) =>
         p.name.toLowerCase().includes(term) ||
         p.category.toLowerCase().includes(term) ||
         p.description.toLowerCase().includes(term)
     );
-  }, [searchTerm]);
+  }, [searchTerm, activeCategory]);
 
   const totalCartPrice = React.useMemo(() => {
     return cart.reduce((sum, item) => sum + item.item.price * item.quantity, 0);
@@ -138,6 +160,23 @@ export default function StoreFront({
           )}
         </div>
 
+        {/* Category Filters Bar */}
+        <div className="flex flex-wrap gap-2 mb-6" id="category-filter-bar">
+          {categories.map((cat) => (
+            <button
+              key={cat.value}
+              onClick={() => handleCategoryChange(cat.value)}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-sm border ${
+                activeCategory === cat.value
+                  ? "bg-blue-600 border-blue-700 text-white"
+                  : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
         {/* Catalog Grid */}
         {filteredProducts.length === 0 ? (
           <div className="bg-white border border-slate-200 rounded-2xl p-12 text-center text-slate-500 shadow-sm" id="empty-catalog">
@@ -154,7 +193,7 @@ export default function StoreFront({
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="catalog-grid">
-            {filteredProducts.map((product) => (
+            {filteredProducts.slice(0, visibleCount).map((product) => (
               <div
                 key={product.id}
                 className="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group relative"
@@ -223,6 +262,18 @@ export default function StoreFront({
                 </div>
               </div>
             ))}
+          </div>
+        )}
+
+        {filteredProducts.length > visibleCount && (
+          <div className="flex justify-center mt-8" id="load-more-container">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 8)}
+              className="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-bold px-6 py-2.5 rounded-xl text-xs shadow-sm hover:shadow transition-all cursor-pointer flex items-center gap-1.5"
+              id="load-more-btn"
+            >
+              더보기 (+8개 부품)
+            </button>
           </div>
         )}
       </main>

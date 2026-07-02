@@ -144,11 +144,22 @@ def parse_products(soup: BeautifulSoup, exclude_used: bool = True) -> list[dict]
             continue
         price = int(price_tag["data-price"].replace(",", ""))
 
+        img_tag = li.select_one(".prd_img img, .img img, img")
+        image_url = None
+        if img_tag:
+            image_url = img_tag.get("src") or img_tag.get("data-src")
+            if image_url:
+                if image_url.startswith("//"):
+                    image_url = "https:" + image_url
+                elif image_url.startswith("/"):
+                    image_url = "https://www.compuzone.co.kr" + image_url
+
         products.append({
             "product_id": f"cz_{product_id}",
             "name": name,
             "price": price,
             "spec_text": spec_text,
+            "image_url": image_url,
         })
     return products
 
@@ -234,6 +245,7 @@ def scrape_category(session: requests.Session, category: str, config: dict, per_
                 "stock": True,
                 "condition": detect_condition(raw["name"], raw["spec_text"]),
                 "description": raw["spec_text"][:200],
+                "image_url": raw.get("image_url"),
                 **extra,
             })
         time.sleep(REQUEST_DELAY_SEC)

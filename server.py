@@ -243,6 +243,133 @@ except Exception as e:
     print(f"Error initializing ChromaDB client: {e}")
 
 
+def generate_product_aspects(name: str, category: str, price: int, desc: str, condition: str) -> dict:
+    """
+    Generates product-specific pros, cons, and recommended users.
+    Factors in condition ("used_or_bulk") to show package, warranty, and pricing context.
+    """
+    client = get_gemini_client()
+    if client:
+        try:
+            cond_str = "신품/정품" if condition == "new" else "벌크/중고/리퍼브"
+            prompt = (
+                f"다음 컴퓨터 부품 제품명과 상세 설명을 바탕으로, 이 제품의 실제 하드웨어 사양/특징 관점에서의 "
+                f"구체적이고 명확한 장점 2개, 단점 1개, 추천 고객 1개를 한국어로 간결하게 도출해줘. "
+                f"일반적인 설명 대신 해당 모델에 맞는 구체적 특징(클럭, 쿨링팬, VRAM 용량, 성능 등)을 서술해야 해.
+
+"
+                f"제품명: {name}
+"
+                f"제품 상태: {cond_str}
+"
+                f"상세설명: {desc or '없음'}"
+            )
+            response = client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    response_schema=types.Schema(
+                        type=types.Type.OBJECT,
+                        properties={
+                            "pros": types.Schema(
+                                type=types.Type.ARRAY,
+                                items=types.Schema(type=types.Type.STRING)
+                            ),
+                            "cons": types.Schema(
+                                type=types.Type.ARRAY,
+                                items=types.Schema(type=types.Type.STRING)
+                            ),
+                            "recommendedUsers": types.Schema(
+                                type=types.Type.ARRAY,
+                                items=types.Schema(type=types.Type.STRING)
+                            ),
+                        },
+                        required=["pros", "cons", "recommendedUsers"]
+                    )
+                )
+            )
+            data = json.loads(response.text)
+            if (
+                isinstance(data.get("pros"), list) and len(data["pros"]) >= 2
+                and isinstance(data.get("cons"), list) and len(data["cons"]) >= 1
+                and isinstance(data.get("recommendedUsers"), list) and len(data["recommendedUsers"]) >= 1
+            ):
+                return {
+                    "pros": data["pros"][:2],
+                    "cons": data["cons"][:1],
+                    "recommendedUsers": data["recommendedUsers"][:1]
+                }
+        except Exception as e:
+            print(f"Gemini aspects generation failed, using fallback templates: {e}")
+
+    # 2. Fallback heuristic templates
+    brand = "주요 제조사"
+    if "]" in name:
+        brand = name.split("]")[0].replace("[", "").strip()
+
+    if condition == "used_or_bulk":
+        return {
+            "pros": ["정품 정가 대비 가격이 대폭 낮아 매우 합리적인 부품 구성 가능", "벌크/리퍼브 특유의 뛰어난 실속형 가격 대비 성능"],
+            "cons": ["포장 박스가 벌크(무지박스)이거나 제조사 A/S 보증 기간이 다소 짧을 수 있음"],
+            "recommendedUsers": ["제품 패키지 포장보다는 실질적인 부품 단가 절감을 추구하는 실속파 고객"]
+        }
+
+    if category == "CPU":
+        return {
+            "pros": [f"{brand} 고효율 아키텍처로 멀티태스킹 및 게이밍 연산 지원", "뛰어난 전력 대비 성능 및 검증된 클럭 스피드"],
+            "cons": ["기본 번들 쿨러 외에 정숙한 고성능 공랭/수랭 쿨러 추가 권장"],
+            "recommendedUsers": ["끊김 없는 게이밍과 다중 연산 작업을 동시에 처리하려는 사용자"]
+        }
+    elif category == "GPU":
+        return {
+            "pros": ["강력한 3D 렌더링 성능과 원활한 고주사율 게이밍 지원", "안정적인 온도 유지를 돕는 최적화된 쿨링 팬 솔루션"],
+            "cons": ["케이스 가로 길이 및 시스템 정격 파워 서플라이 용량 확인 필요"],
+            "recommendedUsers": ["최신 고사양 3D 게임이나 고해상도 디자인 편집을 즐겨 하는 게이머"]
+        }
+    elif category == "Motherboard" or category == "MB":
+        return {
+            "pros": ["전원부 페이즈의 전력 분배 설계로 우수한 부품 안정성 보장", "초고속 M.2 NVMe 슬롯 및 넉넉한 RAM 확장 포트 탑재"],
+            "cons": ["케이스 크기 규격(M-ATX 등)과 CPU 소켓 핀 호환성 대조 필수"],
+            "recommendedUsers": ["단단한 안정성과 메인보드 전원부 신뢰성을 선호하는 PC 조립가"]
+        }
+    elif category == "RAM":
+        return {
+            "pros": ["넓은 대역폭 클럭 속도로 병목 현상을 억제하고 데이터 처리 가속", "멀티태스킹 환경에서 부드럽고 쾌적한 앱 전환 속도 제공"],
+            "cons": ["DDR4 및 DDR5 세대별 규격이 메인보드와 일치하는지 확인 요망"],
+            "recommendedUsers": ["여러 프로그램을 동시에 켜두거나 빠른 게임 로딩을 원하는 유저"]
+        }
+    elif category == "SSD":
+        return {
+            "pros": ["NVMe 전송 방식으로 일반 SATA 대비 압도적인 읽기/쓰기 대역폭", "안정적인 쓰기 내구성 설계 및 부팅 반응 속도 극대화"],
+            "cons": ["고속 전송 시 발열 해소를 위해 방열판(Heatsink) 부착 권장"],
+            "recommendedUsers": ["신속한 윈도우 부팅과 고용량 파일 전송을 중요시하는 분"]
+        }
+    elif category == "Power" or category == "PSU":
+        import re
+        w_val = "정격"
+        m = re.search(r"(\d{3,4})W", name)
+        if m:
+            w_val = f"정격 {m.group(1)}W"
+        return {
+            "pros": [f"{w_val} 정격 출력으로 하이엔드 그래픽카드와 CPU에 전력 공급 보장", "인증 획득으로 입증된 전력 변환 효율성"],
+            "cons": ["케이스 파워 서플라이 장착 공간 규격(ATX 등) 사전 확인 필수"],
+            "recommendedUsers": ["안정적인 시스템 구동과 고부하 환경에서의 전력 보증을 원하는 유저"]
+        }
+    elif category == "Cooler":
+        cooling_type = "수랭" if "수랭" in name or "liquid" in name.lower() or "워터" in name or "3열" in name else "공랭"
+        return {
+            "pros": [f"CPU 발열을 신속히 억제하는 강력한 팬 가속 및 풍량 제공", "소음을 최소화한 저소음 베어링으로 쾌적한 시스템 환경 제공"],
+            "cons": ["케이스 내부 높이 간섭이나 라디에이터 두께에 따른 장착 제약 체크 요망"],
+            "recommendedUsers": ["장시간 구동 시 스로틀링을 방지하고 정숙한 소음 제어를 원하는 분"]
+        }
+
+    return {
+        "pros": [f"{brand} 고품질 부품으로 우수한 조립 만족도", "컴퓨존의 공식 조립 호환성 검증 통과"],
+        "cons": ["실시간 수급 상황에 따라 배송일 변동 가능성이 있음"],
+        "recommendedUsers": ["안정성과 부품 신뢰도를 중시하는 조립 PC 구매자"]
+    }
+
 def find_scraped_product(product_name: str) -> Optional[dict]:
     """
     Looks up a product using:
@@ -274,11 +401,17 @@ def find_scraped_product(product_name: str) -> Optional[dict]:
                         top_id = results["ids"][0][0]
                         matched_item = next((p for p in parts_list if p.get("product_id") == top_id), None)
                         if matched_item:
+                            name_val = matched_item.get("name", "")
+                            cat_val = matched_item.get("category", "")
+                            price_val = matched_item.get("price", 0)
+                            desc_val = matched_item.get("description", "")
+                            cond_val = matched_item.get("condition", "new")
+                            aspects = generate_product_aspects(name_val, cat_val, price_val, desc_val, cond_val)
                             return {
                                 "id": matched_item.get("product_id"),
-                                "name": matched_item.get("name"),
-                                "category": matched_item.get("category"),
-                                "price": matched_item.get("price"),
+                                "name": name_val,
+                                "category": cat_val,
+                                "price": price_val,
                                 "specs": {
                                     "socket": matched_item.get("socket"),
                                     "ram_gen": matched_item.get("ram_gen"),
@@ -286,26 +419,32 @@ def find_scraped_product(product_name: str) -> Optional[dict]:
                                     "generation": matched_item.get("generation"),
                                     "wattage": matched_item.get("wattage"),
                                     "tdp": matched_item.get("tdp"),
-                                    "condition": matched_item.get("condition"),
+                                    "condition": cond_val,
                                 },
-                                "description": matched_item.get("description", "실시간 검색된 컴퓨존 실제 상품 정보입니다."),
-                                "pros": ["실시간 실물 재고 반영", "정밀한 부품 호환 정보 제공"],
-                                "cons": ["인기 부품은 일시 품절 가능성이 있음"],
-                                "recommendedUsers": ["최신 가격 동향과 정확한 컴퓨존 조립 사양을 선호하는 고객"],
+                                "description": desc_val or "실시간 검색된 컴퓨존 실제 상품 정보입니다.",
+                                "pros": aspects["pros"],
+                                "cons": aspects["cons"],
+                                "recommendedUsers": aspects["recommendedUsers"],
                                 "stockStatus": "in_stock" if matched_item.get("stock", True) else "out_of_stock"
                             }
         except Exception as e:
             print(f"ChromaDB lookup failed: {e}")
-
+ 
     # 2. Try substring match in parts_list (real scraped parts)
     for p in parts_list:
         p_name = p.get("name", "").lower()
         if name_lower in p_name:
+            name_val = p.get("name", "")
+            cat_val = p.get("category", "")
+            price_val = p.get("price", 0)
+            desc_val = p.get("description", "")
+            cond_val = p.get("condition", "new")
+            aspects = generate_product_aspects(name_val, cat_val, price_val, desc_val, cond_val)
             return {
                 "id": p.get("product_id"),
-                "name": p.get("name"),
-                "category": p.get("category"),
-                "price": p.get("price"),
+                "name": name_val,
+                "category": cat_val,
+                "price": price_val,
                 "specs": {
                     "socket": p.get("socket"),
                     "ram_gen": p.get("ram_gen"),
@@ -313,15 +452,14 @@ def find_scraped_product(product_name: str) -> Optional[dict]:
                     "generation": p.get("generation"),
                     "wattage": p.get("wattage"),
                     "tdp": p.get("tdp"),
-                    "condition": p.get("condition"),
+                    "condition": cond_val,
                 },
-                "description": p.get("description", "컴퓨존의 실제 상품 정보입니다."),
-                "pros": ["실시간 실물 재고 반영", "정밀한 부품 호환 정보 제공"],
-                "cons": ["인기 부품은 일시 품절 가능성이 있음"],
-                "recommendedUsers": ["최신 사양과 정확한 컴퓨존 조립 사양을 선호하는 고객"],
+                "description": desc_val or "컴퓨존의 실제 상품 정보입니다.",
+                "pros": aspects["pros"],
+                "cons": aspects["cons"],
+                "recommendedUsers": aspects["recommendedUsers"],
                 "stockStatus": "in_stock" if p.get("stock", True) else "out_of_stock"
             }
-
     # 3. Try original substring match in hardcoded PRODUCT_CATALOG
     for p in PRODUCT_CATALOG:
         prod_name_lower = p["name"].lower()

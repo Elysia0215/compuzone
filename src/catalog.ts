@@ -11,7 +11,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1105/1294309/1294309_600.jpg",
     "description": "라이젠 버미어 / 라이젠5 / 헥사(6) 코어 / 12스레드 / 3.5 ~ 4.4GHz / AM4 / 내장그래픽 무 / 박스 (쿨러포함) / 35MB / 7nm / TDP 65W / DDR4",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -35,7 +35,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0522/1146524/1146524_600.jpg",
     "description": "AMD(소켓AM4) / 4세대(Zen3) / 7nm / 6코어 / 12쓰레드 / 기본 클럭: 3.6GHz / 최대 클럭: 4.4GHz / L2 캐시: 3MB / L3 캐시: 16MB / TDP: 65W / PCIe3.0 / 메모리 규격: DDR4 / 3200MHz / 내장그래픽: 탑재 / AMD 라데온 그래픽 / 기술 지원: SenseMI , Ryzen M",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -59,7 +59,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/0802/937112/937112_600.jpg",
     "description": "AMD(소켓AM4) / 4세대 (Zen 3) / 7nm / 헥사(6)코어 / 12쓰레드 / 기본 클럭: 3.9GHz / 최대 클럭: 4.4GHz / L3 캐시: 16MB / TDP: 65W / PCIe3.0 / 메모리 규격: DDR4 / 내장그래픽 : 탑재 / Wraith Stealth 포함",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -83,7 +83,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0718/1161736/1161736_600.jpg",
     "description": "AMD(소켓AM4) / 4세대 (Zen 3) / 7nm / 헥사(6)코어 / 12쓰레드 / 기본 클럭: 3.6GHz / 최대 클럭: 4.6GHz / L3 캐시: 16MB / TDP: 65W / PCIe3.0 / 메모리 규격: DDR4 / 내장그래픽 : 탑재 / Wraith Stealth 포함 / 라이젠 세잔 / 라이젠5",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -107,7 +107,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0726/1164055/1164055_600.jpg",
     "description": "AMD(소켓AM5) / 6세대(Zen5) / 4nm / 6코어 / 12쓰레드 / 기본 클럭: 3.9GHz / 최대 클럭: 5.4GHz / L2 캐시: 6MB / L3 캐시: 32MB / TDP: 65W /  PCIe5.0 / 메모리 규격: DDR5 / 5600MHz / 내장그래픽: 탑재 / AMD 라데온 그래픽 / 쿨러: 포함 / 라이젠5 / 라이젠 그래니",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -131,7 +131,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0822/1062764/1062764_600.jpg",
     "description": "AMD(소켓AM5) / 5세대(Zen4) / 5nm / 6코어 / 12쓰레드 / 기본 클럭: 3.7GHz / 최대 클럭: 5.0GHz / L2 캐시: 6MB / L3 캐시: 32MB / TDP: 65W / 벌크 (쿨러미포함) / 89358 라이젠 라파엘 / 10537 라이젠5",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -155,7 +155,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0119/1313313/1313313_600.jpg",
     "description": "라이젠 라파엘/라이젠5/헥사(6) 코어/AM5/내장그래픽 유/4.0 ~ 4.9 GHz/박스 (쿨러미포함)/61MB 이상/5nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -179,7 +179,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0729/1164584/1164584_600.jpg",
     "description": "AMD(소켓AM5) / 5세대 (Zen 4) / 4nm / 헥사(6)코어 / 12쓰레드 / 기본 클럭: 4.3GHz / 최대 클럭: 5.0GHz / L3 캐시: 22MB / TDP: 65W / PCIe5.0 / 메모리 규격: DDR5 / 내장그래픽 : 탑재 / Wraith Stealth 포함 / AM5 / 라이젠5 / 헥사(6) 코어 / 라이젠 피닉스",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -203,7 +203,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0915/1280878/1280878_600.jpg",
     "description": "라이젠 라파엘 / 라이젠5 / 헥사(6) 코어 / AM5 / 내장그래픽 유 / 3.0 ~ 3.9 GHz / 박스 (쿨러포함) / 21~30MB / 5nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -227,7 +227,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0915/1280875/1280875_600.jpg",
     "description": "라이젠 그래니트 릿지 / 라이젠5 / 헥사(6) 코어 / AM5 / 내장그래픽 무 / 3.0 ~ 3.9 GHz / 박스 (쿨러미포함) / 31~40MB / 5nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -251,7 +251,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1024/1290954/1290954_600.jpg",
     "description": "라이젠 그래니트 릿지/라이젠5/헥사(6) 코어/AM5/내장그래픽 유/3.0 ~ 3.9 GHz/박스 (쿨러미포함)/31~40MB/4nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -275,7 +275,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0110/983372/983372_600.jpg",
     "description": "6코어 12스레드 5.1GHz 65w TDP 5nm / 라이젠 라파엘 / 라이젠5 / 헥사(6) 코어 / AM5 / 내장그래픽 유 / 3.8 ~ 5.1GHz / 박스 (쿨러포함) / L3캐시 32MB",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -299,7 +299,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0729/1164585/1164585_600.jpg",
     "description": "AMD(소켓AM5) / 5세대 (Zen 4) / 4nm / 헥사(6)코어 / 12쓰레드 / 기본 클럭: 3.5GHz / 최대 클럭: 5.0GHz / L3 캐시: 22MB / TDP: 65W / PCIe5.0 / 메모리 규격: DDR5 / 내장그래픽 : 탑재 / Wraith Stealth 포함 / AM5 / 라이젠 피닉스 / 라이젠5",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -323,7 +323,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0514/1144891/1144891_600.jpg",
     "description": "AMD(소켓AM5) / 5세대 (Zen 4) / 4nm / 헥사(6)코어 / 12쓰레드 / 기본 클럭: 4.2GHz / 최대 클럭: 4.7GHz / L2 캐시: 6MB / L3 캐시: 16MB / TDP: 65W / PCIe5.0 / 메모리 규격: DDR5 / 내장그래픽 : 미탑재 / Wraith Stealth 포함 / 라이젠5 / 라이젠 피닉스",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -347,7 +347,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0304/1218343/1218343_600.jpg",
     "description": "AMD(소켓AM5) / 6세대(Zen5) / 4nm / 6코어 / 12쓰레드 / 기본 클럭: 3.8GHz / 최대 클럭: 5.2GHz / L2 캐시: 6MB / L3 캐시: 32MB / TDP: 65W / PCIe5.0 / 메모리 규격: DDR5 / 5600MHz / 내장그래픽: 탑재 / AMD 라데온 그래픽 / 쿨러: 포함 / 라이젠 그래니트 릿지 / 라",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -371,7 +371,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2019/1218/627257/627257_600.jpg",
     "description": "AMD(소켓AM4) / 2세대 (Zen+) / 12nm / 쿼드(4)코어 / 쓰레드 8개 / 3.7GHz / 2MB / 4MB / 65W / PCIe 3.0 x8 / DDR4 / 2933MHz / AMD 라데온 Vega 11 / 1400MHz / Wraith Spire 쿨러 포함",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -395,7 +395,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "170W",
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0921/1073787/1073787_600.jpg",
     "description": "AMD(소켓AM5) / 5세대(Zen4) / 5nm / 12코어 / 24쓰레드 / 기본 클럭: 4.7GHz / 최대 클럭: 5.6GHz / L2 캐시: 12MB / L3 캐시: 64MB / TDP: 170W / PPT: 230W / PCIe5.0 / 메모리 규격: DDR5 / 5200MHz / 내장그래픽: 탑재 / AMD 라데온 그래픽 / 쿨러: 미포함 /",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -419,7 +419,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "105W",
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0919/1072865/1072865_600.jpg",
     "description": "AMD(소켓AM5) / 5세대(Zen4) / 5nm / 8코어 / 16쓰레드 / 기본 클럭: 4.5GHz / 최대 클럭: 5.4GHz / L2 캐시: 8MB / L3 캐시: 32MB / TDP: 105W / PPT: 142W / PCIe5.0 / 메모리 규격: DDR5 / 5200MHz / 내장그래픽: 탑재 / AMD 라데온 그래픽 / 쿨러: 미포함 / 시",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -443,7 +443,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0624/1359031/1359031_600.jpg",
     "description": "라이젠 라파엘/라이젠5/6 코어/AM5/내장그래픽 유/3.0 ~ 3.9 GHz/박스 (쿨러포함)/21~30MB/4nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -467,7 +467,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "120W",
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1105/1187400/1187400_600.jpg",
     "description": "8코어 / 16스레드 / 4.7GHz / L3 : 32MB / 3D V-Cache : 96MB / TDP : 120w /  4nm / 라이젠 그래니트릿지 / 라이젠7 / 옥타(8) 코어 / AM5 / 내장그래픽 유 / 4.7 ~ 5.2GHz / 박스 (쿨러미포함) / 라이젠 그래니트 릿지",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -491,7 +491,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0405/1013843/1013843_600.jpg",
     "description": "8코어 16스레드 4.2GHz 120w TDP 5nm / 라이젠 라파엘 / 라이젠7 / 옥타(8) 코어 / AM5 / 내장그래픽 유 / 4.2 ~ 5.0GHz / 12MB 이상 / 5nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -515,7 +515,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0726/1164054/1164054_600.jpg",
     "description": "AMD(소켓AM5) / 6세대(Zen5) / 4nm / 8코어 / 16쓰레드 / 기본 클럭: 3.8GHz / 최대 클럭: 5.5GHz / L2 캐시: 8MB / L3 캐시: 32MB / TDP: 65W /  PCIe5.0 / 메모리 규격: DDR5 / 5600MHz / 내장그래픽: 탑재 / AMD 라데온 그래픽 / 쿨러: 포함 / 라이젠 그래니트 릿지 / ",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -539,7 +539,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0129/1316809/1316809_600.jpg",
     "description": "라이젠 그래니트 릿지/라이젠7/옥타(8) 코어/AM5/내장그래픽 유/4.7 ~ 5.6 GHz/박스 (쿨러미포함)/96MB 이상/4nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -563,7 +563,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1020/1289210/1289210_600.jpg",
     "description": "라이젠 그래니트 릿지/라이젠7/AM5/벌크 (쿨러미포함) / 옥타(8) 코어 / 내장그래픽 유 / 3.0 ~ 3.9 GHz / 4nm / 31~40MB",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -587,7 +587,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1126/1300549/1300549_600.jpg",
     "description": "라이젠 라파엘/라이젠7/옥타(8) 코어/AM5/내장그래픽 유/박스 (쿨러미포함)/11~20MB/5nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -611,7 +611,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0514/1144892/1144892_600.jpg",
     "description": "AMD(소켓AM5) / 5세대 (Zen 4) / 4nm / 옥타(8)코어 / 16쓰레드 / 기본 클럭: 4.1GHz / 최대 클럭: 5.0GHz / L2 캐시: 8MB / L3 캐시: 16MB / TDP: 65W / PCIe5.0 / 메모리 규격: DDR5 / 내장그래픽 : 미탑재 / Wraith Stealth 포함 / 100449 라이젠 피닉스 / 105",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -635,7 +635,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2021/0805/822474/822474_600.jpg",
     "description": "AMD(소켓AM4) / 4세대 (Zen 3) / 7nm / 옥타(8)코어 / 16쓰레드 / 기본 클럭: 3.8GHz / 최대 클럭: 4.4GHz / L3 캐시: 16MB / TDP: 65W / PCIe3.0 / 메모리 규격: DDR4 / 내장그래픽 : 탑재 / Wraith Stealth 포함 / AM4 / 라이젠 세잔 / 라이젠7",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -659,7 +659,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0911/1280163/1280163_600.jpg",
     "description": "라이젠 라파엘 / 라이젠7 / 옥타(8) 코어 / AM5 / 내장그래픽 유 / 3.0 ~ 3.9 GHz / 박스 (쿨러포함) / 11~20MB / 5nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -683,7 +683,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0708/1159096/1159096_600.jpg",
     "description": "AMD(소켓AM5) / 5세대 (Zen 4) / 4nm / 옥타(8)코어 / 16쓰레드 / 기본 클럭: 4.2GHz / 최대 클럭: 5.1GHz / L2 캐시: 8MB / L3 캐시: 16MB / TDP: 65W / PCIe5.0 / 메모리 규격: DDR5 / 내장그래픽 : 탑재 / Wraith Stealth 포함 / 라이젠 피닉스 / 라이젠7",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -707,7 +707,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0624/1359030/1359030_600.jpg",
     "description": "라이젠 라파엘/AM5/내장그래픽 유/3.0 ~ 3.9 GHz/박스 (쿨러포함)/21~30MB/4nm/라이젠7/8 코어",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -731,7 +731,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0625/1359462/1359462_600.jpg",
     "description": "라이젠 버미어/라이젠9/8 코어/AM4/내장그래픽 무/3.0 ~ 3.9 GHz/박스 (쿨러미포함)/61MB 이상/5nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -755,7 +755,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1229/1308730/1308730_600.jpg",
     "description": "AMD(소켓AM5)/8코어/16스레드/메모리 규격:DDR5/내장그래픽:탑재/5세대(Zen4)/4nm/기본 클럭:4.2GHz/최대 클럭:5.1GHz/L2 캐시:8MB/L3 캐시:16MB/TDP:65W/PPT:88W/PCIe4.0/5200MHz / 11~20MB / 4nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -779,7 +779,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0110/983367/983367_600.jpg",
     "description": "12코어 24스레드 5.6GHz 170w TDP 5nm / 라이젠 라파엘 / 라이젠9 / 도데카(12) 코어 / AM5 / 내장그래픽 유 / 3.7 ~ 5.4GHz / 박스 (쿨러포함) / 89358 라이젠 라파엘 / 37053 라이젠9",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -803,7 +803,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0110/983370/983370_600.jpg",
     "description": "12코어 24스레드 5.6GHz 65w TDP 5nm / 라이젠 라파엘 / 라이젠9 / 도데카(12) 코어 / AM5 / 내장그래픽 유 / 3.7 ~ 5.4GHz / 박스 (쿨러포함) /L3캐시 64MB",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -827,7 +827,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0611/1355310/1355310_600.jpg",
     "description": "라이젠 라파엘/라이젠9/12 코어/AM5/내장그래픽 유/5.0 ~ 5.9 GHz/박스 (쿨러포함)/4nm/61MB 이상 / 박스 (쿨러미포함)",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -851,7 +851,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "170W",
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0726/1164047/1164047_600.jpg",
     "description": "AMD(소켓AM5) / 6세대(Zen5) / 4nm / 16코어 / 32쓰레드 / 기본 클럭: 4.3GHz / 최대 클럭: 5.7GHz / L2 캐시: 16MB / L3 캐시: 64MB / TDP: 170W /  PCIe5.0 / 메모리 규격: DDR5 / 5200MHz / 내장그래픽: 탑재 / AMD 라데온 그래픽 / 쿨러: 미포함 / 라이젠 그래니트 릿",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -875,7 +875,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0422/1343452/1343452_600.jpg",
     "description": "라이젠 그래니트 릿지 / 라이젠9 / 16 코어 / AM5 / 내장그래픽 유 / 4.3 ~ 5.6 GHz / 박스 (쿨러미포함) / 192MB 이상 / 4nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -923,7 +923,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "120W",
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0311/1220507/1220507_600.jpg",
     "description": "라이젠 그래니트 릿지 / 24스레드 / 4.4GHz / L3 : 128MB / TDP : 120w / 4nm / 라이젠 그래니트릿지 / 라이젠9 / 도데카(12) 코어 / AM5 / 내장그래픽 유 / 4.4 ~ 5.5GHz / 박스 (쿨러미포함) / 4.0 ~ 4.9 GHz / 61MB 이상",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -947,7 +947,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "120W",
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0311/1220479/1220479_600.jpg",
     "description": "라이젠 그래니트 릿지 / 24스레드 / 4.4GHz / L3 : 128MB / TDP : 120w / 4nm / 라이젠 그래니트릿지 / 라이젠9 / 도데카(12) 코어 / AM5 / 내장그래픽 유 / 4.4 ~ 5.5GHz / 박스 (쿨러미포함) / 4.0 ~ 4.9 GHz / 61MB 이상",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -971,7 +971,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "170W",
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0311/1220480/1220480_600.jpg",
     "description": "라이젠 그래니트릿지/ 16코어 / 32스레드 / 4.3GHz / L3 : 128MB / TDP : 170w / AM5 / 내장그래픽 유 / 박스 (쿨러미포함) / 라이젠9 / 4nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -995,7 +995,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0517/1027985/1027985_600.jpg",
     "description": "16코어 32스레드 5.7GHz 120w TDP 5nm / 라이젠 라파엘 / 라이젠9 / 헥사데카(16) 코어 / AM5 / 내장그래픽 유 / 4.2 ~ 5.7GHz / 박스 (쿨러미포함) / 12MB 이상 / 5nm",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1019,7 +1019,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "65W",
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0522/1244253/1244253_600.jpg",
     "description": "라이젠 라파엘/라이젠9/헥사데카(16) 코어/AM5/내장그래픽 무/4.0 ~ 4.9 GHz/박스 (쿨러미포함)/61MB 이상 / 라이젠 라파엘 / 라이젠9",
     "pros": [
       "AMD 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1042,7 +1042,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1119/1190669/1190669_600.jpg",
     "description": "RTX 4060 8G 랜덤발송  / 검수 확인 / 리퍼제품 / 중고제품 / RTX 시리즈",
     "pros": [
       "랜덤 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1065,7 +1065,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0526/1245389/1245389_600.jpg",
     "description": "검수 확인/중고제품/엔비디아 RTX 4060 8G",
     "pros": [
       "랜덤 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1088,7 +1088,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0625/1359249/1359249_600.jpg",
     "description": "탈거상품/RTX 시리즈",
     "pros": [
       "HP 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1111,7 +1111,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1126/1300554/1300554_600.jpg",
     "description": "검수 확인/중고제품/RTX4060TI 8G",
     "pros": [
       "랜덤 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1134,7 +1134,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0521/1350013/1350013_600.jpg",
     "description": "탈거상품/RTX 시리즈",
     "pros": [
       "NVIDIA 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1157,7 +1157,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0218/1214056/1214056_600.jpg",
     "description": "RTX 4070 TI 12G 랜덤발송  / 검수 확인 / 중고제품 / RTX 시리즈",
     "pros": [
       "랜덤 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1180,7 +1180,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0521/1350012/1350012_600.jpg",
     "description": "탈거상품/RTX 시리즈",
     "pros": [
       "NVIDIA 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1203,7 +1203,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0126/1316069/1316069_600.jpg",
     "description": "중고제품/RTX 시리즈",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1226,7 +1226,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0120/1313820/1313820_600.jpg",
     "description": "중고제품/RTX 시리즈",
     "pros": [
       "PALIT 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1249,7 +1249,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0424/1344450/1344450_600.jpg",
     "description": "중고제품/RTX 시리즈",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1272,7 +1272,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0126/1316040/1316040_600.jpg",
     "description": "중고제품/RTX 시리즈",
     "pros": [
       "emTek 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1295,7 +1295,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0126/1316070/1316070_600.jpg",
     "description": "중고제품/RTX 시리즈",
     "pros": [
       "PALIT 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1318,7 +1318,7 @@ export const PRODUCT_CATALOG: Product[] = [
       "TDP": "150W",
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0424/1344453/1344453_600.jpg",
     "description": "중고제품/RTX 시리즈",
     "pros": [
       "PALIT 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1340,7 +1340,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0518/1028287/1028287_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 7200MHz (PC5-57600), EXPO / [전원부] 9페이즈, 전원부 방열판 / [확장슬롯] PCIe4.0·3.0 지원, PCIex1 2개 / [저장장치] M.2 NVMe 2개 (PCIe4.0 지원), SATA3 4개 / [네트워크] 2.5",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1362,7 +1362,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0728/1053323/1053323_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 192GB, 8000MHz (PC5-64000), XMP3.0, EXPO / [전원부] 8+2+2페이즈 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 2개 (PCIe4.0 지원, 히트싱크), ",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1384,7 +1384,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/1012/959917/959917_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 7600MHz (PC5-60800), EXPO / [전원부] 12+2+1페이즈, 페이즈당 80A DrMOS, 전원부 방열판 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex16(at x4) 1개, PCIex1 1개 / [저",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1406,7 +1406,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0708/1259006/1259006_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650E (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), EXPO / [전원부] 8+2+1페이즈, 페이즈당 80A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 3개 (P",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1428,7 +1428,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0317/1222402/1222402_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), XMP, EXPO / [전원부] 8+2+1페이즈, 페이즈당 60A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex16(at x4) 1개 / [저장장치] M.",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1450,7 +1450,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0605/1033909/1033909_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 192GB, 8000MHz (PC5-64000), XMP3.0, EXPO / [전원부] 8+2+2페이즈 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 2개 (PCIe4.0 지원, 히트싱크), ",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1472,7 +1472,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0909/1279347/1279347_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), EXPO / [전원부] 8+2+1페이즈, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex16(at x1) 1개 / [저장장치] M.2 NVMe 3개 (PCIe5.0/4.",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1494,7 +1494,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1105/1294325/1294325_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650E (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), EXPO / [전원부] 8+2+1페이즈, 페이즈당 80A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 3개 (P",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1516,7 +1516,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/1205/1093922/1093922_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 192GB, 7200MHz (PC5-57600), XMP3.0, EXPO / [전원부] 6+2+1페이즈, 페이즈당 50A DrMOS, 전원부 방열판 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex16(at x4) 1개 / [저장장치]",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1538,7 +1538,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1226/1199020/1199020_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 192GB, 8000MHz (PC5-64000), XMP3.0, EXPO / [전원부] 8+2+2페이즈 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 2개 (PCIe4.0 지원, 히트싱크), ",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1560,7 +1560,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/1012/959918/959918_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, B650 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 7200MHz (PC5-57600), EXPO / [전원부] 8페이즈 DrMOS, 전원부 방열판 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex16(at x4) 1개, PCIex1 1개 / [저장장치] M.2 NVMe 2개 (P",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1582,7 +1582,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/1019/961563/961563_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (ATX) / [메모리] DDR5 4개, 최대 192GB, 7600MHz (PC5-60800), EXPO / [전원부] 14+2+1페이즈, 페이즈당 80A DrMOS, Vcore출력합계 1120A, 전원부 방열판 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex16(at x2) 1개,",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1604,7 +1604,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1210/1303883/1303883_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), EXPO / [전원부] 8+2+1페이즈, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex16(at x1) 1개 / [저장장치] M.2 NVMe 3개 (PCIe5.0/4.",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1626,7 +1626,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/1110/1086732/1086732_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 192GB, 7200MHz (PC5-57600), XMP3.0, EXPO / [전원부] 6+2+1페이즈, 페이즈당 50A DrMOS, 전원부 방열판 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex16(at x4) 1개 / [저장장치]",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1648,7 +1648,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0319/1224054/1224054_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), XMP, EXPO / [전원부] 8+2+1페이즈, 페이즈당 60A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex16(at x4) 1개 / [저장장치] M.",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1670,7 +1670,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0613/1153026/1153026_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 2개, 최대 128GB, 6800MHz (PC5-54400), EXPO / [전원부] 9페이즈, 전원부 방열판 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 1개 (PCIe4.0 지원), SATA3 4개 ",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1692,7 +1692,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0314/1222234/1222234_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), XMP, EXPO / [전원부] 8+2+1페이즈, 페이즈당 60A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex16(at x4) 1개 / [저장장치] M.",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1714,7 +1714,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/1018/1079058/1079058_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 192GB, 7200MHz (PC5-57600), XMP3.0, EXPO / [전원부] 6+2+1페이즈, 페이즈당 50A DrMOS, 전원부 방열판 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex16(at x4) 1개 / [저장장치]",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1732,11 +1732,11 @@ export const PRODUCT_CATALOG: Product[] = [
     "id": "cz_1257020",
     "name": "[ASRock] B650M Pro X3D WiFi 에즈윈 (AMD B650/M-ATX)",
     "category": "Motherboard",
-    "price": 171960,
+    "price": 171950,
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0702/1257020/1257020_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), EXPO / [전원부] 8+2+1페이즈, DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex4 1개 / [저장장치] M.2 NVMe 3개 (PCIe5.0/4.0",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1758,7 +1758,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0807/1166437/1166437_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B650 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 7200MHz (PC5-57600) / [전원부] 8+2+1페이즈, DrMOS, 전원부 방열판 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex16(at x4) 1개, PCIex1 1개 / [저장장치] M.2 NVMe 2개",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1780,7 +1780,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0904/1277897/1277897_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), EXPO / [전원부] 14+2+1페이즈, 페이즈당 80A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 3개 (P",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1802,7 +1802,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0107/1201355/1201355_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8200MHz (PC5-65600), XMP3.0, EXPO / [전원부] 12+2+2페이즈, 페이즈당 60A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·3.0 지원, PCIex16 1개, PCIex16(at x4) 1개 / [저장장치",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1824,7 +1824,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1002/1286882/1286882_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8200MHz (PC5-65600), EXPO / [전원부] 7+2+1페이즈, 페이즈당 60A SPS(DrMOS), 전원부 방열판 / [확장슬롯] PCIe5.0·3.0 지원, PCIex16 1개, PCIex16(at x1) 3개 / [저장장치] M.2 NV",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1846,7 +1846,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0107/1201265/1201265_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (ATX) / [메모리] DDR5 4개, 최대 192GB, 8000MHz (PC5-64000), XMP, EXPO / [전원부] 14+2+1페이즈, 페이즈당 80A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex16(at x4) 1개, PCIex1 2개 /",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1868,7 +1868,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0408/1229995/1229995_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8200MHz (PC5-65600), EXPO / [전원부] 12+2+1페이즈, 페이즈당 60A SPS(DrMOS), 전원부 방열판 / [확장슬롯] PCIe5.0 지원, PCIex16 1개, PCIex4 1개 / [저장장치] M.2 NVMe 3개 (",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1890,7 +1890,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0123/1206741/1206741_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (ATX) / [메모리] DDR5 4개, 최대 256GB, 8400MHz (PC5-67200), EXPO / [전원부] 14+2+1페이즈, 페이즈당 80A SPS(DrMOS), 전원부 방열판 / [확장슬롯] PCIe5.0·4.0·3.0 지원, PCIex16 1개, PCIex16(at x4) 1개, PCIex16",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1912,7 +1912,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0110/1202657/1202657_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8200MHz (PC5-65600), XMP3.0, EXPO / [전원부] 12+2+2페이즈, 페이즈당 60A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·3.0 지원, PCIex16 1개, PCIex16(at x4) 1개 / [저장장치",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1934,7 +1934,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0909/1279348/1279348_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), EXPO / [전원부] 14+2+1페이즈, 페이즈당 80A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 3개 (P",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1956,7 +1956,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0403/1228501/1228501_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8200MHz (PC5-65600), XMP3.0, EXPO / [전원부] 12+2+2페이즈, 페이즈당 60A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·3.0 지원, PCIex16 1개, PCIex16(at x4) 1개 / [저장장치",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -1978,7 +1978,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0306/1219104/1219104_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (ATX) / [메모리] DDR5 4개, 최대 192GB, 8000MHz (PC5-64000), XMP, EXPO / [전원부] 14+2+1페이즈, 페이즈당 80A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex16(at x4) 1개, PCIex1 2개 /",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2000,7 +2000,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0403/1228446/1228446_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8200MHz (PC5-65600), XMP3.0, EXPO / [전원부] 12+2+2페이즈, 페이즈당 60A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·3.0 지원, PCIex16 1개, PCIex16(at x4) 1개 / [저장장치",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2022,7 +2022,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0818/1271488/1271488_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), EXPO / [전원부] 14+2+1페이즈, 페이즈당 80A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 3개 (P",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2044,7 +2044,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0707/1258458/1258458_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8200MHz (PC5-65600), EXPO / [전원부] 8+2+1페이즈, 페이즈당 60A SPS(DrMOS), 전원부 방열판 / [확장슬롯] PCIe5.0·4.0·3.0 지원, PCIex16 1개, PCIex16(at x4) 1개, PCIex1",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2066,7 +2066,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0627/1255655/1255655_600.jpg",
     "description": "AMD(소켓AM5)/AMD B850/DDR5/VGA 연결: PCIe5.0 x16/M-ATX (24.4x24.4cm)/전원부: 8+2+1페이즈/[메모리] 8000MHz (PC5-64000)/4개/메모리 용량: 최대 256GB/EXPO/[확장슬롯] PCIe버전: PCIe5.0, PCIe4.0/PCIex16: 1개/PCIex16(at x1): 3개/[저장장치] ",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2088,7 +2088,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0818/1271487/1271487_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), EXPO / [전원부] 14+2+1페이즈, 페이즈당 80A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 3개 (P",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2110,7 +2110,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0806/1268772/1268772_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 2개, 최대 128GB, 9600MHz (PC5-76800), XMP, EXPO / [전원부] 8+2+2페이즈, 페이즈당 60A, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex16(at x4) 1개 / [저장장치] M.2 NVMe",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2132,7 +2132,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1201/1301393/1301393_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), EXPO / [전원부] 14+2+1페이즈, 페이즈당 80A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 3개 (P",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2154,7 +2154,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1208/1303247/1303247_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8000MHz (PC5-64000), EXPO / [전원부] 14+2+1페이즈, 페이즈당 80A DrMOS, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 3개 (P",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2176,7 +2176,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0310/1220067/1220067_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 8200MHz (PC5-65600), XMP3.0, EXPO / [전원부] 8+2+2페이즈, 페이즈당 60A DrMOS, Vcore출력합계 480A, 전원부 방열판 / [확장슬롯] PCIe5.0·3.0 지원, PCIex16 1개, PCIex16(at",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2198,7 +2198,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0616/1356624/1356624_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD B850 (M-ATX) / [메모리] DDR5 2개, 최대 128GB, 9600MHz (PC5-76800), XMP, EXPO / [전원부] 8+2+2페이즈, 전원부 방열판 / [확장슬롯] PCIe5.0·4.0 지원, PCIex16 1개, PCIex16(at x4) 1개 / [저장장치] M.2 NVMe 3개 (PCIe5",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2220,7 +2220,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1113/1296954/1296954_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD A620A (M-ATX) / [메모리] DDR5 2개, 최대 128GB, 6800MHz (PC5-54400), EXPO / [전원부] 6+2페이즈, 전원부 방열판 미지원 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 1개 (PCIe4.0 지원), SA",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2242,7 +2242,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0223/1324401/1324401_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD A620A (M-ATX) / [메모리] DDR5 2개, 최대 128GB, 7600MHz (PC5-60800), EXPO / [전원부] 정보없음 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 1개 (PCIe4.0 지원), SATA3 4개 / [네트워크]",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2264,7 +2264,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0223/1324402/1324402_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD A620A (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 7600MHz (PC5-60800), EXPO / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 2개 (PCIe4.0 지원), SATA3 4개 / [네트워크] 1Gbps 유선랜 (R",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2286,7 +2286,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0616/1250829/1250829_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD A620A (M-ATX) / [메모리] DDR5 2개, 최대 128GB, 6800MHz (PC5-54400), XMP, EXPO / [전원부] 4+1+1페이즈 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex1 2개 / [저장장치] M.2 NVMe 2개 (PCIe4.0 지원), SATA3 2개",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2308,7 +2308,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0612/1250385/1250385_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD A620A (M-ATX) / [메모리] DDR5 2개, 최대 128GB, 6800MHz (PC5-54400), XMP, EXPO / [전원부] 4+1+1페이즈 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex1 2개 / [저장장치] M.2 NVMe 2개 (PCIe4.0 지원), SATA3 2개",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2330,7 +2330,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0323/1333301/1333301_600.jpg",
     "description": "AMD(소켓AM5) / DDR5 / VGA 연결 : PCIe4.0 x16 / M-ATX (23x22.5cm) / 전원부 : 5+2+2페이즈 / [메모리] 7600MHz (PC5-60800) / 2개 / 메모리 용량 : 최대 128GB / XMP / EXPO / [확장슬롯] PCIe버전 : PCIe4.0 , PCIe3.0 / PCIex16 : 1개 / PCI",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2352,7 +2352,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0620/1252917/1252917_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD A620A (M-ATX) / [메모리] DDR5 2개, 최대 128GB, 6800MHz (PC5-54400), XMP, EXPO / [전원부] 4+1+1페이즈 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex1 2개 / [저장장치] M.2 NVMe 2개 (PCIe4.0 지원), SATA3 2개",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2374,7 +2374,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0413/1016814/1016814_600.jpg",
     "description": "AMD(소켓AM5) / AMD A620 / M-ATX (24.4x24.4cm) / 전원부: 8+2+1페이즈 / 메모리 DDR5 / 6400MHz (PC5-51200) / 4개 / 메모리 용량: 최대 128GB / XMP / EXPO / 확장슬롯 VGA 연결: PCIe4.0 x16 / PCIe버전: PCIe4.0, PCIe3.0 / PCIex16: 1개 / ",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2396,7 +2396,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0915/1281035/1281035_600.jpg",
     "description": "AMD(소켓AM5)/AMD A620A/DDR5/VGA 연결: PCIe4.0 x16/M-iTX (17.0x17.0cm)/전원부: 8+2+1페이즈/페이즈당80A/Vcore출력합계: 640A/[메모리] 8200MHz (PC5-65600)/2개/메모리 용량: 최대 128GB/[확장슬롯] PCIe버전: PCIe4.0/PCIex16: 1개/[저장장치] M.2: 2개/",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2414,11 +2414,11 @@ export const PRODUCT_CATALOG: Product[] = [
     "id": "cz_1282592",
     "name": "[BIOSTAR] A620MS-E 제이씨현 (AMD A620A/M-ATX)",
     "category": "Motherboard",
-    "price": 96000,
+    "price": 95270,
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0918/1282592/1282592_600.jpg",
     "description": "AMD(소켓AM5)/AMD A620A/DDR5/VGA 연결: PCIe4.0 x16/M-ATX (24.4x22.1cm)/ 전원부: 8페이즈/[메모리] 8000MHz (PC5-64000)/ 2개/ 메모리 용량: 최대 128GB/[확장슬롯] PCIe버전: PCIe4.0, PCIe3.0/ PCIex16: 1개/ PCIex1: 1개/[저장장치] M.2: 1개/ SA",
     "pros": [
       "BIOSTAR 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2440,7 +2440,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0721/1262599/1262599_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD A620A (M-ATX) / [메모리] DDR5 2개, 최대 128GB, 6800MHz (PC5-54400), XMP, EXPO / [전원부] 4+1+1페이즈 / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex1 2개 / [저장장치] M.2 NVMe 2개 (PCIe4.0 지원), SATA3 2개",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2462,7 +2462,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0721/1262600/1262600_600.jpg",
     "description": "AMD(소켓AM5)/AMD A620A/DDR5/VGA 연결: PCIe4.0 x16/전원부: 6+1+1페이즈/페이즈당50A/Vcore출력합계: 300A/[메모리] 8000MHz (PC5-64000)/2개/메모리 용량: 최대 128GB/XMP/EXPO/[확장슬롯] PCIe버전: PCIe4.0, PCIe3.0/PCIex16: 1개/PCIex1: 2개/[저장장치]",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2484,7 +2484,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0520/1243233/1243233_600.jpg",
     "description": "AMD(소켓AM5)/AMD A620A/DDR5/VGA 연결: PCIe4.0 x16/전원부: 6+1+1페이즈/페이즈당50A/Vcore출력합계: 300A/[메모리] 8000MHz (PC5-64000)/2개/메모리 용량: 최대 128GB/XMP/EXPO/[확장슬롯] PCIe버전: PCIe4.0, PCIe3.0/PCIex16: 1개/PCIex1: 2개/[저장장치]",
     "pros": [
       "ASRock 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2506,7 +2506,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0210/1321659/1321659_600.jpg",
     "description": "[플랫폼] AMD 소켓AM5, AMD A620A (M-ATX) / [메모리] DDR5 4개, 최대 256GB, 7600MHz (PC5-60800), EXPO / [확장슬롯] PCIe4.0·3.0 지원, PCIex16 1개, PCIex1 1개 / [저장장치] M.2 NVMe 2개 (PCIe4.0 지원), SATA3 4개 / [네트워크] 1Gbps 유선랜 (R",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2528,7 +2528,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0605/1033908/1033908_600.jpg",
     "description": "AMD(소켓AM5)/AMD A620/DDR5/VGA 연결: PCIe4.0 x16/ATX (30.5x24.4cm)/전원부: 12+2페이즈/[메모리] 6400MHz (PC5-51200)/4개/메모리 용량: 최대 192GB/EXPO/[확장슬롯] PCIe버전: PCIe4.0, PCIe3.0/PCIex16: 1개/PCIex16(at x2): 1개/PCIex1: 2개",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2550,7 +2550,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0509/1025112/1025112_600.jpg",
     "description": "AMD(소켓AM5)/AMD A620/DDR5/VGA 연결: PCIe4.0 x16/M-ATX (24.4x24.4cm)/[메모리] 6400MHz (PC5-51200)/4개/메모리 용량: 최대 128GB/EXPO/PCIe버전: PCIe4.0, PCIe3.0/PCIex16: 1개/PCIex1: 2개/[저장장치] M.2: 2개/SATA3: 4개/M.2 연결: PCI",
     "pros": [
       "ASUS 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2572,7 +2572,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "소켓": "AM5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0227/1217445/1217445_600.jpg",
     "description": "AMD(소켓AM5) / DDR5 / VGA 연결: PCIe4.0 x16 / M-ATX (24.4x21cm) / 전원부: 6+2+1페이즈 / 페이즈당50A / Vcore출력합계: 300A / [메모리] 6400MHz (PC5-51200) / 2개 / 메모리 용량: 최대 128GB / XMP / EXPO / [확장슬롯] PCIe버전: PCIe4.0, PCIe3",
     "pros": [
       "MAXSUN 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2592,7 +2592,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 389000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0201/990235/990235_600.jpg",
     "description": "DDR5 / 16GB / 5600MHz (PC5-44800) / 방열판 무 / PC용",
     "pros": [
       "삼성전자 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2612,7 +2612,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 316590,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/1220/977732/977732_600.jpg",
     "description": "DDR5 / 16GB / 5600MHz (PC5-44800) / 방열판 무 / PC용 / 메모리 타이밍 : 46-46-46-90 / SK하이닉스 A다이 언락",
     "pros": [
       "에센코어 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2632,7 +2632,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 157780,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0516/1145291/1145291_600.jpg",
     "description": "DDR5 / 8GB / 5600MHz (PC5-44800) / 방열판 무 / PC용 / 램타이밍: CL46-45-45 / 1.10V",
     "pros": [
       "마이크론 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2652,7 +2652,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 299860,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1119/1190726/1190726_600.jpg",
     "description": "DDR5 / 16GB / 5600MHz (PC5-44800) / 방열판 무 / PC용 / 인텔 15세대 에로우레이크 호환 불가",
     "pros": [
       "에센코어 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2672,7 +2672,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 382000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0315/1004773/1004773_600.jpg",
     "description": "DDR5 / 16GB / 5600MHz (PC5-44800) / 방열판 무 / PC용",
     "pros": [
       "SK hynix 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2692,7 +2692,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 298000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0126/1316008/1316008_600.jpg",
     "description": "DDR5 / 16GB / 5600MHz (PC5-44800) / 1개 / 방열판 무",
     "pros": [
       "컴이지 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2712,7 +2712,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 281390,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/0726/934730/934730_600.jpg",
     "description": "데스크탑용 / DDR5 / 16GB / 4800MHz (PC5-38400) / 방열판 무 / PC용 / 램타이밍: CL40-40-40-77 / 1.10V / 램개수: 1개 / 온다이ECC / 히트싱크: 미포함",
     "pros": [
       "Team Group 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2732,7 +2732,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 350000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/0726/934728/934728_600.jpg",
     "description": "데스크탑용 / DDR5 / 16GB / 5600MHz (PC5-44800) / 1개 / 방열판 무 / CL46 / 1.10V / 램개수: 1개 / 온다이ECC / 히트싱크: 미포함 / 고성능 게임용 메모리",
     "pros": [
       "Team Group 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2752,7 +2752,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 272000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0113/1311642/1311642_600.jpg",
     "description": "DDR5/16GB/4800MHz (PC5-38400)/1개/방열판 무",
     "pros": [
       "Biwin 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2772,7 +2772,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 279900,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1127/1192973/1192973_600.jpg",
     "description": "DDR5 / 16GB / 5600MHz (PC5-44800) / CL46 / 데스크탑용 / 방열판 무 / PC용",
     "pros": [
       "커널앤코어 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2792,7 +2792,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 285000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0913/1175326/1175326_600.jpg",
     "description": "DDR5 / 16GB / 5600MHz (PC5-44800) / 방열판 무 / PC용",
     "pros": [
       "트레브 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2812,7 +2812,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 169000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0108/1310609/1310609_600.jpg",
     "description": "DDR5 / 8GB / 5600MHz (PC5-44800) / 1개 / 방열판 무",
     "pros": [
       "ADATA 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2832,7 +2832,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 299000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0710/1259976/1259976_600.jpg",
     "description": "DDR5 / 16GB / 5600MHz (PC5-44800) / 방열판 무 / PC용",
     "pros": [
       "이메이션 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2852,7 +2852,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 283000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0320/1332504/1332504_600.jpg",
     "description": "DDR5/16GB/5600MHz (PC5-44800)/1개/방열판 무",
     "pros": [
       "FRiotech 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2872,7 +2872,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 164500,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0211/1322026/1322026_600.jpg",
     "description": "DDR5/8GB/5600MHz (PC5-44800)/1개/방열판 무",
     "pros": [
       "GUDGA 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2892,7 +2892,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 313000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1029/1292405/1292405_600.jpg",
     "description": "DDR5 / 16GB / 5600MHz (PC5-44800) / 방열판 무",
     "pros": [
       "AGI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2912,7 +2912,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 2600000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0309/1328289/1328289_600.jpg",
     "description": "데스크탑용 / DDR5 / 6400MHz (PC5-51200) / 램타이밍 : CL52-52-52-103 / 1.10V / 램개수 : 2개 / 클럭드라이버 / 온다이ECC / 히트싱크 : 미포함 / 모듈제조사 : 마이크론",
     "pros": [
       "마이크론 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2932,7 +2932,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 163800,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0123/1315302/1315302_600.jpg",
     "description": "DDR5/8GB/5600MHz (PC5-44800)/1개/방열판 무",
     "pros": [
       "타무즈 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2952,7 +2952,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 161880,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0712/1160270/1160270_600.jpg",
     "description": "DDR5 / 8GB / 5600MHz (PC5-44800) / 방열판 무 / PC용 / 메모리 타이밍 46-46-46-90 / 온다이ECC / 하이닉스 칩 내장 / PMIC 언락",
     "pros": [
       "PATRIOT 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2972,7 +2972,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 370000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0203/1208575/1208575_600.jpg",
     "description": "DDR5 / 16GB / 6400MHz (PC5-51200) / 1개 / 방열판 무 / 클럭드라이버 / CUDIMM / 쿠딤",
     "pros": [
       "에센코어 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -2992,7 +2992,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 310980,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1104/1293860/1293860_600.jpg",
     "description": "DDR5 / 16GB / 5600MHz (PC5-44800) / 1개 / 방열판 무",
     "pros": [
       "Apacer 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3012,7 +3012,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 633000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0309/1328402/1328402_600.jpg",
     "description": "데스크탑용 / DDR5 / 6000MHz (PC5-48000) / 램타이밍 : CL30-38-38-96 / 1.35V / 램개수 : 2개 / LED 라이트 / EXPO / 온다이ECC / 히트싱크 : 방열판 / 방열판 색상 : 블랙 / LED색상 : RGB / LED 시스템 : AURA SYNC , MYSTIC LIGHT , RGB FUSION , POLY",
     "pros": [
       "V-Color 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3032,7 +3032,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 1496000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0507/1239404/1239404_600.jpg",
     "description": "DDR5 / 64GB / 6400MHz (PC5-51200) / CL52 / 1개 / 방열판 무 / PC용 / 클럭드라이버",
     "pros": [
       "마이크론 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3052,7 +3052,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 616480,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0811/1060475/1060475_600.jpg",
     "description": "DDR5 / 32GB / 5600MHz (PC5-44800) / 방열판 유 / PC용",
     "pros": [
       "Team Group 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3072,7 +3072,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 195000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0318/1331967/1331967_600.jpg",
     "description": "DDR5 / 8GB / 6400MHz (PC5-51200) / CL52 / 1개 / 방열판 무 / PC용 / CUDIMM / 쿠딤 / M333R1GA4PB1-CCP / 클럭드라이버",
     "pros": [
       "삼성전자 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3092,7 +3092,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 650000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0507/1346976/1346976_600.jpg",
     "description": "DDR5/32GB/5600MHz (PC5-44800)/2개 묶음/방열판 유/클럭드라이버",
     "pros": [
       "OLOy  브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3112,7 +3112,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 165000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0109/1310872/1310872_600.jpg",
     "description": "DDR5/8GB/5600MHz (PC5-44800)/1개/방열판 무",
     "pros": [
       "PATRIOT 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3132,7 +3132,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 107000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2020/0701/683833/683833_600.jpg",
     "description": "DDR4 / PC용 / 3200MHz (PC4-25600) / 램타이밍: CL22-22-22-52 / 1.20V / 히트싱크: 미포함 / 방열판 무 / 8GB /방열판 무 / SK하이닉스 칩 내장",
     "pros": [
       "에센코어 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3152,7 +3152,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 73500,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0422/1343502/1343502_600.jpg",
     "description": "DDR4 / 8GB / 3200MHz (PC4-25600) / 1개 / 방열판 무",
     "pros": [
       "컴이지 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3172,7 +3172,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 221500,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1210/1303995/1303995_600.jpg",
     "description": "DDR4 / 16GB / 3200MHz (PC4-25600) / 1개 / 방열판 무",
     "pros": [
       "SK hynix 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3192,7 +3192,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 136000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2020/0527/673935/673935_600.jpg",
     "description": "DDR4 /  PC용 / 8GB / 3200MHz (PC4-25600) / 방열판 무 / PC용",
     "pros": [
       "삼성전자 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3212,7 +3212,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 157500,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2021/0923/836494/836494_600.jpg",
     "description": "DDR4 / 16GB / 3200MHz (PC4-25600) / 방열판 무 / PC용",
     "pros": [
       "타무즈 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3232,7 +3232,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 107000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0208/1116137/1116137_600.jpg",
     "description": "DDR4 / 8GB / 3200MHz (PC4-25600) / 방열판 무 / PC용",
     "pros": [
       "Team Group 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3252,7 +3252,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 258000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0217/1213530/1213530_600.jpg",
     "description": "DDR4 / PC용 / 16GB / 3200MHz (PC4-25600) / 방열판 무 / 23년도 주차 / 1년 무상 A/S",
     "pros": [
       "삼성전자 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3272,7 +3272,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 150000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0118/1106423/1106423_600.jpg",
     "description": "DDR4 / 16GB / 3200MHz (PC4-25600) / 방열판 무 / PC용 / CL22",
     "pros": [
       "TeraByte 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3292,7 +3292,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 197000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/1222/1099198/1099198_600.jpg",
     "description": "DDR4 / 16GB / 2666MHz (PC4-21300) / 2020년 이전 주차  / 방열판 무 / PC용",
     "pros": [
       "삼성전자 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3312,7 +3312,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 87000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0910/1174738/1174738_600.jpg",
     "description": "DDR4 / 8GB / 3200MHz (PC4-25600) / 방열판 무",
     "pros": [
       "트레브 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3332,7 +3332,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 181000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0102/979898/979898_600.jpg",
     "description": "DDR4 / 16GB / 3200MHz (PC4-25600) / 방열판 무 / PC용 / 1ea / 1.2V / U-Dimm / 메모리 타이밍 22-22-22-52",
     "pros": [
       "PATRIOT 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3352,7 +3352,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 109500,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2020/0320/652434/652434_600.jpg",
     "description": "DDR4 / PC용 / 패키지: 1개 / 3200MHz (PC4-25600) / 램타이밍: CL22-22-22-52 / 1.20V / 히트싱크: 미포함  / 방열판 무",
     "pros": [
       "GeIL 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3372,7 +3372,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 157500,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2018/0409/457904/457904_600.jpg",
     "description": "16GB / 288핀 / DDR4 2666(PC4 21300) / DDR4-SDRAM / 2666MHz (PC4-21300) / 방열판 무 / PC용",
     "pros": [
       "타무즈 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3392,7 +3392,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 76500,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1127/1192974/1192974_600.jpg",
     "description": "DDR4 / 8GB / 3200MHz (PC4-25600) / CL22 / 데스크탑용 / 방열판 무 / PC용",
     "pros": [
       "커널앤코어 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3412,7 +3412,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 139000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0610/1354471/1354471_600.jpg",
     "description": "DDR4/16GB/3200MHz (PC4-25600)/1개/방열판 무",
     "pros": [
       "엠씨케이글로벌 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3432,7 +3432,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 175000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2018/0615/471159/471159_600.jpg",
     "description": "16GB / 288핀 / DDR4 2666(PC4 21300) / DDR4-SDRAM / 2666MHz (PC4-21300)",
     "pros": [
       "GeIL 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3452,7 +3452,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 125000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0220/1323688/1323688_600.jpg",
     "description": "DDR4/16GB/2666MHz (PC4-21300)/1개/방열판 무",
     "pros": [
       "아이티젠 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3492,7 +3492,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 79000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0402/1337446/1337446_600.jpg",
     "description": "DDR4 / 8GB / 3200MHz (PC4-25600) / 1개 / 방열판 무",
     "pros": [
       "Apacer 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3512,7 +3512,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "RAM",
     "price": 89000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1541029071515-84cc54f84dc5?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0710/1259966/1259966_600.jpg",
     "description": "DDR4 / 8GB / 3200MHz (PC4-25600) / 방열판 무 / PC용",
     "pros": [
       "이메이션 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3532,7 +3532,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 180000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0521/1350081/1350081_600.jpg",
     "description": "PCIeGen4 / 512GB / TLC / 읽기 5000M / 쓰기 3700M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / 방열판 포함 / M.2 NVMe",
     "pros": [
       "에센코어 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3552,7 +3552,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 155000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0406/1338361/1338361_600.jpg",
     "description": "PCIeGen4 / 512GB / TLC / 읽기 3600M / 쓰기 3000M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 3년 / M.2 NVMe",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3572,7 +3572,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 199000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0214/993680/993680_600.jpg",
     "description": "PCIeGen4 / 500GB / TLC / 읽기 5000M / 쓰기 3700M / 컨트롤러 미고정 / DRAM 미탑재 / 80mm / 보증기간 5년",
     "pros": [
       "Team Group 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3592,7 +3592,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 195900,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0508/1024506/1024506_600.jpg",
     "description": "PCIeGen3 / 500GB / TLC / 읽기 2400M / 쓰기 1500M / DRAM 미탑재 / 보증기간 3년 / 80mm",
     "pros": [
       "Western Digital 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3612,7 +3612,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 174620,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0410/1231192/1231192_600.jpg",
     "description": "PCIeGen4 / 500GB / QLC / 읽기 5000M / 쓰기 3000M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / 방열판 포함",
     "pros": [
       "ADATA 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3632,7 +3632,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 155000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0724/1264134/1264134_600.jpg",
     "description": "PCIeGen4 / 500GB / TLC / 읽기 3600M / 쓰기 3000M / 컨트롤러 미고정 / DRAM 미탑재 / 80mm / 보증기간 3년 / M.2 NVMe",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3652,7 +3652,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 176000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0528/1246121/1246121_600.jpg",
     "description": "PCIeGen4 / 500GB / TLC / 읽기 3000M / 쓰기 2000M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / M.2 NVMe",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3672,7 +3672,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 139000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0629/1359966/1359966_600.jpg",
     "description": "PCIeGen3 / 500GB / QLC / 읽기 2300M / 쓰기 1500M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 3년 / M.2 NVMe",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3692,7 +3692,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 277000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0227/1217486/1217486_600.jpg",
     "description": "PCIeGen4 / 1TB / QLC / 읽기 4800M / 쓰기 4200M / 컨트롤러 미고정 / DRAM 미탑재 / 80mm / 보증기간 5년",
     "pros": [
       "PATRIOT 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3712,7 +3712,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 244990,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/1026/1081919/1081919_600.jpg",
     "description": "PCIeGen4 / 500GB / TLC / 읽기 5300M / 쓰기 4600M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / 방열판 포함",
     "pros": [
       "Transcend 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3732,7 +3732,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 171000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0226/1325878/1325878_600.jpg",
     "description": "PCIeGen4 / 500GB / QLC / 읽기 5000M / 쓰기 2300M / 컨트롤러 미고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / M.2 NVMe",
     "pros": [
       "PATRIOT 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3752,7 +3752,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 515750,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0731/1266578/1266578_600.jpg",
     "description": "PCIeGen4 / 2TB / TLC / 읽기 7400M / 쓰기 6500M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / 방열판 포함 / PS5 확장 가능 / M.2 NVMe",
     "pros": [
       "에센코어 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3772,7 +3772,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 229000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0828/1275550/1275550_600.jpg",
     "description": "PCIeGen4 / 500GB / QLC / 읽기 5000M / 쓰기 3000M / 컨트롤러 미고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / M.2 NVMe",
     "pros": [
       "Kingston 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3792,7 +3792,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 460000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/0518/911358/911358_600.jpg",
     "description": "PCIeGen4 / 1TB / TLC / 읽기 7000M / 쓰기 6500M / 컨트롤러 고정 / DRAM 탑재 / 80mm / 보증기간 5년",
     "pros": [
       "SK hynix 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3810,9 +3810,9 @@ export const PRODUCT_CATALOG: Product[] = [
     "id": "cz_991905",
     "name": "[PNY] CS1031 Gen3 M.2 NVMe 2280 제이씨현",
     "category": "SSD",
-    "price": 84480,
+    "price": 84470,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0207/991905/991905_600.jpg",
     "description": "PCIeGen3 / 256GB / TLC / 읽기 1700M / 쓰기 1100M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년",
     "pros": [
       "PNY 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3832,7 +3832,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 495000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0310/1220189/1220189_600.jpg",
     "description": "PCIeGen4 / 1TB / TLC / 읽기 5000M / 읽기 4000M / 컨트롤러 고정 / DRAM 탑재 / 80mm / 보증기간 5년 / 방열판 포함",
     "pros": [
       "Transcend 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3872,7 +3872,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 123000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1027/1291338/1291338_600.jpg",
     "description": "PCIeGen3 / 512GB / QLC / 읽기 3200M / 쓰기 1300M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 3년 / M.2 NVMe",
     "pros": [
       "TWSC 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3892,7 +3892,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 289000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1031/1293096/1293096_600.jpg",
     "description": "PCIeGen4 / 1TB / TLC / 읽기 5000M / 쓰기 4800M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / 방열판 포함 / PS5 확장 가능 / M.2 NVMe",
     "pros": [
       "에센코어 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3912,7 +3912,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 375000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2021/0121/753914/753914_600.jpg",
     "description": "PCIeGen3 / 1TB / TLC / 읽기 3500M / 쓰기 3200M / 컨트롤러 고정 / DRAM 탑재 / 80mm / 보증기간 5년",
     "pros": [
       "SK hynix 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3932,7 +3932,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 521500,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0325/1334254/1334254_600.jpg",
     "description": "PCIeGen4 / 2TB / TLC / 읽기 7300M / 쓰기 6600M / 컨트롤러 고정 / DRAM 탑재 / 80mm / 보증기간 5년 / PS5 확장 가능",
     "pros": [
       "Western Digital 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3952,7 +3952,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 155000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1111/1296200/1296200_600.jpg",
     "description": "PCIeGen3 / 512GB / TLC / 읽기 3500M / 쓰기 2500M / 컨트롤러 미고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / M.2 NVMe",
     "pros": [
       "Biwin 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3972,7 +3972,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 269000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1226/1308500/1308500_600.jpg",
     "description": "PCIeGen4 / 1TB / TLC / 읽기 7400M / 쓰기 6700M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / M.2 NVMe",
     "pros": [
       "HUAWEI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -3992,7 +3992,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 389000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1016/1181847/1181847_600.jpg",
     "description": "PCIeGen4 / 1TB / TLC / 읽기 7450M / 쓰기 6900M / 컨트롤러 고정 / DRAM 탑재 / 80mm / 보증기간 5년",
     "pros": [
       "아인스시스템 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4012,7 +4012,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 326700,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0331/1227653/1227653_600.jpg",
     "description": "PCIeGen4 / 1TB / TLC / 읽기 7250M / 쓰기 6900M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / M.2 NVMe",
     "pros": [
       "Western Digital 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4032,7 +4032,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 81400,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0826/1274332/1274332_600.jpg",
     "description": "PCIeGen3 / 256GB / TLC / 읽기 3200M / 쓰기 1200M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / M.2 NVMe",
     "pros": [
       "TWSC 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4052,7 +4052,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 473000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1018/1182756/1182756_600.jpg",
     "description": "PCIeGen4 / 1TB / TLC / 읽기 7150M / 쓰기 6300M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / MZ-V9S1T0BW",
     "pros": [
       "삼성전자 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4072,7 +4072,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 500200,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/1111/968477/968477_600.jpg",
     "description": "PCIeGen4 / 1TB / TLC / 읽기 7450M / 쓰기 6900M / 컨트롤러 고정 / DRAM 탑재 / 80mm / 보증기간 5년 / M.2 NVMe / MZ-V9P1T0BW",
     "pros": [
       "삼성전자 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4092,7 +4092,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 315500,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0214/993979/993979_600.jpg",
     "description": "PCIeGen4 / M.2(NVMe) / 512GB / TLC(3DNAND) / 읽기6900M / 쓰기5000M / 컨트롤러 고정(삼성전자) / DRAM 탑재 / 보증기간 2년 / 80mm / PS5 확장 가능",
     "pros": [
       "파인인포 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4112,7 +4112,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 273600,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0106/1310015/1310015_600.jpg",
     "description": "PCIeGen4 / 1TB / TLC / 읽기 5000M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 3년 / M.2 NVMe",
     "pros": [
       "Western Digital 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4132,7 +4132,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 152000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0211/1322025/1322025_600.jpg",
     "description": "PCIeGen4 / 512GB / TLC / 읽기 4700M / 쓰기 2600M / 컨트롤러 미고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / M.2 NVMe",
     "pros": [
       "GUDGA 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4152,7 +4152,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 131000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0115/1312115/1312115_600.jpg",
     "description": "PCIeGen3 / 512GB / TLC / QLC / 읽기 3318M / 쓰기 2784M / 컨트롤러 미고정 / DRAM 미탑재 / 80mm / 보증기간 3년 / M.2 NVMe",
     "pros": [
       "컴이지 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4172,7 +4172,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 509000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0314/1221931/1221931_600.jpg",
     "description": "PCIeGen5 / 1TB / TLC / 읽기 14700M / 쓰기 13300M / 컨트롤러 고정 / DRAM 탑재 / 80mm / 보증기간 5년 / MZ-VAP1T0BW",
     "pros": [
       "삼성전자 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4192,7 +4192,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 199000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0120/1313923/1313923_600.jpg",
     "description": "PCIeGen4 / 512GB / QLC / 읽기 5000M / 쓰기 4400M / 컨트롤러 미고정 / DRAM 미탑재 / 80mm / 보증기간 3년 / M.2 NVMe",
     "pros": [
       "Apacer 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4212,7 +4212,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 159000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0526/1030871/1030871_600.jpg",
     "description": "M.2 (NVMe) / PCIeGen4 / QLC (3D낸드) / 읽기 4800M / 쓰기 1900M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년",
     "pros": [
       "이메이션 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4232,7 +4232,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 319000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0604/1353024/1353024_600.jpg",
     "description": "PCIeGen5 / 1TB / TLC / 읽기 12000M / 쓰기 10700M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / M.2 NVMe",
     "pros": [
       "YMTC 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4252,7 +4252,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 154140,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2018/0625/473184/473184_600.jpg",
     "description": "PCIeGen3 / 2560GB / TLC / 읽기 2400M / 쓰기 1700M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / M.2 NVMe",
     "pros": [
       "Transcend 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4272,7 +4272,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 325000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0812/1270525/1270525_600.jpg",
     "description": "PCIeGen4 / 1TB / TLC / 읽기 7400M / 쓰기 5500M / 컨트롤러 고정 / DRAM 탑재 / 80mm / 보증기간 5년 / 방열판 포함 / PS5 확장 가능 / M.2 NVMe",
     "pros": [
       "AGI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4292,7 +4292,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 445000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0612/1250341/1250341_600.jpg",
     "description": "PCIeGen5 / 1TB / TLC / 읽기 14900M / 쓰기 11000M / 컨트롤러 고정 / DRAM 탑재 / 80mm / 보증기간 5년 / PS5 확장 가능 / M.2 NVMe",
     "pros": [
       "Western Digital 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4312,7 +4312,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 560000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1112/1296724/1296724_600.jpg",
     "description": "PCIeGen4 / 2TB / TLC / 읽기 7500M / 쓰기 6500M / 컨트롤러 고정 / DRAM 탑재 / 80mm / 보증기간 3년 / PS5 확장 가능 / M.2 NVMe",
     "pros": [
       "성민디지탈 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4332,7 +4332,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "SSD",
     "price": 335000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0319/1332358/1332358_600.jpg",
     "description": "PCIeGen5 / 1TB / TLC / 읽기 10500M / 쓰기 9500M / 컨트롤러 미고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / 방열판 포함 / M.2 NVMe",
     "pros": [
       "ADATA 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4372,7 +4372,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 149000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0513/1143770/1143770_600.jpg",
     "description": "ATX 파워 / 정격출력: 850W / 80 PLUS 골드 / +12V 싱글레일 / 액티브PFC / PF(역률): 99% / 120mm 팬 / 깊이: 140mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8+4+4핀 1개 / PCIe 16핀(12+4): 12V2x6 1개 / PCIe 8핀(6+2): 3개 / SAT",
     "pros": [
       "마이크로닉스 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4392,7 +4392,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 110000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1108/1188314/1188314_600.jpg",
     "description": "ATX 파워 / 정격출력: 850W / 80 PLUS 골드 / +12V 싱글레일 / +12V 가용률: 100% / 액티브PFC / PF(역률): 99% / 120mm 팬 / 깊이: 140mm / 무상 5년  [커넥터] 메인전원: 24핀(20+4) 1개 / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12V2x6 1개 / PCIe 8핀(6+",
     "pros": [
       "FSP 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4412,7 +4412,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 214950,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0925/1176780/1176780_600.jpg",
     "description": "ATX 파워 / 정격출력: 850W / 80 PLUS 골드 / +12V 싱글레일 / +12V 가용률: 98% / 액티브PFC / PF(역률): 99% / 135mm 팬 / 깊이: 140mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12V2x6 1개 / PCIe ",
     "pros": [
       "시소닉 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4432,7 +4432,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 93120,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0211/1211677/1211677_600.jpg",
     "description": "ATX 파워 / 정격출력: 850W / 80 PLUS 골드 / +12V 싱글레일 / +12V 가용률: 99% / 액티브PFC / PF(역률): 99% / 120mm 팬 / 깊이: 140mm / 무상 5년 / [커넥터] 케이블일체형 / 메인전원: 24핀(20+4) / 보조전원: 8+4+4핀 1개 / PCIe 16핀(12+4): 12V2x6 1개 / PCIe ",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4450,9 +4450,9 @@ export const PRODUCT_CATALOG: Product[] = [
     "id": "cz_1183893",
     "name": "[SuperFlower] SF-750F14GE LEADEX III GOLD UP ATX3.1 (ATX/750W) [블랙]",
     "category": "Power",
-    "price": 143310,
+    "price": 154000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1023/1183893/1183893_600.jpg",
     "description": "ATX 파워 / 정격출력: 750W / 80 PLUS 골드 / 전압변동: ±0.5% / +12V 싱글레일 / +12V 가용률: 99% / 액티브PFC / PF(역률): 99% / 140mm 팬 / 깊이: 150mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12V",
     "pros": [
       "SuperFlower 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4472,7 +4472,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 85000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0711/1260295/1260295_600.jpg",
     "description": "ATX/케이블 일체형/750W/80PLUS GOLD/보증 5년/액티브PFC/24핀/8핀(6+2)PCI-E커넥터 2개/SATA커넥터 4개/4핀E-IDE커넥터 4개/8핀(4+4) 2개/120mm/ATX 3.1/프리볼트/블랙/박스",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4492,7 +4492,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 79000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1203/1302008/1302008_600.jpg",
     "description": "ATX 파워 / 정격출력: 750W / 80 PLUS 골드 / +12V 싱글레일 / +12V 가용률: 100% / 액티브PFC / PF(역률): 99% / 120mm 팬 / 깊이: 150mm / 무상 5년[커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12V-2x6 1개 / PCIe 8핀",
     "pros": [
       "엔티스 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4510,9 +4510,9 @@ export const PRODUCT_CATALOG: Product[] = [
     "id": "cz_1174637",
     "name": "[엔티스] EG 80PLUS GOLD 풀모듈러 ATX3.1 화이트",
     "category": "Power",
-    "price": 116000,
+    "price": 108520,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0910/1174637/1174637_600.jpg",
     "description": "ATX 파워 / 정격출력: 1000W / 80 PLUS 골드 / +12V 싱글레일 / +12V 가용률: 100% / 액티브PFC / PF(역률): 99% / 120mm 팬 / 깊이: 150mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12V2x6 1개 / PCI",
     "pros": [
       "엔티스 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4532,7 +4532,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 87000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0116/1312957/1312957_600.jpg",
     "description": "ATX 파워/750W/80 PLUS 골드/케이블연결: 풀모듈러/ +12V 싱글레일/+12V 가용률: 100%/ 액티브PFC/PF(역률): 99%/깊이: 135mm/무상 10년/[커넥터] 메인전원: 24핀(20+4)/ 보조전원: (4+4)핀x1/ PCIe 16핀(12+4): 12V2x6 1개/ PCIe 8핀(6+2): 3개/ SATA: 8개/ IDE 4핀: ",
     "pros": [
       "AONE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4552,7 +4552,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 103370,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0211/1211720/1211720_600.jpg",
     "description": "ATX 파워 / 정격출력: 850W / 80 PLUS 골드 / +12V 싱글레일 / +12V 가용률: 99% / 액티브PFC / PF(역률): 99% / 120mm 팬 / 깊이: 140mm / 무상 5년 / [커넥터] 케이블일체형 / 메인전원: 24핀(20+4) / 보조전원: 8+4+4핀 1개 / PCIe 16핀(12+4): 12V2x6 1개 / PCIe ",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4572,7 +4572,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 109000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0910/1174636/1174636_600.jpg",
     "description": "ATX 파워 / 정격출력: 1000W / 80 PLUS 골드 / +12V 싱글레일 / +12V 가용률: 100% / 액티브PFC / PF(역률): 99% / 120mm 팬 / 깊이: 150mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12V2x6 1개 /※  P",
     "pros": [
       "엔티스 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4592,7 +4592,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 153000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2019/1024/612399/612399_600.jpg",
     "description": "ATX 파워 / 750W / 24핀 전용 / 120mm 팬 / 1개(팬) / 액티브PFC / 깊이: 150mm / +12V 싱글레일 / 62.5A / 4핀 IDE x5 / SATA x14 / 6+2핀 PCI-E x4 / 보조8핀(4+4) 커넥터 / FDD 커넥터 / 수동 팬 조절 / 케이블 연결식 / 대기전력 1W / 플랫케이블 / 프리볼트 / 80 PLU",
     "pros": [
       "FSP 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4612,7 +4612,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 115000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0313/1329881/1329881_600.jpg",
     "description": "ATX 파워/750W/80 PLUS 골드/케이블연결: 풀모듈러/ +12V 싱글레일/+12V 가용률: 100%/ 액티브PFC/PF(역률): 99%/ 120mm 팬/깊이: 150mm/무상 5년/[커넥터] 메인전원: 24핀(20+4)/ 보조전원: (4+4)핀x2/ PCIe 16핀(12+4): 12V2x6 1개/ PCIe 8핀(6+2): 3개/ SATA: 8개/ ",
     "pros": [
       "FSP 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4632,7 +4632,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 129000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0814/1271422/1271422_600.jpg",
     "description": "ATX 파워/750W/80 PLUS 골드/케이블연결: 풀모듈러/ETA인증: GOLD/LAMBDA인증: A/+12V 싱글레일/+12V 가용률: 99%/액티브PFC/135mm 팬/깊이: 150mm/무상 7년/[커넥터] 메인전원: 24핀/보조전원: 8핀(4+4) 2개/PCIe 16핀(12+4): 12V2x6 1개/PCIe 8핀(6+2): 4개/SATA: 5개/I",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4652,7 +4652,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 85800,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0422/1343735/1343735_600.jpg",
     "description": "ATX 파워/750W/80 PLUS 골드/케이블연결: 풀모듈러/ +12V 싱글레일/ 액티브PFC/ 120mm 팬/깊이: 140mm/무상 10년/[커넥터] 메인전원: 24핀(20+4)/ 보조전원: (4+4)핀x2/ PCIe 16핀(12+4): 12V2x6 1개/ PCIe 8핀(6+2): 4개/ SATA: 8개/ IDE 4핀: 3개/ FDD: 1개/[부가기능]",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4672,7 +4672,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 175000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0328/1227099/1227099_600.jpg",
     "description": "ATX 파워 / 정격출력: 850W / 80 PLUS 골드 / +12V 싱글레일 / +12V 가용률: 98% / 액티브PFC / PF(역률): 99% / 120mm 팬 / 깊이: 140mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12V2x6 1개 / PCIe ",
     "pros": [
       "시소닉 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4692,7 +4692,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 125000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0916/1281647/1281647_600.jpg",
     "description": "ATX 파워/750W/80 PLUS 골드/케이블연결: 풀모듈러/+12V 싱글레일/+12V 가용률: 99%/액티브PFC/PF(역률): 99.6%/120mm 팬/깊이: 140mm/무상 10년/[커넥터] 메인전원: 24핀(20+4)/보조전원: (4+4)핀x2/PCIe 16핀(12+4): 12V2x6 1개/PCIe 8핀(6+2): 4개/SATA: 8개/IDE 4핀",
     "pros": [
       "Antec 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4712,7 +4712,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 125000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0429/1236832/1236832_600.jpg",
     "description": "ATX 파워/750W/80 PLUS 골드/케이블연결: 풀모듈러/ETA인증: GOLD/LAMBDA인증: A/+12V 싱글레일/+12V 가용률: 100%/액티브PFC/PF(역률): 99%/120mm 팬/깊이: 140mm/무상 10년/[커넥터] 메인전원: 24핀/보조전원: 8핀(4+4) 2개/PCIe 16핀(12+4): 12V2x6 1개/PCIe 8핀(6+2):",
     "pros": [
       "잘만 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4732,7 +4732,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 144300,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/1205/972880/972880_600.jpg",
     "description": "ATX 파워 / 정격출력: 750W / 80 PLUS 골드 / +12V 싱글레일 / 액티브PFC / PF(역률): 99% / 120mm 팬 / 깊이: 140mm / 무상 2년 / [커넥터] 케이블일체형 / 메인전원: 24핀(20+4) / 보조전원: 8+4+4핀 1개 / PCIe 8핀(6+2): 2개 / SATA: 6개 / IDE 4핀: 5개 / FDD: 1",
     "pros": [
       "FSP 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4752,7 +4752,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 105000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0417/1134767/1134767_600.jpg",
     "description": "ATX 파워 / 정격출력: 750W / 80 PLUS 골드 / +12V 싱글레일 / 액티브PFC / PF(역률): 98% / 120mm 팬 / 깊이: 140mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12V2x6 1개 / PCIe 8핀(6+2): 2개 / SA",
     "pros": [
       "Segotep 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4772,7 +4772,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 199000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1028/1184882/1184882_600.jpg",
     "description": "ATX 파워 / 정격출력: 850W / 80 PLUS 골드 / ETA인증: PLATINUM / LAMBDA인증: A / +12V 싱글레일 / +12V 가용률: 99% / 액티브PFC / PF(역률): 99% / 140mm / 깊이: 150mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / PCI",
     "pros": [
       "SuperFlower 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4790,9 +4790,9 @@ export const PRODUCT_CATALOG: Product[] = [
     "id": "cz_1183892",
     "name": "[SuperFlower] SF-850F14GE LEADEX III GOLD UP ATX3.1 (ATX/850W)",
     "category": "Power",
-    "price": 164000,
+    "price": 169000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1023/1183892/1183892_600.jpg",
     "description": "ATX 파워 / 정격출력: 850W / 80 PLUS 골드 / 전압변동: ±0.5% / +12V 싱글레일 / +12V 가용률: 99% / 액티브PFC / PF(역률): 99% / 140mm 팬 / 깊이: 150mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12V",
     "pros": [
       "SuperFlower 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4812,7 +4812,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 111000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0919/1283089/1283089_600.jpg",
     "description": "ATX 파워/850W/80 PLUS 골드/케이블연결: 풀모듈러/+12V 싱글레일/+12V 가용률: 100%/120mm 팬/깊이: 140mm/무상 10년/[커넥터] 메인전원: 24핀(20+4)/보조전원: (4+4)핀x2/PCIe 16핀(12+4): 12V2x6 1개/PCIe 8핀(6+2): 4개/SATA: 8개/IDE 4핀: 3개/FDD: 1개/[부가기능] ",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4832,7 +4832,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 227000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0116/1204455/1204455_600.jpg",
     "description": "ATX 파워 / 정격출력: 1000W / 80 PLUS 골드 / +12V 싱글레일 / +12V 가용률: 100% / 액티브PFC / PF(역률): 99% / 120mm 팬 / 깊이: 150mm / 무상 10년 /  [커넥터] 풀모듈러 / 메인전원: 24핀 / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12V2x6 1개 / PCIe 8핀(",
     "pros": [
       "FSP 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4850,9 +4850,9 @@ export const PRODUCT_CATALOG: Product[] = [
     "id": "cz_1287274",
     "name": "[MONTECH] CENTURY II 80PLUS GOLD 풀모듈러 ATX3.1 블랙",
     "category": "Power",
-    "price": 123610,
+    "price": 123560,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1013/1287274/1287274_600.jpg",
     "description": "ATX 파워/850W/80 PLUS 골드/케이블연결: 풀모듈러/ETA인증: PLATINUM/LAMBDA인증: A-/+12V 싱글레일/+12V 가용률: 99%/액티브PFC/PF(역률): 99%/135mm 팬/깊이: 140mm/무상 10년/[커넥터] 메인전원: 24핀(20+4)/보조전원: (4+4)핀x2/PCIe 16핀(12+4): 12V2x6 1개/PCIe ",
     "pros": [
       "MONTECH 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4872,7 +4872,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 149000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0219/1214455/1214455_600.jpg",
     "description": "ATX 파워 / 정격출력: 850W / 80 PLUS 골드 / ETA인증: PLATINUM / LAMBDA인증: STANDARD+ / +12V 싱글레일 / +12V 가용률: 99% / 액티브PFC / 120mm 팬 / 깊이: 140mm / 무상 7년 / [커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / PCIe 16핀",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4892,7 +4892,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 115000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0512/1240978/1240978_3_600.jpg",
     "description": "ATX 파워/850W/80 PLUS 골드/케이블연결: 풀모듈러/+12V 싱글레일/+12V 가용률: 99%/액티브PFC/PF(역률): 99%/140mm 팬/깊이: 145mm/무상 10년/[커넥터] 메인전원: 24핀(20+4)/보조전원: 8핀(4+4) 2개/PCIe 16핀(12+4): 12V2x6 1개/PCIe 8핀(6+2): 3개/SATA: 7개/SATA3.",
     "pros": [
       "맥스엘리트 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4912,7 +4912,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 171870,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0807/1166650/1166650_600.jpg",
     "description": "ATX 파워 / 정격출력: 850W / ETA인증: GOLD / +12V 싱글레일 / 140mm 팬 / 깊이: 160mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀 / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12V2x6 1개 / PCIe 8핀(6+2): 3개 / SATA: 11개 / [부가기능] 팬리스모드 / 자동 ",
     "pros": [
       "CORSAIR 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4932,7 +4932,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 98000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0711/1260307/1260307_600.jpg",
     "description": "ATX/케이블 일체형/850W/80PLUS GOLD/보증 5년/액티브PFC/24핀/8핀(6+2)PCI-E커넥터 2개/SATA커넥터 4개/4핀E-IDE커넥터 4개/8핀(4+4) 2개/120mm/ATX 3.1/프리볼트/블랙/박스",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4952,7 +4952,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 107000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0920/1176094/1176094_600.jpg",
     "description": "ATX 파워 / 정격출력: 850W / 80 PLUS 골드 / 전압변동: ±1% / +12V 싱글레일 / +12V 가용률: 100% / 액티브PFC / 120mm 팬 / 깊이: 140mm / 무상 10년 / [커넥터] 세미모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12V2x6 1개 / PCIe ",
     "pros": [
       "NEWZEN 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4970,9 +4970,9 @@ export const PRODUCT_CATALOG: Product[] = [
     "id": "cz_1183894",
     "name": "[SuperFlower] SF-1000F14GE LEADEX III GOLD UP ATX3.1 (ATX/1000W)",
     "category": "Power",
-    "price": 193990,
+    "price": 194000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1023/1183894/1183894_600.jpg",
     "description": "ATX 파워 / 정격출력: 1000W / 80 PLUS 골드 / 전압변동: ±0.5% / +12V 싱글레일 / +12V 가용률: 99% / 액티브PFC / PF(역률): 99% / 140mm 팬 / 깊이: 150mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / PCIe 16핀(12+4): 12",
     "pros": [
       "SuperFlower 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -4990,9 +4990,9 @@ export const PRODUCT_CATALOG: Product[] = [
     "id": "cz_1184880",
     "name": "[SuperFlower] SF-1000F14XG LEADEX VII GOLD ATX3.1 (ATX/1000W)",
     "category": "Power",
-    "price": 224000,
+    "price": 229000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1028/1184880/1184880_600.jpg",
     "description": "ATX 파워 / 정격출력: 1000W / 80 PLUS 골드 / ETA인증: PLATINUM / LAMBDA인증: A- / +12V 싱글레일 / +12V 가용률: 99% / 액티브PFC / PF(역률): 99% / 140mm / 깊이: 150mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀(20+4) / 보조전원: 8핀(4+4) 2개 / P",
     "pros": [
       "SuperFlower 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5012,7 +5012,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 199000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0515/1242205/1242205_600.jpg",
     "description": "ATX 파워/1000W/80 PLUS 골드/케이블연결: 풀모듈러/전압변동: ±0.8%/+12V 싱글레일/+12V 가용률: 100%/액티브PFC/PF(역률): 99%/140mm 팬/깊이: 150mm/무상 10년/[커넥터] 메인전원: 24핀/보조전원: 8핀(4+4) 2개/PCIe 16핀(12+4): 12V2x6 1개/PCIe 8핀(6+2): 4개/SATA: 8",
     "pros": [
       "마이크로닉스 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5032,7 +5032,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 142000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0427/1344786/1344786_600.jpg",
     "description": "ATX 파워/1000W/80 PLUS 골드/케이블연결: 풀모듈러/ +12V 싱글레일/+12V 가용률: 100%/ 액티브PFC/ 120mm 팬/깊이: 140mm/무상 10년/[커넥터] 메인전원: 24핀(20+4)/ 보조전원: (4+4)핀x2/ PCIe 16핀(12+4): 12V2x6 1개/ PCIe 8핀(6+2): 4개/ SATA: 8개/ IDE 4핀: 3개",
     "pros": [
       "GIGABYTE 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5052,7 +5052,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 178800,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0304/1327091/1327091_600.jpg",
     "description": "ATX 파워/1000W/80 PLUS 골드/케이블연결: 풀모듈러/ +12V 싱글레일/+12V 가용률: 99%/ 액티브PFC/ 120mm 팬/깊이: 140mm/무상 10년/[커넥터] 메인전원: 24핀(20+4)/ 보조전원: (4+4)핀x2/ PCIe 16핀(12+4): 12V2x6 1개/ PCIe 8핀(6+2): 5개/ SATA: 9개/ IDE 4핀: 4개/",
     "pros": [
       "Antec 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5072,7 +5072,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 179000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0814/1271424/1271424_600.jpg",
     "description": "ATX 파워/1000W/80 PLUS 골드/케이블연결: 풀모듈러/ETA인증: GOLD/LAMBDA인증: A/+12V 싱글레일/+12V 가용률: 99%/액티브PFC/135mm 팬/깊이: 150mm/무상 7년/[커넥터] 메인전원: 24핀/보조전원: 8핀(4+4) 2개/PCIe 16핀(12+4): 12V2x6 1개/PCIe 8핀(6+2): 3개/SATA: 9개/",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5092,7 +5092,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 109000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/1022/1183539/1183539_600.jpg",
     "description": "ATX 파워/1000W/80 PLUS 골드/케이블연결: 풀모듈러/ +12V 싱글레일/+12V 가용률: 100%/ 액티브PFC/PF(역률): 99%/ 120mm 팬/깊이: 140mm/무상 10년/[커넥터] 메인전원: 24핀(20+4)/ 보조전원: (4+4)핀x2/ PCIe 16핀(12+4): 12V2x6 1개/ PCIe 8핀(6+2): 2개/ SATA: 6개",
     "pros": [
       "엔클롬 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5112,7 +5112,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 209000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0413/1340439/1340439_600.jpg",
     "description": "ATX 파워/850W/80 PLUS 골드/케이블연결: 풀모듈러/LAMBDA인증: A-/ +12V 싱글레일/+12V 가용률: 100%/ 140mm 팬/깊이: 160mm/무상 10년/[커넥터] 메인전원: 24핀 x1/ 보조전원: (4+4)핀x2/ PCIe 16핀(12+4): 12V2x6 1개/ PCIe 8핀(6+2): 4개/ SATA: 12개/ IDE 4핀: ",
     "pros": [
       "CORSAIR 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5132,7 +5132,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 199000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0818/1271425/1271425_600.jpg",
     "description": "ATX 파워/1000W/80 PLUS 골드/케이블연결: 풀모듈러/ETA인증: GOLD/LAMBDA인증: A/+12V 싱글레일/+12V 가용률: 99%/액티브PFC/135mm 팬/깊이: 150mm/무상 10년/[커넥터] 메인전원: 24핀/보조전원: 8핀(4+4) 2개/PCIe 16핀(12+4): 12V2x6 1개/PCIe 8핀(6+2): 3개/SATA: 8개",
     "pros": [
       "MSI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5152,7 +5152,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 229000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0221/1215517/1215517_600.jpg",
     "description": "ATX 파워 / 정격출력: 1000W / 80 PLUS 골드 / ETA인증: PLATINUM / LAMBDA인증: A+ / +12V 싱글레일 / +12V 가용률: 99% / 액티브PFC / PF(역률): 99% / 120mm 팬 / 깊이: 182mm / 무상 10년 / [커넥터] 풀모듈러 / 메인전원: 24핀 / 보조전원: 8+4+4핀 1개 / PCIe 1",
     "pros": [
       "LIAN-LI 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5172,7 +5172,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "category": "Power",
     "price": 227000,
     "specs": {},
-    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/1215/1305203/1305203_600.jpg",
     "description": "ATX 파워 / 정격출력: 1000W / 80 PLUS 골드 / ETA인증: PLATINUM / LAMBDA인증: A++ / +12V 싱글레일 / +12V 가용률: 99% / 액티브PFC / PF(역률): 99% / 135mm 팬 / 깊이: 150mm / 무상 10년 /[커넥터] 풀모듈러 / 메인전원: 24핀(20+4): 1개 / CPU 보조전원: 8핀(4",
     "pros": [
       "FSP 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5194,7 +5194,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0413/1016422/1016422_600.jpg",
     "description": "CPU 쿨러 / 타워형 / 공랭 / 듀얼 /  인텔 소켓: LGA 1851,  LGA1700, LGA1200, LGA115x / AMD 소켓: AM5, AM4 / 쿨러 높이: 154.9mm / 무게: 1100g / 팬 쿨러 / 팬 크기: 120mm / 25T / 4핀 / 베어링: Rifle / 1750 RPM / 최대 풍량: 71.93 CFM / 최대 풍압",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5216,7 +5216,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2023/0413/1016419/1016419_600.jpg",
     "description": "CPU 쿨러 / 타워형 / 공랭 / LGA 1851 / LGA1700 / LGA1200 / LGA115x / AM5 / AM4 / 가로: 124mm / 세로: 73mm / 쿨러 높이: 154mm / 팬 쿨러 / 팬 크기: 120mm / 25T / 4핀 / 베어링: Rifle / 2050 RPM / 최대 풍량: 51.88 CFM / 최대 풍압: 2.89 mm",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5238,7 +5238,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/0531/915115/915115_600.jpg",
     "description": "시스템 쿨러 / 공랭 / 팬 쿨러 / 팬 크기: 40mm / 10T / 베어링: 1볼 / 3핀 / 팬 개수: 1PACK",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5260,7 +5260,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0714/1260740/1260740_600.jpg",
     "description": "CPU 쿨러 / 공랭 / 싱글타워형 / 팬 쿨러 / TDP : 160W / A/S기간 : 1년 / [호환/크기] 인텔 소켓 : LGA1851 , LGA1700 , LGA1200 , LGA115x / AMD 소켓 : AM5 , AM4 / 가로 : 92mm / 세로 : 78mm / 높이 : 128mm / 무게 : 315g / [쿨링팬] 팬 크기 : 92mm /",
     "pros": [
       "싸이번 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5282,7 +5282,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2018/0611/469860/469860_600.jpg",
     "description": "케이스 쿨러 / CASE-80mm / CASE-25mm / USB / 시스템 쿨러 / 공랭 / 팬 쿨러 / 80mm / 25T / 유체(FDB)",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5304,7 +5304,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2021/0304/768563/768563_600.jpg",
     "description": "시스템 쿨러 / 공랭 / 팬 쿨러 / 팬 크기: 80mm / 25T / 베어링: 2볼 / 2핀 / 최대 소음도: 최대 31dBA / 3000 RPM / 최대 풍량: 35.31 CFM",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5326,7 +5326,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2018/1224/522315/522315_600.jpg",
     "description": "케이스 쿨러 / CASE-92mm / CASE-25mm / 유체 / 4핀 / 공랭 / 유체(Hydraulic) / PWM",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5348,7 +5348,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2020/0707/686126/686126_600.jpg",
     "description": "CPU 쿨러 / 일반형 / 공랭 / 팬 쿨러 / 팬 크기: 95mm / 25T / 4핀 / 알루미늄 / LGA115x / LGA1151v2 / LGA1200 / CPU쿨러 최대높이 (약 64mm)",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5370,7 +5370,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2019/1108/616622/616622_600.jpg",
     "description": "시스템 쿨러 / 공랭 / 팬 쿨러 / 팬 크기: 120mm / 25T / 베어링: Rifle / 2핀 / 플라스틱",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5392,7 +5392,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2019/1108/616623/616623_600.jpg",
     "description": "시스템 쿨러 / 공랭 / 팬 쿨러 / 팬 크기: 50mm / 10T / 베어링: Rifle / 2핀 / 플라스틱",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5414,7 +5414,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2018/1107/506826/506826_600.jpg",
     "description": "케이스 쿨러 / CASE-120mm / CASE-25mm / 볼 / 4핀 / 시스템 쿨러 / 공랭 / 팬 쿨러 / 120mm / 25T / 3핀",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5436,7 +5436,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2017/0607/415818/415818_600.jpg",
     "description": "케이스 쿨러 / CASE-140mm / CASE-25mm / 유체 / 4핀 / 시스템 쿨러 / 공랭 / 팬 쿨러 / 140mm / 25T / 3핀",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5458,7 +5458,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2019/0228/542221/542221_600.jpg",
     "description": "시스템/케이스용 / 시스템 쿨러 / 온도 관리 / 공랭 / 팬 쿨러 / 40mm / 10T / 베어링: 2볼 / 3핀",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5480,7 +5480,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2021/0715/815209/815209_600.jpg",
     "description": "AM4소켓 / 공랭쿨러 / AM4 / CPU-80mm / 4핀 / PWM / 슬림형 / 80mm x 80mm x 15mm / 방열판 두께: 15mm / CPU쿨러 최대높이 (약 30mm)",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5502,7 +5502,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2017/0607/415819/415819_600.jpg",
     "description": "케이스 쿨러 / CASE-120mm / CASE-25mm / 2핀 / 시스템 쿨러 / 공랭 / 팬 쿨러 / 120mm / 25T / 라이플/EBR",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5524,7 +5524,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 1"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/0518/911525/911525_600.jpg",
     "description": "시스템 쿨러 / 공랭 / 팬 쿨러 / 팬 크기: 140mm / 25T / 베어링: 유체 / 3핀 / 최대 소음도: 최대 17.5dBA / 1000 RPM / 최대 풍량: 86.3 CFM / 팬 개수: 1PACK",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5546,7 +5546,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2018/1224/522320/522320_600.jpg",
     "description": "케이스 쿨러 / CASE-80mm / CASE-15mm / USB / 공랭 / 유체(FDB)",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5568,7 +5568,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2020/0707/686123/686123_600.jpg",
     "description": "CPU쿨러 / 일반형 / 공랭 / 팬 쿨러 / TDP: 95W / 팬 크기: 95mm / 25T / 베어링: 유체 / 4핀 / 알루미늄 / LGA2011 / LGA1366 / LGA115x / CPU쿨러 최대높이 (약 92mm)",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5590,7 +5590,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0708/1258785/1258785_600.jpg",
     "description": "1851/1700/115x/1200/AM4/AM5/CPU-120mm/4핀/5V(3핀)/타워형/AURA-SYNC/MYSTIC-LIGHT/RGB-FUSION/POLYCHROME-SYNC/PWM/LED포함/싱글 공랭 쿨러 / CPU쿨러 최대높이 (약 152mm)",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5612,7 +5612,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 2"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2019/0626/582013/582013_600.jpg",
     "description": "시스템 쿨러 / 공랭 / 팬 쿨러 / 70mm / 25T / 베어링: Long Life / USB / 플라스틱 / 케이스쿨러",
     "pros": [
       "쿨러텍 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5634,7 +5634,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0812/1270770/1270770_600.jpg",
     "description": "CPU 쿨러/수랭/팬 쿨러/A/S기간:6년+누수보상/[호환/크기]인텔 소켓:LGA1851,LGA1700,LGA1200,LGA115x/AMD 소켓:AM5,AM4/[수랭]라디에이터:3열/라디에이터 길이:394mm/라디에이터 두께:27mm/호스 길이:400mm/[쿨링팬]팬 크기:120mm/팬 개수:3개/25T/전용커넥터/베어링:LDB(유체)/2500 RPM/최대",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5656,7 +5656,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0812/1270768/1270768_600.jpg",
     "description": "CPU 쿨러/수랭/팬 쿨러/A/S기간:6년+누수보상/[호환/크기]인텔 소켓:LGA1851,LGA1700,LGA1200,LGA115x/AMD 소켓:AM5,AM4/[수랭]라디에이터:3열/라디에이터 길이:394mm/라디에이터 두께:27mm/호스 길이:400mm/[쿨링팬]팬 크기:120mm/팬 개수:3개/25T/전용커넥터/베어링:LDB(유체)/2500 RPM/최대",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5678,7 +5678,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0211/1211650/1211650_600.jpg",
     "description": "CPU 쿨러/수랭/팬 쿨러/A/S기간:5년+누수보상/[호환/크기]인텔 소켓:LGA1851,LGA1700,LGA1200,LGA115x/AMD 소켓:AM5,AM4/[수랭]라디에이터:3열/라디에이터 길이:394mm/라디에이터 두께:27.2mm/[쿨링팬]팬 크기:120mm/팬 개수:3개/25T/4핀/베어링:LDB(유체)/2400 RPM/최대 풍량:75.2 CFM/",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5700,7 +5700,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0508/1347154/1347154_600.jpg",
     "description": "CPU 쿨러/수랭/팬 쿨러/TDP:310W/A/S기간:6년+누수보상/[호환/크기]인텔 소켓:LGA1851,LGA1700,LGA1200,LGA115x/AMD 소켓:AM5,AM4/무게:1.41kg/[수랭]라디에이터:2열/라디에이터 길이:394mm/라디에이터 두께:29mm/호스 길이:400mm/[쿨링팬]팬 크기:120mm/팬 개수:2개/25T/베어링:LDB(유체",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5722,7 +5722,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0910/1279680/1279680_600.jpg",
     "description": "3열/1851/1700/115x/1200/AM4/AM5/CPU-120mm/5년/수랭 쿨러/PWM",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5744,7 +5744,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0206/1115490/1115490_600.jpg",
     "description": "CPU 쿨러 / 수랭 / 팬 쿨러 / A/S기간: 5년+누수보상 / 인텔 소켓: LGA1851, LGA1700, LGA1200, LGA115x / AMD 소켓: AM5, AM4 / 라디에이터: 3열 / 라디에이터 길이: 394mm / 라디에이터 두께: 27.2mm / 팬 크기: 120mm / 팬 개수: 3개 / 25T / 3-4핀 / 베어링: LDB(유체)",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5766,7 +5766,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0428/1344939/1344939_600.jpg",
     "description": "CPU 쿨러/수랭/팬 쿨러/TDP:290W/A/S기간:5년+누수보상/[호환/크기]인텔 소켓:LGA1851,LGA1700,LGA1200,LGA115x/AMD 소켓:AM5,AM4/[수랭]라디에이터:3열/라디에이터 길이:394mm/라디에이터 두께:27.2mm/호스 길이:400mm/[쿨링팬]팬 크기:120mm/팬 개수:3개/25T/전용커넥터/베어링:Rifle(유체",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5788,7 +5788,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2024/0206/1115491/1115491_600.jpg",
     "description": "CPU 쿨러 / 수랭 / 팬 쿨러 / A/S기간: 5년+누수보상 / 인텔 소켓: LGA1700, LGA1200, LGA115x / AMD 소켓: AM5, AM4 / 라디에이터: 2열 / 라디에이터 길이: 277mm / 라디에이터 두께: 27.2mm / [쿨링팬] 팬 크기: 120mm / 팬 개수: 2개 / 25T / 3-4핀 / 베어링: LDB(유체) / ",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5810,7 +5810,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0428/1344940/1344940_600.jpg",
     "description": "CPU 쿨러/수랭/팬 쿨러/TDP:290W/A/S기간:5년+누수보상/[호환/크기]인텔 소켓:LGA1851,LGA1700,LGA1200,LGA115x/AMD 소켓:AM5,AM4/[수랭]라디에이터:3열/라디에이터 길이:394mm/라디에이터 두께:27.2mm/호스 길이:400mm/[쿨링팬]팬 크기:120mm/팬 개수:3개/25T/전용커넥터/베어링:Rifle(유체",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5832,7 +5832,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0812/1270760/1270760_600.jpg",
     "description": "2열/1851/1700/115x/1200/AM4/AM5/PWM/6년/수랭 쿨러",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5854,7 +5854,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0822/1273690/1273690_600.jpg",
     "description": "3열/1851/1700/115x/1200/AM4/AM5/CPU-120mm/PWM/6년/수랭 쿨러",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5876,7 +5876,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0910/1279676/1279676_600.jpg",
     "description": "1851/1700/115x/1200/AM4/AM5/CPU-120mm/PWM/6년/수랭 쿨러/3열",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5898,7 +5898,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0910/1279679/1279679_600.jpg",
     "description": "3열/1851/1700/115x/1200/AM4/AM5/CPU-120mm/PWM/5년/수랭 쿨러",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5920,7 +5920,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0107/1310241/1310241_600.jpg",
     "description": "3열/1851/1700/115x/1200/AM4/AM5/CPU-120mm/PWM/5년/독자규격",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5938,11 +5938,11 @@ export const PRODUCT_CATALOG: Product[] = [
     "id": "cz_979829",
     "name": "[쿨러마스터] MasterLiquid ML360P SILVER EDITION  [CPU쿨러]",
     "category": "Cooler",
-    "price": 145370,
+    "price": 145360,
     "specs": {
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/1230/979829/979829_600.jpg",
     "description": "CPU 쿨러 / 수랭 / LGA1200 / LGA115x / LGA2066 / LGA2011-V3 / LGA2011 / LGA1366 / LGA775 / AM4 / FMx/AMx(AM1/4외) / TR4 / 라디에이터: 3열 / 팬 쿨러 / 팬 크기: 120mm / 25T / 4핀 / 1800 RPM / 최대 풍량: 45 CFM / 최대 소음: 최대 30d",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5964,7 +5964,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2022/0112/870947/870947_600.jpg",
     "description": "CPU 쿨러 / 수랭 / LGA1700 / LGA1200 / LGA115x / LGA2066 / LGA2011-V3 / LGA2011 / AM5 / AM4 / FMx/AMx(AM1/4외) / TR4 / 라디에이터: 3열 / 팬 쿨러 / 팬 크기: 120mm x3 / 25T / 4핀 / 베어링: LDB / 2300 RPM / 최대 풍량: 72.37 CFM /",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -5986,7 +5986,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 5"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0812/1270762/1270762_600.jpg",
     "description": "2열/1851/1700/115x/1200/AM4/AM5/CPU-120mm/PWM/6년/수랭 쿨러",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -6008,7 +6008,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0812/1270761/1270761_600.jpg",
     "description": "2열/1851/1700/115x/1200/AM4/AM5/CPU-120mm/PWM/6년/수랭 쿨러",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -6030,7 +6030,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 3"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0910/1279678/1279678_600.jpg",
     "description": "3열/1851/1700/115x/1200/AM4/AM5/CPU-120mm/PWM/5년/수랭 쿨러",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -6052,7 +6052,7 @@ export const PRODUCT_CATALOG: Product[] = [
     "specs": {
       "성능 등급": "Tier 4"
     },
-    "imageUrl": "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0910/1279677/1279677_600.jpg",
     "description": "3열/1851/1700/115x/1200/AM4/AM5/CPU-120mm/PWM/5년/수랭 쿨러",
     "pros": [
       "쿨러마스터 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
@@ -6063,6 +6063,46 @@ export const PRODUCT_CATALOG: Product[] = [
     ],
     "recommendedUsers": [
       "쿨러마스터 파츠 기반의 균형 잡힌 고성능 PC 구성을 원하는 구매자"
+    ],
+    "stockStatus": "in_stock"
+  },
+  {
+    "id": "cz_1329371",
+    "name": "[아이티젠] 비티즈 DDR4 PC4-25600  [16GB] (3200)",
+    "category": "RAM",
+    "price": 143000,
+    "specs": {},
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2026/0312/1329371/1329371_600.jpg",
+    "description": "DDR4 / 16GB / 3200MHz (PC4-25600) / 1개 / 방열판 무",
+    "pros": [
+      "아이티젠 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
+      "컴퓨존의 까다로운 호환성 및 품질 검증 기준 완벽 통과"
+    ],
+    "cons": [
+      "인기 공급 품목으로 조립 견적 시 재고 상황에 따라 변동 가능"
+    ],
+    "recommendedUsers": [
+      "아이티젠 파츠 기반의 균형 잡힌 고성능 PC 구성을 원하는 구매자"
+    ],
+    "stockStatus": "in_stock"
+  },
+  {
+    "id": "cz_1276997",
+    "name": "[Western Digital] Blue SN5100 M.2 NVMe 2280",
+    "category": "SSD",
+    "price": 316000,
+    "specs": {},
+    "imageUrl": "https://image3.compuzone.co.kr/img/product_img/2025/0902/1276997/1276997_600.jpg",
+    "description": "PCIeGen4 / 1TB / QLC / 읽기 7100M / 쓰기 6700M / 컨트롤러 고정 / DRAM 미탑재 / 80mm / 보증기간 5년 / M.2 NVMe",
+    "pros": [
+      "Western Digital 브랜드 정품 제품으로 높은 신뢰성과 안정성 보장",
+      "컴퓨존의 까다로운 호환성 및 품질 검증 기준 완벽 통과"
+    ],
+    "cons": [
+      "인기 공급 품목으로 조립 견적 시 재고 상황에 따라 변동 가능"
+    ],
+    "recommendedUsers": [
+      "Western Digital 파츠 기반의 균형 잡힌 고성능 PC 구성을 원하는 구매자"
     ],
     "stockStatus": "in_stock"
   }
