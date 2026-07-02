@@ -67,3 +67,7 @@ frontend/stitch/DESIGN.md
 node_modules/
 __pycache__/
 .DS_Store
+.env.example
+node_modules/
+__pycache__/
+.DS_Store
