@@ -78,10 +78,7 @@ def main():
         })
 
     client = chromadb.PersistentClient(path=args.db_path)
-    try:
-        client.delete_collection(COLLECTION_NAME)
-    except Exception:
-        pass
+    collection = client.get_or_create_collection(COLLECTION_NAME)
 
     if not os.environ.get("GEMINI_API_KEY"):
         print(
@@ -94,8 +91,7 @@ def main():
 
     print("GEMINI_API_KEY found -- embedding with text-embedding-004 (Korean-dedicated).", file=sys.stderr)
     embeddings = embed_with_gemini(documents)
-    collection = client.create_collection(COLLECTION_NAME)
-    collection.add(ids=ids, documents=documents, metadatas=metadatas, embeddings=embeddings)
+    collection.upsert(ids=ids, documents=documents, metadatas=metadatas, embeddings=embeddings)
 
     print(f"Indexed {len(ids)} products into Chroma collection '{COLLECTION_NAME}' at {args.db_path}")
 

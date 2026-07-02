@@ -248,14 +248,29 @@ def main():
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT})
 
-    all_parts = []
+    out_path = Path(args.out)
+    existing_parts = []
+    if out_path.exists():
+        try:
+            with open(out_path, 'r', encoding='utf-8') as f:
+                existing_parts = json.load(f).get('parts', [])
+        except Exception as e:
+            print(f'Warning: failed to load existing database: {e}', file=sys.stderr)
+
+    # Index existing parts by product_id
+    parts_by_id = {p['product_id']: p for p in existing_parts}
+
+    new_parts = []
     for category, config in CATEGORY_CONFIG.items():
         print(f"Scraping {category}...", file=sys.stderr)
-        all_parts.extend(scrape_category(session, category, config, args.per_query))
+        new_parts.extend(scrape_category(session, category, config, args.per_query))
 
+    # Add or update scraped parts into the dictionary
+    for part in new_parts:
+        parts_by_id[part['product_id']] = part
+
+    all_parts = list(parts_by_id.values())
     assign_tiers(all_parts)
-
-    out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "_comment": "Live-scraped from compuzone.co.kr search listings. Categories match server.py's build_configuration()/find_item() exactly (CPU/GPU/Motherboard/RAM/SSD/Power/Cooler).",
