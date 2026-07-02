@@ -1525,202 +1525,171 @@ export default function ChatbotKomi({
                           // 🔍 크게보기 상태 (isMaximized === true)
                           // ==========================================
                           return (
-                            <div className="bg-white border border-slate-200/80 rounded-3xl overflow-hidden shadow-xl flex flex-col w-full max-w-4xl p-5 space-y-5 text-left">
-                              {/* 3열 요약 카드 탭 selector */}
-                              <div className="grid grid-cols-3 gap-4">
+                            <div className="w-full max-w-5xl mt-1 space-y-4">
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
                                 {msg.data.slice(0, 3).map((spec: any, idx: number) => {
-                                  const isTabActive = activeRecommendTab === idx;
                                   const isUserSelected = userChosenIdx === idx;
-                                  const tabIcon = idx === 0 ? "💰" : idx === 1 ? "⭐" : "🚀";
-                                  const tabName = idx === 0 ? "가성비형" : idx === 1 ? "균형형" : "성능우선형";
+                                  const cardParts = getPartsDetail(spec);
+                                  
+                                  // Style variables based on index (0: 가성비 green, 1: 균형 blue, 2: 성능 purple)
+                                  const headerBg = idx === 0 ? "bg-emerald-600 text-white" : idx === 1 ? "bg-blue-600 text-white" : "bg-purple-600 text-white";
+                                  const badgeBg = idx === 0 ? "bg-emerald-750 text-emerald-100" : idx === 1 ? "bg-blue-750 text-blue-100" : "bg-purple-750 text-purple-100";
+                                  const badgeText = idx === 0 ? "가성비" : idx === 1 ? "균형" : "최고성능";
+                                  const progressColor = idx === 0 ? "bg-emerald-500" : idx === 1 ? "bg-blue-500" : "bg-purple-600";
+                                  
+                                  // Suitability mapping
+                                  const suitLabel1 = idx === 0 ? (flowState.usage === "게임" ? "캐주얼 게임" : "기본 디자인") : idx === 1 ? (flowState.usage === "게임" ? "고사양 게임" : "프로 디자인") : (flowState.usage === "게임" ? "하이엔드 스팀" : "전문 3D 렌더링");
+                                  const suitVal1 = idx === 0 ? 70 : idx === 1 ? 85 : 98;
+                                  const suitLabel2 = idx === 0 ? (flowState.usage === "게임" ? "일반 사무용" : "웹 서핑") : idx === 1 ? (flowState.usage === "게임" ? "멀티미디어" : "대용량 작업") : (flowState.usage === "게임" ? "영상 송출" : "배치 가속");
+                                  const suitVal2 = idx === 0 ? 30 : idx === 1 ? 15 : 2;
+
                                   return (
-                                    <button
+                                    <div
                                       key={idx}
-                                      onClick={() => setActiveRecommendTab(idx)}
-                                      className={`p-4 rounded-2xl border-2 transition-all flex flex-col text-left justify-between relative cursor-pointer ${
-                                        isTabActive
-                                          ? "border-blue-600 bg-blue-50/10 shadow-md"
-                                          : isUserSelected
-                                            ? "border-blue-400/60 bg-white"
-                                            : "border-slate-100 bg-slate-50/50 hover:bg-slate-100/50"
+                                      className={`bg-white rounded-3xl overflow-hidden shadow-md flex flex-col justify-between border-2 transition-all duration-300 relative text-left hover:-translate-y-1.5 hover:shadow-xl ${
+                                        isUserSelected
+                                          ? idx === 0
+                                            ? "border-emerald-500 ring-4 ring-emerald-50/50 shadow-emerald-100"
+                                            : idx === 1
+                                              ? "border-blue-500 ring-4 ring-blue-50/50 shadow-blue-100"
+                                              : "border-purple-500 ring-4 ring-purple-50/50 shadow-purple-100"
+                                          : "border-slate-100/80 hover:border-slate-200"
                                       }`}
                                     >
-                                      {/* Highlight badge for user selection */}
+                                      {/* Selection Banner */}
                                       {isUserSelected && (
-                                        <span className="absolute top-2.5 right-2.5 bg-blue-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider">
-                                          내 선택
-                                        </span>
+                                        <div className={`w-full py-1 text-center text-[9px] font-black text-white uppercase tracking-wider flex items-center justify-center gap-1 ${
+                                          idx === 0 ? "bg-emerald-700" : idx === 1 ? "bg-blue-700" : "bg-purple-700"
+                                        }`}>
+                                          <span>★</span> 내 선택 추천 사양 <span>★</span>
+                                        </div>
                                       )}
-                                      
-                                      <div className="space-y-1">
-                                        <span className="text-[11px] font-extrabold text-slate-500 flex items-center gap-1">
-                                          {tabIcon} {tabName}
-                                        </span>
-                                        <h4 className="text-[16px] font-black text-slate-900 leading-none">
-                                          {formatPriceMan(spec.price)}원
-                                        </h4>
+
+                                      {/* Header */}
+                                      <div className={`${headerBg} p-4.5 space-y-1 relative`}>
+                                        <div className="flex justify-between items-center gap-2">
+                                          <span className="text-[12px] font-black leading-snug flex-1">
+                                            {spec.title || (idx === 0 ? "알뜰 가성비 세팅" : idx === 1 ? "황금 밸런스 균형 세팅" : "익스트림 울트라 성능 세팅")}
+                                          </span>
+                                          <span className={`text-[8.5px] font-extrabold px-1.5 py-0.5 rounded flex-shrink-0 whitespace-nowrap ${badgeBg}`}>
+                                            {badgeText}
+                                          </span>
+                                        </div>
                                       </div>
-                                      
-                                      <span className="text-[9px] text-slate-400 mt-2 font-medium">
-                                        {idx === 0 ? "실속 알뜰형" : idx === 1 ? "인기 가속형" : "하이엔드 성능형"}
-                                      </span>
-                                    </button>
+
+                                      {/* Body */}
+                                      <div className="p-4.5 space-y-4 flex-1 flex flex-col justify-between">
+                                        <div className="space-y-4">
+                                          {/* AI 예상 성능 */}
+                                          <div className={`border rounded-2xl p-3.5 text-center ${
+                                            idx === 0 ? "bg-emerald-50/20 border-emerald-100/40 text-emerald-950" : idx === 1 ? "bg-blue-50/20 border-blue-100/40 text-blue-950" : "bg-purple-50/20 border-purple-100/40 text-purple-950"
+                                          }`}>
+                                            <p className="text-[11px] font-black leading-normal text-left">
+                                              🚀 {spec.performance?.headline || `${flowState.detail || "오버워치 2"}를 매우 부드러운 화질로 구동 가능해요!`}
+                                            </p>
+                                          </div>
+
+                                          {/* 용도 적합성 분석 */}
+                                          <div className="bg-slate-50/70 border border-slate-100/60 rounded-2xl p-3.5 text-[10px] text-slate-500 space-y-2">
+                                            <div className="flex justify-between items-center text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">
+                                              <span>용도 적합성 분석</span>
+                                              <span>정합도</span>
+                                            </div>
+                                            <div className="space-y-2 font-bold text-slate-700">
+                                              <div>
+                                                <div className="flex justify-between mb-0.5 text-[10.5px] font-extrabold text-slate-800">
+                                                  <span>{suitLabel1}</span>
+                                                  <span>{suitVal1}%</span>
+                                                </div>
+                                                <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                                  <div className={`h-full rounded-full ${progressColor}`} style={{ width: `${suitVal1}%` }}></div>
+                                                </div>
+                                              </div>
+                                              <div>
+                                                <div className="flex justify-between mb-0.5 text-slate-500 text-[10px]">
+                                                  <span>{suitLabel2}</span>
+                                                  <span>{suitVal2}%</span>
+                                                </div>
+                                                <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                                  <div className="bg-slate-300 h-full rounded-full" style={{ width: `${suitVal2}%` }}></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          {/* Parts Detail List */}
+                                          <div className="space-y-1.5 text-[11px] text-slate-650 border-b border-slate-50 pb-3">
+                                            {cardParts.map((part: any, pIdx: number) => (
+                                              <div key={pIdx} className="flex justify-between items-start gap-3">
+                                                <span className="font-extrabold text-slate-400 w-12 flex-shrink-0">{part.category}</span>
+                                                <span className="font-semibold text-slate-800 text-right line-clamp-1 flex-1" title={part.name}>
+                                                  {part.name}
+                                                </span>
+                                              </div>
+                                            ))}
+                                          </div>
+
+                                          {/* Warning / Alerts block */}
+                                          {spec.report?.warning && (
+                                            <div className="bg-rose-50 border border-rose-100/50 rounded-xl p-3 text-[10px] text-rose-800 space-y-1">
+                                              <div className="font-extrabold flex items-center gap-1 text-[10.5px]">
+                                                <span>⚠️</span> 호환성 및 안전 점검 알림
+                                              </div>
+                                              <div className="leading-relaxed font-semibold">
+                                                {spec.report.warning}
+                                              </div>
+                                            </div>
+                                          )}
+                                        </div>
+
+                                        {/* Total price and shopping cart button */}
+                                        <div className="space-y-2.5 pt-3">
+                                          <div className="flex justify-between items-center border-t border-slate-100 pt-3">
+                                            <span className="text-[10px] text-slate-400 font-extrabold uppercase">정품 총합액</span>
+                                            <span className="text-[14.5px] font-black text-slate-900 tracking-tight">
+                                              {spec.price.toLocaleString()}원
+                                            </span>
+                                          </div>
+                                          
+                                          <div className="flex gap-1.5">
+                                            <button
+                                              onClick={() => {
+                                                onAddToCart(spec);
+                                                onClose();
+                                              }}
+                                              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-[10.5px] shadow-sm cursor-pointer transition-all flex items-center justify-center gap-1"
+                                              id={`add-cart-spec-btn-${spec.id}`}
+                                            >
+                                              <ShoppingCart className="w-3 h-3" /> 장바구니 담기
+                                            </button>
+                                            <button
+                                              onClick={() => {
+                                                alert("현재 견적 사양이 임시 보관함에 안전하게 저장되었습니다! 💾");
+                                              }}
+                                              className="bg-white hover:bg-slate-50 border border-slate-200 text-slate-555 font-bold p-2.5 rounded-xl text-[10.5px] transition-all flex items-center justify-center cursor-pointer"
+                                              title="견적 저장"
+                                            >
+                                              <Save className="w-3 h-3" />
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                   );
                                 })}
                               </div>
-
-                              {/* 2열 구성 상세 내용 */}
-                              <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
-                                {/* Left Column: 5 Cols (AI comments & stats) */}
-                                <div className="md:col-span-5 space-y-4">
-                                  {/* AI 실시간 예상 성능치 */}
-                                  <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 text-left space-y-2">
-                                    <div className="text-[10px] font-bold text-blue-600 flex items-center gap-1">
-                                      <span>✨</span> AI 실시간 예상 성능치
-                                    </div>
-                                    <h4 className="text-[13px] font-black text-slate-800 tracking-tight leading-snug">
-                                      {activeSpec.performance?.headline || "구성이 완료되었습니다."}
-                                    </h4>
-                                    <p className="text-[10px] font-medium text-slate-400">
-                                      {getTabSub(activeRecommendTab)}
-                                    </p>
-                                  </div>
-
-                                  {/* AI 매니저 추천평 */}
-                                  <div className="bg-blue-50/20 border border-blue-50/50 rounded-2xl p-4 text-left space-y-2">
-                                    <div className="text-[10px] font-bold text-slate-500 flex items-center gap-1.5">
-                                      <span>📝</span> AI 매니저 추천평
-                                    </div>
-                                    <p className="text-[11.5px] text-slate-700 leading-relaxed font-semibold">
-                                      {activeSpec.report?.reason || activeSpec.reason}
-                                    </p>
-                                  </div>
-
-                                  {/* 컴퓨존 안심 조립 케어 */}
-                                  <div className="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-4 flex items-start gap-3 text-left">
-                                    <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex-shrink-0 flex items-center justify-center text-xs shadow-sm font-black">
-                                      🛡️
-                                    </div>
-                                    <div className="space-y-0.5">
-                                      <div className="text-[11px] font-black text-emerald-800">컴퓨존 안심 조립 케어</div>
-                                      <p className="text-[9px] font-extrabold text-emerald-600/80 leading-normal">
-                                        무상 조립비 지원 + 전국 무상 1년 출장 A/S 패키지 자동 결합
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                {/* Right Column: 7 Cols (Table representation of components) */}
-                                <div className="md:col-span-7 space-y-3">
-                                  <div className="flex justify-between items-center px-1">
-                                    <h3 className="text-[12px] font-black text-slate-800 tracking-tight">부품 조합 상세 ({activeParts.length}종)</h3>
-                                    {activeSpec.report?.warning && (
-                                      <span className="text-[9px] font-bold text-rose-600 animate-pulse">⚠️ 호환성 경고가 있습니다.</span>
-                                    )}
-                                  </div>
-
-                                  <div className="border border-slate-100 rounded-2xl overflow-hidden shadow-sm bg-white">
-                                    <table className="w-full text-[11px] text-slate-700 border-collapse">
-                                      <thead>
-                                        <tr className="bg-slate-50/80 border-b border-slate-100 text-slate-400 font-extrabold text-[9.5px]">
-                                          <th className="py-2.5 px-3.5 text-left w-16">분류</th>
-                                          <th className="py-2.5 px-3.5 text-left">제품 상세 모델명</th>
-                                          <th className="py-2.5 px-3.5 text-center w-20">소비전력</th>
-                                          <th className="py-2.5 px-3.5 text-center w-20">재고</th>
-                                          <th className="py-2.5 px-3.5 text-right w-24">정품 가격</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody className="divide-y divide-slate-50 font-bold">
-                                        {activeParts.map((part: any, pIdx: number) => {
-                                          const tdpVal = part.tdp ? `${part.tdp}W` : "-";
-                                          return (
-                                            <tr key={pIdx} className="hover:bg-slate-50/40 transition-colors">
-                                              <td className="py-2.5 px-3.5 align-top">
-                                                <span className="inline-block text-[8px] font-extrabold bg-slate-100 text-slate-500 rounded px-1.5 py-0.5 uppercase tracking-wider">
-                                                  {part.category}
-                                                </span>
-                                              </td>
-                                              <td className="py-2.5 px-3.5 align-top">
-                                                <div className="flex flex-col gap-0.5 text-left">
-                                                  <span className="font-extrabold text-slate-800 text-[10.5px] leading-tight">
-                                                    {part.name}
-                                                  </span>
-                                                  <span className="text-[8.5px] text-slate-400 font-semibold leading-normal">
-                                                    {part.description || "이 견적을 구성하는 정품 호환성 승인 부품입니다."}
-                                                  </span>
-                                                </div>
-                                              </td>
-                                              <td className="py-2.5 px-3.5 text-center text-slate-500 align-top whitespace-nowrap text-[10.5px]">
-                                                {tdpVal}
-                                              </td>
-                                              <td className="py-2.5 px-3.5 text-center align-top whitespace-nowrap">
-                                                <span className="inline-flex items-center gap-1 text-[9.5px] text-emerald-600 font-black">
-                                                  <span className="w-1 h-1 rounded-full bg-emerald-500"></span>
-                                                  보유중
-                                                </span>
-                                              </td>
-                                              <td className="py-2.5 px-3.5 text-right text-slate-800 align-top whitespace-nowrap font-black text-[10.5px]">
-                                                {part.price > 0 ? `${part.price.toLocaleString()}원` : "기본포함"}
-                                              </td>
-                                            </tr>
-                                          );
-                                        })}
-                                      </tbody>
-                                    </table>
-                                  </div>
-
-                                  {/* Warning block if any */}
-                                  {activeSpec.report?.warning && (
-                                    <div className="bg-rose-50 border border-rose-100/50 rounded-xl p-3 text-[10px] text-rose-800 text-left space-y-1">
-                                      <div className="font-extrabold flex items-center gap-1 text-[10.5px]">
-                                        <span>⚠️</span> 호환성 및 안전 점검 알림
-                                      </div>
-                                      <div className="leading-relaxed font-semibold">
-                                        {activeSpec.report.warning}
-                                      </div>
-                                    </div>
-                                  )}
-                                </div>
-                              </div>
-
-                              {/* 하단 최종합계 및 액션 버튼 */}
-                              <div className="border-t border-slate-100 pt-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-                                <div className="flex items-center gap-3">
-                                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">최종 조립가 총합</span>
-                                  <span className="text-xl font-black text-slate-900">
-                                    {activeSpec.price.toLocaleString()}원
-                                  </span>
-                                </div>
-
-                                <div className="flex gap-2 w-full sm:w-auto">
-                                  <button
-                                    onClick={() => {
-                                      onAddToCart(activeSpec);
-                                      onClose();
-                                    }}
-                                    className="flex-1 sm:flex-none bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-2xl text-xs shadow-md cursor-pointer transition-all flex items-center justify-center gap-1.5"
-                                    id={`add-cart-spec-btn-${activeSpec.id}`}
-                                  >
-                                    <ShoppingCart className="w-3.5 h-3.5" /> 컴퓨존 장바구니에 전체 담기 <span className="text-[10px] font-light">↗</span>
-                                  </button>
-                                  <button
-                                    onClick={() => {
-                                      alert("현재 견적 사양이 임시 보관함에 안전하게 저장되었습니다! 💾");
-                                    }}
-                                    className="bg-white hover:bg-slate-50 border border-slate-200 text-slate-600 font-bold py-3 px-5 rounded-2xl text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-                                  >
-                                    <Save className="w-3.5 h-3.5 text-slate-400" /> 현재 견적 저장
-                                  </button>
-                                  <button
-                                    onClick={() => {
-                                      initChat();
-                                      handleOptionClick("🎮 스마트 맞춤 PC 견적 추천", "rec_start_direct");
-                                    }}
-                                    className="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 px-5 rounded-2xl text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-                                  >
-                                    목적 다시 맞추기 🔄
-                                  </button>
-                                </div>
+                              
+                              {/* Bottom back buttons */}
+                              <div className="flex justify-center gap-3 pt-2">
+                                <button
+                                  onClick={() => {
+                                    initChat();
+                                    handleOptionClick("🎮 스마트 맞춤 PC 견적 추천", "rec_start_direct");
+                                  }}
+                                  className="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-5 rounded-2xl text-[11px] transition-all flex items-center gap-1.5 cursor-pointer"
+                                >
+                                  목적 다시 맞추기 🔄
+                                </button>
                               </div>
                             </div>
                           );
