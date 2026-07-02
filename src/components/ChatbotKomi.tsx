@@ -1311,74 +1311,15 @@ export default function ChatbotKomi({
                   {/* Options List (Q1, Q4, etc. - EXCEPT Q2) */}
                   {msg.type === "options" && msg.options && !(flowState.currentFlow === "recommend" && flowState.step === 2) && (
                     <div className="flex flex-col gap-2 mt-1">
-                      {msg.options.map((opt, idx) => {
-                        const isRecommendPurposeStep = msg.options.some(o => o.action && o.action.startsWith("rec_usage_"));
-
-                        if (isRecommendPurposeStep) {
-                          let iconBg = "bg-blue-50 text-blue-600";
-                          let emoji = "🎮";
-                          let subText = "";
-                          let mainText = opt.label;
-
-                          if (opt.action === "rec_usage_game") {
-                            iconBg = "bg-blue-50 text-blue-600";
-                            emoji = "🎮";
-                            mainText = "게이밍 용도 조립";
-                            subText = "발로란트, 배그 200프레임 조율";
-                          } else if (opt.action === "rec_usage_edit") {
-                            iconBg = "bg-purple-50 text-purple-600";
-                            emoji = "🎨";
-                            mainText = "편집 및 디자인 용도";
-                            subText = "포토샵 레이어, 고속 영상 인코딩";
-                          } else if (opt.action === "rec_usage_code") {
-                            iconBg = "bg-emerald-50 text-emerald-600";
-                            emoji = "💻";
-                            mainText = "프로그래밍 및 개발 용도";
-                            subText = "VS Code 빌드, 가상 머신 구동";
-                          } else if (opt.action === "rec_usage_ai") {
-                            iconBg = "bg-amber-50 text-amber-600";
-                            emoji = "🧠";
-                            mainText = "AI 연구 및 머신러닝";
-                            subText = "쿠다 코어 가속, 학습 모델 구동";
-                          } else if (opt.action === "rec_usage_office") {
-                            iconBg = "bg-slate-50 text-slate-600";
-                            emoji = "📁";
-                            mainText = "일반 사무 및 오피스용";
-                            subText = "엑셀 대용량 연산, 웹서핑";
-                          }
-
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => handleOptionClick(opt.label, opt.action)}
-                              className="bg-white hover:bg-slate-50 border border-slate-150 hover:border-slate-300 rounded-2xl p-4.5 transition-all shadow-sm cursor-pointer flex items-center gap-4.5 text-left w-full"
-                            >
-                              <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold flex-shrink-0 ${iconBg}`}>
-                                {emoji}
-                              </div>
-                              <div className="flex flex-col gap-0.5 justify-center">
-                                <span className="font-extrabold text-slate-800 text-[13px]">
-                                  {mainText}
-                                </span>
-                                <span className="text-slate-400 text-[11px] font-semibold">
-                                  {subText}
-                                </span>
-                              </div>
-                            </button>
-                          );
-                        }
-
-                        // Default small button layout
-                        return (
-                          <button
-                            key={idx}
-                            onClick={() => handleOptionClick(opt.label, opt.action)}
-                            className="bg-white hover:bg-blue-50 border border-slate-100 hover:border-blue-200 text-slate-700 hover:text-blue-700 font-bold py-2.5 px-4 rounded-xl text-xs text-left transition-all shadow-sm cursor-pointer"
-                          >
-                            {opt.label}
-                          </button>
-                        );
-                      })}
+                      {msg.options.map((opt, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => handleOptionClick(opt.label, opt.action)}
+                          className="bg-white hover:bg-blue-50 border border-slate-100 hover:border-blue-200 text-slate-700 hover:text-blue-700 font-bold py-2.5 px-4 rounded-xl text-xs text-left transition-all shadow-sm cursor-pointer"
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
                     </div>
                   )}
 
