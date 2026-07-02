@@ -32,8 +32,9 @@ from bs4 import BeautifulSoup
 
 SEARCH_URL = "https://www.compuzone.co.kr/search/search_list.php"
 USER_AGENT = (
-    "CompuzoneCatalogBot/1.0 "
-    "(+student project data sync; contact: sesac2024ai12@gmail.com)"
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/125.0.0.0 Safari/537.36"
 )
 REQUEST_DELAY_SEC = 1.0
 
@@ -246,7 +247,10 @@ def main():
     args = parser.parse_args()
 
     session = requests.Session()
-    session.headers.update({"User-Agent": USER_AGENT})
+    session.headers.update({
+        "User-Agent": USER_AGENT,
+        "Referer": "https://www.compuzone.co.kr/"
+    })
 
     out_path = Path(args.out)
     existing_parts = []
