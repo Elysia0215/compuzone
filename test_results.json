@@ -1,0 +1,561 @@
+[
+  {
+    "case_index": 1,
+    "input": {
+      "_comment": "케이스 1 — 지훈 시나리오 (메인 데모 흐름)",
+      "_expect": "RTX 5050/5060Ti 기반 견적 3종. 경고 없음",
+      "session_id": "test-001",
+      "purpose": "game",
+      "games": [
+        "valorant",
+        "battleground"
+      ],
+      "programs": [],
+      "budget": 1500000,
+      "priority": "balance",
+      "timestamp": "2026-07-01T09:00:00Z"
+    },
+    "output": [
+      {
+        "type": "value",
+        "total_price": 1300000,
+        "parts": [
+          {
+            "category": "GPU",
+            "name": "RTX 5050 8GB",
+            "price": 420000,
+            "product_id": "compuzone_gpu_001"
+          },
+          {
+            "category": "CPU",
+            "name": "Ryzen 5 7600",
+            "price": 220000,
+            "product_id": "compuzone_cpu_002"
+          },
+          {
+            "category": "MB",
+            "name": "B650M 메인보드 (AM5)",
+            "price": 180000,
+            "product_id": "compuzone_mb_001"
+          },
+          {
+            "category": "RAM",
+            "name": "DDR5 16GB 듀얼채널 (2x8GB)",
+            "price": 180000,
+            "product_id": "compuzone_ram_001"
+          },
+          {
+            "category": "SSD",
+            "name": "NVMe SSD 1TB",
+            "price": 100000,
+            "product_id": "compuzone_ssd_001"
+          },
+          {
+            "category": "PSU",
+            "name": "650W 80+ Gold",
+            "price": 120000,
+            "product_id": "compuzone_psu_001"
+          },
+          {
+            "category": "CASE",
+            "name": "미들타워 케이스",
+            "price": 80000,
+            "product_id": "compuzone_case_001"
+          }
+        ],
+        "performance": {
+          "headline": "발로란트 성능 우수 예상",
+          "detail": "RTX 5050 8GB 탑재 모델"
+        },
+        "report": {
+          "reason": "알뜰 가성비 세팅 구성입니다.",
+          "warning": null
+        }
+      },
+      {
+        "type": "balance",
+        "total_price": 1300000,
+        "parts": [
+          {
+            "category": "GPU",
+            "name": "RTX 5050 8GB",
+            "price": 420000,
+            "product_id": "compuzone_gpu_001"
+          },
+          {
+            "category": "CPU",
+            "name": "Ryzen 5 7600",
+            "price": 220000,
+            "product_id": "compuzone_cpu_002"
+          },
+          {
+            "category": "MB",
+            "name": "B650M 메인보드 (AM5)",
+            "price": 180000,
+            "product_id": "compuzone_mb_001"
+          },
+          {
+            "category": "RAM",
+            "name": "DDR5 16GB 듀얼채널 (2x8GB)",
+            "price": 180000,
+            "product_id": "compuzone_ram_001"
+          },
+          {
+            "category": "SSD",
+            "name": "NVMe SSD 1TB",
+            "price": 100000,
+            "product_id": "compuzone_ssd_001"
+          },
+          {
+            "category": "PSU",
+            "name": "650W 80+ Gold",
+            "price": 120000,
+            "product_id": "compuzone_psu_001"
+          },
+          {
+            "category": "CASE",
+            "name": "미들타워 케이스",
+            "price": 80000,
+            "product_id": "compuzone_case_001"
+          }
+        ],
+        "performance": {
+          "headline": "발로란트 성능 우수 예상",
+          "detail": "RTX 5050 8GB 탑재 모델"
+        },
+        "report": {
+          "reason": "황금 밸런스 균형 세팅 구성입니다.",
+          "warning": null
+        }
+      },
+      {
+        "type": "performance",
+        "total_price": 1300000,
+        "parts": [
+          {
+            "category": "GPU",
+            "name": "RTX 5050 8GB",
+            "price": 420000,
+            "product_id": "compuzone_gpu_001"
+          },
+          {
+            "category": "CPU",
+            "name": "Ryzen 5 7600",
+            "price": 220000,
+            "product_id": "compuzone_cpu_002"
+          },
+          {
+            "category": "MB",
+            "name": "B650M 메인보드 (AM5)",
+            "price": 180000,
+            "product_id": "compuzone_mb_001"
+          },
+          {
+            "category": "RAM",
+            "name": "DDR5 16GB 듀얼채널 (2x8GB)",
+            "price": 180000,
+            "product_id": "compuzone_ram_001"
+          },
+          {
+            "category": "SSD",
+            "name": "NVMe SSD 1TB",
+            "price": 100000,
+            "product_id": "compuzone_ssd_001"
+          },
+          {
+            "category": "PSU",
+            "name": "650W 80+ Gold",
+            "price": 120000,
+            "product_id": "compuzone_psu_001"
+          },
+          {
+            "category": "CASE",
+            "name": "미들타워 케이스",
+            "price": 80000,
+            "product_id": "compuzone_case_001"
+          }
+        ],
+        "performance": {
+          "headline": "발로란트 성능 우수 예상",
+          "detail": "RTX 5050 8GB 탑재 모델"
+        },
+        "report": {
+          "reason": "익스트림 울트라 성능 세팅 구성입니다.",
+          "warning": null
+        }
+      }
+    ]
+  },
+  {
+    "case_index": 2,
+    "input": {
+      "_comment": "케이스 2 — 이수아 시나리오 (디자인 분기)",
+      "_expect": "CPU·RAM 중심 견적 3종. GPU는 최소 구성",
+      "session_id": "test-002",
+      "purpose": "design",
+      "games": [],
+      "programs": [
+        "photoshop"
+      ],
+      "budget": 1000000,
+      "priority": "value",
+      "timestamp": "2026-07-01T09:01:00Z"
+    },
+    "output": [
+      {
+        "type": "value",
+        "total_price": 1300000,
+        "parts": [
+          {
+            "category": "GPU",
+            "name": "RTX 5050 8GB",
+            "price": 420000,
+            "product_id": "compuzone_gpu_001"
+          },
+          {
+            "category": "CPU",
+            "name": "Ryzen 5 7600",
+            "price": 220000,
+            "product_id": "compuzone_cpu_002"
+          },
+          {
+            "category": "MB",
+            "name": "B650M 메인보드 (AM5)",
+            "price": 180000,
+            "product_id": "compuzone_mb_001"
+          },
+          {
+            "category": "RAM",
+            "name": "DDR5 16GB 듀얼채널 (2x8GB)",
+            "price": 180000,
+            "product_id": "compuzone_ram_001"
+          },
+          {
+            "category": "SSD",
+            "name": "NVMe SSD 1TB",
+            "price": 100000,
+            "product_id": "compuzone_ssd_001"
+          },
+          {
+            "category": "PSU",
+            "name": "650W 80+ Gold",
+            "price": 120000,
+            "product_id": "compuzone_psu_001"
+          },
+          {
+            "category": "CASE",
+            "name": "미들타워 케이스",
+            "price": 80000,
+            "product_id": "compuzone_case_001"
+          }
+        ],
+        "performance": {
+          "headline": "작업 성능 우수 예상",
+          "detail": "RTX 5050 8GB 탑재 모델"
+        },
+        "report": {
+          "reason": "알뜰 가성비 세팅 구성입니다.",
+          "warning": null
+        }
+      },
+      {
+        "type": "balance",
+        "total_price": 1300000,
+        "parts": [
+          {
+            "category": "GPU",
+            "name": "RTX 5050 8GB",
+            "price": 420000,
+            "product_id": "compuzone_gpu_001"
+          },
+          {
+            "category": "CPU",
+            "name": "Ryzen 5 7600",
+            "price": 220000,
+            "product_id": "compuzone_cpu_002"
+          },
+          {
+            "category": "MB",
+            "name": "B650M 메인보드 (AM5)",
+            "price": 180000,
+            "product_id": "compuzone_mb_001"
+          },
+          {
+            "category": "RAM",
+            "name": "DDR5 16GB 듀얼채널 (2x8GB)",
+            "price": 180000,
+            "product_id": "compuzone_ram_001"
+          },
+          {
+            "category": "SSD",
+            "name": "NVMe SSD 1TB",
+            "price": 100000,
+            "product_id": "compuzone_ssd_001"
+          },
+          {
+            "category": "PSU",
+            "name": "650W 80+ Gold",
+            "price": 120000,
+            "product_id": "compuzone_psu_001"
+          },
+          {
+            "category": "CASE",
+            "name": "미들타워 케이스",
+            "price": 80000,
+            "product_id": "compuzone_case_001"
+          }
+        ],
+        "performance": {
+          "headline": "작업 성능 우수 예상",
+          "detail": "RTX 5050 8GB 탑재 모델"
+        },
+        "report": {
+          "reason": "황금 밸런스 균형 세팅 구성입니다.",
+          "warning": null
+        }
+      },
+      {
+        "type": "performance",
+        "total_price": 1300000,
+        "parts": [
+          {
+            "category": "GPU",
+            "name": "RTX 5050 8GB",
+            "price": 420000,
+            "product_id": "compuzone_gpu_001"
+          },
+          {
+            "category": "CPU",
+            "name": "Ryzen 5 7600",
+            "price": 220000,
+            "product_id": "compuzone_cpu_002"
+          },
+          {
+            "category": "MB",
+            "name": "B650M 메인보드 (AM5)",
+            "price": 180000,
+            "product_id": "compuzone_mb_001"
+          },
+          {
+            "category": "RAM",
+            "name": "DDR5 16GB 듀얼채널 (2x8GB)",
+            "price": 180000,
+            "product_id": "compuzone_ram_001"
+          },
+          {
+            "category": "SSD",
+            "name": "NVMe SSD 1TB",
+            "price": 100000,
+            "product_id": "compuzone_ssd_001"
+          },
+          {
+            "category": "PSU",
+            "name": "650W 80+ Gold",
+            "price": 120000,
+            "product_id": "compuzone_psu_001"
+          },
+          {
+            "category": "CASE",
+            "name": "미들타워 케이스",
+            "price": 80000,
+            "product_id": "compuzone_case_001"
+          }
+        ],
+        "performance": {
+          "headline": "작업 성능 우수 예상",
+          "detail": "RTX 5050 8GB 탑재 모델"
+        },
+        "report": {
+          "reason": "익스트림 울트라 성능 세팅 구성입니다.",
+          "warning": null
+        }
+      }
+    ]
+  },
+  {
+    "case_index": 3,
+    "input": {
+      "_comment": "케이스 3 — 직접입력 엣지케이스 (ChromaDB 없어도 GPT 자체 지식으로 처리 확인용)",
+      "_expect": "GPT가 마인크래프트 사양 자체적으로 파악해 저예산 견적 생성. fallback_used: false 또는 true",
+      "session_id": "test-003",
+      "purpose": "game",
+      "games": [
+        "마인크래프트"
+      ],
+      "programs": [],
+      "budget": 800000,
+      "priority": "value",
+      "timestamp": "2026-07-01T09:02:00Z"
+    },
+    "output": [
+      {
+        "type": "value",
+        "total_price": 1250000,
+        "parts": [
+          {
+            "category": "GPU",
+            "name": "RTX 5050 8GB",
+            "price": 420000,
+            "product_id": "compuzone_gpu_001"
+          },
+          {
+            "category": "CPU",
+            "name": "Ryzen 5 7500F",
+            "price": 170000,
+            "product_id": "compuzone_cpu_001"
+          },
+          {
+            "category": "MB",
+            "name": "B650M 메인보드 (AM5)",
+            "price": 180000,
+            "product_id": "compuzone_mb_001"
+          },
+          {
+            "category": "RAM",
+            "name": "DDR5 16GB 듀얼채널 (2x8GB)",
+            "price": 180000,
+            "product_id": "compuzone_ram_001"
+          },
+          {
+            "category": "SSD",
+            "name": "NVMe SSD 1TB",
+            "price": 100000,
+            "product_id": "compuzone_ssd_001"
+          },
+          {
+            "category": "PSU",
+            "name": "650W 80+ Gold",
+            "price": 120000,
+            "product_id": "compuzone_psu_001"
+          },
+          {
+            "category": "CASE",
+            "name": "미들타워 케이스",
+            "price": 80000,
+            "product_id": "compuzone_case_001"
+          }
+        ],
+        "performance": {
+          "headline": "발로란트 성능 우수 예상",
+          "detail": "RTX 5050 8GB 탑재 모델"
+        },
+        "report": {
+          "reason": "알뜰 가성비 세팅 구성입니다.",
+          "warning": null
+        }
+      },
+      {
+        "type": "balance",
+        "total_price": 1250000,
+        "parts": [
+          {
+            "category": "GPU",
+            "name": "RTX 5050 8GB",
+            "price": 420000,
+            "product_id": "compuzone_gpu_001"
+          },
+          {
+            "category": "CPU",
+            "name": "Ryzen 5 7500F",
+            "price": 170000,
+            "product_id": "compuzone_cpu_001"
+          },
+          {
+            "category": "MB",
+            "name": "B650M 메인보드 (AM5)",
+            "price": 180000,
+            "product_id": "compuzone_mb_001"
+          },
+          {
+            "category": "RAM",
+            "name": "DDR5 16GB 듀얼채널 (2x8GB)",
+            "price": 180000,
+            "product_id": "compuzone_ram_001"
+          },
+          {
+            "category": "SSD",
+            "name": "NVMe SSD 1TB",
+            "price": 100000,
+            "product_id": "compuzone_ssd_001"
+          },
+          {
+            "category": "PSU",
+            "name": "650W 80+ Gold",
+            "price": 120000,
+            "product_id": "compuzone_psu_001"
+          },
+          {
+            "category": "CASE",
+            "name": "미들타워 케이스",
+            "price": 80000,
+            "product_id": "compuzone_case_001"
+          }
+        ],
+        "performance": {
+          "headline": "발로란트 성능 우수 예상",
+          "detail": "RTX 5050 8GB 탑재 모델"
+        },
+        "report": {
+          "reason": "황금 밸런스 균형 세팅 구성입니다.",
+          "warning": null
+        }
+      },
+      {
+        "type": "performance",
+        "total_price": 1250000,
+        "parts": [
+          {
+            "category": "GPU",
+            "name": "RTX 5050 8GB",
+            "price": 420000,
+            "product_id": "compuzone_gpu_001"
+          },
+          {
+            "category": "CPU",
+            "name": "Ryzen 5 7500F",
+            "price": 170000,
+            "product_id": "compuzone_cpu_001"
+          },
+          {
+            "category": "MB",
+            "name": "B650M 메인보드 (AM5)",
+            "price": 180000,
+            "product_id": "compuzone_mb_001"
+          },
+          {
+            "category": "RAM",
+            "name": "DDR5 16GB 듀얼채널 (2x8GB)",
+            "price": 180000,
+            "product_id": "compuzone_ram_001"
+          },
+          {
+            "category": "SSD",
+            "name": "NVMe SSD 1TB",
+            "price": 100000,
+            "product_id": "compuzone_ssd_001"
+          },
+          {
+            "category": "PSU",
+            "name": "650W 80+ Gold",
+            "price": 120000,
+            "product_id": "compuzone_psu_001"
+          },
+          {
+            "category": "CASE",
+            "name": "미들타워 케이스",
+            "price": 80000,
+            "product_id": "compuzone_case_001"
+          }
+        ],
+        "performance": {
+          "headline": "발로란트 성능 우수 예상",
+          "detail": "RTX 5050 8GB 탑재 모델"
+        },
+        "report": {
+          "reason": "익스트림 울트라 성능 세팅 구성입니다.",
+          "warning": null
+        }
+      }
+    ]
+  }
+]

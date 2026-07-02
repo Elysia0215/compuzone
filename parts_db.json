@@ -1,0 +1,32 @@
+{
+  "_comment": "컴퓨존 부품 DB 샘플. tier: 1(입문)~5(최상위). 실제 서비스에서는 크롤링으로 채움.",
+  "_updated": "2026-07-01",
+  "parts": [
+    { "product_id": "cz_gpu_001", "category": "GPU", "name": "RTX 4060",        "price": 359000,  "stock": true, "tier": 2, "tdp": 115, "description": "발로란트·롤 고FPS 가능한 입문 게이밍 그래픽카드" },
+    { "product_id": "cz_gpu_002", "category": "GPU", "name": "RTX 4060 Ti",     "price": 489000,  "stock": true, "tier": 3, "tdp": 160, "description": "1080p 고주사율에 여유로운 중급 그래픽카드" },
+    { "product_id": "cz_gpu_003", "category": "GPU", "name": "RTX 4070",        "price": 589000,  "stock": true, "tier": 4, "tdp": 200, "description": "1440p 게이밍까지 커버하는 상급 그래픽카드" },
+    { "product_id": "cz_gpu_004", "category": "GPU", "name": "RTX 4070 Super",  "price": 699000,  "stock": true, "tier": 4, "tdp": 220, "description": "1440p 최적, 가성비 좋은 상급 그래픽카드" },
+    { "product_id": "cz_gpu_005", "category": "GPU", "name": "RTX 4080 Super",  "price": 1199000, "stock": true, "tier": 5, "tdp": 320, "description": "4K 게이밍까지 여유로운 최상급 그래픽카드" },
+
+    { "product_id": "cz_cpu_001", "category": "CPU", "name": "라이젠 5 9600X",   "price": 279000,  "stock": true, "tier": 3, "tdp": 65,  "description": "게임에 최적화된 6코어 가성비 CPU" },
+    { "product_id": "cz_cpu_002", "category": "CPU", "name": "라이젠 7 9700X",   "price": 389000,  "stock": true, "tier": 4, "tdp": 65,  "description": "게임+방송에 여유로운 8코어 CPU" },
+    { "product_id": "cz_cpu_003", "category": "CPU", "name": "라이젠 7 7800X3D", "price": 529000,  "stock": true, "tier": 5, "tdp": 120, "description": "게임 성능 1위 특화 CPU" },
+    { "product_id": "cz_cpu_004", "category": "CPU", "name": "코어 i5-14600K",   "price": 299000,  "stock": true, "tier": 3, "tdp": 125, "description": "가성비 좋은 인텔 중급 CPU" },
+
+    { "product_id": "cz_ram_001", "category": "RAM", "name": "DDR5 16GB (8x2)",  "price": 89000,   "stock": true, "tier": 2, "tdp": 10,  "description": "듀얼채널 구성 16GB 메모리" },
+    { "product_id": "cz_ram_002", "category": "RAM", "name": "DDR5 32GB (16x2)", "price": 169000,  "stock": true, "tier": 3, "tdp": 10,  "description": "게임+작업 여유로운 32GB 메모리" },
+
+    { "product_id": "cz_ssd_001", "category": "SSD", "name": "NVMe 500GB",       "price": 65000,   "stock": true, "tier": 2, "tdp": 6,   "description": "빠른 부팅용 500GB 저장장치" },
+    { "product_id": "cz_ssd_002", "category": "SSD", "name": "NVMe 1TB",         "price": 119000,  "stock": true, "tier": 3, "tdp": 7,   "description": "게임 다수 설치 가능한 1TB 저장장치" },
+    { "product_id": "cz_ssd_003", "category": "SSD", "name": "NVMe 2TB",         "price": 199000,  "stock": true, "tier": 4, "tdp": 8,   "description": "대용량 게임·작업용 2TB 저장장치" },
+
+    { "product_id": "cz_psu_001", "category": "PSU", "name": "600W 골드",         "price": 79000,   "stock": true, "tier": 2, "tdp": 0,   "watt": 600,  "description": "입문 시스템용 600W 파워" },
+    { "product_id": "cz_psu_002", "category": "PSU", "name": "750W 골드",         "price": 119000,  "stock": true, "tier": 3, "tdp": 0,   "watt": 750,  "description": "중급 시스템용 750W 파워" },
+    { "product_id": "cz_psu_003", "category": "PSU", "name": "850W 골드",         "price": 159000,  "stock": true, "tier": 4, "tdp": 0,   "watt": 850,  "description": "고성능 시스템용 850W 파워" },
+
+    { "product_id": "cz_mb_001",  "category": "MB",  "name": "B650 메인보드",     "price": 159000,  "stock": true, "tier": 3, "tdp": 0,   "description": "AM5 소켓 가성비 메인보드" },
+    { "product_id": "cz_mb_002",  "category": "MB",  "name": "B760 메인보드",     "price": 149000,  "stock": true, "tier": 3, "tdp": 0,   "description": "인텔 LGA1700 가성비 메인보드" },
+
+    { "product_id": "cz_case_001","category": "CASE","name": "미들타워 케이스",   "price": 55000,   "stock": true, "tier": 2, "tdp": 0,   "description": "표준 ATX 미들타워 케이스" }
+  ]
+}

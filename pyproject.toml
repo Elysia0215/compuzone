@@ -1,0 +1,20 @@
+[project]
+name = "compuzone-chatbot"
+version = "0.1.0"
+description = "FastAPI and Gemini based Computzone AI PC Build Assistant"
+authors = [
+    { name = "parkcy", email = "parkcy@example.com" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.20.0",
+    "google-genai>=2.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "flask>=3.0.0"
+]
+
+[tool.poetry]
+package-mode = false
