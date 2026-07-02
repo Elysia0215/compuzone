@@ -144,6 +144,82 @@ try:
             else:
                 parts_list = data
         print(f"Successfully loaded {len(parts_list)} parts from parts_db.json.")
+        
+        # Post-process parts list to inject missing socket and ram_gen fields if they are missing
+        for p in parts_list:
+            name = p.get("name", "")
+            cat = p.get("category", "")
+            
+            # Infer socket for CPUs
+            if cat == "CPU" and "socket" not in p:
+                if any(x in name for x in ["9600X", "9700X", "7800X3D", "9900X", "9950X", "7500F", "AM5"]):
+                    p["socket"] = "AM5"
+                elif any(x in name for x in ["5600", "AM4"]):
+                    p["socket"] = "AM4"
+                else:
+                    p["socket"] = "LGA1700"  # default
+                    
+            # Infer socket for Motherboards
+            if cat in ["MB", "Motherboard"] and "socket" not in p:
+                if any(x in name for x in ["B650", "X670", "B850", "X870", "A620", "AM5"]):
+                    p["socket"] = "AM5"
+                elif any(x in name for x in ["A520", "B550", "AM4"]):
+                    p["socket"] = "AM4"
+                else:
+                    p["socket"] = "LGA1700"
+                    
+            # Infer ram_gen for Motherboards
+            if cat in ["MB", "Motherboard"] and "ram_gen" not in p:
+                if any(x in name for x in ["B650", "X670", "B850", "X870", "A620"]):
+                    p["ram_gen"] = "DDR5"
+                elif "DDR4" in name:
+                    p["ram_gen"] = "DDR4"
+                else:
+                    p["ram_gen"] = "DDR5"
+
+            if cat in ["MB", "Motherboard"] and "ram_support" not in p:
+                p["ram_support"] = p.get("ram_gen", "DDR5")
+                    
+            # Infer ddr_gen for RAM
+            if cat == "RAM":
+                if "ddr_gen" not in p:
+                    if "DDR4" in name:
+                        p["ddr_gen"] = "DDR4"
+                    else:
+                        p["ddr_gen"] = "DDR5"
+                if "generation" not in p:
+                    p["generation"] = p["ddr_gen"]
+                    
+            # Infer capacity for RAM
+            if cat == "RAM" and "capacity" not in p:
+                if "32GB" in name:
+                    p["capacity"] = 16
+                elif "16GB" in name:
+                    p["capacity"] = 8
+                else:
+                    p["capacity"] = 8
+                    
+            # Infer capacity for SSD
+            if cat == "SSD" and "capacity" not in p:
+                if "2TB" in name:
+                    p["capacity"] = 2000
+                elif "1TB" in name:
+                    p["capacity"] = 1000
+                else:
+                    p["capacity"] = 500
+                    
+            # Infer wattage for PSU
+            if cat in ["PSU", "Power"] and "wattage" not in p:
+                if "850W" in name or "850" in name:
+                    p["wattage"] = 850
+                elif "750W" in name or "750" in name:
+                    p["wattage"] = 750
+                elif "600W" in name or "600" in name:
+                    p["wattage"] = 600
+                elif "500W" in name or "500" in name:
+                    p["wattage"] = 500
+                else:
+                    p["wattage"] = p.get("watt", 600)
     else:
         print("Warning: parts_db.json file not found.")
 except Exception as e:
@@ -211,7 +287,15 @@ def build_configuration(purpose: str, items: list[str], budget_val: int, build_t
 
     # Helper function to find best matching item
     def find_item(category: str, budget_cap: int, min_tier: int = 1, socket_req: str = None, ram_gen_req: str = None, capacity_req: int = None, generation_req: str = None, wattage_req: int = None, cooler_tier_req: int = None) -> dict:
-        candidates = [p for p in parts_list if p["category"] == category]
+        # Map category names to support both old and new formats
+        cat_aliases = {
+            "Motherboard": ["Motherboard", "MB"],
+            "Power": ["Power", "PSU"],
+            "Cooler": ["Cooler", "COOLER"],
+            "Case": ["Case", "CASE"]
+        }
+        target_categories = cat_aliases.get(category, [category])
+        candidates = [p for p in parts_list if p["category"] in target_categories]
         
         # Apply filters
         if socket_req:
@@ -233,9 +317,31 @@ def build_configuration(purpose: str, items: list[str], budget_val: int, build_t
 
         # Loosen filters if candidates empty
         if not candidates:
-            candidates = [p for p in parts_list if p["category"] == category]
+            # Try to fetch using aliases without filters
+            for target_cat in target_categories:
+                candidates = [p for p in parts_list if p["category"] == target_cat]
+                if candidates:
+                    break
+            
+            # Still empty? Try base category
+            if not candidates:
+                candidates = [p for p in parts_list if p["category"] == category]
+            
             if socket_req and category in ["Motherboard", "Cooler"]:
                 candidates = [p for p in candidates if p.get("socket") == socket_req]
+
+        # If candidates is still empty (e.g. category not found in DB at all)
+        if not candidates:
+            return {
+                "product_id": f"dummy_{category.lower()}",
+                "category": category,
+                "name": f"기본형 {category} 패키지",
+                "price": 0,
+                "stock": True,
+                "tier": 1,
+                "tdp": 0,
+                "description": f"기본으로 제공되는 {category} 호환 부품입니다."
+            }
 
         # Filter by price cap
         budget_candidates = [p for p in candidates if p["price"] <= budget_cap]
