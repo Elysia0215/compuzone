@@ -19,6 +19,29 @@ load_dotenv('.env.local')
 load_dotenv('.env')
 load_dotenv('../.env')
 
+# ----------------------------------------------------
+# Aspects and Intent Caching Mechanism (ROI & Latency Optimization)
+# ----------------------------------------------------
+ASPECTS_CACHE_FILE = os.path.join(os.path.dirname(__file__), "product_aspects_cache.json")
+_aspects_cache = {}
+_intent_cache = {}
+
+if os.path.exists(ASPECTS_CACHE_FILE):
+    try:
+        with open(ASPECTS_CACHE_FILE, "r", encoding="utf-8") as f:
+            _aspects_cache = json.load(f)
+        print(f"Successfully loaded {len(_aspects_cache)} cached product aspects from product_aspects_cache.json.")
+    except Exception as e:
+        print(f"Failed to load product aspects cache: {e}")
+
+def save_aspects_cache():
+    try:
+        with open(ASPECTS_CACHE_FILE, "w", encoding="utf-8") as f:
+            json.dump(_aspects_cache, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Failed to save product aspects cache: {e}")
+
+
 app = FastAPI(title="Compuzone AI PC Build Assistant API")
 
 # Enable CORS for frontend connection
@@ -247,7 +270,13 @@ def generate_product_aspects(name: str, category: str, price: int, desc: str, co
     """
     Generates product-specific pros, cons, and recommended users.
     Factors in condition ("used_or_bulk") to show package, warranty, and pricing context.
+    Caches the results to minimize Gemini API calls and reduce latency to 0ms on repeated hits.
     """
+    cache_key = name.strip()
+    if cache_key in _aspects_cache:
+        return _aspects_cache[cache_key]
+
+    res_aspects = None
     client = get_gemini_client()
     if client:
         try:
@@ -290,7 +319,7 @@ def generate_product_aspects(name: str, category: str, price: int, desc: str, co
                 and isinstance(data.get("cons"), list) and len(data["cons"]) >= 1
                 and isinstance(data.get("recommendedUsers"), list) and len(data["recommendedUsers"]) >= 1
             ):
-                return {
+                res_aspects = {
                     "pros": data["pros"][:2],
                     "cons": data["cons"][:1],
                     "recommendedUsers": data["recommendedUsers"][:1]
@@ -298,72 +327,77 @@ def generate_product_aspects(name: str, category: str, price: int, desc: str, co
         except Exception as e:
             print(f"Gemini aspects generation failed, using fallback templates: {e}")
 
-    # 2. Fallback heuristic templates
-    brand = "주요 제조사"
-    if "]" in name:
-        brand = name.split("]")[0].replace("[", "").strip()
+    if not res_aspects:
+        # Fallback heuristic templates
+        brand = "주요 제조사"
+        if "]" in name:
+            brand = name.split("]")[0].replace("[", "").strip()
 
-    if condition == "used_or_bulk":
-        return {
-            "pros": ["정품 정가 대비 가격이 대폭 낮아 매우 합리적인 부품 구성 가능", "벌크/리퍼브 특유의 뛰어난 실속형 가격 대비 성능"],
-            "cons": ["포장 박스가 벌크(무지박스)이거나 제조사 A/S 보증 기간이 다소 짧을 수 있음"],
-            "recommendedUsers": ["제품 패키지 포장보다는 실질적인 부품 단가 절감을 추구하는 실속파 고객"]
-        }
+        if condition == "used_or_bulk":
+            res_aspects = {
+                "pros": ["정품 정가 대비 가격이 대폭 낮아 매우 합리적인 부품 구성 가능", "벌크/리퍼브 특유의 뛰어난 실속형 가격 대비 성능"],
+                "cons": ["포장 박스가 벌크(무지박스)이거나 제조사 A/S 보증 기간이 다소 짧을 수 있음"],
+                "recommendedUsers": ["제품 패키지 포장보다는 실질적인 부품 단가 절감을 추구하는 실속파 고객"]
+            }
+        elif category == "CPU":
+            res_aspects = {
+                "pros": [f"{brand} 고효율 아키텍처로 멀티태스킹 및 게이밍 연산 지원", "뛰어난 전력 대비 성능 및 검증된 클럭 스피드"],
+                "cons": ["기본 번들 쿨러 외에 정숙한 고성능 공랭/수랭 쿨러 추가 권장"],
+                "recommendedUsers": ["끊김 없는 게이밍과 다중 연산 작업을 동시에 처리하려는 사용자"]
+            }
+        elif category == "GPU":
+            res_aspects = {
+                "pros": ["강력한 3D 렌더링 성능과 원활한 고주사율 게이밍 지원", "안정적인 온도 유지를 돕는 최적화된 쿨링 팬 솔루션"],
+                "cons": ["케이스 가로 길이 및 시스템 정격 파워 서플라이 용량 확인 필요"],
+                "recommendedUsers": ["최신 고사양 3D 게임이나 고해상도 디자인 편집을 즐겨 하는 게이머"]
+            }
+        elif category == "Motherboard" or category == "MB":
+            res_aspects = {
+                "pros": ["전원부 페이즈의 전력 분배 설계로 우수한 부품 안정성 보장", "초고속 M.2 NVMe 슬롯 및 넉넉한 RAM 확장 포트 탑재"],
+                "cons": ["케이스 크기 규격(M-ATX 등)과 CPU 소켓 핀 호환성 대조 필수"],
+                "recommendedUsers": ["단단한 안정성과 메인보드 전원부 신뢰성을 선호하는 PC 조립가"]
+            }
+        elif category == "RAM":
+            res_aspects = {
+                "pros": ["넓은 대역폭 클럭 속도로 병목 현상을 억제하고 데이터 처리 가속", "멀티태스킹 환경에서 부드럽고 쾌적한 앱 전환 속도 제공"],
+                "cons": ["DDR4 및 DDR5 세대별 규격이 메인보드와 일치하는지 확인 요망"],
+                "recommendedUsers": ["여러 프로그램을 동시에 켜두거나 빠른 게임 로딩을 원하는 유저"]
+            }
+        elif category == "SSD":
+            res_aspects = {
+                "pros": ["NVMe 전송 방식으로 일반 SATA 대비 압도적인 읽기/쓰기 대역폭", "안정적인 쓰기 내구성 설계 및 부팅 반응 속도 극대화"],
+                "cons": ["고속 전송 시 발열 해소를 위해 방열판(Heatsink) 부착 권장"],
+                "recommendedUsers": ["신속한 윈도우 부팅과 고용량 파일 전송을 중요시하는 분"]
+            }
+        elif category == "Power" or category == "PSU":
+            import re
+            w_val = "정격"
+            m = re.search(r"(\d{3,4})W", name)
+            if m:
+                w_val = f"정격 {m.group(1)}W"
+            res_aspects = {
+                "pros": [f"{w_val} 정격 출력으로 하이엔드 그래픽카드와 CPU에 전력 공급 보장", "인증 획득으로 입증된 전력 변환 효율성"],
+                "cons": ["케이스 파워 서플라이 장착 공간 규격(ATX 등) 사전 확인 필수"],
+                "recommendedUsers": ["안정적인 시스템 구동과 고부하 환경에서의 전력 보증을 원하는 유저"]
+            }
+        elif category == "Cooler":
+            cooling_type = "수랭" if "수랭" in name or "liquid" in name.lower() or "워터" in name or "3열" in name else "공랭"
+            res_aspects = {
+                "pros": [f"CPU 발열을 신속히 억제하는 강력한 팬 가속 및 풍량 제공", "소음을 최소화한 저소음 베어링으로 쾌적한 시스템 환경 제공"],
+                "cons": ["케이스 내부 높이 간섭이나 라디에이터 두께에 따른 장착 제약 체크 요망"],
+                "recommendedUsers": ["장시간 구동 시 스로틀링을 방지하고 정숙한 소음 제어를 원하는 분"]
+            }
+        else:
+            res_aspects = {
+                "pros": [f"{brand} 고품질 부품으로 우수한 조립 만족도", "컴퓨존의 공식 조립 호환성 검증 통과"],
+                "cons": ["실시간 수급 상황에 따라 배송일 변동 가능성이 있음"],
+                "recommendedUsers": ["안정성과 부품 신뢰도를 중시하는 조립 PC 구매자"]
+            }
 
-    if category == "CPU":
-        return {
-            "pros": [f"{brand} 고효율 아키텍처로 멀티태스킹 및 게이밍 연산 지원", "뛰어난 전력 대비 성능 및 검증된 클럭 스피드"],
-            "cons": ["기본 번들 쿨러 외에 정숙한 고성능 공랭/수랭 쿨러 추가 권장"],
-            "recommendedUsers": ["끊김 없는 게이밍과 다중 연산 작업을 동시에 처리하려는 사용자"]
-        }
-    elif category == "GPU":
-        return {
-            "pros": ["강력한 3D 렌더링 성능과 원활한 고주사율 게이밍 지원", "안정적인 온도 유지를 돕는 최적화된 쿨링 팬 솔루션"],
-            "cons": ["케이스 가로 길이 및 시스템 정격 파워 서플라이 용량 확인 필요"],
-            "recommendedUsers": ["최신 고사양 3D 게임이나 고해상도 디자인 편집을 즐겨 하는 게이머"]
-        }
-    elif category == "Motherboard" or category == "MB":
-        return {
-            "pros": ["전원부 페이즈의 전력 분배 설계로 우수한 부품 안정성 보장", "초고속 M.2 NVMe 슬롯 및 넉넉한 RAM 확장 포트 탑재"],
-            "cons": ["케이스 크기 규격(M-ATX 등)과 CPU 소켓 핀 호환성 대조 필수"],
-            "recommendedUsers": ["단단한 안정성과 메인보드 전원부 신뢰성을 선호하는 PC 조립가"]
-        }
-    elif category == "RAM":
-        return {
-            "pros": ["넓은 대역폭 클럭 속도로 병목 현상을 억제하고 데이터 처리 가속", "멀티태스킹 환경에서 부드럽고 쾌적한 앱 전환 속도 제공"],
-            "cons": ["DDR4 및 DDR5 세대별 규격이 메인보드와 일치하는지 확인 요망"],
-            "recommendedUsers": ["여러 프로그램을 동시에 켜두거나 빠른 게임 로딩을 원하는 유저"]
-        }
-    elif category == "SSD":
-        return {
-            "pros": ["NVMe 전송 방식으로 일반 SATA 대비 압도적인 읽기/쓰기 대역폭", "안정적인 쓰기 내구성 설계 및 부팅 반응 속도 극대화"],
-            "cons": ["고속 전송 시 발열 해소를 위해 방열판(Heatsink) 부착 권장"],
-            "recommendedUsers": ["신속한 윈도우 부팅과 고용량 파일 전송을 중요시하는 분"]
-        }
-    elif category == "Power" or category == "PSU":
-        import re
-        w_val = "정격"
-        m = re.search(r"(\d{3,4})W", name)
-        if m:
-            w_val = f"정격 {m.group(1)}W"
-        return {
-            "pros": [f"{w_val} 정격 출력으로 하이엔드 그래픽카드와 CPU에 전력 공급 보장", "인증 획득으로 입증된 전력 변환 효율성"],
-            "cons": ["케이스 파워 서플라이 장착 공간 규격(ATX 등) 사전 확인 필수"],
-            "recommendedUsers": ["안정적인 시스템 구동과 고부하 환경에서의 전력 보증을 원하는 유저"]
-        }
-    elif category == "Cooler":
-        cooling_type = "수랭" if "수랭" in name or "liquid" in name.lower() or "워터" in name or "3열" in name else "공랭"
-        return {
-            "pros": [f"CPU 발열을 신속히 억제하는 강력한 팬 가속 및 풍량 제공", "소음을 최소화한 저소음 베어링으로 쾌적한 시스템 환경 제공"],
-            "cons": ["케이스 내부 높이 간섭이나 라디에이터 두께에 따른 장착 제약 체크 요망"],
-            "recommendedUsers": ["장시간 구동 시 스로틀링을 방지하고 정숙한 소음 제어를 원하는 분"]
-        }
+    _aspects_cache[cache_key] = res_aspects
+    save_aspects_cache()
+    return res_aspects
 
-    return {
-        "pros": [f"{brand} 고품질 부품으로 우수한 조립 만족도", "컴퓨존의 공식 조립 호환성 검증 통과"],
-        "cons": ["실시간 수급 상황에 따라 배송일 변동 가능성이 있음"],
-        "recommendedUsers": ["안정성과 부품 신뢰도를 중시하는 조립 PC 구매자"]
-    }
 
 def find_scraped_product(product_name: str) -> Optional[dict]:
     """
@@ -767,11 +801,16 @@ def build_configuration(purpose: str, items: list[str], budget_val: int, build_t
 # ==========================================
 @app.post('/api/chat/classify')
 async def classify(request: ClassifyRequest):
-    message = request.message
+    message = request.message.strip().lower()
+    
+    # 1. Check in-memory intent cache for identical simple inquiries
+    if message in _intent_cache:
+        return {"intent": _intent_cache[message], "source": "intent_cache"}
+
     ai = get_gemini_client()
     
     if not ai:
-        msg = message.lower()
+        msg = message
         intent = "general"
         if any(x in msg for x in ["추천", "견적", "조립", "맞춤", "사양", "용도", "게임용", "작업용", "사무용", "가성비", "균형", "성능", "맞춰"]):
             intent = "recommend"
@@ -785,6 +824,8 @@ async def classify(request: ClassifyRequest):
             intent = "as"
         elif any(x in msg for x in ["어디", "위치", "메뉴", "바로가기", "사이트", "링크", "홈페이지", "화면", "처음"]):
             intent = "menu"
+        # Cache rules classification
+        _intent_cache[message] = intent
         return {"intent": intent, "source": "fallback_rules"}
 
     try:
@@ -793,47 +834,44 @@ async def classify(request: ClassifyRequest):
         Classify the user's message into EXACTLY one of these intents:
         - "menu": The user is searching for a menu, links, or asking "어디서 견적 짜나요?", "빠른 견적 어디에 있어요?".
         - "recommend": The user wants a product recommendation, computer custom build estimation, or mentions buying a complete set ("컴퓨터 하나 맞춰줘", "게임용 컴퓨터 추천", "견적 추천").
-        - "product": The user is asking about a specific hardware product model (e.g., "RTX 5060 어때요?", "Ryzen 7500F 성능 괜찮나요?", "삼성 DDR5 램 질문이요").
-        - "category": The user is asking general questions about a PC hardware category/item type (e.g., "CPU가 뭐예요?", "메인보드가 왜 필요한가요?").
-        - "counselor": The user wants to talk to a human counselor or customer service (e.g., "사람이랑 얘기할래요", "상담원 연결해줘").
-        - "as": The user is asking about warranty, repair, or A/S status (e.g., "내 PC A/S 언제까지예요?", "주문한 컴퓨터 고장난 것 같아요").
-        - "general": Basic greetings, small talk, or general queries that don't fit above.
-        """
+        - "product": The user asks details, price, stocks, or specs for a SPECIFIC hardware model name ("RTX 4060 가격이 어떻게 돼?", "5600X 상세스펙 보여줘").
+        - "category": The user asks about a general computer part category ("메모리 상품들 보여줘", "파워 코너로 갈래").
+        - "counselor": The user explicitly wants to talk to a human customer center assistant, counselor, representative ("상담원 연결해줘", "사람이랑 대화할래", "고객센터 전화번호").
+        - "as": The user asks about repairs, warranties, hardware errors, order tracking, shipping dates or payments ("AS 기간 조회", "모니터가 안켜져요", "배송 언제 와요?", "결제 취소").
+        - "general": Small talks, greetings, thank yous, or anything else ("안녕", "고마워", "바보", "오늘 날씨 어때?").
 
+        Return ONLY a JSON object:
+        {
+          "intent": "<intent_name>"
+        }
+        Do not add any explanation or markdown formatting outside JSON.
+        """
         response = ai.models.generate_content(
-            model='gemini-2.5-flash',
+            model="gemini-2.5-flash",
             contents=message,
             config=types.GenerateContentConfig(
                 system_instruction=system_prompt,
                 response_mime_type="application/json",
-                response_schema=ClassifyResponse
+                response_schema=types.Schema(
+                    type=types.Type.OBJECT,
+                    properties={
+                        "intent": types.Schema(type=types.Type.STRING),
+                    },
+                    required=["intent"]
+                )
             )
         )
-        parsed = response.parsed
-        intent = parsed.intent if parsed and parsed.intent else "general"
+        res_json = json.loads(response.text)
+        intent = res_json.get("intent", "general")
+        
+        # Save to cache
+        _intent_cache[message] = intent
         return {"intent": intent, "source": "gemini"}
     except Exception as e:
-        print(f"Gemini Intent Router Error: {e}")
-        # Run rule-based fallback on Gemini API exception to keep system responsive
-        msg = message.lower()
-        intent = "general"
-        if any(x in msg for x in ["추천", "견적", "조립", "맞춤", "사양", "용도", "게임용", "작업용", "사무용", "가성비", "균형", "성능", "맞춰"]):
-            intent = "recommend"
-        elif any(x in msg for x in ["5060", "4070", "4060", "rtx", "ryzen", "라이젠", "i5", "i7", "인텔", "삼성 램", "990pro", "인기제품", "모델", "상세", "가격"]):
-            intent = "product"
-        elif any(x in msg for x in ["cpu", "gpu", "메인보드", "메모리", "파워", "ssd", "품목", "부품", "그래픽카드", "저장장치", "쿨러", "케이스", "보드", "램", "파워서플라이", "하드"]):
-            intent = "category"
-        elif any(x in msg for x in ["상담", "사람", "직원", "상담사", "고객센터", "전화", "연결", "문의"]):
-            intent = "counselor"
-        elif any(x in msg for x in ["as", "a/s", "보증", "고장", "수리", "망가", "안 켜", "안켜", "오작동", "이상해", "배송", "택배", "운송장", "배달", "출고", "주문", "결제"]):
-            intent = "as"
-        elif any(x in msg for x in ["어디", "위치", "메뉴", "바로가기", "사이트", "링크", "홈페이지", "화면", "처음"]):
-            intent = "menu"
-        return {"intent": intent, "source": "error_rule_fallback"}
+        print(f"Intent classification failed: {e}")
+        # Fallback to general
+        return {"intent": "general", "source": "error"}
 
-# ==========================================
-# 2. GENERAL CHAT (KOMI PERSONA) ENDPOINT
-# ==========================================
 @app.post('/api/chat/general')
 async def general_chat(request: GeneralChatRequest):
     messages = request.messages
