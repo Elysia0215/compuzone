@@ -60,6 +60,9 @@ export default function ChatbotKomi({
   const [inputText, setInputText] = React.useState("");
   const [selectedDetails, setSelectedDetails] = React.useState<string[]>([]);
   const [customDetailInput, setCustomDetailInput] = React.useState("");
+  const [showCustomInput, setShowCustomInput] = React.useState(false);
+  const [activeRecommendTab, setActiveRecommendTab] = React.useState<number>(1);
+  const [counselorStage, setCounselorStage] = React.useState<number>(0);
   const [isMaximized, setIsMaximized] = React.useState(false);
   const [isQuickMenuOpen, setIsQuickMenuOpen] = React.useState(false);
   const [isTyping, setIsTyping] = React.useState(false);
@@ -142,6 +145,12 @@ export default function ChatbotKomi({
       step: 0,
       reRecCount: 0,
     });
+    setCounselorQueue({
+      active: false,
+      queueNum: 2,
+      waitTime: 1,
+    });
+    setCounselorStage(0);
   };
 
   React.useEffect(() => {
@@ -363,12 +372,12 @@ export default function ChatbotKomi({
       usageKey = "게임";
       botFeedback = "게임이면 역시 화면을 매끄럽게 그리는 그래픽카드(GPU) 영향도가 제일 커요! 🎮 주로 즐기시는 게임들을 모두 선택해 주세요.";
       options = [
-        { label: "발로란트", action: "rec_game_valorant" },
-        { label: "리그 오브 레전드 (롤)", action: "rec_game_lol" },
-        { label: "배틀그라운드", action: "rec_game_pubg" },
-        { label: "오버워치 2", action: "rec_game_overwatch" },
-        { label: "로스트아크", action: "rec_game_lostark" },
-        { label: "스팀 AAA 패키지", action: "rec_game_steam" },
+        { label: "발로란트 (고FPS 최적화)", action: "rec_game_valorant" },
+        { label: "배틀그라운드 (대용량 연산)", action: "rec_game_pubg" },
+        { label: "리그 오브 레전드 (가성비 지향)", action: "rec_game_lol" },
+        { label: "오버워치 2 (중상급 가속)", action: "rec_game_overwatch" },
+        { label: "로스트아크 (안정적 멀티코어)", action: "rec_game_lostark" },
+        { label: "스팀 AAA 패키지 (초고화질 옵션)", action: "rec_game_steam" },
       ];
     } else if (action === "rec_usage_edit") {
       usageKey = "영상편집/그래픽";
@@ -937,6 +946,41 @@ export default function ChatbotKomi({
       return;
     }
 
+    // If counselor session is active (queue matched)
+    if (counselorQueue.active && counselorQueue.queueNum === 0) {
+      setIsTyping(true);
+      setTimeout(() => {
+        setIsTyping(false);
+        const stage = counselorStage;
+        setCounselorStage(prev => prev + 1);
+
+        if (stage === 0) {
+          addBotMessage({
+            text: `[상담원 배성진] 안녕하세요! 컴퓨존 기술 지원 전담 상담원 배성진입니다. 문의해 주신 "${text}" 관련 증상 접수했습니다. 혹시 전원을 켰을 때 팬이 돌아가는 소리는 나는데 화면만 안 나오는 상태이신가요?`,
+            type: "text",
+          });
+        } else if (stage === 1) {
+          addBotMessage({
+            text: "[상담원 배성진] 확인해 주셔서 감사합니다. 이 경우는 RAM(메모리) 또는 그래픽카드의 금색 접촉 단자에 미세한 먼지가 앉아 접촉 불량이 났을 확률이 높습니다. 본체 전원선을 완전히 분리하신 뒤, 램을 뽑아서 지우개로 금색 단자 부분을 털어내고 딸칵 소리가 나도록 다시 깊게 꽂아 주시겠어요?",
+            type: "text",
+          });
+        } else {
+          addBotMessage({
+            text: "[상담원 배성진] 만약 접촉 단자 청소 후에도 증상이 계속된다면, 부품 이상으로 인한 교체나 기사님의 대면 방문 점검이 권장됩니다. 하단의 접수 버튼을 눌러 출장 기사님 방문 신청을 하실 수 있습니다.",
+            type: "options",
+            options: [
+              { label: "🛠️ 출장 A/S 접수 신청하기", action: "as_start_direct" },
+              { label: "🏠 처음 화면으로 돌아가기", action: "go_home_back" }
+            ]
+          });
+          // Clear active queue to stop interception
+          setCounselorQueue({ active: false, queueNum: 2, waitTime: 1 });
+          setCounselorStage(0);
+        }
+      }, 1000);
+      return;
+    }
+
     // Default processing through Gemini Intent Router
     setIsTyping(true);
     fetch("/api/chat/classify", {
@@ -1211,22 +1255,19 @@ export default function ChatbotKomi({
 
                   {/* Q2 Multi-select Custom UI (Only on Step 2 options message) */}
                   {flowState.currentFlow === "recommend" && flowState.step === 2 && msg.type === "options" && msg.id === messages[messages.length - 1]?.id && (
-                    <div className="bg-white border border-slate-100 rounded-2xl p-4 shadow-md max-w-sm mt-1 space-y-3">
-                      <div className="flex items-center justify-between text-xs font-extrabold text-slate-400 uppercase">
-                        <span>견적 세팅 진행도</span>
-                        <span className="text-blue-600">50% (2/4 단계)</span>
-                      </div>
-                      <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                        <div className="bg-blue-600 h-full w-[50%] rounded-full"></div>
+                    <div className="bg-white border border-slate-100 rounded-2xl p-4 shadow-md max-w-sm mt-1 space-y-3.5">
+                      <div className="text-[11px] font-bold text-slate-400">
+                        자주 하시는 게이밍 리스트
                       </div>
                       
-                      <div className="text-xs font-bold text-slate-800">
-                        주로 사용하시는 게임/소프트웨어 (중복 선택)
-                      </div>
-                      
-                      <div className="grid grid-cols-2 gap-1.5">
+                      <div className="flex flex-col gap-2 max-h-[220px] overflow-y-auto pr-1 scrollbar-thin">
                         {msg.options?.map((opt, idx) => {
                           const isSelected = selectedDetails.includes(opt.label);
+                          // Split option into main title and subtitle
+                          const match = opt.label.match(/^([^\(]+)(?:\s*(\(.+\)))?$/);
+                          const mainTitle = match ? match[1].trim() : opt.label;
+                          const subTitle = match && match[2] ? match[2] : "";
+
                           return (
                             <button
                               key={idx}
@@ -1237,35 +1278,64 @@ export default function ChatbotKomi({
                                   setSelectedDetails(prev => [...prev, opt.label]);
                                 }
                               }}
-                              className={`py-2 px-2.5 rounded-xl border text-[11px] font-bold transition-all text-center cursor-pointer truncate ${
+                              className={`w-full py-2.5 px-4 rounded-xl border text-xs font-bold transition-all text-left cursor-pointer flex items-center justify-between ${
                                 isSelected 
-                                  ? "bg-blue-600 border-blue-600 text-white shadow-sm" 
-                                  : "bg-white border-slate-150 text-slate-700 hover:bg-slate-50"
+                                  ? "bg-blue-600 border-blue-600 text-white shadow-md" 
+                                  : "bg-white border-slate-100 text-slate-700 hover:bg-slate-50 hover:border-slate-200"
                               }`}
-                              title={opt.label}
                             >
-                              {opt.label}
+                              <span>
+                                {mainTitle} <span className={`text-[10px] font-medium ml-1 ${isSelected ? "text-blue-100" : "text-slate-400"}`}>{subTitle}</span>
+                              </span>
+                              {isSelected && (
+                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                </svg>
+                              )}
                             </button>
                           );
                         })}
                       </div>
 
-                      {/* Custom text input */}
-                      <div className="space-y-1">
-                        <label className="text-[10px] font-extrabold text-slate-400 uppercase">기타 직접 입력</label>
-                        <input
-                          type="text"
-                          placeholder="프로그램이나 게임명을 직접 입력해 보세요"
-                          value={customDetailInput}
-                          onChange={(e) => setCustomDetailInput(e.target.value)}
-                          className="w-full h-9 px-3 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-blue-500 focus:bg-white text-slate-800 transition-all"
-                        />
+                      {/* Custom text input style matches list */}
+                      <div className="pt-1.5">
+                        {customDetailInput === null || customDetailInput === undefined || !showCustomInput ? (
+                          <button
+                            onClick={() => setShowCustomInput(true)}
+                            className="w-full py-2 px-4 rounded-xl border border-dashed border-slate-200 text-slate-500 hover:text-slate-700 text-[11px] font-bold flex items-center justify-center gap-1.5 transition-all bg-slate-50/50 hover:bg-slate-50 cursor-pointer"
+                          >
+                            <span className="text-sm font-light">+</span> 리스트 외 수동 직접 입력
+                          </button>
+                        ) : (
+                          <div className="space-y-1.5 animate-fadeIn">
+                            <div className="flex justify-between items-center">
+                              <label className="text-[10px] font-extrabold text-slate-400 uppercase">직접 입력</label>
+                              <button 
+                                onClick={() => {
+                                  setCustomDetailInput("");
+                                  setShowCustomInput(false);
+                                }}
+                                className="text-[10px] text-slate-400 hover:text-red-500 font-bold"
+                              >
+                                취소
+                              </button>
+                            </div>
+                            <input
+                              type="text"
+                              placeholder="프로그램이나 게임명을 직접 입력해 보세요"
+                              value={customDetailInput}
+                              onChange={(e) => setCustomDetailInput(e.target.value)}
+                              className="w-full h-9 px-3 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-blue-500 focus:bg-white text-slate-800 transition-all font-bold"
+                              autoFocus
+                            />
+                          </div>
+                        )}
                       </div>
 
                       <button
                         onClick={() => {
                           let finalItems = [...selectedDetails];
-                          if (customDetailInput.trim()) {
+                          if (customDetailInput && customDetailInput.trim()) {
                             finalItems.push(customDetailInput.trim());
                           }
                           if (finalItems.length === 0) {
@@ -1275,70 +1345,70 @@ export default function ChatbotKomi({
                           const label = finalItems.join(", ");
                           setSelectedDetails([]); // reset
                           setCustomDetailInput(""); // reset
+                          setShowCustomInput(false); // reset
                           handleRecDetail(label, "rec_game_multiple");
                         }}
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs shadow-md cursor-pointer transition-colors"
+                        className={`w-full font-bold py-3 rounded-xl text-xs shadow-md cursor-pointer transition-all flex items-center justify-center gap-1 ${
+                          selectedDetails.length > 0 || (customDetailInput && customDetailInput.trim())
+                            ? "bg-blue-600 hover:bg-blue-700 text-white"
+                            : "bg-slate-100 text-slate-400 cursor-not-allowed shadow-none"
+                        }`}
                         id="detail-confirm-btn"
+                        disabled={selectedDetails.length === 0 && !(customDetailInput && customDetailInput.trim())}
                       >
-                        선택 완료 및 다음 단계로 ➡️
+                        선택 확정하기 <span className="ml-0.5">➡️</span>
                       </button>
                     </div>
                   )}
 
                   {/* Slider option container (Q3 Budget Setup) */}
                   {flowState.currentFlow === "recommend" && flowState.step === 3 && msg.id === messages[messages.length - 1]?.id && (
-                    <div className="bg-white border border-slate-100 rounded-2xl p-4 shadow-md max-w-sm mt-1">
-                      <div className="flex items-center justify-between text-xs font-extrabold text-slate-400 uppercase mb-2">
-                        <span>견적 세팅 진행도</span>
-                        <span className="text-blue-600">75% (3/4 단계)</span>
-                      </div>
-                      <div className="w-full bg-slate-100 h-2 rounded-full mb-4 overflow-hidden">
-                        <div className="bg-blue-600 h-full w-[75%] rounded-full"></div>
-                      </div>
-                      <div className="flex items-center justify-between font-bold text-xs text-slate-700 mb-2">
-                        <span>희망 예산 설정</span>
-                        <span className="text-sm font-black text-blue-600">
-                          {((flowState.budget || 1500000) / 10000).toLocaleString()}만원
+                    <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-md max-w-sm mt-1 space-y-4">
+                      <div className="flex items-center justify-between font-bold text-xs text-slate-400">
+                        <span>희망 조립 예산</span>
+                        <span className="text-xl font-black text-blue-600">
+                          {(flowState.budget || 1500000).toLocaleString()}원
                         </span>
                       </div>
 
-                      {/* Real-time FPS / performance preview */}
-                      <div className="bg-blue-50/70 border border-blue-100/60 rounded-xl p-3 mb-3 text-center space-y-1.5 shadow-xs">
-                        <div className="flex justify-between items-center text-[10px] font-extrabold text-blue-700">
-                          <span className="bg-blue-600 text-white px-2 py-0.5 rounded-md">
-                            {getLivePerformancePreview(flowState.budget || 1500000, flowState.usage === "게임").rating}
-                          </span>
-                          <span className="text-amber-500 font-mono tracking-wider">
-                            {getLivePerformancePreview(flowState.budget || 1500000, flowState.usage === "게임").score}
+                      <div className="space-y-1.5">
+                        <input
+                          type="range"
+                          min="800000"
+                          max="2500000"
+                          step="50000"
+                          value={flowState.budget || 1500000}
+                          onChange={(e) => setFlowState((p) => ({ ...p, budget: Number(e.target.value) }))}
+                          className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-blue-600 focus:outline-none"
+                          id="budget-range-slider"
+                        />
+                        <div className="flex justify-between text-[10px] text-slate-400 font-bold px-1">
+                          <span>80만원</span>
+                          <span>140만원</span>
+                          <span>200만원</span>
+                          <span>250만원+</span>
+                        </div>
+                      </div>
+
+                      {/* Outlined Real-time performance preview box */}
+                      <div className="bg-white border border-slate-200 rounded-2xl p-4 space-y-2">
+                        <div className="flex justify-between items-center text-xs font-bold text-slate-800">
+                          <span>🔥 실시간 성능 등급</span>
+                          <span className="text-blue-600 font-black">
+                            🚀 {getLivePerformancePreview(flowState.budget || 1500000, flowState.usage === "게임").rating}
                           </span>
                         </div>
-                        <p className="text-[11px] font-black text-slate-700 leading-normal">
+                        <p className="text-[11px] font-medium text-slate-500 leading-relaxed text-left">
                           {getLivePerformanceLabel(flowState.budget || 1500000, flowState.usage, flowState.detail)}
                         </p>
                       </div>
 
-                      <input
-                        type="range"
-                        min="800000"
-                        max="2500000"
-                        step="50000"
-                        value={flowState.budget || 1500000}
-                        onChange={(e) => setFlowState((p) => ({ ...p, budget: Number(e.target.value) }))}
-                        className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-blue-600 focus:outline-none"
-                        id="budget-range-slider"
-                      />
-                      <div className="flex justify-between text-[10px] text-slate-400 font-bold mt-1">
-                        <span>80만원</span>
-                        <span>165만원</span>
-                        <span>250만원</span>
-                      </div>
-
                       <button
                         onClick={() => handleRecBudget(flowState.budget || 1500000)}
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs mt-4 shadow-md cursor-pointer transition-colors"
+                        className="w-full bg-[#0f172a] hover:bg-slate-800 text-white font-bold py-3.5 rounded-2xl text-xs shadow-md cursor-pointer transition-all flex items-center justify-center gap-1.5"
                         id="budget-confirm-btn"
                       >
-                        예산 확정하기 💳
+                        이 예산으로 추천받기 <span className="text-xs">&gt;</span>
                       </button>
                     </div>
                   )}
@@ -1346,153 +1416,156 @@ export default function ChatbotKomi({
                   {/* Flow 2: Proposals Cards Grid */}
                   {msg.type === "recommend_results" && msg.data && (
                     <>
-                      <div className={
-                        isMaximized
-                          ? "grid grid-cols-1 md:grid-cols-3 gap-4 mt-2 w-full max-w-full"
-                          : "flex flex-col gap-4 mt-2 w-full max-w-full"
-                      }>
-                        {msg.data.map((spec: any, idx: number) => (
-                          <div key={idx} className="bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-md flex flex-col w-full">
-                            <div className={`p-3.5 text-white font-black text-sm flex justify-between items-center ${
-                              idx === 0 ? "bg-emerald-600" : idx === 1 ? "bg-blue-600" : "bg-purple-700"
-                            }`}>
-                              <span>{spec.title}</span>
-                              <span className="bg-white/20 px-2 py-0.5 rounded uppercase text-[9px]">
-                                {idx === 0 ? "가성비" : idx === 1 ? "균형" : "최고성능"}
-                              </span>
+                      {(() => {
+                        const activeSpec = msg.data[activeRecommendTab] || msg.data[1] || msg.data[0];
+                        
+                        const formatPriceMan = (price: number) => {
+                          const man = price / 10000;
+                          if (man % 1 === 0) {
+                            return `${man}만`;
+                          }
+                          return `${man.toFixed(1).replace(".0", "")}만`;
+                        };
+
+                        const getTabSub = (idx: number) => {
+                          if (idx === 0) return "* 알뜰한 예산 범위 내에서 최고의 프레임을 뽑아내는 가성비 사양입니다.";
+                          if (idx === 1) return "* 많은 초보 게이머분들이 가장 대중적으로 고르시는 국민 균형형 사양입니다.";
+                          return "* 타협 없는 최고 옵션 플레이와 전문가급 고용량 작업이 가능한 하이엔드 사양입니다.";
+                        };
+
+                        return (
+                          <div className="bg-white border-2 border-blue-500 rounded-3xl overflow-hidden shadow-lg flex flex-col w-full max-w-sm mt-1 p-4 space-y-4">
+                            {/* 3-Tab Selector */}
+                            <div className="grid grid-cols-3 gap-2 bg-slate-50 p-1 rounded-2xl border border-slate-100">
+                              {msg.data.slice(0, 3).map((spec: any, idx: number) => {
+                                const isTabActive = activeRecommendTab === idx;
+                                const tabIcon = idx === 0 ? "💰" : idx === 1 ? "⭐" : "🚀";
+                                const tabName = idx === 0 ? "가성비" : idx === 1 ? "균형형" : "하이엔드";
+                                return (
+                                  <button
+                                    key={idx}
+                                    onClick={() => setActiveRecommendTab(idx)}
+                                    className={`py-2 px-1 rounded-xl text-center transition-all cursor-pointer flex flex-col items-center justify-center gap-0.5 ${
+                                      isTabActive
+                                        ? "bg-[#0f172a] text-white shadow-md font-extrabold"
+                                        : "bg-transparent text-slate-600 hover:bg-white/50 font-bold"
+                                    }`}
+                                  >
+                                    <span className="text-[10px] flex items-center gap-0.5">
+                                      {tabIcon} {tabName}
+                                    </span>
+                                    <span className={`text-[12px] ${isTabActive ? "text-white font-black" : "text-slate-700 font-extrabold"}`}>
+                                      {formatPriceMan(spec.price)}
+                                    </span>
+                                  </button>
+                                );
+                              })}
                             </div>
 
-                            <div className="p-4 space-y-2.5 flex-1 flex flex-col justify-between">
-                              <div className="space-y-2.5">
-                                {/* Popular config warning banner */}
-                                {spec.report?.warning?.includes("인기 견적") && (
-                                  <div className="bg-gradient-to-r from-amber-500 to-orange-600 text-white text-[10px] font-black px-2.5 py-1.5 rounded-xl text-center shadow-md mb-2 flex items-center justify-center gap-1 animate-pulse">
-                                    🌟 이 예산에서 가장 많이 선택되는 인기 구성입니다!
+                            {/* Active Tab Contents */}
+                            <div className="space-y-3 flex-1 flex flex-col justify-between">
+                              <div className="space-y-3">
+                                {/* Performance Headline prediction */}
+                                <div className="space-y-1 text-left">
+                                  <div className="text-[10px] font-bold text-blue-600 flex items-center gap-1">
+                                    <span>✨</span> AI 실시간 예상 성능치
                                   </div>
-                                )}
-
-                                {/* Performance Headline prediction at top of card detail (Bold, large text) */}
-                                {spec.performance && (
-                                  <div className="bg-blue-50 border border-blue-100 rounded-xl p-3 text-center text-[13px] font-black text-blue-900 leading-snug">
-                                    🚀 {spec.performance.headline}
-                                  </div>
-                                )}
-
-                                <div className="text-slate-800 text-xs font-semibold leading-relaxed border-b border-slate-50 pb-2.5">
-                                  {spec.reason}
+                                  <h4 className="text-[12.5px] font-black text-slate-800 tracking-tight leading-snug">
+                                    {activeSpec.performance?.headline || "구성이 완료되었습니다."}
+                                  </h4>
+                                  <p className="text-[9.5px] font-medium text-slate-400">
+                                    {getTabSub(activeRecommendTab)}
+                                  </p>
                                 </div>
 
-                                {/* Usage compatibility visualization weights (Ported from compuzone-ai-pc-build-assistant) */}
-                                <div className="bg-slate-50/70 border border-slate-100/60 rounded-xl p-3 text-[10px] text-slate-500 space-y-2">
-                                  <div className="flex justify-between items-center text-[9px] font-extrabold text-slate-400 uppercase">
-                                    <span>용도 적합성 분석</span>
-                                    <span>정합도</span>
+                                {/* AI Manager recommendation description review box */}
+                                <div className="bg-blue-50/30 border border-blue-50 rounded-2xl p-3.5 space-y-1 text-left">
+                                  <div className="text-[10px] font-bold text-slate-500 flex items-center gap-1.5">
+                                    <span>📝</span> AI 매니저 추천평
                                   </div>
-                                  <div className="space-y-1.5 font-bold text-slate-700">
-                                    <div>
-                                      <div className="flex justify-between mb-0.5">
-                                        <span>{spec.type === "cheap" ? (flowState.usage === "게임" ? "캐주얼 게임" : "기본 디자인") : spec.type === "balance" ? (flowState.usage === "게임" ? "고사양 게임" : "프로 디자인") : (flowState.usage === "게임" ? "하이엔드 스팀" : "전문 3D 렌더링")}</span>
-                                        <span>{spec.type === "cheap" ? 70 : spec.type === "balance" ? 85 : 98}%</span>
-                                      </div>
-                                      <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                                        <div className={`h-full rounded-full ${idx === 0 ? "bg-emerald-500" : idx === 1 ? "bg-blue-500" : "bg-purple-600"}`} style={{ width: `${spec.type === "cheap" ? 70 : spec.type === "balance" ? 85 : 98}%` }}></div>
-                                      </div>
-                                    </div>
-                                    <div>
-                                      <div className="flex justify-between mb-0.5 text-slate-500">
-                                        <span>{spec.type === "cheap" ? (flowState.usage === "게임" ? "일반 사무용" : "웹 서핑") : spec.type === "balance" ? (flowState.usage === "게임" ? "멀티미디어" : "대용량 작업") : (flowState.usage === "게임" ? "영상 송출" : "배치 가속")}</span>
-                                        <span>{spec.type === "cheap" ? 30 : spec.type === "balance" ? 15 : 2}%</span>
-                                      </div>
-                                      <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                                        <div className="bg-slate-300 h-full rounded-full" style={{ width: `${spec.type === "cheap" ? 30 : spec.type === "balance" ? 15 : 2}%` }}></div>
-                                      </div>
-                                    </div>
-                                  </div>
+                                  <p className="text-[11px] text-slate-600 leading-relaxed font-semibold">
+                                    {activeSpec.report?.reason || activeSpec.reason}
+                                  </p>
                                 </div>
 
-                                {/* Specifications breakdown */}
-                                <div className="space-y-1 text-[11px] text-slate-600 border-b border-slate-50 pb-2.5">
-                                  <div className="flex justify-between">
-                                    <span className="font-bold text-slate-400">CPU</span>
-                                    <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]" title={spec.specs.cpu}>{spec.specs.cpu}</span>
+                                {/* Parts layout scrollable details */}
+                                <div className="space-y-1.5 text-left">
+                                  <div className="text-[10px] font-bold text-slate-400">
+                                    부품 조합 상세 ({activeSpec.parts_detail?.length || 7}종)
                                   </div>
-                                  <div className="flex justify-between">
-                                    <span className="font-bold text-slate-400">GPU</span>
-                                    <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]" title={spec.specs.gpu}>{spec.specs.gpu}</span>
+                                  <div className="border border-slate-100 rounded-2xl p-3.5 max-h-[250px] overflow-y-auto space-y-2.5 scrollbar-thin bg-white">
+                                    {activeSpec.parts_detail?.map((part: any, pIdx: number) => (
+                                      <div key={pIdx} className="space-y-2.5">
+                                        <div className="flex justify-between items-start">
+                                          <div className="flex flex-col gap-0.5 text-left max-w-[70%]">
+                                            <span className="text-[8px] font-extrabold bg-slate-100 text-slate-500 rounded px-1.5 py-0.5 w-fit uppercase tracking-wider">
+                                              {part.category}
+                                            </span>
+                                            <span className="text-[10.5px] font-extrabold text-slate-800 leading-tight">
+                                              {part.name}
+                                            </span>
+                                          </div>
+                                          <span className="text-[11px] font-extrabold text-slate-700 whitespace-nowrap">
+                                            {part.price.toLocaleString()}원
+                                          </span>
+                                        </div>
+                                        {pIdx < activeSpec.parts_detail.length - 1 && (
+                                          <div className="border-b border-slate-50 w-full"></div>
+                                        )}
+                                      </div>
+                                    ))}
                                   </div>
-                                  <div className="flex justify-between">
-                                    <span className="font-bold text-slate-400">메모리</span>
-                                    <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.ram}</span>
-                                  </div>
-                                  <div className="flex justify-between">
-                                    <span className="font-bold text-slate-400">저장장치</span>
-                                    <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.ssd}</span>
-                                  </div>
-                                  <div className="flex justify-between">
-                                    <span className="font-bold text-slate-400">메인보드</span>
-                                    <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.mb}</span>
-                                  </div>
-                                  <div className="flex justify-between">
-                                    <span className="font-bold text-slate-400">전원파워</span>
-                                    <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.power}</span>
-                                  </div>
-                                  {spec.specs.cooler && (
-                                    <div className="flex justify-between">
-                                      <span className="font-bold text-slate-400">쿨러</span>
-                                      <span className="font-semibold text-slate-800 text-right line-clamp-1 max-w-[180px]">{spec.specs.cooler}</span>
-                                    </div>
-                                  )}
                                 </div>
 
                                 {/* Compatibility Alerts (PRD Rule Check warnings) */}
-                                {spec.report?.warning && (
-                                  <div className="bg-rose-50 border border-rose-100 rounded-xl p-3 text-[10px] text-rose-800 space-y-1.5 mb-2.5">
-                                    <div className="font-extrabold flex items-center gap-1 text-[11px]">
+                                {activeSpec.report?.warning && (
+                                  <div className="bg-rose-50 border border-rose-100/50 rounded-xl p-3 text-[10px] text-rose-800 space-y-1.5 mb-1 text-left">
+                                    <div className="font-extrabold flex items-center gap-1 text-[10.5px]">
                                       <span>⚠️</span> 호환성 및 안전 점검 알림
                                     </div>
                                     <div className="whitespace-pre-line leading-relaxed font-semibold">
-                                      {spec.report.warning}
+                                      {activeSpec.report.warning}
                                     </div>
                                   </div>
                                 )}
                               </div>
 
-                              <div className="space-y-2.5 mt-4">
-                                <div className="flex items-center justify-between font-black text-slate-900 text-sm border-b border-slate-50 pb-3">
-                                  <span>총 조립 단가액</span>
-                                  <span className="text-base text-blue-600">₩{spec.price.toLocaleString()}</span>
+                              {/* Price and confirmation action buttons */}
+                              <div className="space-y-3.5 pt-2">
+                                {/* Price indicator */}
+                                <div className="bg-[#0f172a] rounded-2xl p-4 flex justify-between items-center text-white font-extrabold shadow-sm">
+                                  <span className="text-[10.5px] opacity-80">정품 합계액</span>
+                                  <span className="text-[14px] font-black tracking-tight">
+                                    {activeSpec.price.toLocaleString()}원
+                                  </span>
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-2 mt-2">
+                                <div className="space-y-2">
                                   <button
                                     onClick={() => {
-                                      initChat();
+                                      onAddToCart(activeSpec);
                                       onClose();
                                     }}
-                                    className="bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-600 font-bold py-2.5 rounded-lg text-[10px] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-2xl text-xs shadow-md cursor-pointer transition-all flex items-center justify-center gap-1.5"
+                                    id={`add-cart-spec-btn-${activeSpec.id}`}
                                   >
-                                    <X className="w-3.5 h-3.5 text-slate-400" /> 상담 종료
+                                    <ShoppingCart className="w-3.5 h-3.5" /> 컴퓨존 장바구니에 전체 담기 <span className="text-[10px] font-light">↗</span>
                                   </button>
                                   <button
                                     onClick={() => {
-                                      onAddToCart(spec);
-                                      onClose();
+                                      initChat();
+                                      handleOptionClick("🎮 스마트 맞춤 PC 견적 추천", "rec_start_direct");
                                     }}
-                                    className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg text-[10px] transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
-                                    id={`add-cart-spec-btn-${spec.id}`}
+                                    className="w-full bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-600 font-bold py-3 rounded-2xl text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                                   >
-                                    <ShoppingCart className="w-3.5 h-3.5" /> 장바구니 담기
+                                    <RefreshCw className="w-3.5 h-3.5 text-slate-400" /> 목적 다시 맞추기 🔄
                                   </button>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        ))}
-                      </div>
-                      {/* Disclaimer at bottom of estimate list */}
-                      <span className="text-[9.5px] text-slate-400 font-semibold block mt-1 text-center bg-slate-50 p-2 rounded-lg leading-relaxed">
-                        AI 추천은 참고용입니다. 실제 가격·재고는 변동될 수 있으며, 최종 구매 전 확인을 권장합니다.
-                      </span>
+                        );
+                      })()}
                     </>
                   )}
 
