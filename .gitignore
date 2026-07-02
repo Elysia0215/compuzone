@@ -63,3 +63,7 @@ test.ipynb
 frontend/stitch/*.html
 frontend/stitch/DESIGN.md
 >>>>>>> 7fe11a071256ea58a762844f8f6a632d5cd1929c
+.env.example
+node_modules/
+__pycache__/
+.DS_Store
