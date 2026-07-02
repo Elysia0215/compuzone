@@ -227,7 +227,7 @@ export default function ChatbotKomi({
 
       if (keyword === "빠른 견적 어디서 해요?" || keyword.includes("빠른 견적") || keyword.includes("메뉴 찾기") || keyword.includes("견적 메뉴")) {
         addBotMessage({
-          text: "컴퓨존에는 사용자님의 용도와 구매 방식에 맞춘 다양한 **맞춤형 빠른 견적 서비스**가 준비되어 있어요! 🤖\n아래 상황 중 현재 찾으시는 목적에 가장 가까운 항목을 선택해 주세요.",
+          text: "컴퓨존에는 고객님의 용도와 구매 방식에 맞춘 다양한 **맞춤형 빠른 견적 서비스**가 준비되어 있어요! 🤖\n아래 상황 중 **원하는 행동을 선택해 주세요.**\n\n만약 목록에 없는 다른 원하시는 행동이 있다면 채팅창에 직접 말씀해 주셔도 제가 친절히 찾아드릴게요! 💬",
           type: "options",
           options: [
             { label: "💵 타사 견적을 올리고 더 할인받고 싶어요", action: "menu_opt_discount" },
