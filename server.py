@@ -827,10 +827,8 @@ async def catch_all(path_name: str):
 
 if __name__ == '__main__':
     import uvicorn
-    # Determine execution mode from environment
-    is_prod = os.environ.get("FLASK_ENV") == "production" or os.environ.get("NODE_ENV") == "production" or os.environ.get("FASTAPI_ENV") == "production"
-    # Railway가 주는 PORT 환경변수를 우선 사용, 없으면 로컬 기본값
-    target_port = int(os.environ.get("PORT", 8000))
+    is_prod = os.environ.get("RAILWAY_ENVIRONMENT") is not None or os.environ.get("PORT") is not None
+    target_port = int(os.environ.get("PORT", 8000))   # ← Railway PORT 우선
     
-    print(f"Starting Compuzone FastAPI Backend (is_prod={is_prod}) on port {target_port}...")
-    uvicorn.run("server:app", host='0.0.0.0', port=target_port, reload=not is_prod)
+    print(f"Starting Compuzone FastAPI Backend on port {target_port}...")
+    uvicorn.run("server:app", host='0.0.0.0', port=target_port, reload=False)   # ← reload 끔
