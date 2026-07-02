@@ -87,7 +87,7 @@ export default function StoreFront({
                 KOMI SMART CHATBOT OPEN!
               </span>
               <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight mt-2">
-                인공지능 비서 <span className="underline decoration-yellow-400 decoration-wavy">코미</span>와 함께<br className="hidden sm:inline" />
+                인공지능 비서 <span className="underline decoration-red-500 decoration-2 underline-offset-4">코미</span>와 함께<br className="hidden sm:inline" />
                 나만의 맞춤 PC 견적을 짜보세요!
               </h1>
               <p className="mt-4 text-blue-100 text-sm sm:text-base">
