@@ -226,6 +226,112 @@ except Exception as e:
     print(f"Error loading parts_db.json: {e}")
 
 # ----------------------------------------------------
+# ChromaDB Semantic Search Client & Helper
+# ----------------------------------------------------
+chroma_client = None
+chroma_collection = None
+try:
+    import chromadb
+    chroma_db_path = os.path.join(os.path.dirname(__file__), "scraper", "output", "chroma_db")
+    if os.path.exists(chroma_db_path):
+        chroma_client = chromadb.PersistentClient(path=chroma_db_path)
+        chroma_collection = chroma_client.get_collection("compuzone_parts")
+        print(f"Successfully connected to ChromaDB collection 'compuzone_parts' at {chroma_db_path}.")
+    else:
+        print(f"ChromaDB persistent path not found at {chroma_db_path}. Running without ChromaDB vector search.")
+except Exception as e:
+    print(f"Error initializing ChromaDB client: {e}")
+
+
+def find_scraped_product(product_name: str) -> Optional[dict]:
+    """
+    Looks up a product using:
+    1. ChromaDB semantic search (using Gemini embeddings)
+    2. Substring matching in parts_list (scraped database)
+    3. Substring matching in PRODUCT_CATALOG (hardcoded fallback)
+    """
+    name_lower = product_name.lower().strip()
+    
+    # 1. Try ChromaDB semantic search if available
+    if chroma_collection:
+        try:
+            api_key = os.environ.get("GEMINI_API_KEY")
+            client = get_gemini_client()
+            if api_key and client:
+                res = client.models.embed_content(model="gemini-embedding-2", contents=[product_name])
+                query_embeddings = [res.embeddings[0].values]
+                results = chroma_collection.query(
+                    query_embeddings=query_embeddings,
+                    n_results=3
+                )
+                
+                if results and results.get("ids") and len(results["ids"][0]) > 0:
+                    distances = results.get("distances", [[0.0]])
+                    top_distance = distances[0][0]
+                    
+                    # For L2, smaller is closer. A distance < 1.2 is typically a good match.
+                    if top_distance < 1.2:
+                        top_id = results["ids"][0][0]
+                        matched_item = next((p for p in parts_list if p.get("product_id") == top_id), None)
+                        if matched_item:
+                            return {
+                                "id": matched_item.get("product_id"),
+                                "name": matched_item.get("name"),
+                                "category": matched_item.get("category"),
+                                "price": matched_item.get("price"),
+                                "specs": {
+                                    "socket": matched_item.get("socket"),
+                                    "ram_gen": matched_item.get("ram_gen"),
+                                    "capacity": matched_item.get("capacity"),
+                                    "generation": matched_item.get("generation"),
+                                    "wattage": matched_item.get("wattage"),
+                                    "tdp": matched_item.get("tdp"),
+                                    "condition": matched_item.get("condition"),
+                                },
+                                "description": matched_item.get("description", "실시간 검색된 컴퓨존 실제 상품 정보입니다."),
+                                "pros": ["실시간 실물 재고 반영", "정밀한 부품 호환 정보 제공"],
+                                "cons": ["인기 부품은 일시 품절 가능성이 있음"],
+                                "recommendedUsers": ["최신 가격 동향과 정확한 컴퓨존 조립 사양을 선호하는 고객"],
+                                "stockStatus": "in_stock" if matched_item.get("stock", True) else "out_of_stock"
+                            }
+        except Exception as e:
+            print(f"ChromaDB lookup failed: {e}")
+
+    # 2. Try substring match in parts_list (real scraped parts)
+    for p in parts_list:
+        p_name = p.get("name", "").lower()
+        if name_lower in p_name:
+            return {
+                "id": p.get("product_id"),
+                "name": p.get("name"),
+                "category": p.get("category"),
+                "price": p.get("price"),
+                "specs": {
+                    "socket": p.get("socket"),
+                    "ram_gen": p.get("ram_gen"),
+                    "capacity": p.get("capacity"),
+                    "generation": p.get("generation"),
+                    "wattage": p.get("wattage"),
+                    "tdp": p.get("tdp"),
+                    "condition": p.get("condition"),
+                },
+                "description": p.get("description", "컴퓨존의 실제 상품 정보입니다."),
+                "pros": ["실시간 실물 재고 반영", "정밀한 부품 호환 정보 제공"],
+                "cons": ["인기 부품은 일시 품절 가능성이 있음"],
+                "recommendedUsers": ["최신 사양과 정확한 컴퓨존 조립 사양을 선호하는 고객"],
+                "stockStatus": "in_stock" if p.get("stock", True) else "out_of_stock"
+            }
+
+    # 3. Try original substring match in hardcoded PRODUCT_CATALOG
+    for p in PRODUCT_CATALOG:
+        prod_name_lower = p["name"].lower()
+        prod_id_part = p["id"].split("-")[-1].lower()
+        if name_lower in prod_name_lower or prod_id_part in name_lower or name_lower in prod_id_part:
+            return p
+
+    return None
+
+# ----------------------------------------------------
 # AI PC Recommendation Core Matching Engine
 # ----------------------------------------------------
 def build_configuration(purpose: str, items: list[str], budget_val: int, build_type: str) -> dict:
@@ -242,7 +348,7 @@ def build_configuration(purpose: str, items: list[str], budget_val: int, build_t
     elif build_type == "balance":
         target_budget = max(850000, int(budget_val * 0.85))
     else:
-        target_budget = max(900000, int(budget_val * 0.98))
+        target_budget = max(900000, int(budget_val * 1.00))
 
     # 2. Percentage allocations (CPU, GPU, RAM, SSD, MB, Power, Cooler)
     if purpose == "game":
@@ -406,6 +512,72 @@ def build_configuration(purpose: str, items: list[str], budget_val: int, build_t
     ]
 
     total_price = sum(item["price"] for item in parts_picked)
+
+    # Post-adjustment to strictly guarantee final price is under user budget_val
+    if total_price > budget_val:
+        # Downgrade priority list: GPU, CPU, Motherboard, SSD, RAM, Cooler, Power
+        for cat_to_downgrade in ["GPU", "CPU", "Motherboard", "SSD", "RAM", "Cooler", "Power"]:
+            if total_price <= budget_val:
+                break
+                
+            # Find current picked item for this category
+            current_part = None
+            for item in parts_picked:
+                if item["category"] == ("MB" if cat_to_downgrade == "Motherboard" else cat_to_downgrade):
+                    current_part = item
+                    break
+            
+            if not current_part:
+                continue
+                
+            # Find all candidates for this category that are cheaper than current_part["price"]
+            target_categories = ["Motherboard", "MB"] if cat_to_downgrade == "Motherboard" else (["Power", "PSU"] if cat_to_downgrade == "Power" else (["Cooler", "COOLER"] if cat_to_downgrade == "Cooler" else [cat_to_downgrade]))
+            candidates = [p for p in parts_list if p["category"] in target_categories]
+            
+            # Apply identical constraints to maintain compatibility
+            if cat_to_downgrade == "Motherboard":
+                candidates = [p for p in candidates if p.get("socket") == socket and p.get("ram_gen") == ram_gen]
+            elif cat_to_downgrade == "CPU":
+                candidates = [p for p in candidates if p.get("socket") == socket]
+            elif cat_to_downgrade == "RAM":
+                candidates = [p for p in candidates if p.get("generation") == ram_gen]
+            elif cat_to_downgrade == "Cooler" and selected_cpu.get("tdp", 65) > 100:
+                candidates = [p for p in candidates if p.get("tier", 0) >= cooler_tier]
+            
+            # Filter and sort
+            candidates = [c for c in candidates if c["price"] < current_part["price"]]
+            candidates.sort(key=lambda x: x["price"])
+            
+            if candidates:
+                cheapest_candidate = candidates[0]
+                price_diff = current_part["price"] - cheapest_candidate["price"]
+                
+                if cat_to_downgrade == "RAM":
+                    price_diff = current_part["price"] - (cheapest_candidate["price"] * ram_count)
+                    current_part["name"] = f"{cheapest_candidate['name']} x{ram_count}"
+                    current_part["price"] = cheapest_candidate["price"] * ram_count
+                    selected_ram = cheapest_candidate
+                else:
+                    current_part["name"] = cheapest_candidate["name"]
+                    current_part["price"] = cheapest_candidate["price"]
+                    if cat_to_downgrade == "CPU":
+                        selected_cpu = cheapest_candidate
+                    elif cat_to_downgrade == "GPU":
+                        selected_gpu = cheapest_candidate
+                    elif cat_to_downgrade == "Motherboard":
+                        selected_mb = cheapest_candidate
+                    elif cat_to_downgrade == "SSD":
+                        selected_ssd = cheapest_candidate
+                    elif cat_to_downgrade == "Power":
+                        selected_power = cheapest_candidate
+                    elif cat_to_downgrade == "Cooler":
+                        selected_cooler = cheapest_candidate
+                    
+                current_part["product_id"] = cheapest_candidate["product_id"]
+                if "tdp" in cheapest_candidate:
+                    current_part["tdp"] = cheapest_candidate["tdp"]
+                    
+                total_price -= price_diff
 
     # Compatibility Rule Checking (R-01 to R-05)
     warnings = []
@@ -623,10 +795,52 @@ async def recommend_feedback(request: RecommendFeedbackRequest):
         return {"revised": fallback_revision, "source": "fallback"}
 
     try:
+        # Retrieve relevant real parts from ChromaDB if available based on user feedback
+        retrieved_parts_str = ""
+        if chroma_collection:
+            try:
+                api_key = os.environ.get("GEMINI_API_KEY")
+                if api_key:
+                    res = ai.models.embed_content(model="gemini-embedding-2", contents=[user_feedback])
+                    query_embeddings = [res.embeddings[0].values]
+                    results = chroma_collection.query(
+                        query_embeddings=query_embeddings,
+                        n_results=5
+                    )
+                else:
+                    results = chroma_collection.query(
+                        query_texts=[user_feedback],
+                        n_results=5
+                    )
+                
+                if results and results.get("ids") and len(results["ids"][0]) > 0:
+                    matched_items = []
+                    for pid in results["ids"][0]:
+                        matched_item = next((p for p in parts_list if p.get("product_id") == pid), None)
+                        if matched_item:
+                            matched_items.append({
+                                "id": matched_item.get("product_id"),
+                                "name": matched_item.get("name"),
+                                "category": matched_item.get("category"),
+                                "price": matched_item.get("price"),
+                                "description": matched_item.get("description", ""),
+                                "socket": matched_item.get("socket"),
+                                "ram_gen": matched_item.get("ram_gen"),
+                                "capacity": matched_item.get("capacity"),
+                                "generation": matched_item.get("generation"),
+                                "wattage": matched_item.get("wattage"),
+                                "tdp": matched_item.get("tdp"),
+                            })
+                    if matched_items:
+                        retrieved_parts_str = f"\n\nHere are some relevant real products from Compuzone matching the user feedback:\n{json.dumps(matched_items, ensure_ascii=False, indent=2)}\nYou should prioritize choosing from these real products if they fit the user's requirements and budget."
+            except Exception as e:
+                print(f"Error querying ChromaDB in recommend_feedback: {e}")
+
         system_instruction = f"""
         You are "코미", the expert PC custom builder. The user wants to adjust their current PC build.
         Here is the Compuzone product catalog with real specs and prices:
         {json.dumps(PRODUCT_CATALOG, ensure_ascii=False, indent=2)}
+        {retrieved_parts_str}
 
         Analyze the user's feedback: "{user_feedback}"
         Current specs: {json.dumps(current_specs, ensure_ascii=False)}
@@ -690,14 +904,7 @@ async def recommend_feedback(request: RecommendFeedbackRequest):
 @app.post('/api/chat/query_product')
 async def query_product(request: ProductQueryRequest):
     product_name = request.productName
-    matched_product = None
-    name_lower = product_name.lower()
-    for p in PRODUCT_CATALOG:
-        prod_name_lower = p["name"].lower()
-        prod_id_part = p["id"].split("-")[-1].lower()
-        if name_lower in prod_name_lower or prod_id_part in name_lower or name_lower in prod_id_part:
-            matched_product = p
-            break
+    matched_product = find_scraped_product(product_name)
 
     ai = get_gemini_client()
     if not ai:

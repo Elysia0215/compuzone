@@ -469,19 +469,15 @@ export default function ChatbotKomi({
       setIsTyping(false);
       setFlowState((prev) => ({
         ...prev,
-        step: 4,
+        step: 5,
         budget: budgetWon,
+        priority: "균형",
       }));
+      setActiveRecommendTab(1);
 
-      addBotMessage({
-        text: "거의 완료되었습니다!\n마지막으로 이번 견적에서 가장 중점적으로 생각하시는 구매 우선순위를 정해주세요!",
-        type: "options",
-        options: [
-          { label: "💰 가성비 (최소 단가 위주 실속)", action: "rec_prior_budget" },
-          { label: "⭐ 균형 (성능과 예산 합리적 조화)", action: "rec_prior_balanced" },
-          { label: "🚀 성능 (예산 한도 내 최대 하이엔드)", action: "rec_prior_perf" },
-        ],
-      });
+      setTimeout(() => {
+        generatePCProposals(budgetWon, "균형", flowState.usage || "게임", flowState.detail || "배그");
+      }, 2500);
     }, 600);
   };
 
