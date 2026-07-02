@@ -1246,7 +1246,7 @@ export default function ChatbotKomi({
                   {msg.type === "options" && msg.options && !(flowState.currentFlow === "recommend" && flowState.step === 2) && (
                     <div className="flex flex-col gap-2 mt-1">
                       {msg.options.map((opt, idx) => {
-                        const isRecommendPurposeStep = flowState.currentFlow === "recommend" && flowState.step === 1;
+                        const isRecommendPurposeStep = msg.options.some(o => o.action && o.action.startsWith("rec_usage_"));
 
                         if (isRecommendPurposeStep) {
                           let iconBg = "bg-blue-50 text-blue-600";
