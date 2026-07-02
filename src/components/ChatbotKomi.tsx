@@ -308,7 +308,7 @@ export default function ChatbotKomi({
       } else if (action === "menu_opt_easy") {
         targetMenu = "간편 조립PC 견적";
         menuId = "easy-pc";
-        targetUrl = "https://www.compuzone.co.kr/online/easypc_list.htm";
+        targetUrl = "https://www.compuzone.co.kr/product/Allassembled.htm";
         descText = "사무용, 게이밍, 영상편집 등 원하는 가격대와 용도별로 가장 밸런스 높게 미리 짜여진 인기 완제 PC들을 한눈에 확인하고 일부 부품을 간편하게 커스텀하여 구매할 수 있는 **'간편 조립PC 견적'** 메뉴를 추천합니다! ⚡";
       } else if (action === "menu_opt_diy") {
         targetMenu = "직접 견적담기";
