@@ -349,7 +349,7 @@ export default function ChatbotKomi({
       reRecCount: 0,
     });
     addBotMessage({
-      text: "스마트 맞춤 PC 견적 추천을 진행할게요! 🤖✨\n먼저 컴퓨터를 주로 어떤 용도로 사용하시나요?",
+      text: "안녕하세요! 컴퓨존 공식 AI 조립 스마트 빌더입니다. 🤖✨\n\n복잡한 호환성(CPU 소켓, 메인보드 칩셋, 파워 정격 소비전력 등) 검증 알고리즘이 탑재되어, 컴알못 고객님도 100% 호환 안전한 명품 본체 견적을 3분 만에 조립하실 수 있습니다.\n\n먼저 고객님의 주된 사용 용도를 아래에서 선택해 주세요! 용도에 최적화된 하드웨어 가중치를 부여합니다.",
       type: "options",
       options: [
         { label: "🎮 게임용 (Gaming)", action: "rec_usage_game" },
@@ -1240,16 +1240,75 @@ export default function ChatbotKomi({
 
                   {/* Options List (Q1, Q4, etc. - EXCEPT Q2) */}
                   {msg.type === "options" && msg.options && !(flowState.currentFlow === "recommend" && flowState.step === 2) && (
-                    <div className="flex flex-col gap-1.5 mt-1">
-                      {msg.options.map((opt, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => handleOptionClick(opt.label, opt.action)}
-                          className="bg-white hover:bg-blue-50 border border-slate-100 hover:border-blue-200 text-slate-700 hover:text-blue-700 font-bold py-2.5 px-4 rounded-xl text-xs text-left transition-all shadow-sm cursor-pointer"
-                        >
-                          {opt.label}
-                        </button>
-                      ))}
+                    <div className="flex flex-col gap-2 mt-1">
+                      {msg.options.map((opt, idx) => {
+                        const isRecommendPurposeStep = flowState.currentFlow === "recommend" && flowState.step === 1;
+
+                        if (isRecommendPurposeStep) {
+                          let iconBg = "bg-blue-50 text-blue-600";
+                          let emoji = "🎮";
+                          let subText = "";
+                          let mainText = opt.label;
+
+                          if (opt.action === "rec_usage_game") {
+                            iconBg = "bg-blue-50 text-blue-600";
+                            emoji = "🎮";
+                            mainText = "게이밍 용도 조립";
+                            subText = "발로란트, 배그 200프레임 조율";
+                          } else if (opt.action === "rec_usage_edit") {
+                            iconBg = "bg-purple-50 text-purple-600";
+                            emoji = "🎨";
+                            mainText = "편집 및 디자인 용도";
+                            subText = "포토샵 레이어, 고속 영상 인코딩";
+                          } else if (opt.action === "rec_usage_code") {
+                            iconBg = "bg-emerald-50 text-emerald-600";
+                            emoji = "💻";
+                            mainText = "프로그래밍 및 개발 용도";
+                            subText = "VS Code 빌드, 가상 머신 구동";
+                          } else if (opt.action === "rec_usage_ai") {
+                            iconBg = "bg-amber-50 text-amber-600";
+                            emoji = "🧠";
+                            mainText = "AI 연구 및 머신러닝";
+                            subText = "쿠다 코어 가속, 학습 모델 구동";
+                          } else if (opt.action === "rec_usage_office") {
+                            iconBg = "bg-slate-50 text-slate-600";
+                            emoji = "📁";
+                            mainText = "일반 사무 및 오피스용";
+                            subText = "엑셀 대용량 연산, 웹서핑";
+                          }
+
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => handleOptionClick(opt.label, opt.action)}
+                              className="bg-white hover:bg-slate-50 border border-slate-150 hover:border-slate-300 rounded-2xl p-4.5 transition-all shadow-sm cursor-pointer flex items-center gap-4.5 text-left w-full"
+                            >
+                              <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold flex-shrink-0 ${iconBg}`}>
+                                {emoji}
+                              </div>
+                              <div className="flex flex-col gap-0.5 justify-center">
+                                <span className="font-extrabold text-slate-800 text-[13px]">
+                                  {mainText}
+                                </span>
+                                <span className="text-slate-400 text-[11px] font-semibold">
+                                  {subText}
+                                </span>
+                              </div>
+                            </button>
+                          );
+                        }
+
+                        // Default small button layout
+                        return (
+                          <button
+                            key={idx}
+                            onClick={() => handleOptionClick(opt.label, opt.action)}
+                            className="bg-white hover:bg-blue-50 border border-slate-100 hover:border-blue-200 text-slate-700 hover:text-blue-700 font-bold py-2.5 px-4 rounded-xl text-xs text-left transition-all shadow-sm cursor-pointer"
+                          >
+                            {opt.label}
+                          </button>
+                        );
+                      })}
                     </div>
                   )}
 
