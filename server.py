@@ -252,18 +252,13 @@ def generate_product_aspects(name: str, category: str, price: int, desc: str, co
     if client:
         try:
             cond_str = "신품/정품" if condition == "new" else "벌크/중고/리퍼브"
-            prompt = (
-                f"다음 컴퓨터 부품 제품명과 상세 설명을 바탕으로, 이 제품의 실제 하드웨어 사양/특징 관점에서의 "
-                f"구체적이고 명확한 장점 2개, 단점 1개, 추천 고객 1개를 한국어로 간결하게 도출해줘. "
-                f"일반적인 설명 대신 해당 모델에 맞는 구체적 특징(클럭, 쿨링팬, VRAM 용량, 성능 등)을 서술해야 해.
+            prompt = f"""다음 컴퓨터 부품 제품명과 상세 설명을 바탕으로, 이 제품의 실제 하드웨어 사양/특징 관점에서의
+구체적이고 명확한 장점 2개, 단점 1개, 추천 고객 1개를 한국어로 간결하게 도출해줘.
+일반적인 설명 대신 해당 모델에 맞는 구체적 특징(클럭, 쿨링팬, VRAM 용량, 성능 등)을 서술해야 해.
 
-"
-                f"제품명: {name}
-"
-                f"제품 상태: {cond_str}
-"
-                f"상세설명: {desc or '없음'}"
-            )
+제품명: {name}
+제품 상태: {cond_str}
+상세설명: {desc or '없음'}"""
             response = client.models.generate_content(
                 model="gemini-2.5-flash",
                 contents=prompt,
