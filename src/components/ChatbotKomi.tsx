@@ -225,9 +225,25 @@ export default function ChatbotKomi({
     setTimeout(() => {
       setIsTyping(false);
 
+      if (keyword === "빠른 견적 어디서 해요?" || keyword.includes("빠른 견적") || keyword.includes("메뉴 찾기") || keyword.includes("견적 메뉴")) {
+        addBotMessage({
+          text: "컴퓨존에는 사용자님의 용도와 구매 방식에 맞춘 다양한 **맞춤형 빠른 견적 서비스**가 준비되어 있어요! 🤖\n아래 상황 중 현재 찾으시는 목적에 가장 가까운 항목을 선택해 주세요.",
+          type: "options",
+          options: [
+            { label: "💵 타사 견적을 올리고 더 할인받고 싶어요", action: "menu_opt_discount" },
+            { label: "🏢 단체/기업으로 대량 견적이 필요해요", action: "menu_opt_bulk" },
+            { label: "📦 인기 가격대/용도별 추천 완제 PC를 원해요", action: "menu_opt_easy" },
+            { label: "🔧 부품들을 직접 골라 조합하고 싶어요", action: "menu_opt_diy" },
+            { label: "🧠 생성형 AI/CAD 개발용 전문 PC를 찾아요", action: "menu_opt_ai" },
+            { label: "🖥️ 기업용/서버(Server) 시스템 견적이 필요해요", action: "menu_opt_server" },
+          ],
+        });
+        return;
+      }
+
       let targetMenu = "간편 조립 견적";
       let menuId = "quick-estimate";
-      let text = `&quot;${keyword}&quot; 메뉴를 찾으시는군요!\n컴퓨존의 해당 서비스 위치를 바로 찾아드릴게요! 🚀`;
+      let text = `"${keyword}" 메뉴를 찾으시는군요!\n컴퓨존의 해당 서비스 위치를 바로 찾아드릴게요! 🚀`;
 
       if (keyword.includes("AS") || keyword.includes("고장") || keyword.includes("수리")) {
         targetMenu = "A/S 안심케어 서비스";
@@ -252,7 +268,55 @@ export default function ChatbotKomi({
     }, 600);
   };
 
-  const getLivePerformancePreview = (val: number, isGame: boolean) => {
+  const handleMenuSelection = (label: string, action: string) => {
+    addUserMessage(label);
+    setIsTyping(true);
+    setTimeout(() => {
+      setIsTyping(false);
+      
+      let targetMenu = "";
+      let menuId = "";
+      let descText = "";
+      
+      if (action === "menu_opt_discount") {
+        targetMenu = "깎아줘! PC";
+        menuId = "discount-pc";
+        descText = "타 사이트에서 받으신 조립PC 견적서를 첨부하면 컴퓨존의 전문가가 검토하여 추가로 할인된 가격을 제안해 드리는 **'깎아줘! PC'** 메뉴를 추천해 드려요! 오늘주문 오늘발송 및 컴퓨존의 확실한 교환·반품 A/S를 보증합니다. 🛠️";
+      } else if (action === "menu_opt_bulk") {
+        targetMenu = "대량구매 견적";
+        menuId = "bulk-order";
+        descText = "회사, 학교 등 단체 구매 고객을 위한 전용 견적 채널인 **'대량구매 견적'** 서비스입니다. 신청 사양을 미리 장바구니에 담아 신청하면 담당자 배정 및 실시간 검토 상태가 업데이트되며 카카오톡 알림을 드립니다. 📦";
+      } else if (action === "menu_opt_easy") {
+        targetMenu = "간편 조립PC 견적";
+        menuId = "easy-pc";
+        descText = "사무용, 게이밍, 영상편집 등 원하는 가격대와 용도별로 가장 밸런스 높게 미리 짜여진 인기 완제 PC들을 한눈에 확인하고 일부 부품을 간편하게 커스텀하여 구매할 수 있는 **'간편 조립PC 견적'** 메뉴를 추천합니다! ⚡";
+      } else if (action === "menu_opt_diy") {
+        targetMenu = "직접 견적담기";
+        menuId = "diy-pc";
+        descText = "CPU, 메인보드, 그래픽카드 등을 직접 필터링하여 호환성을 검사해가며 직접 PC를 빌드하시는 분들을 위한 **'직접 견적담기'** 메뉴를 추천해 드려요! (초보자분들은 챗봇의 '스마트 맞춤 PC 견적 추천'으로 가이드라인을 얻으신 뒤 교체해 보시는 것을 추천합니다. 💡)";
+      } else if (action === "menu_opt_ai") {
+        targetMenu = "AI 데스크탑 라인업";
+        menuId = "ai-desktop";
+        descText = "생성형 AI/LLM 개발, 3D 렌더링/CAD 설계, 데이터 연구 및 딥러닝 학습 등 고성능 전문 머신러닝 작업에 최적화된 입문형/실무형/전문가형 워크스테이션을 바로 추천받는 **'AI 데스크탑 추천 (AI 탭)'** 메뉴를 추천해 드려요! 🧠";
+      } else if (action === "menu_opt_server") {
+        targetMenu = "빠른 서버 견적내기";
+        menuId = "server-pc";
+        descText = "일반용 PC가 아닌, 기업용 서버 시스템 구축을 위해 CPU 코어 수, 메모리, 저장장치, OS 라이선스 등을 단계별 가이드에 맞춰 손쉽게 커스텀하고 예상 수량 견적을 계산할 수 있는 **'빠른 서버 견적내기'** 전용 메뉴를 추천합니다. 🖥️";
+      }
+      
+      addBotMessage({
+        text: descText,
+        type: "deep_link",
+        deepLink: {
+          label: `${targetMenu} 바로가기 🔗`,
+          url: `#${menuId}`,
+          menuId,
+        },
+      });
+    }, 600);
+  };
+
+    const getLivePerformancePreview = (val: number, isGame: boolean) => {
     if (val < 1000000) {
       return {
         rating: "가성비 알뜰 구성",
@@ -1074,6 +1138,8 @@ export default function ChatbotKomi({
     } else if (action === "menu_start_direct") {
       addUserMessage("컴퓨존 빠른 견적 메뉴 찾기");
       handleMenuFinder("빠른 견적 어디서 해요?");
+    } else if (action.startsWith("menu_opt_")) {
+      handleMenuSelection(label, action);
     } else if (action.startsWith("as_order_")) {
       const orderId = action.replace("as_order_", "");
       handleSelectAsOrder(orderId);
