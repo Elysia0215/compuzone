@@ -478,7 +478,7 @@ async def classify(request: ClassifyRequest):
             intent = "category"
         elif any(x in msg for x in ["상담", "사람", "직원", "상담사", "고객센터", "전화"]):
             intent = "counselor"
-        elif any(x in msg for x in ["as", "a/s", "보증", "고장", "수리", "as 언제까지"]):
+        elif any(x in msg for x in ["as", "a/s", "보증", "고장", "수리", "망가", "안 켜", "안켜", "오작동", "as 언제까지", "이상해"]):
             intent = "as"
         return {"intent": intent, "source": "fallback_rules"}
 
@@ -509,7 +509,22 @@ async def classify(request: ClassifyRequest):
         return {"intent": intent, "source": "gemini"}
     except Exception as e:
         print(f"Gemini Intent Router Error: {e}")
-        return {"intent": "general", "source": "error_fallback"}
+        # Run rule-based fallback on Gemini API exception to keep system responsive
+        msg = message.lower()
+        intent = "general"
+        if any(x in msg for x in ["어디", "위치", "메뉴", "바로가기", "견적 어디서"]):
+            intent = "menu"
+        elif any(x in msg for x in ["추천", "견적", "조립", "맞춤 pc", "컴퓨터 맞추"]):
+            intent = "recommend"
+        elif any(x in msg for x in ["5060", "4070", "4060", "rtx", "ryzen", "라이젠", "i5", "i7", "인텔", "삼성 램", "990pro"]):
+            intent = "product"
+        elif any(x in msg for x in ["cpu", "gpu", "메인보드", "메모리", "파워", "ssd", "품목", "부품이 뭐"]):
+            intent = "category"
+        elif any(x in msg for x in ["상담", "사람", "직원", "상담사", "고객센터", "전화"]):
+            intent = "counselor"
+        elif any(x in msg for x in ["as", "a/s", "보증", "고장", "수리", "망가", "안 켜", "안켜", "오작동", "as 언제까지", "이상해"]):
+            intent = "as"
+        return {"intent": intent, "source": "error_rule_fallback"}
 
 # ==========================================
 # 2. GENERAL CHAT (KOMI PERSONA) ENDPOINT
