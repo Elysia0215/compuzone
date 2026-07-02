@@ -1342,28 +1342,44 @@ export default function ChatbotKomi({
                             <p className="text-xs text-left text-slate-600 leading-relaxed font-medium">
                               {menu.guide}
                             </p>
-                            <a
-                              href={menu.deeplink}
-                              target="_blank"
-                              rel="noopener noreferrer"
+                            <button
+                              onClick={() => {
+                                if (menu.deeplink) {
+                                  window.open(menu.deeplink, "_blank", "noopener,noreferrer");
+                                }
+                              }}
                               className="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold py-2 px-4 rounded-xl shadow transition-colors cursor-pointer mt-1"
                             >
                               바로가기 🔗
-                            </a>
+                            </button>
                           </div>
                         ))
                       ) : msg.deepLink ? (
                         <div className="bg-white border border-slate-100 rounded-2xl p-3.5 shadow-md text-center">
                           <p className="text-[11px] text-slate-500 mb-2.5">찾으시는 메뉴로 바로 딥링크 이동하세요!</p>
-                          <a
-                            href={msg.deepLink.url.startsWith("#") ? msg.deepLink.url : msg.deepLink.url}
-                            target={msg.deepLink.url.startsWith("#") ? undefined : "_blank"}
-                            rel={msg.deepLink.url.startsWith("#") ? undefined : "noopener noreferrer"}
-                            className="inline-block w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2 px-4 rounded-xl shadow transition-colors cursor-pointer"
+                          <button
+                            onClick={() => {
+                              if (msg.deepLink.url.startsWith("#")) {
+                                const mId = msg.deepLink.menuId;
+                                if (mId === "easy-pc" || mId === "diy-pc" || mId === "quick-estimate") {
+                                  addUserMessage("맞춤 조립 PC 추천받기");
+                                  startRecommendationFlow();
+                                } else if (mId === "as-center") {
+                                  addUserMessage("정품/무상 A/S 보증기한 조회");
+                                  startAsFlow();
+                                } else if (mId === "category-guide") {
+                                  addUserMessage("CPU 부품 정보 설명");
+                                  queryCategoryInfo("CPU");
+                                }
+                              } else {
+                                window.open(msg.deepLink.url, "_blank", "noopener,noreferrer");
+                              }
+                            }}
+                            className="inline-block w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2 px-4 rounded-xl shadow transition-colors cursor-pointer text-center"
                             id={`deep-link-${msg.deepLink.menuId}`}
                           >
                             {msg.deepLink.label}
-                          </a>
+                          </button>
                         </div>
                       ) : null}
                     </div>
