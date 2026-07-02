@@ -296,10 +296,10 @@ export default function ChatbotKomi({
       let targetUrl = "";
       
       if (action === "menu_opt_discount") {
-        targetMenu = "깎아줘! PC";
+        targetMenu = "맞춰줘 가격";
         menuId = "discount-pc";
-        targetUrl = "https://www.compuzone.co.kr/exc_event/discount_PC.htm?bannerid=GNBBannerDiscountPC";
-        descText = "타 사이트에서 받으신 조립PC 견적서를 첨부하면 컴퓨존의 전문가가 검토하여 추가로 할인된 가격을 제안해 드리는 **'깎아줘! PC'** 메뉴를 추천해 드려요! 오늘주문 오늘발송 및 컴퓨존의 확실한 교환·반품 A/S를 보증합니다. 🛠️";
+        targetUrl = "https://www.compuzone.co.kr/get_price/get_price.htm?bannerid=GNBBannerGetPrice#apply_sec";
+        descText = "타 사이트에서 받으신 조립PC 견적서를 첨부하면 컴퓨존의 전문가가 검토하여 추가로 할인된 가격을 제안해 드리는 **'맞춰줘 가격'** 메뉴를 추천해 드려요! 오늘주문 오늘발송 및 컴퓨존의 확실한 교환·반품 A/S를 보증합니다. 🛠️";
       } else if (action === "menu_opt_bulk") {
         targetMenu = "대량구매 견적";
         menuId = "bulk-order";
