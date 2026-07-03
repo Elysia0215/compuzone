@@ -311,17 +311,17 @@ export default function App() {
         {/* Core Chatbot widget icon */}
         <button
           onClick={() => setIsChatOpen((p) => !p)}
-          className="h-14 w-14 rounded-full bg-white shadow-xl flex items-center justify-center relative cursor-pointer transition-transform duration-150 hover:scale-105 border border-blue-500/20 overflow-hidden"
+          className="h-14 w-14 rounded-full bg-white shadow-xl flex items-center justify-center relative cursor-pointer transition-transform duration-150 hover:scale-105 border border-blue-500/20"
           id="chatbot-launcher-btn"
         >
           <img
             src="/komi-avatar.png"
             alt="Komi Avatar"
-            className="w-full h-full object-cover"
+            className="w-full h-full rounded-full object-cover"
           />
           {/* Persistent Red Alert dot for A/S expiration */}
           {isHighAlertActive && (
-            <span className="absolute top-0 right-0 flex h-3.5 w-3.5" id="high-alert-persistent-badge">
+            <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5" id="high-alert-persistent-badge">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-rose-500 border border-white"></span>
             </span>
