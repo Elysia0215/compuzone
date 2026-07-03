@@ -3,7 +3,7 @@
 
 import os
 import json
-from typing import Any, Optional
+from typing import Any, Optional, Union
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
