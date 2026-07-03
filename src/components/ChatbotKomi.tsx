@@ -1126,7 +1126,8 @@ export default function ChatbotKomi({
               setIsTyping(false);
               addBotMessage({
                 text: genRes.text,
-                type: "text",
+                type: genRes.type || "text",
+                data: genRes.product,
               });
             })
             .catch(() => {

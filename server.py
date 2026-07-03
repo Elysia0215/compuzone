@@ -905,27 +905,29 @@ def find_product_in_history(history: list) -> Optional[dict]:
                 return p
     return None
 
-def local_chat_fallback(message: str, history: list = None) -> str:
+def local_chat_fallback(message: str, history: list = None, return_dict: bool = False) -> Union[str, dict]:
     msg_clean = message.strip().lower()
     
     # 1. Noise Filter (무관 질문 필터)
     noise_keywords = ["날씨", "라면", "요리", "레시피", "스포츠", "축구", "야구", "연예", "가수", "정치", "대통령", "오늘 기분", "심심해", "놀아줘"]
     if any(k in msg_clean for k in noise_keywords):
-        return (
+        reply_text = (
             "🤖 반가워요! 코미예요! 💖\n"
             "저는 컴퓨존 코미라서 오늘 날씨나 일상 질문은 잘 모르지만... 🥺 "
             "컴퓨터나 부품에 대해서는 무엇이든 답변해 드릴 수 있답니다! 💻✨\n\n"
             "혹시 어떤 PC가 필요하신가요? 궁금한 점이 있다면 코미에게 물어봐 주세요! 💖"
         )
+        return {"text": reply_text} if return_dict else reply_text
         
     # 2. A/S Guide routing (A/S 연계 질문)
     as_keywords = ["as", "a/s", "보증", "수리", "고장", "무상", "이상해", "안켜", "안 켜"]
     if any(k in msg_clean for k in as_keywords):
-        return (
+        reply_text = (
             "홍길동 고객님의 실시간 결제 데이터와 연동된 정품 보증(Warranty) 내역 목록입니다. "
             "A/S 안심 점검 조회를 원하시는 주문 번호를 선택해 주세요! 🛡️\n\n"
             "(※ 상단 메뉴의 [A/S 보증조회] 버튼을 클릭하시면 실시간 상세 D-Day 내역을 더 자세히 보실 수 있답니다! 💻✨)"
         )
+        return {"text": reply_text} if return_dict else reply_text
 
     # 3. Product Analysis Fallback (제품 상세/장단점/설명 질문)
     product_keywords = ["이 제품", "제품", "설명해", "장단점", "스펙", "사양", "정보", "어때", "리포트", "더 알려", "가격", "얼마"]
@@ -936,7 +938,9 @@ def local_chat_fallback(message: str, history: list = None) -> str:
             # check if aspects are already generated/predefined:
             if "description" in matched and "pros" in matched:
                 desc_val = matched["description"]
-                pros_str = " / ".join(matched["pros"])
+                pros_list = matched["pros"]
+                cons_list = matched["cons"]
+                rec_users = matched["recommendedUsers"]
             else:
                 cat_val = matched.get("category", "")
                 desc_val = matched.get("description", "")
@@ -944,32 +948,57 @@ def local_chat_fallback(message: str, history: list = None) -> str:
                 price_val = matched.get("price", 0)
                 aspects = generate_product_aspects(name_val, cat_val, price_val, desc_val, cond_val)
                 desc_val = desc_val or "고성능 컴퓨터 부품"
-                pros_str = " / ".join(aspects["pros"])
+                pros_list = aspects["pros"]
+                cons_list = aspects["cons"]
+                rec_users = aspects["recommendedUsers"]
             
-            return (
+            pros_str = " / ".join(pros_list)
+            reply_text = (
                 f"문의하신 **{name_val}** 제품에 대해 코미가 찾아온 정보예요! 🤖✨\n\n"
                 f"이 제품은 **{desc_val}** 특징을 가진 멋진 부품이랍니다! 💻\n"
                 f"대표적인 장점으로는 **{pros_str}** 등이 있어요! 🌟\n\n"
                 f"상세 가격과 공식 페이지 설명은 아래의 [상세스펙 전체보기] 버튼을 꾹 눌러 확인해 주세요! 💖"
             )
             
-        return (
+            if return_dict:
+                img_url = matched.get("imageUrl") or matched.get("image") or "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80"
+                prod_data = {
+                    "id": matched.get("id") or matched.get("product_id") or "custom",
+                    "name": name_val,
+                    "category": matched.get("category", "기타 부품"),
+                    "price": matched.get("price", 0),
+                    "pros": pros_list,
+                    "cons": cons_list,
+                    "recommendedUsers": rec_users,
+                    "imageUrl": img_url,
+                    "stockStatus": matched.get("stockStatus") or ("in_stock" if matched.get("stock", True) else "out_of_stock")
+                }
+                return {
+                    "text": reply_text,
+                    "type": "product_info",
+                    "product": prod_data
+                }
+            return reply_text
+            
+        reply_text = (
             "선택하신 상품에 대한 코미의 AI 상세 분석(장단점/추천대상)은 실시간 AI 연동(Gemini)이 필요한 영역이에요! 🥺\n\n"
             "현재 AI 서버 호출량이 일시적으로 급증하여 상세 답변이 조금 지연되고 있답니다. 💻 "
             "대신 상세 스펙과 실시간 가격은 해당 상품 카드 하단의 [상세스펙 전체보기] 버튼을 클릭하셔서 컴퓨존 공식몰 페이지에서 직접 편리하게 확인하실 수 있어요! 💖"
         )
+        return {"text": reply_text} if return_dict else reply_text
 
     # 4. Recommendation / Custom Estimate Fallback (추천/견적 질문)
     recommend_keywords = ["추천", "견적", "조립", "맞춰", "컴퓨터 사양", "pc", "컴퓨터"]
     if any(k in msg_clean for k in recommend_keywords):
-        return (
+        reply_text = (
             "나만의 맞춤형 조립 PC 견적을 원하신다면, 챗봇 상단의 [간편 조립 견적] 또는 메인 화면의 [스마트 맞춤 PC 견적추천]을 이용해 보세요! 🚀\n\n"
             "용도, 실행 프로그램, 예산 슬라이더만 조절하면 실시간 호환성 검증을 마친 최적의 3종 견적(가성비/균형/성능) 리포트를 즉시 코미가 뽑아드린답니다! 🖥️✨"
         )
+        return {"text": reply_text} if return_dict else reply_text
         
     # 5. Analogy FAQ (용어 FAQ 비유 가이드)
     if "cpu" in msg_clean or "씨피유" in msg_clean:
-        return (
+        reply_text = (
             "안녕! 코미예요 🤖✨ CPU가 뭔지 궁금하군요! 코미가 아주 쉽게 알려줄게요!\n\n"
             "CPU는 컴퓨터의 '두뇌 🧠'라고 생각하면 이해하기 쉬울 거예요! "
             "마치 사람의 뇌처럼 컴퓨터 안에서 모든 연산과 계산 명령을 직접 제어하고 지시하는 핵심 장치랍니다. "
@@ -977,7 +1006,7 @@ def local_chat_fallback(message: str, history: list = None) -> str:
             "부품에 대해 조금 이해가 가셨나요? 그럼 이 지식을 토대로 바로 사용자님께 최적화된 맞춤 PC 추천(Flow ②)을 받아보실까요?"
         )
     elif "gpu" in msg_clean or "그래픽" in msg_clean or "글카" in msg_clean:
-        return (
+        reply_text = (
             "안녕! 코미예요 🤖✨ 그래픽카드가 뭔지 궁금하군요! 코미가 아주 쉽게 알려줄게요!\n\n"
             "그래픽카드는 컴퓨터의 '화가 🎨'라고 생각하면 이해하기 쉬울 거예요! "
             "컴퓨터가 만드는 복잡한 그림이나 멋진 영상을 모니터 화면에 예쁘게 그려서 보여주는 일을 한답니다. 🖼️🎬 "
@@ -985,7 +1014,7 @@ def local_chat_fallback(message: str, history: list = None) -> str:
             "부품에 대해 조금 이해가 가셨나요? 그럼 이 지식을 토대로 바로 사용자님께 최적화된 맞춤 PC 추천(Flow ②)을 받아보실까요?"
         )
     elif "메인보드" in msg_clean or "mb" in msg_clean or "보드" in msg_clean:
-        return (
+        reply_text = (
             "안녕! 코미예요 🤖✨ 메인보드가 뭔지 궁금하군요! 코미가 아주 쉽게 알려줄게요!\n\n"
             "메인보드는 모든 하드웨어 부품들을 하나로 연결해 주는 '도시의 도로망 🗺️'이나 '척추' 같은 부품이에요! "
             "CPU, 램, 그래픽카드 등이 서로 꽂혀서 대화할 수 있게 큰 다리 역할을 해준답니다. "
@@ -993,7 +1022,7 @@ def local_chat_fallback(message: str, history: list = None) -> str:
             "부품에 대해 조금 이해가 가셨나요? 그럼 이 지식을 토대로 바로 사용자님께 최적화된 맞춤 PC 추천(Flow ②)을 받아보실까요?"
         )
     elif "램" in msg_clean or "ram" in msg_clean or "메모리" in msg_clean:
-        return (
+        reply_text = (
             "안녕! 코미예요 🤖✨ 메모리(RAM)가 뭔지 궁금하군요! 코미가 아주 쉽게 알려줄게요!\n\n"
             "메모리(RAM)는 현재 작업 중인 프로그램을 올려두는 '책상 넓이 📚'라고 생각하면 이해하기 쉬울 거예요! "
             "책상이 넓을수록 여러 가지 책과 노트를 펼쳐두고 일(멀티태스킹)을 버벅임 없이 쾌적하게 수행할 수 있답니다. "
@@ -1001,7 +1030,7 @@ def local_chat_fallback(message: str, history: list = None) -> str:
             "부품에 대해 조금 이해가 가셨나요? 그럼 이 지식을 토대로 바로 사용자님께 최적화된 맞춤 PC 추천(Flow ②)을 받아보실까요?"
         )
     elif "ssd" in msg_clean or "저장" in msg_clean or "하드" in msg_clean:
-        return (
+        reply_text = (
             "안녕! 코미예요 🤖✨ SSD가 뭔지 궁금하군요! 코미가 아주 쉽게 알려줄게요!\n\n"
             "SSD는 컴퓨터의 모든 데이터와 파일을 보관하는 '서랍 서랍장 💾'이라고 생각하면 이해하기 쉬울 거예요! "
             "부팅 속도와 게임 로딩 속도를 매우 빠르게 단축해 주는 든든한 금고 보관소랍니다. "
@@ -1009,20 +1038,24 @@ def local_chat_fallback(message: str, history: list = None) -> str:
             "부품에 대해 조금 이해가 가셨나요? 그럼 이 지식을 토대로 바로 사용자님께 최적화된 맞춤 PC 추천(Flow ②)을 받아보실까요?"
         )
     elif "파워" in msg_clean or "power" in msg_clean or "psu" in msg_clean:
-        return (
+        reply_text = (
             "안녕! 코미예요 🤖✨ 파워 서플라이가 뭔지 궁금하군요! 코미가 아주 쉽게 알려줄게요!\n\n"
             "파워는 모든 부품들에게 안정적인 밥(전기 에너지)을 공급해 주는 '심장 ⚡'이자 '발전소' 역할을 담당해요! "
             "안정적인 에너지를 공급해 줘야 컴퓨터가 멈추지 않고 건강하게 돌아갈 수 있답니다. 심장이 튼튼해야 안심되겠죠? 💖\n\n"
             "부품에 대해 조금 이해가 가셨나요? 그럼 이 지식을 토대로 바로 사용자님께 최적화된 맞춤 PC 추천(Flow ②)을 받아보실까요?"
         )
+        return {"text": reply_text} if return_dict else reply_text
         
     # 6. Basic Greetings / Default
     if any(k in msg_clean for k in ["안녕", "hi", "hello"]):
-        return "반가워요! 저는 컴퓨존의 마스코트 챗봇 코미입니다! 오늘도 행복한 하루 되세요. 💻 어떤 컴퓨터 부품이나 견적이 필요하신가요? 🤖💖"
+        reply_text = "반가워요! 저는 컴퓨존의 마스코트 챗봇 코미입니다! 오늘도 행복한 하루 되세요. 💻 어떤 컴퓨터 부품이나 견적이 필요하신가요? 🤖💖"
+        return {"text": reply_text} if return_dict else reply_text
     elif any(k in msg_clean for k in ["고마워", "감사", "땡큐"]):
-        return "천만에요! 코미가 힘이 되었다니 기뻐요. 다른 컴퓨터 상담도 필요하시면 언제든 불러주세요! 🌟🤖💖"
+        reply_text = "천만에요! 코미가 힘이 되었다니 기뻐요. 다른 컴퓨터 상담도 필요하시면 언제든 불러주세요! 🌟🤖💖"
+        return {"text": reply_text} if return_dict else reply_text
         
-    return "컴퓨터 부품 견적, 정품 무상 A/S 조회, 혹은 빠른 메뉴 안내에 대해 궁금한 점이 있으시다면 언제든 코미에게 물어보세요! 🤖"
+    reply_text = "컴퓨터 부품 견적, 정품 무상 A/S 조회, 혹은 빠른 메뉴 안내에 대해 궁금한 점이 있으시다면 언제든 코미에게 물어보세요! 🤖"
+    return {"text": reply_text} if return_dict else reply_text
 
 @app.post('/api/chat/general')
 async def general_chat(request: GeneralChatRequest):
@@ -1031,8 +1064,15 @@ async def general_chat(request: GeneralChatRequest):
     
     if not ai:
         last_msg = messages[-1].text if messages else ""
-        reply = local_chat_fallback(last_msg, messages)
-        return {"text": reply, "source": "fallback"}
+        res = local_chat_fallback(last_msg, messages, return_dict=True)
+        if isinstance(res, dict):
+            return {
+                "text": res["text"],
+                "type": res.get("type", "text"),
+                "product": res.get("product"),
+                "source": "fallback"
+            }
+        return {"text": res, "type": "text", "source": "fallback"}
 
     try:
         chat_history = []
@@ -1089,11 +1129,15 @@ async def general_chat(request: GeneralChatRequest):
     except Exception as e:
         print(f"Gemini General Chat Error: {e}")
         last_msg = messages[-1].text if messages else ""
-        reply = local_chat_fallback(last_msg, messages)
-        return {
-            "text": reply,
-            "source": "fallback_error"
-        }
+        res = local_chat_fallback(last_msg, messages, return_dict=True)
+        if isinstance(res, dict):
+            return {
+                "text": res["text"],
+                "type": res.get("type", "text"),
+                "product": res.get("product"),
+                "source": "fallback_error"
+            }
+        return {"text": res, "type": "text", "source": "fallback_error"}
 
 # ==========================================
 # 3. PC RECOMMENDATION RE-RECOMMEND LOOP
