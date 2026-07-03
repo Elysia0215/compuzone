@@ -906,8 +906,24 @@ def local_chat_fallback(message: str) -> str:
             "기본적으로 컴퓨존 조립PC의 경우 CPU/메인보드/RAM은 무상 3년, SSD는 3~5년, 그래픽카드는 2~3년의 보증 기한을 제공해 드려요! 🛠️ "
             "회원님의 상세 주문 내역과 실시간 연동하여 D-Day 보증 기한을 확인해 보시려면 챗봇의 [A/S 조회] 메뉴나 주문번호 조회를 선택해 주세요!"
         )
+
+    # 3. Product Analysis Fallback (제품 상세/장단점/설명 질문)
+    product_keywords = ["이 제품", "제품", "설명해", "장단점", "스펙", "사양", "정보", "어때", "리포트", "더 알려", "가격", "얼마"]
+    if any(k in msg_clean for k in product_keywords):
+        return (
+            "선택하신 상품에 대한 AI 상세 분석(장단점/추천대상)은 실시간 AI 모델(Gemini) 연동이 필요한 영역이에요. 🥺 "
+            "현재 AI 서버 호출량이 일시적으로 급증하여 상세 답변이 지연되고 있으니, 상세 스펙과 실시간 재고/가격은 해당 카드 하단의 [상세스펙 전체보기] 버튼을 클릭하셔서 공식 페이지에서 확인해 보시기를 권장해 드립니다! 💻"
+        )
+
+    # 4. Recommendation / Custom Estimate Fallback (추천/견적 질문)
+    recommend_keywords = ["추천", "견적", "조립", "맞춰", "컴퓨터 사양", "pc", "컴퓨터"]
+    if any(k in msg_clean for k in recommend_keywords):
+        return (
+            "나만의 맞춤형 조립 PC 견적을 원하신다면, 챗봇 상단의 [간편 조립 견적] 또는 메인 화면의 [스마트 맞춤 PC 견적추천]을 이용해 보세요! "
+            "용도, 실행 프로그램, 예산 슬라이더만 조절하면 실시간 호환성 검증을 마친 최적의 3종 견적(가성비/균형/성능) 리포트를 즉시 뽑아드린답니다. 🖥️"
+        )
         
-    # 3. Analogy FAQ (용어 FAQ 비유 가이드)
+    # 5. Analogy FAQ (용어 FAQ 비유 가이드)
     if "cpu" in msg_clean or "씨피유" in msg_clean:
         return "CPU는 컴퓨터의 '두뇌' 역할을 해요! 모든 계산과 명령어 처리를 담당하는 가장 핵심적인 장치랍니다. 🧠"
     elif "gpu" in msg_clean or "그래픽" in msg_clean or "글카" in msg_clean:
@@ -921,7 +937,7 @@ def local_chat_fallback(message: str) -> str:
     elif "파워" in msg_clean or "power" in msg_clean or "psu" in msg_clean:
         return "파워 서플라이는 컴퓨터의 모든 부품에 안정적인 밥(전기 에너지)을 공급해 주는 '심장'이자 '발전소' 역할을 수행한답니다. ⚡"
         
-    # 4. Basic Greetings / Default
+    # 6. Basic Greetings / Default
     if any(k in msg_clean for k in ["안녕", "hi", "hello"]):
         return "반가워요! 저는 컴퓨존의 마스코트 챗봇 코미입니다! 오늘도 행복한 하루 되세요. 💻 어떤 컴퓨터 부품이나 견적이 필요하신가요?"
     elif any(k in msg_clean for k in ["고마워", "감사", "땡큐"]):
