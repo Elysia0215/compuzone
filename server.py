@@ -888,6 +888,47 @@ async def classify(request: ClassifyRequest):
         # Fallback to general
         return {"intent": "general", "source": "error"}
 
+def local_chat_fallback(message: str) -> str:
+    msg_clean = message.strip().lower()
+    
+    # 1. Noise Filter (무관 질문 필터)
+    noise_keywords = ["날씨", "라면", "요리", "레시피", "스포츠", "축구", "야구", "연예", "가수", "정치", "대통령", "오늘 기분", "심심해", "놀아줘"]
+    if any(k in msg_clean for k in noise_keywords):
+        return (
+            "저는 컴퓨존의 컴퓨터 전문 비서 코미입니다! 컴퓨터, 부품, 견적, 혹은 컴퓨존 서비스와 관련 없는 질문에는 답변드릴 수 없어요. 🥺 "
+            "컴퓨터 관련 궁금증을 질문해 주시거나 상담사 연결을 진행해 주세요!"
+        )
+        
+    # 2. A/S Guide routing (A/S 연계 질문)
+    as_keywords = ["as", "a/s", "보증", "수리", "고장", "무상", "이상해", "안켜", "안 켜"]
+    if any(k in msg_clean for k in as_keywords):
+        return (
+            "기본적으로 컴퓨존 조립PC의 경우 CPU/메인보드/RAM은 무상 3년, SSD는 3~5년, 그래픽카드는 2~3년의 보증 기한을 제공해 드려요! 🛠️ "
+            "회원님의 상세 주문 내역과 실시간 연동하여 D-Day 보증 기한을 확인해 보시려면 챗봇의 [A/S 조회] 메뉴나 주문번호 조회를 선택해 주세요!"
+        )
+        
+    # 3. Analogy FAQ (용어 FAQ 비유 가이드)
+    if "cpu" in msg_clean or "씨피유" in msg_clean:
+        return "CPU는 컴퓨터의 '두뇌' 역할을 해요! 모든 계산과 명령어 처리를 담당하는 가장 핵심적인 장치랍니다. 🧠"
+    elif "gpu" in msg_clean or "그래픽" in msg_clean or "글카" in msg_clean:
+        return "그래픽카드(GPU)는 게임 화면이나 고화질 영상을 모니터에 부드럽고 예쁘게 '그려주는 화가' 역할을 담당해요! 🎮"
+    elif "메인보드" in msg_clean or "mb" in msg_clean or "보드" in msg_clean:
+        return "메인보드는 모든 하드웨어 부품들을 하나로 연결해 주는 '도시의 도로망'이나 '척추' 같은 부품이에요! 🗺️"
+    elif "램" in msg_clean or "ram" in msg_clean or "메모리" in msg_clean:
+        return "메모리(RAM)는 현재 실행 중인 프로그램들이 임시로 상주하는 '책상 넓이'예요! 책상이 넓을수록 다중 작업(멀티태스킹)을 버벅임 없이 쾌적하게 수행할 수 있답니다. 📚"
+    elif "ssd" in msg_clean or "저장" in msg_clean or "하드" in msg_clean:
+        return "SSD는 컴퓨터의 모든 데이터와 파일을 안전하게 저장하고 보관하는 '서랍 서랍장' 역할을 해요! 💾"
+    elif "파워" in msg_clean or "power" in msg_clean or "psu" in msg_clean:
+        return "파워 서플라이는 컴퓨터의 모든 부품에 안정적인 밥(전기 에너지)을 공급해 주는 '심장'이자 '발전소' 역할을 수행한답니다. ⚡"
+        
+    # 4. Basic Greetings / Default
+    if any(k in msg_clean for k in ["안녕", "hi", "hello"]):
+        return "반가워요! 저는 컴퓨존의 마스코트 챗봇 코미입니다! 오늘도 행복한 하루 되세요. 💻 어떤 컴퓨터 부품이나 견적이 필요하신가요?"
+    elif any(k in msg_clean for k in ["고마워", "감사", "땡큐"]):
+        return "천만에요! 코미가 힘이 되었다니 기뻐요. 다른 컴퓨터 상담도 필요하시면 언제든 불러주세요! 🌟"
+        
+    return "컴퓨터 부품 견적, 정품 무상 A/S 조회, 혹은 빠른 메뉴 안내에 대해 궁금한 점이 있으시다면 언제든 코미에게 물어보세요! 🤖"
+
 @app.post('/api/chat/general')
 async def general_chat(request: GeneralChatRequest):
     messages = request.messages
@@ -895,11 +936,7 @@ async def general_chat(request: GeneralChatRequest):
     
     if not ai:
         last_msg = messages[-1].text if messages else ""
-        reply = "안녕하세요! 컴퓨존의 귀여운 챗봇 코미예요! 🤖 현재 기본 모드로 동작 중입니다. 궁금한 점이 있으시다면 언제든 말씀해주세요!"
-        if "안녕" in last_msg:
-            reply = "반가워요! 저는 컴퓨존의 마스코트 챗봇 코미입니다! 오늘도 행복한 하루 되세요. 💻 어떤 컴퓨터 부품이나 견적이 필요하신가요?"
-        elif "고마워" in last_msg or "감사" in last_msg:
-            reply = "천만에요! 코미가 힘이 되었다니 기뻐요. 다른 컴퓨터 상담도 필요하시면 언제든 불러주세요! 🌟"
+        reply = local_chat_fallback(last_msg)
         return {"text": reply, "source": "fallback"}
 
     try:
@@ -956,9 +993,11 @@ async def general_chat(request: GeneralChatRequest):
         return {"text": response.text, "source": "gemini"}
     except Exception as e:
         print(f"Gemini General Chat Error: {e}")
+        last_msg = messages[-1].text if messages else ""
+        reply = local_chat_fallback(last_msg)
         return {
-            "text": "죄송해요, 코미 회로에 잠깐 문제가 생긴 것 같아요! 잠시 후 다시 말씀해주실 수 있을까요? 🥺",
-            "source": "error"
+            "text": reply,
+            "source": "fallback_error"
         }
 
 # ==========================================
