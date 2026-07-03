@@ -1215,8 +1215,12 @@ export default function ChatbotKomi({
           <div className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white px-5 py-4 flex items-center justify-between shadow-md" id="chat-header">
             <div className="flex items-center gap-2.5">
               <div className="relative">
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center border border-white/20 shadow">
-                  <span className="text-xl">🤖</span>
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-white/20 shadow overflow-hidden">
+                  <img
+                    src="/komi-avatar.png"
+                    alt="Komi Avatar"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border-2 border-blue-700 animate-pulse"></span>
               </div>
@@ -1310,8 +1314,12 @@ export default function ChatbotKomi({
               <div key={msg.id} className={`flex gap-2.5 ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
                 {/* Robot Icon for Bot */}
                 {msg.sender === "bot" && (
-                  <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex-shrink-0 flex items-center justify-center text-sm shadow">
-                    🤖
+                  <div className="w-8 h-8 rounded-full bg-white flex-shrink-0 flex items-center justify-center shadow overflow-hidden border border-slate-100">
+                    <img
+                      src="/komi-avatar.png"
+                      alt="Komi Avatar"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 )}
 
