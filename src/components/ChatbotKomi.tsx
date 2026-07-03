@@ -209,8 +209,9 @@ export default function ChatbotKomi({
       addUserMessage("내 장바구니 목록 확인해볼래");
       onOpenCartFromNotif();
     } else if (notif.type === "restock") {
-      addUserMessage("RTX 5060 스펙 설명 부탁해");
-      querySpecificProduct("RTX 5060");
+      const prodName = notif.text.replace(" 설명 요청", "");
+      addUserMessage(`${prodName} 스펙 설명 부탁해`);
+      querySpecificProduct(prodName);
     } else if (notif.type === "first_visit") {
       addUserMessage("맞춤 조립 PC 추천받기");
       startRecommendationFlow();

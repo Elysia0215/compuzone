@@ -888,7 +888,24 @@ async def classify(request: ClassifyRequest):
         # Fallback to general
         return {"intent": "general", "source": "error"}
 
-def local_chat_fallback(message: str) -> str:
+def find_product_in_history(history: list) -> Optional[dict]:
+    if not history:
+        return None
+    for msg in reversed(history[:-1]):
+        text = msg.text or ""
+        text_lower = text.lower()
+        # 1. Search for matches in PRODUCT_CATALOG
+        for p in PRODUCT_CATALOG:
+            if p["name"].lower() in text_lower:
+                return p
+        # 2. Search for matches in parts_list (scraped database)
+        for p in parts_list:
+            name = p.get("name", "")
+            if name and name.lower() in text_lower:
+                return p
+    return None
+
+def local_chat_fallback(message: str, history: list = None) -> str:
     msg_clean = message.strip().lower()
     
     # 1. Noise Filter (무관 질문 필터)
@@ -913,6 +930,29 @@ def local_chat_fallback(message: str) -> str:
     # 3. Product Analysis Fallback (제품 상세/장단점/설명 질문)
     product_keywords = ["이 제품", "제품", "설명해", "장단점", "스펙", "사양", "정보", "어때", "리포트", "더 알려", "가격", "얼마"]
     if any(k in msg_clean for k in product_keywords):
+        matched = find_product_in_history(history) if history else None
+        if matched:
+            name_val = matched.get("name", "")
+            # check if aspects are already generated/predefined:
+            if "description" in matched and "pros" in matched:
+                desc_val = matched["description"]
+                pros_str = " / ".join(matched["pros"])
+            else:
+                cat_val = matched.get("category", "")
+                desc_val = matched.get("description", "")
+                cond_val = matched.get("condition", "new")
+                price_val = matched.get("price", 0)
+                aspects = generate_product_aspects(name_val, cat_val, price_val, desc_val, cond_val)
+                desc_val = desc_val or "고성능 컴퓨터 부품"
+                pros_str = " / ".join(aspects["pros"])
+            
+            return (
+                f"문의하신 **{name_val}** 제품에 대해 코미가 찾아온 정보예요! 🤖✨\n\n"
+                f"이 제품은 **{desc_val}** 특징을 가진 멋진 부품이랍니다! 💻\n"
+                f"대표적인 장점으로는 **{pros_str}** 등이 있어요! 🌟\n\n"
+                f"상세 가격과 공식 페이지 설명은 아래의 [상세스펙 전체보기] 버튼을 꾹 눌러 확인해 주세요! 💖"
+            )
+            
         return (
             "선택하신 상품에 대한 코미의 AI 상세 분석(장단점/추천대상)은 실시간 AI 연동(Gemini)이 필요한 영역이에요! 🥺\n\n"
             "현재 AI 서버 호출량이 일시적으로 급증하여 상세 답변이 조금 지연되고 있답니다. 💻 "
@@ -991,7 +1031,7 @@ async def general_chat(request: GeneralChatRequest):
     
     if not ai:
         last_msg = messages[-1].text if messages else ""
-        reply = local_chat_fallback(last_msg)
+        reply = local_chat_fallback(last_msg, messages)
         return {"text": reply, "source": "fallback"}
 
     try:
@@ -1049,7 +1089,7 @@ async def general_chat(request: GeneralChatRequest):
     except Exception as e:
         print(f"Gemini General Chat Error: {e}")
         last_msg = messages[-1].text if messages else ""
-        reply = local_chat_fallback(last_msg)
+        reply = local_chat_fallback(last_msg, messages)
         return {
             "text": reply,
             "source": "fallback_error"
