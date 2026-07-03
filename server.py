@@ -1076,7 +1076,7 @@ async def recommend_feedback(request: RecommendFeedbackRequest):
             "power": "FSP HYPER K PRO 500W",
             "mb": "MSI PRO H610M-E DDR4"
         },
-        "reason": f"사용자님의 피드백 \"{user_feedback}\"을 반영하여 전력 효율이 우수한 RTX 5060 그래픽카드로 교체하고 메인보드를 효율적인 등급으로 조정하여 더 정교하게 다듬은 견적입니다!"
+        "reason": f"사용자님의 피드백 \"{user_feedback}\"을 꼼꼼하게 반영하여 더 마음에 드실 수 있게 조율한 견적이에요! 🤖✨\n\n전력 효율이 매우 우수한 **RTX 5060 그래픽카드**로 교체하고, 메인보드를 실속형 제품으로 다듬어서 성능 손실 없이 더 정교하게 균형을 맞춘 실속 맞춤 패키지랍니다! 💖"
     }
 
     ai = get_gemini_client()
@@ -1198,13 +1198,19 @@ async def query_product(request: ProductQueryRequest):
     ai = get_gemini_client()
     if not ai:
         if matched_product:
-            ai_explanation = f"해당 상품은 {matched_product['description']} 장단점으로는 {', '.join(matched_product['pros'])} 등이 있습니다."
+            pros_str = " / ".join(matched_product['pros'])
+            ai_explanation = (
+                f"문의하신 제품에 대해 코미가 찾아온 정보예요! 🤖✨\n\n"
+                f"이 제품은 **{matched_product['description']}** 특징을 가진 멋진 부품이랍니다! 💻\n"
+                f"대표적인 장점으로는 **{pros_str}** 등이 있어요! 🌟\n\n"
+                f"상세 가격과 공식 페이지 설명은 아래의 [상세스펙 전체보기] 버튼을 꾹 눌러 확인해 주세요! 💖"
+            )
             return {
                 "product": matched_product,
                 "aiExplanation": ai_explanation,
                 "source": "catalog_fallback"
             }
-        return JSONResponse({"error": "상품을 찾을 수 없습니다.", "source": "fallback"}, status_code=404)
+        return JSONResponse({"error": "죄송해요, 문의하신 상품에 대한 정보를 카탈로그에서 찾지 못했어요. 🥺", "source": "fallback"}, status_code=404)
 
     try:
         system_prompt = f"""
@@ -1247,9 +1253,23 @@ async def query_product(request: ProductQueryRequest):
     except Exception as e:
         print(f"Gemini Query Product Error: {e}")
         res_product = matched_product or {"name": product_name, "price": 0, "specs": {}}
+        if matched_product:
+            pros_str = " / ".join(matched_product['pros'])
+            ai_explanation = (
+                f"문의하신 제품에 대해 코미가 찾아온 정보예요! 🤖✨\n\n"
+                f"이 제품은 **{matched_product['description']}** 특징을 가진 멋진 부품이랍니다! 💻\n"
+                f"대표적인 장점으로는 **{pros_str}** 등이 있어요! 🌟\n\n"
+                f"상세 가격과 공식 페이지 설명은 아래의 [상세스펙 전체보기] 버튼을 꾹 눌러 확인해 주세요! 💖"
+            )
+        else:
+            ai_explanation = (
+                f"문의하신 **{product_name}** 부품은 뛰어난 속도와 우수한 성능을 보장하는 고품질 컴퓨터 부품이랍니다! 🤖✨\n\n"
+                f"현재 상세 설명 RAG 서버의 응답이 조금 지연되고 있어요. 🥺 "
+                f"실시간 상세 스펙과 재고/가격 정보는 아래의 [상세스펙 전체보기] 버튼을 통해 컴퓨존 공식몰에서 더욱 상세히 보실 수 있답니다! 💖"
+            )
         return {
             "product": res_product,
-            "aiExplanation": "이 제품은 뛰어난 컴퓨터 속도와 퍼포먼스를 내는 고품질 하드웨어 부품 중 하나예요! 상세한 문의는 코미 고객센터를 이용해주시면 친절히 가이드 해드릴게요. 🤖",
+            "aiExplanation": ai_explanation,
             "source": "error"
         }
 
@@ -1262,16 +1282,7 @@ async def query_category(request: CategoryQueryRequest):
     ai = get_gemini_client()
     
     if not ai:
-        explanation = "컴퓨터를 조립하기 위해 꼭 필요한 핵심 부품 부류 중 하나예요!"
-        cat_lower = category_name.lower()
-        if "cpu" in cat_lower:
-            explanation = "CPU는 컴퓨터의 '두뇌' 역할을 해요! 모든 명령어 계산을 처리하고 전반적인 연산 속도를 결정하는 핵심 부품이랍니다. 🧠"
-        elif "gpu" in cat_lower or "그래픽" in cat_lower:
-            explanation = "그래픽카드(GPU)는 게임 화면이나 고화질 영상을 모니터에 예쁘고 부드럽게 '그려주는' 역할을 담당해요! 🎮"
-        elif "메인보드" in cat_lower or "mb" in cat_lower:
-            explanation = "메인보드는 모든 부품(CPU, 램, 그래픽카드 등)들이 서로 연결되어 대화할 수 있게 도와주는 '도시의 도로망' 같은 부품이에요! 🗺️"
-        elif "램" in cat_lower or "메모리" in cat_lower or "ram" in cat_lower:
-            explanation = "메모리(RAM)는 컴퓨터가 현재 실행하고 있는 프로그램들이 작업 공간으로 쓰는 '책상 넓이'예요! 책상이 넓을수록 여러 일(멀티태스킹)을 동시에 잘한답니다. 📚"
+        explanation = local_chat_fallback(category_name)
         return {"explanation": explanation, "source": "fallback"}
 
     try:
@@ -1300,8 +1311,9 @@ async def query_category(request: CategoryQueryRequest):
         return {"explanation": response.text, "source": "gemini"}
     except Exception as e:
         print(f"Gemini Category Explanation Error: {e}")
+        explanation = local_chat_fallback(category_name)
         return {
-            "explanation": "이 품목은 시스템 작동 시 데이터 신호를 유기적으로 가공하는 매우 핵심적인 파츠예요! 🤖",
+            "explanation": explanation,
             "source": "error"
         }
 
