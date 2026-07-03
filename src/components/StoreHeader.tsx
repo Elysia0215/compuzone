@@ -72,7 +72,7 @@ export default function StoreHeader({
               href="https://m.compuzone.co.kr/main/main.htm"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-1.5 bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white border border-blue-100 hover:border-blue-600 rounded-full transition-all duration-150 flex items-center gap-1.5 cursor-pointer font-bold hover:scale-105 transform shadow-[0_0_8px_rgba(37,99,235,0.25)] hover:shadow-[0_0_12px_rgba(37,99,235,0.5)] hover:animate-pulse text-xs"
+              className="px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white border border-blue-600 hover:border-blue-700 rounded-full transition-all duration-150 flex items-center gap-1.5 cursor-pointer font-bold hover:scale-105 transform shadow-[0_0_8px_rgba(37,99,235,0.35)] hover:shadow-[0_0_15px_rgba(37,99,235,0.6)] hover:animate-pulse text-xs"
               id="nav-official-site"
             >
               <ExternalLink className="w-3.5 h-3.5" />
