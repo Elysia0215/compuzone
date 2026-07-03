@@ -45,6 +45,29 @@ const DUMMY_ORDERS: ASOrder[] = [
   }
 ];
 
+const formatMessageText = (text: string, sender: "user" | "bot") => {
+  if (!text) return null;
+  const parts = text.split("**");
+  return parts.map((part, i) => {
+    if (i % 2 === 1) {
+      if (sender === "user") {
+        return (
+          <strong key={i} className="font-extrabold text-white underline decoration-white/30 decoration-2">
+            {part}
+          </strong>
+        );
+      } else {
+        return (
+          <strong key={i} className="font-extrabold text-slate-950 bg-slate-50 px-1 py-0.5 rounded border border-slate-100/50">
+            {part}
+          </strong>
+        );
+      }
+    }
+    return part;
+  });
+};
+
 export default function ChatbotKomi({
   isOpen,
   onClose,
@@ -1335,7 +1358,7 @@ export default function ChatbotKomi({
                           : "bg-white text-slate-800 border-slate-100 rounded-tl-none"
                       }`}
                     >
-                      {msg.text}
+                      {formatMessageText(msg.text, msg.sender as any)}
                     </div>
                   )}
 
