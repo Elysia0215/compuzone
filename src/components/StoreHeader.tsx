@@ -72,10 +72,10 @@ export default function StoreHeader({
               href="https://m.compuzone.co.kr/main/main.htm"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-blue-600 transition-colors flex items-center gap-1 cursor-pointer text-slate-600"
+              className="px-3.5 py-1.5 bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white border border-blue-100 hover:border-blue-600 rounded-full transition-all duration-150 flex items-center gap-1.5 cursor-pointer font-bold hover:scale-105 transform shadow-sm text-xs"
               id="nav-official-site"
             >
-              <ExternalLink className="w-4 h-4 text-blue-600" />
+              <ExternalLink className="w-3.5 h-3.5" />
               컴퓨존 공식몰
             </a>
           </nav>
