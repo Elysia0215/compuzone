@@ -908,14 +908,21 @@ def find_product_in_history(history: list) -> Optional[dict]:
 def local_chat_fallback(message: str, history: list = None, return_dict: bool = False) -> Union[str, dict]:
     msg_clean = message.strip().lower()
     
-    # 1. Noise Filter (무관 질문 필터)
-    noise_keywords = ["날씨", "라면", "요리", "레시피", "스포츠", "축구", "야구", "연예", "가수", "정치", "대통령", "오늘 기분", "심심해", "놀아줘"]
-    if any(k in msg_clean for k in noise_keywords):
+    # 1. Noise Filter (무관 질문 필터 - 안 2: 브랜드 우회 거절)
+    noise_keywords = [
+        "날씨", "라면", "요리", "레시피", "스포츠", "축구", "야구", "연예", "가수", 
+        "정치", "대통령", "오늘 기분", "심심해", "놀아줘", "점심", "메뉴", 
+        "맛집", "음식", "밥", "먹을", "저녁", "아침", "식사", "메뉴추천"
+    ]
+    # Check if "추천" is used in a non-PC context (e.g. "노래 추천", "점심 추천")
+    is_non_pc_recommend = "추천" in msg_clean and not any(k in msg_clean for k in ["컴퓨터", "pc", "견적", "조립", "부품", "사양", "하드웨어", "부팅", "성능"])
+    
+    if any(k in msg_clean for k in noise_keywords) or is_non_pc_recommend:
         reply_text = (
-            "🤖 반가워요! 코미예요! 💖\n"
-            "저는 컴퓨존 코미라서 오늘 날씨나 일상 질문은 잘 모르지만... 🥺 "
-            "컴퓨터나 부품에 대해서는 무엇이든 답변해 드릴 수 있답니다! 💻✨\n\n"
-            "혹시 어떤 PC가 필요하신가요? 궁금한 점이 있다면 코미에게 물어봐 주세요! 💖"
+            f"아하! **'{message}'**을 물어보셨군요! 🤖✨\n"
+            f"코미도 맛있는 대답을 고민하고 싶지만, 코미는 전기(밥)⚡만 먹는 컴퓨존의 하드웨어 비서 로봇이랍니다! 🥺\n\n"
+            f"대신 머리도 식힐 겸 **가장 인기 있는 가성비 게이밍 PC 견적(Flow ②)**을 구경해 보시는 건 어떨까요? "
+            f"질문창에 '컴퓨터 추천'을 입력해 주시면 코미가 컴퓨터 맛집의 견적 메뉴판을 즉시 뽑아드릴게요! 💻✨"
         )
         return {"text": reply_text} if return_dict else reply_text
         
