@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import { Search, ShoppingCart, User, Cpu, ShieldAlert, FileText, Menu } from "lucide-react";
+import { Search, ShoppingCart, User, Cpu, ShieldAlert, FileText, Menu, ExternalLink } from "lucide-react";
 
 interface StoreHeaderProps {
   cartCount: number;
@@ -68,6 +68,16 @@ export default function StoreHeader({
               <ShieldAlert className="w-4 h-4 text-orange-500" />
               A/S 보증조회
             </button>
+            <a
+              href="https://m.compuzone.co.kr/main/main.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-600 transition-colors flex items-center gap-1 cursor-pointer text-slate-600"
+              id="nav-official-site"
+            >
+              <ExternalLink className="w-4 h-4 text-blue-600" />
+              컴퓨존 공식몰
+            </a>
           </nav>
         </div>
 
